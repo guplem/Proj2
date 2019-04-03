@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour, ICharacterManager
 {
-    public IMovementController movementController => throw new System.NotImplementedException();
 
-    public IInputController inputController => throw new System.NotImplementedException();
+    public Rigidbody2D rb2d { get; set; }
 
-    public Rigidbody2D rb2d => throw new System.NotImplementedException();
+    public Animator animator { get; set; }
 
-    public Animator animator => throw new System.NotImplementedException();
+    public AudioManager audioManager { get; set; }
 
-    public AudioManager audioManager => throw new System.NotImplementedException();
+    public IMovementController movementController { get; set; }
+    public IInputController inputController { get; set; }
+    public CharacterProperties characterProperties { get; set; }
 
     public IState state;
 
@@ -32,7 +33,7 @@ public class PlayerManager : MonoBehaviour, ICharacterManager
 
     private void FixedUpdate()
     {
-        state.FixedTick(movementController, Time.deltaTime);
+        state.FixedTick(Time.deltaTime);
     }
 
     private void CheckTransition()

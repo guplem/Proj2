@@ -15,7 +15,7 @@ public class PlayerMovmentController : IMovementController
         throw new System.NotImplementedException();
     }
 
-    public void MoveThowards(Vector2 direction, float velocity)
+    public void MoveThowards(Vector2 direction, Vector2 velocity)
     {
         throw new System.NotImplementedException();
         //TODO: go to the desired location

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundedState : IState
 {
-    public ICharacterManager characterManager { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public ICharacterManager characterManager { get; set; }
 
     public void Initialize()
     {
@@ -13,7 +13,7 @@ public class GroundedState : IState
 
     public void FixedTick(float fixedDeltaTime)
     {
-        characterManager.movementController.GoTo(new Vector2(characterManager.inputController.horizontalAxis, 0));
+        characterManager.movementController.MoveThowards(new Vector2(characterManager.inputController.horizontalAxis, 0), new Vector2(characterManager.characterProperties.maxHorVelocity, characterManager.characterProperties.maxVerVelocity) );
     }
 
 
