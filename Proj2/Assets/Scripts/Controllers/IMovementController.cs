@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface CharacterController : MonoBehaviour
+public interface IMovementController
 {
 
 }
