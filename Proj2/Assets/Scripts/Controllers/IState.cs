@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface IState 
 {
-    IInputController inputController { get; }
-    void Initialize(IInputController inputController, IMovementController movementController);
+    ICharacterManager characterManager { get; set;  }
+    void Initialize();
     void Tick(float deltaTime);
-    void FixedTick(IMovementController movementController, float deltaTime);
+    void FixedTick(float fixedDeltaTime);
 }
