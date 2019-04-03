@@ -8,6 +8,12 @@ public class PlayerManager : MonoBehaviour, ICharacterManager
 
     public IInputController inputController => throw new System.NotImplementedException();
 
+    public Rigidbody2D rb2d => throw new System.NotImplementedException();
+
+    public Animator animator => throw new System.NotImplementedException();
+
+    public AudioManager audioManager => throw new System.NotImplementedException();
+
     public IState state;
 
     // private 
@@ -19,20 +25,21 @@ public class PlayerManager : MonoBehaviour, ICharacterManager
 
     private void Update()
     {
-        state.Tick(inputController, movementController, Time.deltaTime);
+        state.Tick( Time.deltaTime);
         CheckTransition();
+        inputController.ReadInput();
     }
 
     private void FixedUpdate()
     {
-        state.FixedTick(inputController, movementController, Time.deltaTime);
+        state.FixedTick(movementController, Time.deltaTime);
     }
 
     private void CheckTransition()
     {
-        if (inputController)
+        if (inputController.jumping)
         {
-
+            //Check transitions
         }
     }
 
