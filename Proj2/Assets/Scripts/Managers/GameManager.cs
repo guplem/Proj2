@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         playerManager = player.GetComponent<PlayerManager>();
         camera.Setup(player, 0.7f);
         StartGame();
@@ -70,8 +69,7 @@ public class GameManager : MonoBehaviour
     private void SpawnPlayer(Vector2 position)
     {
         Debug.Log("Spawning player at " + position);
-
-        //TODO: Move the player to the desired position
+        player.transform.position = position;
     }
 
     public void CheckPointReached(CheckPoint checkPoint)

@@ -6,14 +6,25 @@ using UnityEngine;
 public class ReseteableObject : MonoBehaviour
 {
 
-    private Vector3 initialPosition;
-    [SerializeField] int zone;
+    [HideInInspector] private Vector3 initialPosition;
+    [HideInInspector] private int zone;
 
     // Start is called before the first frame update
     void Start()
     {
-        initialPosition = transform.position;
+
+    }
+
+    public void Setup(int zone, Vector3 initialPosition)
+    {
+        this.initialPosition = initialPosition;
+        this.zone = zone;
         GameManager.Instance.ResetUntilLastCheckPoint += MethodToCallOnEvent;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.ResetUntilLastCheckPoint -= MethodToCallOnEvent;
     }
 
     public void MethodToCallOnEvent(int lastZone)
@@ -23,9 +34,10 @@ public class ReseteableObject : MonoBehaviour
         if (lastZone <= zone)
         {
             Debug.Log("Resseting object.", gameObject);
+            transform.position = initialPosition;
 
-            //TODO: Resset
-            //transform.position = initialPosition; // TBD: enough?
+            //TODO: if it is character set state to default state
         }
     }
+
 }
