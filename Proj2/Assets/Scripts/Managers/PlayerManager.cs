@@ -2,33 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour, ICharacterManager
+public class PlayerManager : CharacterManager
 {
-
-    public Rigidbody2D rb2d { get; set; }
-
-    public Animator animator { get; set; }
-
-    public AudioManager audioManager { get; set; }
-
-    public IMovementController movementController { get; set; }
-    public IInputController inputController { get; set; }
-    public CharacterProperties characterProperties { get; set; }
-
-    public IState state;
-
-    // private 
 
     private void Start()
     {
+        base.Setup();
 
+        audioManager = new AudioManager();
+
+        movementController = new PlayerMovementController().Initialize(this);
+        inputController = new PlayerInput();
+        // characterProperties = Instantiate(characterProperties);
+        defaultState = new GroundedState();
+        ChangeState(defaultState, this);
     }
 
     private void Update()
     {
-        state.Tick( Time.deltaTime);
+        // inputController.ReadInput();
+        state.Tick(Time.deltaTime);
         CheckTransition();
-        inputController.ReadInput();
     }
 
     private void FixedUpdate()
@@ -42,10 +36,5 @@ public class PlayerManager : MonoBehaviour, ICharacterManager
         {
             //Check transitions
         }
-    }
-
-    private void ChangeState(IState newState)
-    {
-        state = newState;
     }
 }

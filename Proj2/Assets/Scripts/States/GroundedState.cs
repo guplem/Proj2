@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class GroundedState : IState
 {
-    public ICharacterManager characterManager { get; set; }
+    public CharacterManager characterManager { get; set; }
 
-    public void Initialize()
+    public IState Initialize(CharacterManager characterManager)
     {
-        
+        this.characterManager = characterManager;
+        return this;
     }
 
     public void FixedTick(float fixedDeltaTime)
     {
-        characterManager.movementController.MoveThowards(new Vector2(characterManager.inputController.horizontalAxis, 0), new Vector2(characterManager.characterProperties.maxHorVelocity, characterManager.characterProperties.maxVerVelocity) );
+        characterManager.movementController.MoveTowards(new Vector2(characterManager.inputController.horizontalAxis, 0), new Vector2(characterManager.characterProperties.acceleration.x, characterManager.characterProperties.acceleration.y) );
     }
 
     public void Tick(float deltaTime)
     {
-        throw new System.NotImplementedException();
+        characterManager.inputController.ReadInput();
     }
 
 }

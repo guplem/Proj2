@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IState 
+public interface IState
 {
-    ICharacterManager characterManager { get; set;  }
-    void Initialize();
+    CharacterManager characterManager { get; set; }
+    IState Initialize(CharacterManager characterManager);
     void Tick(float deltaTime);
     void FixedTick(float fixedDeltaTime);
 }

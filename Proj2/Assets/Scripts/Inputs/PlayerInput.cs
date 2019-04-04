@@ -14,6 +14,9 @@ public class PlayerInput : IInputController
     public void ReadInput()
     {
         jumping = Input.GetButton("Jump");
-        //TODO: fill all
+        interact = Input.GetButton("Interact");
+        action = Input.GetButton("Action");
+        horizontalAxis = Input.GetAxis("Horizontal");
+        verticalAxis = Input.GetAxis("Vertical");
     }
 }
