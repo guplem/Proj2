@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterProperties : ScriptableObject
 {
     public float jumpForce;
-    public float maxHorVelocity;
-    public float maxVerVelocity;
+    public Vector2 acceleration;
+    public Vector2 maxVelocity;
 
 }
