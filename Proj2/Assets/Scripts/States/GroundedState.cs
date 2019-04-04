@@ -16,9 +16,9 @@ public class GroundedState : IState
         characterManager.movementController.MoveThowards(new Vector2(characterManager.inputController.horizontalAxis, 0), new Vector2(characterManager.characterProperties.maxHorVelocity, characterManager.characterProperties.maxVerVelocity) );
     }
 
-
     public void Tick(float deltaTime)
     {
         throw new System.NotImplementedException();
     }
+
 }
