@@ -11,4 +11,6 @@ public interface ICharacterManager
     Rigidbody2D rb2d { get; set; }
     Animator animator { get; set; }
     AudioManager audioManager { get; set; }
+
+    void SetState(IState newState);
 }

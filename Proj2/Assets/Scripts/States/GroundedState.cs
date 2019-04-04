@@ -19,6 +19,6 @@ public class GroundedState : IState
 
     public void Tick(float deltaTime)
     {
-        throw new System.NotImplementedException();
+       // throw new System.NotImplementedException();
     }
 }

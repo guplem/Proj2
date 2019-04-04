@@ -15,7 +15,7 @@ public class PlayerManager : MonoBehaviour, ICharacterManager
     public IInputController inputController { get; set; }
     public CharacterProperties characterProperties { get; set; }
 
-    public IState state;
+    private IState state;
 
     // private 
 
@@ -26,9 +26,9 @@ public class PlayerManager : MonoBehaviour, ICharacterManager
 
     private void Update()
     {
+        inputController.ReadInput();
         state.Tick( Time.deltaTime);
         CheckTransition();
-        inputController.ReadInput();
     }
 
     private void FixedUpdate()
@@ -44,8 +44,16 @@ public class PlayerManager : MonoBehaviour, ICharacterManager
         }
     }
 
-    private void ChangeState(IState newState)
+    public void SetState(IState newState)
     {
         state = newState;
+        state.Initialize();
     }
+
+
+
+    /*private void ChangeState(IState newState)
+    {
+        state = newState;
+    }*/
 }
