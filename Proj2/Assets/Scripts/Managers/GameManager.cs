@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] public new CameraManager camera;
-    [SerializeField] public GameObject player;
+    [SerializeField] public PlayerManager player;
     [SerializeField] public Transform startPoint;
 
     [HideInInspector] public PlayerManager playerManager;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerManager = player.GetComponent<PlayerManager>();
-        camera.Setup(player, 0.7f);
+        camera.Setup(player.gameObject, 0.7f);
         StartGame();
     }
 
