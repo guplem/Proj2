@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable 0649
 [RequireComponent(typeof(Rigidbody2D))]
 public class ZoneManager : MonoBehaviour
 {

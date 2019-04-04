@@ -9,7 +9,7 @@ public class PlayerManager : CharacterManager
     {
         base.Setup();
 
-        audioManager = new AudioManager();
+        audioManager = new AudioManager(gameObject);
 
         movementController = new PlayerMovementController().Initialize(this);
         inputController = new PlayerInput();
