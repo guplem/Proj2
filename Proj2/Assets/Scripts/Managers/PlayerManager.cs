@@ -8,7 +8,7 @@ public class PlayerManager : CharacterManager
     [SerializeField] private Collider2D groundCollider;
     [SerializeField] private LayerMask groundLayer;
     private ContactFilter2D groundFilter;
-
+    InventoryController inventory;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class PlayerManager : CharacterManager
         groundFilter.SetLayerMask(groundLayer);
 
         audioManager = new AudioManager(gameObject);
-
+        inventory = new InventoryController();
         movementController = new PlayerMovementController().Initialize(this);
         inputController = new PlayerInput();
         // characterProperties = Instantiate(characterProperties);
