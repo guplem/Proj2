@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlayerManager : CharacterManager
 {
 
+    InventoryController inventory;
+
     private void Start()
     {
         base.Setup();
 
         audioManager = new AudioManager(gameObject);
-
+        inventory = new InventoryController();
         movementController = new PlayerMovementController().Initialize(this);
         inputController = new PlayerInput();
         // characterProperties = Instantiate(characterProperties);
