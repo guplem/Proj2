@@ -11,5 +11,5 @@ public interface ICharacterManager
     Animator animator { get; set; }
     AudioManager audioManager { get; set; }
 
-    void ChangeState(IState newState, CharacterManager characterManager);
+    bool ChangeState(IState newState, CharacterManager characterManager);
 }

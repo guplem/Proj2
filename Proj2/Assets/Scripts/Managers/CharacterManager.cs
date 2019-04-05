@@ -15,7 +15,6 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     public CharacterProperties characterProperties;
 
-
     protected IState defaultState;
     protected IState state;
 
@@ -25,8 +24,19 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         animator = GetComponent<Animator>();
     }
 
-    public void ChangeState(IState newState, CharacterManager characterManager)
+    public bool ChangeState(IState newState, CharacterManager characterManager)
     {
-        state = newState.Initialize(characterManager);
+        state = newState;
+        if (state != null)
+        {
+            state.Initialize(characterManager);
+        }
+        return true;
+    }
+
+    public virtual bool CheckTransition(bool forceExitState)
+    {
+        Debug.LogError("Check transition not implemented", gameObject);
+        return false;
     }
 }

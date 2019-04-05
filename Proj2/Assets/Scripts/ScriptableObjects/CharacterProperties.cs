@@ -9,4 +9,6 @@ public class CharacterProperties : ScriptableObject
     public Vector2 acceleration;
     public Vector2 maxVelocity;
 
+    public float jumpTime;
+
 }

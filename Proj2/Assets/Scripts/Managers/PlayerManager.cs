@@ -5,9 +5,17 @@ using UnityEngine;
 public class PlayerManager : CharacterManager
 {
 
+    [SerializeField] private Collider2D groundCollider;
+    [SerializeField] private LayerMask groundLayer;
+    private ContactFilter2D groundFilter;
+
+
     private void Start()
     {
         base.Setup();
+
+        groundFilter = new ContactFilter2D();
+        groundFilter.SetLayerMask(groundLayer);
 
         audioManager = new AudioManager(gameObject);
 
@@ -22,7 +30,7 @@ public class PlayerManager : CharacterManager
     {
         // inputController.ReadInput();
         state.Tick(Time.deltaTime);
-        CheckTransition();
+        CheckTransition(false);
     }
 
     private void FixedUpdate()
@@ -30,11 +38,34 @@ public class PlayerManager : CharacterManager
         state.FixedTick(Time.deltaTime);
     }
 
-    private void CheckTransition()
+    public override bool CheckTransition(bool forceExitState)
     {
-        if (inputController.jumping)
+        //base.CheckTransition(forceExitState);
+        if (forceExitState)
         {
-            //Check transitions
+            ChangeState(null, this);
         }
+        if (state is GroundedState)
+        {
+            if (inputController.jumping)
+            {
+                //Check transitions
+                return ChangeState(new JumpingState(), this);
+            }
+            //ToDo - Run?
+        }
+        if (!(state is JumpingState))
+        {
+            Collider2D[] results = new Collider2D[1];
+            if (groundCollider.OverlapCollider(groundFilter, results) > 0)
+            {
+                return ChangeState(new GroundedState(), this);
+            }
+            else
+            {
+                return ChangeState(new OnAirState(), this);
+            }
+        }
+        return false;
     }
 }

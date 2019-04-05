@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91badb818a518cb4f983c7f59de293bb, type: 3}
   m_Name: PlayerProperties
   m_EditorClassIdentifier: 
-  jumpForce: 5
+  jumpForce: 12
   acceleration: {x: 10, y: 10}
   maxVelocity: {x: 5, y: 5}
+  jumpTime: 5

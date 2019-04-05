@@ -204,7 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1804501310}
   - component: {fileID: 1804501309}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 2131265512}
   - component: {fileID: 2131265511}
   - component: {fileID: 2131265510}
+  - component: {fileID: 2131265515}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -285,6 +286,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterProperties: {fileID: 11400000, guid: 8c91f68417c494742814ffeb9abe5c70,
     type: 2}
+  groundCollider: {fileID: 2131265515}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!61 &2131265511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -331,7 +336,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &2131265513
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -394,3 +399,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2131265515
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131265509}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.12}
+  serializedVersion: 2
+  m_Radius: 0.05
