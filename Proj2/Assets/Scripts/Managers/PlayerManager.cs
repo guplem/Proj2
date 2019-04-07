@@ -5,23 +5,22 @@ using UnityEngine;
 #pragma warning disable CS0168 // Variable is declared but never used
 public class PlayerManager : CharacterManager
 {
-    InventoryController inventory;
-    private List<CharacterManager> chasedBy = new List<CharacterManager>();
+    [HideInInspector] private InventoryController inventory;
+    [HideInInspector] private List<CharacterManager> chasedBy;
 
     private void Start()
     {
-        base.Setup();
+        base.Setup(new GroundedState(), this);
 
-        inventory = new InventoryController();
-        defaultState = new GroundedState();
-        ChangeState(defaultState, this);
-
+        //Initialization of components present in all characters
+        movementController = new CharacterMovementController(this);
+        inputController = new PlayerInput(this);
+        behaviourTree = new PlayerBehaviourTree(this);
         audioManager = new AudioManager(gameObject);
-        
-        movementController = new PlayerMovementController().Initialize(this);
-        inputController = new PlayerInput();
-        behaviourTree = new PlayerBehaviourTree();
 
+        //Particular of the player
+        inventory = new InventoryController();
+        chasedBy = new List<CharacterManager>();
     }
 
     public new void Update()
@@ -34,19 +33,19 @@ public class PlayerManager : CharacterManager
         base.Update();
     }
 
-    public new bool CheckTransition(bool forceExitState)
+    public new bool CheckTransition(bool forceExitState, CharacterManager characterManager)
     {
-        return base.CheckTransition(forceExitState);
+        return base.CheckTransition(forceExitState, characterManager);
     }
 
-    public PlayerManager AddChasing(CharacterManager cm)
+    public PlayerManager AddChasing(CharacterManager characterManager)
     {
-        chasedBy.Add(cm);
+        chasedBy.Add(characterManager);
         return this;
     }
-    public PlayerManager RemoveChasing(CharacterManager cm)
+    public PlayerManager RemoveChasing(CharacterManager characterManager)
     {
-        chasedBy.Remove(cm);
+        chasedBy.Remove(characterManager);
         return this;
     }
 }

@@ -14,7 +14,7 @@ public class OnAirState : IState
 
     public void FixedTick(float fixedDeltaTime)
     {
-        characterManager.movementController.MoveTowards(new Vector2(characterManager.inputController.horizontalAxis, 0), new Vector2(characterManager.characterProperties.acceleration.x * 0.5f, characterManager.characterProperties.acceleration.y * 0.5f));
+        characterManager.movementController.MoveTowards(new Vector2(characterManager.inputController.direction.x, 0), new Vector2(characterManager.characterProperties.acceleration.x * 0.5f, characterManager.characterProperties.acceleration.y * 0.5f));
     }
 
     public void Tick(float deltaTime)

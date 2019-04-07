@@ -18,7 +18,7 @@ public class JumpingState : IState
     public void FixedTick(float fixedDeltaTime)
     {
         characterManager.movementController.JumpForce(characterManager.characterProperties.jumpForce);
-        characterManager.movementController.MoveTowards(new Vector2(characterManager.inputController.horizontalAxis, 0), new Vector2(characterManager.characterProperties.acceleration.x * 0.5f, characterManager.characterProperties.acceleration.y*0.5f));
+        characterManager.movementController.MoveTowards(new Vector2(characterManager.inputController.direction.x, 0), new Vector2(characterManager.characterProperties.acceleration.x * 0.5f, characterManager.characterProperties.acceleration.y*0.5f));
     }
 
     public void Tick(float deltaTime)
@@ -27,7 +27,7 @@ public class JumpingState : IState
         if (Time.time >= timeToStopJumping || !characterManager.inputController.jumping)
         {
             //characterManager.ChangeState(new OnAirState(), characterManager);
-            characterManager.CheckTransition(true);
+            characterManager.CheckTransition(true, characterManager);
         }
     }
 

@@ -14,7 +14,7 @@ public class GroundedState : IState
 
     public void FixedTick(float fixedDeltaTime)
     {
-        characterManager.movementController.MoveTowards(new Vector2(characterManager.inputController.horizontalAxis, 0), new Vector2(characterManager.characterProperties.acceleration.x, characterManager.characterProperties.acceleration.y) );
+        characterManager.movementController.MoveTowards(new Vector2(characterManager.inputController.direction.x, 0), new Vector2(characterManager.characterProperties.acceleration.x, characterManager.characterProperties.acceleration.y) );
     }
 
     public void Tick(float deltaTime)

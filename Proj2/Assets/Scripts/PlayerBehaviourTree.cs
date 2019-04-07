@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class PlayerBehaviourTree : IBehaviourTree
 {
-    public bool CheckForNextState(CharacterManager character, bool forceExitState)
+    public CharacterManager character { get; set; }
+
+    public PlayerBehaviourTree(CharacterManager characterManager)
+    {
+        this.character = characterManager;
+    }
+
+    public IState GetNextState(bool forceExitState)
     {
         //base.CheckTransition(forceExitState);
         if (forceExitState)
@@ -16,7 +23,7 @@ public class PlayerBehaviourTree : IBehaviourTree
             if (character.inputController.jumping)
             {
                 //Check transitions
-                return character.ChangeState(new JumpingState(), character);
+                return new JumpingState();
             }
             //ToDo - Run?
         }
@@ -25,13 +32,14 @@ public class PlayerBehaviourTree : IBehaviourTree
 
             if (Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.groundLayer))
             {
-                return character.ChangeState(new GroundedState(), character);
+                return new GroundedState();
             }
             else
             {
-                return character.ChangeState(new OnAirState(), character);
+                return new OnAirState();
             }
         }
-        return false;
+
+        return null;
     }
 }

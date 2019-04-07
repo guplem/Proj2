@@ -6,7 +6,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 {
 
     [HideInInspector] public IMovementController movementController { get; set; }
-    [HideInInspector] public IInputController inputController { get; set; }
+    [HideInInspector] public IActionsController inputController { get; set; }
     [HideInInspector] public IBehaviourTree behaviourTree { get; set; }
 
     [HideInInspector] public Rigidbody2D rb2d { get; set; }
@@ -23,17 +23,19 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
 
 
-    protected void Setup()
+    protected void Setup(IState defaultState, CharacterManager characterManager)
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         // characterProperties = Instantiate(characterProperties); //To create a copy
+        this.defaultState = defaultState;
+        ChangeState(defaultState, characterManager);
     }
 
     public void Update()
     {
         state.Tick(Time.deltaTime);
-        CheckTransition(false);
+        CheckTransition(false, this);
     }
 
     public void FixedUpdate()
@@ -41,9 +43,9 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         state.FixedTick(Time.deltaTime);
     }
 
-    public bool CheckTransition(bool forceExitState)
+    public bool CheckTransition(bool forceExitState, CharacterManager characterManager)
     {
-        return behaviourTree.CheckForNextState(this, forceExitState);
+        return ChangeState( behaviourTree.GetNextState(forceExitState) , characterManager);
     }
 
     public bool ChangeState(IState newState, CharacterManager characterManager)
@@ -53,14 +55,21 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         {
             state.OnExitState();
         }
+
         //Change
         state = newState;
+
         //Initialize new
         if (state != null)
         {
             state.Initialize(characterManager);
+            return true;
         }
-        return true;
+        else
+        {
+            return false;
+        }
+        
     }
 
 
