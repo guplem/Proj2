@@ -5,12 +5,16 @@ using UnityEngine;
 public interface ICharacterManager
 {
     IMovementController movementController { get; set; }
-    IActionsController inputController { get; set; }
+    Brain brain { get; set; }
+
+    IBehaviourTree defaultBehaviourTree { get; set; }
     IBehaviourTree behaviourTree { get; set; }
 
     Rigidbody2D rb2d { get; set; }
     Animator animator { get; set; }
     AudioManager audioManager { get; set; }
 
-    bool ChangeState(IState newState, CharacterManager characterManager);
+    IState state { get; set; }
+
+    void SetState(IState newState);
 }

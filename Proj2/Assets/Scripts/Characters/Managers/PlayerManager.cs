@@ -10,13 +10,7 @@ public class PlayerManager : CharacterManager
 
     private void Start()
     {
-        base.Setup(new GroundedState(), this);
-
-        //Initialization of components present in all characters
-        movementController = new CharacterMovementController(this);
-        inputController = new PlayerInput(this);
-        behaviourTree = new PlayerBehaviourTree(this);
-        audioManager = new AudioManager(gameObject);
+        base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new WalkingState(this), this), new AudioManager(gameObject) );
 
         //Particular of the player
         inventory = new InventoryController();
@@ -30,12 +24,7 @@ public class PlayerManager : CharacterManager
 
     public new void FixedUpdate()
     {
-        base.Update();
-    }
-
-    public new bool CheckTransition(bool forceExitState, CharacterManager characterManager)
-    {
-        return base.CheckTransition(forceExitState, characterManager);
+        base.FixedUpdate();
     }
 
     public PlayerManager AddChasing(CharacterManager characterManager)

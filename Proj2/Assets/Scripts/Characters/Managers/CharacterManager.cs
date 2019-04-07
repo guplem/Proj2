@@ -4,72 +4,68 @@ using UnityEngine;
 
 public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 {
+    [SerializeField] public Collider2D groundCollider;
+    [SerializeField] public Collider2D topCollider;
+    [SerializeField] public Collider2D lateralCollider;
+    [SerializeField] public CharacterProperties characterProperties;
 
     [HideInInspector] public IMovementController movementController { get; set; }
-    [HideInInspector] public IActionsController inputController { get; set; }
+    [HideInInspector] public Brain brain { get; set; }
+
+    [HideInInspector] public IBehaviourTree defaultBehaviourTree { get; set; }
     [HideInInspector] public IBehaviourTree behaviourTree { get; set; }
 
     [HideInInspector] public Rigidbody2D rb2d { get; set; }
     [HideInInspector] public Animator animator { get; set; }
     [HideInInspector] public AudioManager audioManager { get; set; }
 
-    [SerializeField] public Collider2D groundCollider;
-    [SerializeField] public Collider2D topCollider;
-    [SerializeField] public Collider2D lateralCollider;
-    [SerializeField] public CharacterProperties characterProperties;
-
-    [HideInInspector] public IState defaultState;
-    [HideInInspector] public IState state;
+    [HideInInspector] public IState state { get; set; }
 
 
-
-    protected void Setup(IState defaultState, CharacterManager characterManager)
+    protected void Setup(IMovementController movementController, Brain actionController, IBehaviourTree defaultBehaviourTree, AudioManager audioManager)
     {
+        this.movementController = movementController;
+        this.brain = actionController;
+
+        this.defaultBehaviourTree = defaultBehaviourTree;
+        this.behaviourTree = this.defaultBehaviourTree;
+
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        this.audioManager = audioManager;
+
+        this.state = this.behaviourTree.defaultState;
+
         // characterProperties = Instantiate(characterProperties); //To create a copy
-        this.defaultState = defaultState;
-        ChangeState(defaultState, characterManager);
     }
 
     public void Update()
     {
+        brain.GetActions();
+
+        behaviourTree.SetNextState(false);
+
         state.Tick(Time.deltaTime);
-        CheckTransition(false, this);
     }
 
     public void FixedUpdate()
     {
-        state.FixedTick(Time.deltaTime);
+        state.FixedTick(Time.fixedDeltaTime);
     }
 
-    public bool CheckTransition(bool forceExitState, CharacterManager characterManager)
+    public void SetState(IState newState)
     {
-        return ChangeState( behaviourTree.GetNextState(forceExitState) , characterManager);
-    }
-
-    public bool ChangeState(IState newState, CharacterManager characterManager)
-    {
-        //Exit old
-        if (state != null)
+        if (newState != null && state != null)
         {
-            state.OnExitState();
-        }
-
-        //Change
-        state = newState;
-
-        //Initialize new
-        if (state != null)
-        {
-            state.Initialize(characterManager);
-            return true;
+            if (state.GetType() != newState.GetType())
+            {
+                state = newState;
+            }
         }
         else
         {
-            return false;
+            state = newState;
         }
-        
     }
 
 

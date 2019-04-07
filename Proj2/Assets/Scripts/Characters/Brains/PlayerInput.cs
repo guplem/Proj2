@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput : IActionsController
+public class PlayerInput : Brain
 {
 
     public bool jumping { get; set; }
     public bool interact { get; set; }
     public bool action { get; set; }
     public Vector2 direction { get; set; }
-    public CharacterManager characterManager { get; set; }
+    public CharacterManager characterManager;
 
     public PlayerInput(CharacterManager characterManager)
     {
         this.characterManager = characterManager;
     }
 
-    public void ReadInput()
+    public void GetActions()
     {
         jumping = Input.GetButton("Jump");
         interact = Input.GetButton("Interact");

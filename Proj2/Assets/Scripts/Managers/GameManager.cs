@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
             ResetUntilLastCheckPoint(lastCheckPoint.zone);
     }
 
-    private void SpawnPlayer(Vector2 position)
+    private void SpawnPlayer(Vector3 position)
     {
         Debug.Log("Spawning player at " + position);
         playerManager.transform.position = position;

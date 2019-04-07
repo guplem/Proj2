@@ -11,25 +11,9 @@ public class CameraManager : MonoBehaviour
         cameraMovmentController = new CameraMovmentController(this.gameObject, target, velocity);
     }
 
-    public void SetCameraTarget(GameObject target)
-    {
-        cameraMovmentController.target = target;
-    }
-
-    public void SetCameraVelocity(float velocity)
-    {
-        cameraMovmentController.velocity = velocity;
-    }
-
     private void Update()
     {
-        if (cameraMovmentController != null)
-            cameraMovmentController.Tick();
+        cameraMovmentController.Tick();
     }
-
-    
-
-
-    
 
 }

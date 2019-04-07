@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IBehaviourTree
 {
-    CharacterManager character { get; set; }
-    IState GetNextState(bool forceExitState);
+    void SetNextState(bool forceExitState); //Changes the state if it is necessay
+    IState defaultState { get; set; }
 }

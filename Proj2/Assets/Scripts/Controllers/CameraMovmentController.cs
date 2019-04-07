@@ -11,7 +11,7 @@ public class CameraMovmentController
             if (value >= 0 && value <= 1)
                 vel = value;
             else
-                Debug.LogWarning("A wrong value is wanted to be saved as camera velocity: " + value);
+                Debug.LogWarning("A wrong value is wanted to be saved as camera velocity: " + value, camera.gameObject);
         } }
     private float vel;
 
@@ -25,8 +25,13 @@ public class CameraMovmentController
     public void Tick()
     {
         if (target != null)
-            camera.transform.position = Vector3.Lerp(camera.transform.position, target.transform.position, vel);
+        {
+            Vector3 targetPos = new Vector3(target.transform.position.x, target.transform.position.y, camera.transform.position.z);
+            camera.transform.position = Vector3.Lerp(camera.transform.position, targetPos, velocity);
+        }
         else
+        {
             Debug.LogError("Camera target not set", camera);
+        }
     }
 }
