@@ -2,70 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable CS0168 // Variable is declared but never used
 public class PlayerManager : CharacterManager
 {
-
-    [SerializeField] private Collider2D groundCollider;
-    [SerializeField] private LayerMask groundLayer;
-    private ContactFilter2D groundFilter;
     InventoryController inventory;
+    private List<CharacterManager> chasedBy = new List<CharacterManager>();
 
     private void Start()
     {
         base.Setup();
 
-        groundFilter = new ContactFilter2D();
-        groundFilter.SetLayerMask(groundLayer);
-
-        audioManager = new AudioManager(gameObject);
         inventory = new InventoryController();
-        movementController = new PlayerMovementController().Initialize(this);
-        inputController = new PlayerInput();
-        // characterProperties = Instantiate(characterProperties);
         defaultState = new GroundedState();
         ChangeState(defaultState, this);
+
+        audioManager = new AudioManager(gameObject);
+        
+        movementController = new PlayerMovementController().Initialize(this);
+        inputController = new PlayerInput();
+        behaviourTree = new PlayerBehaviourTree();
+
     }
 
-    private void Update()
+    public new void Update()
     {
-        // inputController.ReadInput();
-        state.Tick(Time.deltaTime);
-        CheckTransition(false);
+        base.Update();
     }
 
-    private void FixedUpdate()
+    public new void FixedUpdate()
     {
-        state.FixedTick(Time.deltaTime);
+        base.Update();
     }
 
-    public override bool CheckTransition(bool forceExitState)
+    public new bool CheckTransition(bool forceExitState)
     {
-        //base.CheckTransition(forceExitState);
-        if (forceExitState)
-        {
-            ChangeState(null, this);
-        }
-        if (state is GroundedState)
-        {
-            if (inputController.jumping)
-            {
-                //Check transitions
-                return ChangeState(new JumpingState(), this);
-            }
-            //ToDo - Run?
-        }
-        if (!(state is JumpingState))
-        {
-            Collider2D[] results = new Collider2D[1];
-            if (groundCollider.OverlapCollider(groundFilter, results) > 0)
-            {
-                return ChangeState(new GroundedState(), this);
-            }
-            else
-            {
-                return ChangeState(new OnAirState(), this);
-            }
-        }
-        return false;
+        return base.CheckTransition(forceExitState);
+    }
+
+    public PlayerManager AddChasing(CharacterManager cm)
+    {
+        chasedBy.Add(cm);
+        return this;
+    }
+    public PlayerManager RemoveChasing(CharacterManager cm)
+    {
+        chasedBy.Remove(cm);
+        return this;
     }
 }

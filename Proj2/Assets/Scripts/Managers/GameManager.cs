@@ -7,13 +7,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] public new CameraManager camera;
-    [SerializeField] public PlayerManager player;
+    [SerializeField] public PlayerManager playerManager;
     [SerializeField] public Transform startPoint;
+    [SerializeField] public LayerMask groundLayer;
 
-    [HideInInspector] public PlayerManager playerManager;
+    //[HideInInspector] public PlayerManager playerManager;
 
     [HideInInspector] public AudioManager audioManager;
-    [HideInInspector] public SavesManager savesManager;
     private CheckPoint lastCheckPoint;
 
     public Action<int> ResetUntilLastCheckPoint;
@@ -37,15 +37,14 @@ public class GameManager : MonoBehaviour
     private void AwakeSetup()
     {
         audioManager = new AudioManager(this.gameObject);
-        savesManager = new SavesManager();
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        playerManager = player.GetComponent<PlayerManager>();
-        camera.Setup(player.gameObject, 0.7f);
+        playerManager = playerManager.GetComponent<PlayerManager>();
+        camera.Setup(playerManager.gameObject, 0.7f);
         StartGame();
     }
 
@@ -69,7 +68,7 @@ public class GameManager : MonoBehaviour
     private void SpawnPlayer(Vector2 position)
     {
         Debug.Log("Spawning player at " + position);
-        player.transform.position = position;
+        playerManager.transform.position = position;
     }
 
     public void CheckPointReached(CheckPoint checkPoint)

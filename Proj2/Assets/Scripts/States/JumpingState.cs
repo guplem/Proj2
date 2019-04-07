@@ -30,5 +30,10 @@ public class JumpingState : IState
             characterManager.CheckTransition(true);
         }
     }
+
+    public void OnExitState()
+    {
+        Debug.LogWarning("OnExitState  not implemented on JumpingState", characterManager.gameObject);
+    }
 }
 

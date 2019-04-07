@@ -5,28 +5,57 @@ using UnityEngine;
 public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 {
 
-    public IMovementController movementController { get; set; }
-    public IInputController inputController { get; set; }
+    [HideInInspector] public IMovementController movementController { get; set; }
+    [HideInInspector] public IInputController inputController { get; set; }
+    [HideInInspector] public IBehaviourTree behaviourTree { get; set; }
 
-    public Rigidbody2D rb2d { get; set; }
-    public Animator animator { get; set; }
-    public AudioManager audioManager { get; set; }
+    [HideInInspector] public Rigidbody2D rb2d { get; set; }
+    [HideInInspector] public Animator animator { get; set; }
+    [HideInInspector] public AudioManager audioManager { get; set; }
+
+    [SerializeField] public Collider2D groundCollider;
+    [SerializeField] public Collider2D topCollider;
+    [SerializeField] public Collider2D lateralCollider;
+    [SerializeField] public CharacterProperties characterProperties;
+
+    [HideInInspector] public IState defaultState;
+    [HideInInspector] public IState state;
 
 
-    public CharacterProperties characterProperties;
 
-    protected IState defaultState;
-    protected IState state;
-
-    public void Setup()
+    protected void Setup()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        // characterProperties = Instantiate(characterProperties); //To create a copy
+    }
+
+    public void Update()
+    {
+        state.Tick(Time.deltaTime);
+        CheckTransition(false);
+    }
+
+    public void FixedUpdate()
+    {
+        state.FixedTick(Time.deltaTime);
+    }
+
+    public bool CheckTransition(bool forceExitState)
+    {
+        return behaviourTree.CheckForNextState(this, forceExitState);
     }
 
     public bool ChangeState(IState newState, CharacterManager characterManager)
     {
+        //Exit old
+        if (state != null)
+        {
+            state.OnExitState();
+        }
+        //Change
         state = newState;
+        //Initialize new
         if (state != null)
         {
             state.Initialize(characterManager);
@@ -34,9 +63,5 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         return true;
     }
 
-    public virtual bool CheckTransition(bool forceExitState)
-    {
-        Debug.LogError("Check transition not implemented", gameObject);
-        return false;
-    }
+
 }

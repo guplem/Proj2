@@ -22,4 +22,9 @@ public class OnAirState : IState
         characterManager.inputController.ReadInput();
     }
 
+    public void OnExitState()
+    {
+        Debug.LogWarning("OnExitState  not implemented on OnAirState", characterManager.gameObject);
+    }
+
 }

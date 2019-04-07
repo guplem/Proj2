@@ -22,4 +22,8 @@ public class GroundedState : IState
         characterManager.inputController.ReadInput();
     }
 
+    public void OnExitState()
+    {
+        Debug.LogWarning("OnExitState  not implemented on GroundState", characterManager.gameObject);
+    }
 }
