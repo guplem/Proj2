@@ -6,6 +6,7 @@ public interface IState
 {
     CharacterManager characterManager { get; set; }
     IState Initialize(CharacterManager characterManager);
+    void OnExitState();
     void Tick(float deltaTime);
     void FixedTick(float fixedDeltaTime);
 }

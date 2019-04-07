@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementController : IMovementController
+public class CharacterMovementController : IMovementController
 {
     public CharacterManager characterManager { get; set; }
 
-    public PlayerMovementController Initialize(CharacterManager characterManager)
+    public CharacterMovementController(CharacterManager characterManager)
     {
         this.characterManager = characterManager;
-        return this;
     }
 
     public void JumpForce(float force)

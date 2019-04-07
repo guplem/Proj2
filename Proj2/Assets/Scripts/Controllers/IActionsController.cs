@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IInputController
+public interface IActionsController
 {
     
     bool jumping { get; set; }
     bool interact { get; set; } //Push, pull, hide, pick, ...
     bool action { get; set; } //Throw
-    float horizontalAxis { get; set; }
-    float verticalAxis { get; set; }
+    Vector2 direction { get; set; }
+    CharacterManager characterManager { get; set; }
 
     void ReadInput();
 

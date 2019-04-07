@@ -5,7 +5,8 @@ using UnityEngine;
 public interface ICharacterManager
 {
     IMovementController movementController { get; set; }
-    IInputController inputController { get; set; }
+    IActionsController inputController { get; set; }
+    IBehaviourTree behaviourTree { get; set; }
 
     Rigidbody2D rb2d { get; set; }
     Animator animator { get; set; }
