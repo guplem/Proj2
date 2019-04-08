@@ -22,8 +22,10 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     [HideInInspector] public IState state { get; set; }
 
-    public Action<int> StartInteract;
-    public Action<int> EndInteract;
+    [HideInInspector] public Interactable currentInteractable { get; set; }
+
+    /*public Action<int> StartInteract;
+    public Action<int> EndInteract;*/
 
 
     protected void Setup(IMovementController movementController, IBrain actionController, IBehaviourTree defaultBehaviourTree, AudioManager audioManager)
@@ -69,6 +71,36 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         else
         {
             state = newState;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Interactable collInteract = collision.GetComponent<Interactable>();
+        if (collInteract != null)
+        {
+            currentInteractable = collInteract;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Interactable collInteract = collision.GetComponent<Interactable>();
+        if (collInteract != null)
+        {
+            if (currentInteractable == collInteract)
+                currentInteractable = null;
+        }
+    }
+
+    public void UpdateInteractState(bool isInteractionStart)
+    {
+        if (currentInteractable != null)
+        {
+            if (isInteractionStart)
+                currentInteractable.OnStartInteract();
+            else
+                currentInteractable.OnEndInteract();
         }
     }
 

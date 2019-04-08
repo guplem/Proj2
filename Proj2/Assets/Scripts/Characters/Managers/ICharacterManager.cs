@@ -17,4 +17,8 @@ public interface ICharacterManager
     IState state { get; set; }
 
     void SetState(IState newState);
+
+    Interactable currentInteractable { get; set; }
+
+    void UpdateInteractState(bool isInteractionStart);
 }

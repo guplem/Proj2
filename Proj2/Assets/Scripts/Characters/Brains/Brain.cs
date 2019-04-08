@@ -19,15 +19,9 @@ public abstract class Brain : IBrain
     {
         if (interact != state)
         {
-            if (state == true)
-            {
-                characterManager.StartInteract(0);
-            }
-            if (state == false)
-            {
-                characterManager.EndInteract(0);
-            }
+            characterManager.UpdateInteractState(state);
             interact = state;
+            Debug.Log("Interact = " + interact);
         }
     }
 }
