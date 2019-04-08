@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     [SerializeField] public CharacterProperties characterProperties;
 
     [HideInInspector] public IMovementController movementController { get; set; }
-    [HideInInspector] public Brain brain { get; set; }
+    [HideInInspector] public IBrain brain { get; set; }
 
     [HideInInspector] public IBehaviourTree defaultBehaviourTree { get; set; }
     [HideInInspector] public IBehaviourTree behaviourTree { get; set; }
@@ -21,8 +22,13 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     [HideInInspector] public IState state { get; set; }
 
+    [HideInInspector] public Interactable currentInteractable { get; set; }
 
-    protected void Setup(IMovementController movementController, Brain actionController, IBehaviourTree defaultBehaviourTree, AudioManager audioManager)
+    /*public Action<int> StartInteract;
+    public Action<int> EndInteract;*/
+
+
+    protected void Setup(IMovementController movementController, IBrain actionController, IBehaviourTree defaultBehaviourTree, AudioManager audioManager)
     {
         this.movementController = movementController;
         this.brain = actionController;
@@ -65,6 +71,36 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         else
         {
             state = newState;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Interactable collInteract = collision.GetComponent<Interactable>();
+        if (collInteract != null)
+        {
+            currentInteractable = collInteract;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Interactable collInteract = collision.GetComponent<Interactable>();
+        if (collInteract != null)
+        {
+            if (currentInteractable == collInteract)
+                currentInteractable = null;
+        }
+    }
+
+    public void UpdateInteractState(bool isInteractionStart)
+    {
+        if (currentInteractable != null)
+        {
+            if (isInteractionStart)
+                currentInteractable.OnStartInteract();
+            else
+                currentInteractable.OnEndInteract();
         }
     }
 

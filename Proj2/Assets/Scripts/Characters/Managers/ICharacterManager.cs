@@ -5,7 +5,7 @@ using UnityEngine;
 public interface ICharacterManager
 {
     IMovementController movementController { get; set; }
-    Brain brain { get; set; }
+    IBrain brain { get; set; }
 
     IBehaviourTree defaultBehaviourTree { get; set; }
     IBehaviourTree behaviourTree { get; set; }
@@ -17,4 +17,8 @@ public interface ICharacterManager
     IState state { get; set; }
 
     void SetState(IState newState);
+
+    Interactable currentInteractable { get; set; }
+
+    void UpdateInteractState(bool isInteractionStart);
 }
