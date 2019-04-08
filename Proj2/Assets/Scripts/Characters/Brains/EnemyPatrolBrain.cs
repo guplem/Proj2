@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //TODO
-public class EnemyPatrolBrain : Brain
+public class EnemyPatrolBrain : IBrain
 {
     
     public bool jumping { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }

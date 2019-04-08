@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     [SerializeField] public CharacterProperties characterProperties;
 
     [HideInInspector] public IMovementController movementController { get; set; }
-    [HideInInspector] public Brain brain { get; set; }
+    [HideInInspector] public IBrain brain { get; set; }
 
     [HideInInspector] public IBehaviourTree defaultBehaviourTree { get; set; }
     [HideInInspector] public IBehaviourTree behaviourTree { get; set; }
@@ -21,8 +22,11 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     [HideInInspector] public IState state { get; set; }
 
+    public Action<int> StartInteract;
+    public Action<int> EndInteract;
 
-    protected void Setup(IMovementController movementController, Brain actionController, IBehaviourTree defaultBehaviourTree, AudioManager audioManager)
+
+    protected void Setup(IMovementController movementController, IBrain actionController, IBehaviourTree defaultBehaviourTree, AudioManager audioManager)
     {
         this.movementController = movementController;
         this.brain = actionController;

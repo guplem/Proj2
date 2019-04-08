@@ -5,7 +5,7 @@ using UnityEngine;
 public interface ICharacterManager
 {
     IMovementController movementController { get; set; }
-    Brain brain { get; set; }
+    IBrain brain { get; set; }
 
     IBehaviourTree defaultBehaviourTree { get; set; }
     IBehaviourTree behaviourTree { get; set; }
