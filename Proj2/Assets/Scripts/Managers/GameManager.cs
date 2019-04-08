@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerManager = playerManager.GetComponent<PlayerManager>();
-        camera.Setup(playerManager.gameObject, 0.7f);
+        camera.Setup(playerManager.gameObject, 0.05f);
         StartGame();
     }
 
