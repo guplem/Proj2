@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerProperties
   m_EditorClassIdentifier: 
   jumpForce: 30
-  acceleration: {x: 7, y: 7}
-  maxVelocity: {x: 1.5, y: 1.5}
+  acceleration: {x: 50, y: 50}
+  maxVelocity: {x: 100, y: 100}
   jumpTime: 1
