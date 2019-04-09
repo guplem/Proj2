@@ -7,6 +7,7 @@ public interface IBrain
     bool jumping { get; set; }
     bool interact { get; set; } //Push, pull, hide, pick, ... --> Interact with external elements
     bool action { get; set; } //Throw --> Player actions
+    bool crouch { get; set; }
     Vector2 direction { get; set; }
     CharacterManager characterManager { get; set; }
 

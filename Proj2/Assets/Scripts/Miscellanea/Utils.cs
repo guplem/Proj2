@@ -15,4 +15,13 @@ public static class Utils
         return collider.OverlapCollider(filter, results) > 0;
     }
 
+    public static void ChangeGameObjectLayer(GameObject go, int layer)
+    {
+        SpriteRenderer sprnd = go.GetComponent<SpriteRenderer>();
+        if (sprnd != null)
+            sprnd.sortingOrder = layer;
+        else
+            Debug.Log("SpriteRenderer null in " + go.ToString());
+    }
+
 }

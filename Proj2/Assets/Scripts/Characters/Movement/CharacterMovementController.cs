@@ -30,4 +30,11 @@ public class CharacterMovementController : IMovementController
 
         characterManager.rb2d.velocity = new Vector2(clampedSpeedX, clampedSpeedY);
     }
+
+    public void CrouchedMovement(Vector2 direction, Vector2 speed)
+    {
+        characterManager.rb2d.AddForce(direction * speed, ForceMode2D.Force);
+
+        // TODO Crouched movement, if it behaves diferently from the walking movement. Not only the speed.
+    }
 }

@@ -8,6 +8,9 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     [SerializeField] public Collider2D groundCollider;
     [SerializeField] public Collider2D topCollider;
     [SerializeField] public Collider2D lateralCollider;
+    [SerializeField] public Collider2D standingCollider;
+    [SerializeField] public Collider2D crouchCollider;
+
     [SerializeField] public CharacterProperties characterProperties;
 
     [HideInInspector] public IMovementController movementController { get; set; }
@@ -23,6 +26,8 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     [HideInInspector] public IState state { get; set; }
 
     [HideInInspector] public Interactable currentInteractable { get; set; }
+    //[HideInInspector] public GameObject currentInteractableGameObject { get; set; }
+
 
     /*public Action<int> StartInteract;
     public Action<int> EndInteract;*/
@@ -76,7 +81,20 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
+        if (collInteract != null)
+        {
+            currentInteractable = collInteract;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //currentInteractableGameObject = collision.gameObject;
+        Interactable collInteract = collision.GetComponent<Interactable>();
+        if (collInteract == currentInteractable)
+            return;
         if (collInteract != null)
         {
             currentInteractable = collInteract;
@@ -85,11 +103,15 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
         if (collInteract != null)
         {
             if (currentInteractable == collInteract)
+            {
+                currentInteractable.OnEndInteract(this);
                 currentInteractable = null;
+            }
         }
     }
 
@@ -98,9 +120,14 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         if (currentInteractable != null)
         {
             if (isInteractionStart)
-                currentInteractable.OnStartInteract();
+            {
+                currentInteractable.OnStartInteract(this);
+            }
             else
-                currentInteractable.OnEndInteract();
+            {
+                currentInteractable.OnEndInteract(this);
+            }
+
         }
     }
 
