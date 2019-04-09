@@ -22,7 +22,6 @@ public abstract class Brain : IBrain
         {
             characterManager.UpdateInteractState(state);
             interact = state;
-            Debug.Log("Interact = " + interact);
         }
     }
 }

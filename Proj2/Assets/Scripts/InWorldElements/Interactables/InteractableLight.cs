@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class InteractableLight : Activable
 {
-    
-    public override void Interact(bool isOn)
-    {
-        //TODO: turn on/off the light
 
-        //For visual testing: 
-        if (isOn)
+    protected override void ForceSetState(bool state)
+    {
+        if (state)
             GetComponent<SpriteRenderer>().color = Color.yellow;
         else
             GetComponent<SpriteRenderer>().color = Color.gray;
     }
-
 }

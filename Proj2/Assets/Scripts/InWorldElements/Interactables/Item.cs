@@ -19,7 +19,7 @@ public class Item : Interactable
         //Nothing
     }
 
-    public override void OnStartInteract(CharacterManager interactingCharacter)
+    protected override void AtStartInteract(CharacterManager interactingCharacter)
     {
         if (interactingCharacter is PlayerManager)
         {
@@ -46,5 +46,6 @@ public class Item : Interactable
         gameObject.SetActive(true);
         gameObject.transform.position = dropPosition;
     }
+
 }
 
