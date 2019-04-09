@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableLight : MonoBehaviour
+public class InteractableLight : Activable
 {
     
-    public void Switch(bool isOn)
+    public override void Interact(bool isOn)
     {
         //TODO: turn on/off the light
 

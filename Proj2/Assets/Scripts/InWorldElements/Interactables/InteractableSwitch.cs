@@ -4,36 +4,37 @@ using UnityEngine;
 
 #pragma warning disable CS0649
 [RequireComponent(typeof(Collider2D))]
-public class InteractableSwitch : MonoBehaviour, Interactable
+public class InteractableSwitch : Interactable
 {
-    [SerializeField] private bool AreLightsOn;
-    [SerializeField] private InteractableLight[] interactableLights;
+    [SerializeField] private bool isEnabled;
+    [SerializeField] private Activable[] connectedItems;
 
     private void Start()
     {
-        SwitchAllLightsTo(AreLightsOn);
+        /*if (connectedItems.Length != 0 && connectedItems != null)
+            SwitchTo(isEnabled);*/
     }
 
-    public void OnStartInteract(CharacterManager interactingCharacter)
+    public override void OnStartInteract(CharacterManager interactingCharacter)
     {
         Debug.Log("Begin interact");
 
-        AreLightsOn = !AreLightsOn;
+        isEnabled = !isEnabled;
 
-        SwitchAllLightsTo(AreLightsOn);
+        SwitchTo(isEnabled);
     }
 
-    public void OnEndInteract(CharacterManager interactingCharacter)
+    public override void OnEndInteract(CharacterManager interactingCharacter)
     {
         //Nothing happens
         Debug.Log("End interact");
     }
 
-    public void SwitchAllLightsTo(bool state)
+    public void SwitchTo(bool state)
     {
-        foreach (InteractableLight light in interactableLights)
+        foreach (Activable item in connectedItems)
         {
-            light.Switch(AreLightsOn);
+            item.Interact(isEnabled);
         }
     }
 
