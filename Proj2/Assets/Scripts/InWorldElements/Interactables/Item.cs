@@ -31,5 +31,20 @@ public class Item : MonoBehaviour, Interactable
         }
 
     }
+
+    public void Throw(Vector2 forceAndDirection, Vector2 throwPosition)
+    {
+        gameObject.SetActive(true);
+
+        gameObject.transform.position = throwPosition;
+
+        rb2d.AddForce(forceAndDirection, ForceMode2D.Impulse);
+    }
+
+    public void Drop(Vector2 dropPosition)
+    {
+        gameObject.SetActive(true);
+        gameObject.transform.position = dropPosition;
+    }
 }
 

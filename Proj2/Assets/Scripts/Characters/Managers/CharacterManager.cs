@@ -66,7 +66,16 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     {
         state.FixedTick(Time.fixedDeltaTime);
 
-        lookingDirection = rb2d.velocity.x > 0 ? 1 : -1;
+        if (Mathf.Abs(rb2d.velocity.x) < 0.1)
+        {
+            if (brain.direction.x != 0)
+                lookingDirection = brain.direction.x > 0 ? 1 : -1;
+        } else
+        {
+            if (rb2d.velocity.x != 0)
+                lookingDirection = rb2d.velocity.x > 0 ? 1 : -1;
+        }
+
     }
 
     public void SetState(IState newState)

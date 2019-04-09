@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-#pragma warning disable CS0168 // Variable is declared but never used
+#pragma warning disable CS0168
+#pragma warning disable CS0649
 public class PlayerManager : CharacterManager
 {
     [HideInInspector] public InventoryController inventory;
@@ -15,7 +16,7 @@ public class PlayerManager : CharacterManager
         base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new WalkingState(this), this), new AudioManager(gameObject) );
 
         //Particular of the player
-        inventory = new InventoryController();
+        inventory = new InventoryController(this);
         chasedBy = new List<CharacterManager>();
     }
 
@@ -27,8 +28,7 @@ public class PlayerManager : CharacterManager
         {
             if (inventory.HasStoredItem())
             {
-                inventory.storedItem.gameObject.SetActive(true);
-                ThrowItem(inventory.storedItem);
+                inventory.storedItem.Throw(new Vector2(throwingForce.x * lookingDirection, throwingForce.y), throwPoint.position);
                 inventory.ClearStoredItem();
             }
         }
@@ -50,11 +50,5 @@ public class PlayerManager : CharacterManager
         return this;
     }
 
-    private void ThrowItem(Item item)
-    {
-        item.gameObject.transform.position = throwPoint.position;
 
-        Vector2 dir = new Vector2(throwingForce.x * lookingDirection, throwingForce.y);
-        item.rb2d.AddForce(dir, ForceMode2D.Impulse);
-    }
 }
