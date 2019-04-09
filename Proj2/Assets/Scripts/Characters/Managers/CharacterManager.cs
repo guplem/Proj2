@@ -89,7 +89,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    /*private void OnTriggerStay2D(Collider2D collision)
     {
         //currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
@@ -99,7 +99,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         {
             currentInteractable = collInteract;
         }
-    }
+    }*/
 
     private void OnTriggerExit2D(Collider2D collision)
     {

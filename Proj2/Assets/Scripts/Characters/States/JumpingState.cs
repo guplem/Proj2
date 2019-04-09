@@ -6,27 +6,28 @@ public class JumpingState : IState
 {
     public CharacterManager characterManager { get; set; }
 
-    private float timeToStopJumping;
+    //private float timeToStopJumping;
 
     public JumpingState(CharacterManager characterManager)
     {
         this.characterManager = characterManager;
-        timeToStopJumping = Time.time + characterManager.characterProperties.jumpTime;
+        // timeToStopJumping = Time.time + characterManager.characterProperties.jumpTime;
     }
 
     public void Tick(float deltaTime)
     {
-        if (Time.time >= timeToStopJumping || !characterManager.brain.jumping)
+        /*if (Time.time >= timeToStopJumping || !characterManager.brain.jumping)
         {
             //characterManager.ChangeState(new OnAirState(), characterManager);
             characterManager.behaviourTree.SetNextState(true);
-        }
+        }*/
     }
 
     public void FixedTick(float fixedDeltaTime)
     {
-        characterManager.movementController.JumpForce(characterManager.characterProperties.jumpForce);
-        characterManager.movementController.MoveTowards(new Vector2(characterManager.brain.direction.x, 0), new Vector2(characterManager.characterProperties.acceleration.x * 0.5f, characterManager.characterProperties.acceleration.y*0.5f));
+        characterManager.movementController.Jump(characterManager.characterProperties.jumpForce, ForceMode2D.Impulse);
+        //characterManager.movementController.MoveTowards(new Vector2(characterManager.brain.direction.x, 0), new Vector2(characterManager.characterProperties.acceleration.x * 0.5f, characterManager.characterProperties.acceleration.y*0.5f));
+        characterManager.behaviourTree.SetNextState(true);
     }
 
 }
