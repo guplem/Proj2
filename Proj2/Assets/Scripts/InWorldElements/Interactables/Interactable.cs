@@ -2,17 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Interactable : MonoBehaviour, IInteractable
+public abstract class Interactable : MonoBehaviour
 {
-    public bool singleActivation { get; set; }
+    [SerializeField] public bool singleInteraction;
+    protected bool alreadyInteracted;
 
-    public virtual void OnEndInteract(CharacterManager interactingCharacter)
+    [SerializeField] public bool defaultState;
+    protected bool currentState;
+
+    private void Awake()
     {
-        Debug.LogWarning("Called interactable base class", gameObject);
+        currentState = defaultState;
+        alreadyInteracted = false;
     }
 
-    public virtual void OnStartInteract(CharacterManager interactingCharacter)
+
+    public void OnStartInteract(CharacterManager interactingCharacter)
     {
-        Debug.LogWarning("Called interactable base class", gameObject);
+        if (RegisterAndAskForInteraction())
+        {
+            AtStartInteract(interactingCharacter);
+        }
     }
+
+    public abstract void OnEndInteract(CharacterManager interactingCharacter);
+
+
+    //Returns true if the interaction can be done and registers the interaction
+    private bool RegisterAndAskForInteraction()
+    {
+        bool toReturn = ((singleInteraction && !alreadyInteracted) || !singleInteraction);
+
+        alreadyInteracted = true;
+
+        return toReturn;
+    }
+
+    protected abstract void AtStartInteract(CharacterManager interactingCharacter);
+
 }

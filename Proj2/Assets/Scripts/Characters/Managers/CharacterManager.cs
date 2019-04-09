@@ -6,26 +6,26 @@ using UnityEngine;
 public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 {
     [SerializeField] public Collider2D groundCollider;
-    [SerializeField] public Collider2D topCollider;
+    //[SerializeField] public Collider2D topCollider;
     [SerializeField] public Collider2D lateralCollider;
     [SerializeField] public Collider2D standingCollider;
     [SerializeField] public Collider2D crouchCollider;
 
     [SerializeField] public CharacterProperties characterProperties;
 
-    [HideInInspector] public IMovementController movementController { get; set; }
-    [HideInInspector] public IBrain brain { get; set; }
+    public IMovementController movementController { get; set; }
+    public IBrain brain { get; set; }
 
-    [HideInInspector] public IBehaviourTree defaultBehaviourTree { get; set; }
-    [HideInInspector] public IBehaviourTree behaviourTree { get; set; }
+    public IBehaviourTree defaultBehaviourTree { get; set; }
+    public IBehaviourTree behaviourTree { get; set; }
 
     [HideInInspector] public Rigidbody2D rb2d { get; set; }
     [HideInInspector] public Animator animator { get; set; }
     [HideInInspector] public AudioManager audioManager { get; set; }
 
-    [HideInInspector] public IState state { get; set; }
+    public IState state { get; set; }
 
-    [HideInInspector] public Interactable currentInteractable { get; set; }
+    public Interactable currentInteractable { get; set; }
 
     public int lookingDirection { get; set; }
 
@@ -95,12 +95,14 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (brain.interact)
+            return;
+
         //currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
-        if (collInteract != null)
+        if (collInteract != null && collision.isTrigger)
         {
             currentInteractable = collInteract;
-            Debug.Log("Setting interactable:" + currentInteractable);
         }
     }
 
@@ -118,9 +120,12 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (brain.interact)
+            return;
+
         //currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
-        if (collInteract != null)
+        if (collInteract != null && collision.isTrigger)
         {
             if (currentInteractable == collInteract)
             {

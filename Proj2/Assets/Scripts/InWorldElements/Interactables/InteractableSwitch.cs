@@ -6,19 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class InteractableSwitch : Interactable
 {
-    [SerializeField] private bool isEnabled;
-    [SerializeField] private Activable[] connectedItems;
+    [SerializeField] private Activable[] connectedActivables;
 
-    private void Start()
+    protected override void AtStartInteract(CharacterManager interactingCharacter)
     {
-        /*if (connectedItems.Length != 0 && connectedItems != null)
-            SwitchTo(isEnabled);*/
-    }
-
-    public override void OnStartInteract(CharacterManager interactingCharacter)
-    {
-        isEnabled = !isEnabled;
-        SwitchTo(isEnabled);
+        currentState = !currentState;
+        SwitchAllActivablesTo(currentState, interactingCharacter);
     }
 
     public override void OnEndInteract(CharacterManager interactingCharacter)
@@ -26,12 +19,13 @@ public class InteractableSwitch : Interactable
         //Nothing happens
     }
 
-    public void SwitchTo(bool state)
+    private void SwitchAllActivablesTo(bool state, CharacterManager interactingCharacter)
     {
-        foreach (Activable item in connectedItems)
+        foreach (Activable item in connectedActivables)
         {
-            item.Interact(isEnabled);
+            item.SetState(currentState, interactingCharacter);
         }
     }
+
 
 }
