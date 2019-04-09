@@ -7,6 +7,7 @@ public abstract class Brain : IBrain
     public bool jumping { get; set; }
     public bool interact { get; set; }
     public bool action { get; set; }
+    public bool crouch { get; set; }
     public Vector2 direction { get; set; }
     public CharacterManager characterManager { get; set; }
 

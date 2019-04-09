@@ -5,7 +5,7 @@ using UnityEngine;
 public interface Interactable
 {
 
-    void OnStartInteract();
-    void OnEndInteract();
+    void OnStartInteract(CharacterManager interactingCharacter);
+    void OnEndInteract(CharacterManager interactingCharacter);
 
 }

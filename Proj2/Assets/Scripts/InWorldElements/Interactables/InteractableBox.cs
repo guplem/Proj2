@@ -7,17 +7,18 @@ public class InteractableBox : MonoBehaviour, Interactable
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private LayerMask interactablesLayer;
 
-    public void OnStartInteract()
+    public void OnStartInteract(CharacterManager interactingCharacter)
     {
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         GetComponent<SpriteRenderer>().color = Color.red;
         // Physics2D.IgnoreLayerCollision(playerLayer, interactablesLayer, true);
     }
 
-    public void OnEndInteract()
+    public void OnEndInteract(CharacterManager interactingCharacter)
     {
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         GetComponent<SpriteRenderer>().color = Color.blue;
         // Physics2D.IgnoreLayerCollision(playerLayer, interactablesLayer, false);
     }
+
 }

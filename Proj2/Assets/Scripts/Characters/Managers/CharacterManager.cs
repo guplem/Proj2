@@ -8,6 +8,9 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     [SerializeField] public Collider2D groundCollider;
     [SerializeField] public Collider2D topCollider;
     [SerializeField] public Collider2D lateralCollider;
+    [SerializeField] public Collider2D standingCollider;
+    [SerializeField] public Collider2D crouchCollider;
+
     [SerializeField] public CharacterProperties characterProperties;
 
     [HideInInspector] public IMovementController movementController { get; set; }
@@ -23,7 +26,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     [HideInInspector] public IState state { get; set; }
 
     [HideInInspector] public Interactable currentInteractable { get; set; }
-    [HideInInspector] public GameObject currentInteractableGameObject { get; set; }
+    //[HideInInspector] public GameObject currentInteractableGameObject { get; set; }
 
 
     /*public Action<int> StartInteract;
@@ -78,7 +81,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        currentInteractableGameObject = collision.gameObject;
+        //currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
         if (collInteract != null)
         {
@@ -88,7 +91,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        currentInteractableGameObject = collision.gameObject;
+        //currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
         if (collInteract == currentInteractable)
             return;
@@ -100,13 +103,13 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        currentInteractableGameObject = collision.gameObject;
+        //currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
         if (collInteract != null)
         {
             if (currentInteractable == collInteract)
             {
-                currentInteractable.OnEndInteract();
+                currentInteractable.OnEndInteract(this);
                 currentInteractable = null;
             }
         }
@@ -114,24 +117,17 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     public void UpdateInteractState(bool isInteractionStart)
     {
-        Debug.Log("Something called UIS", gameObject);
         if (currentInteractable != null)
         {
             if (isInteractionStart)
             {
-                if (currentInteractableGameObject.GetComponent<InteractableBox>() != null)
-                {
-                    SetState(new HidingState(this, currentInteractableGameObject));
-
-                    currentInteractable = currentInteractableGameObject.GetComponent<Interactable>();
-                }
-                currentInteractable.OnStartInteract();
+                currentInteractable.OnStartInteract(this);
             }
             else
             {
-                currentInteractable.OnEndInteract();
-
+                currentInteractable.OnEndInteract(this);
             }
+
         }
     }
 

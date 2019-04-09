@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable CS0649
+[RequireComponent(typeof(Collider2D))]
 public class InteractableSwitch : MonoBehaviour, Interactable
 {
     [SerializeField] private bool AreLightsOn;
@@ -12,7 +14,7 @@ public class InteractableSwitch : MonoBehaviour, Interactable
         SwitchAllLightsTo(AreLightsOn);
     }
 
-    public void OnStartInteract()
+    public void OnStartInteract(CharacterManager interactingCharacter)
     {
         Debug.Log("Begin interact");
 
@@ -21,7 +23,7 @@ public class InteractableSwitch : MonoBehaviour, Interactable
         SwitchAllLightsTo(AreLightsOn);
     }
 
-    public void OnEndInteract()
+    public void OnEndInteract(CharacterManager interactingCharacter)
     {
         //Nothing happens
         Debug.Log("End interact");

@@ -16,5 +16,6 @@ public class PlayerInput : Brain
         SetInteractState(Input.GetButton("Interact"));
         action = Input.GetButton("Action");
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        crouch = Input.GetButton("Crouch");
     }
 }
