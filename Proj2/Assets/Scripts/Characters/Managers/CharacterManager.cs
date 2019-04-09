@@ -23,6 +23,8 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     [HideInInspector] public IState state { get; set; }
 
     [HideInInspector] public Interactable currentInteractable { get; set; }
+    [HideInInspector] public GameObject currentInteractableGameObject { get; set; }
+
 
     /*public Action<int> StartInteract;
     public Action<int> EndInteract;*/
@@ -76,7 +78,20 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
+        if (collInteract != null)
+        {
+            currentInteractable = collInteract;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        currentInteractableGameObject = collision.gameObject;
+        Interactable collInteract = collision.GetComponent<Interactable>();
+        if (collInteract == currentInteractable)
+            return;
         if (collInteract != null)
         {
             currentInteractable = collInteract;
@@ -85,22 +100,38 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
         if (collInteract != null)
         {
             if (currentInteractable == collInteract)
+            {
+                currentInteractable.OnEndInteract();
                 currentInteractable = null;
+            }
         }
     }
 
     public void UpdateInteractState(bool isInteractionStart)
     {
+        Debug.Log("Something called UIS", gameObject);
         if (currentInteractable != null)
         {
             if (isInteractionStart)
+            {
+                if (currentInteractableGameObject.GetComponent<InteractableBox>() != null)
+                {
+                    SetState(new HidingState(this, currentInteractableGameObject));
+
+                    currentInteractable = currentInteractableGameObject.GetComponent<Interactable>();
+                }
                 currentInteractable.OnStartInteract();
+            }
             else
+            {
                 currentInteractable.OnEndInteract();
+
+            }
         }
     }
 

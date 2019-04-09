@@ -30,8 +30,8 @@ public class PlayerChillBehaviourTree : BehaviourTree
         }
         if (!(character.state is JumpingState))
         {
-
-            if (Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.groundLayer))
+            // Added the check on the interactablesLayer, allows the player to walk on interactable physics objects.
+            if (Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.groundLayer + GameManager.Instance.interactablesLayer))
             {
                 character.SetState( new WalkingState(character) );
             }
