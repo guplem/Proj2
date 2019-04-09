@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class Item : MonoBehaviour, Interactable
+public class Item : Interactable
 {
 
     [HideInInspector] public Rigidbody2D rb2d;
@@ -14,12 +14,12 @@ public class Item : MonoBehaviour, Interactable
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    public void OnEndInteract(CharacterManager interactingCharacter)
+    public override void OnEndInteract(CharacterManager interactingCharacter)
     {
         //Nothing
     }
 
-    public void OnStartInteract(CharacterManager interactingCharacter)
+    public override void OnStartInteract(CharacterManager interactingCharacter)
     {
         if (interactingCharacter is PlayerManager)
         {
