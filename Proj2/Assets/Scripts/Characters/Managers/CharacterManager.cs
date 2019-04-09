@@ -8,6 +8,9 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     [SerializeField] public Collider2D groundCollider;
     [SerializeField] public Collider2D topCollider;
     [SerializeField] public Collider2D lateralCollider;
+    [SerializeField] public Collider2D standingCollider;
+    [SerializeField] public Collider2D crouchCollider;
+
     [SerializeField] public CharacterProperties characterProperties;
 
     [HideInInspector] public IMovementController movementController { get; set; }
@@ -98,9 +101,9 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         if (currentInteractable != null)
         {
             if (isInteractionStart)
-                currentInteractable.OnStartInteract();
+                currentInteractable.OnStartInteract(this);
             else
-                currentInteractable.OnEndInteract();
+                currentInteractable.OnEndInteract(this);
         }
     }
 
