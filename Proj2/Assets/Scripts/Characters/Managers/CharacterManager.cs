@@ -95,9 +95,12 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (brain.interact)
+            return;
+
         //currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
-        if (collInteract != null)
+        if (collInteract != null && collision.isTrigger)
         {
             currentInteractable = collInteract;
         }
@@ -117,6 +120,9 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (brain.interact)
+            return;
+
         //currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
         if (collInteract != null && collision.isTrigger)

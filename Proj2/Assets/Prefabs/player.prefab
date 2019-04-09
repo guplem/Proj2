@@ -114,7 +114,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2687238802475380595}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   crouchCollider: {fileID: 8311217552249385299}
   characterProperties: {fileID: 11400000, guid: 8c91f68417c494742814ffeb9abe5c70,
     type: 2}
-  throwingForce: {x: 15, y: 15}
+  throwingForce: {x: 5, y: 5}
   throwPoint: {fileID: 4705788987633123289}
 --- !u!1 &4622873014445708733
 GameObject:
