@@ -2,24 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-#pragma warning disable CS0168 // Variable is declared but never used
+#pragma warning disable CS0168
+#pragma warning disable CS0649
 public class PlayerManager : CharacterManager
 {
-    [HideInInspector] private InventoryController inventory;
+    [HideInInspector] public InventoryController inventory;
     [HideInInspector] private List<CharacterManager> chasedBy;
+    [SerializeField] public Vector2 throwingForce;
+    [SerializeField] private Transform throwPoint;
 
     private void Start()
     {
         base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new WalkingState(this), this), new AudioManager(gameObject) );
 
         //Particular of the player
-        inventory = new InventoryController();
+        inventory = new InventoryController(this);
         chasedBy = new List<CharacterManager>();
     }
 
     public new void Update()
     {
         base.Update();
+
+        if (brain.action)
+        {
+            if (inventory.HasStoredItem())
+            {
+                inventory.storedItem.Throw(new Vector2(throwingForce.x * lookingDirection, throwingForce.y), throwPoint.position);
+                inventory.ClearStoredItem();
+            }
+        }
     }
 
     public new void FixedUpdate()
@@ -37,4 +49,6 @@ public class PlayerManager : CharacterManager
         chasedBy.Remove(characterManager);
         return this;
     }
+
+
 }

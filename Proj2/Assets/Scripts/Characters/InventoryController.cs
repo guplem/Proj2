@@ -5,8 +5,14 @@ using UnityEngine;
 public class InventoryController
 {
     public Item storedItem { get; private set; }
+    private PlayerManager characterManager { get; set;}
 
-    public void RemoveStoredItem()
+    public InventoryController(PlayerManager characterManager)
+    {
+        this.characterManager = characterManager;
+    }
+
+    public void ClearStoredItem()
     {
         storedItem = null;
     }
@@ -18,8 +24,10 @@ public class InventoryController
 
     public void StoreItem(Item item)
     {
+        if (storedItem != null)
+            storedItem.Drop(characterManager.transform.position);
+
         storedItem = item;
     }
-
-
+    
 }

@@ -17,17 +17,13 @@ public class InteractableSwitch : Interactable
 
     public override void OnStartInteract(CharacterManager interactingCharacter)
     {
-        Debug.Log("Begin interact");
-
         isEnabled = !isEnabled;
-
         SwitchTo(isEnabled);
     }
 
     public override void OnEndInteract(CharacterManager interactingCharacter)
     {
         //Nothing happens
-        Debug.Log("End interact");
     }
 
     public void SwitchTo(bool state)
