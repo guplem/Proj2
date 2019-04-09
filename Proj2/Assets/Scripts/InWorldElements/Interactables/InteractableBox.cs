@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class InteractableBox : MonoBehaviour, Interactable
 {
-    [SerializeField] private LayerMask playerLayer;
-    [SerializeField] private LayerMask interactablesLayer;
+    // [SerializeField] private LayerMask playerLayer;
+    // [SerializeField] private LayerMask interactablesLayer;
 
     public void OnStartInteract(CharacterManager interactingCharacter)
     {
-        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        interactingCharacter.SetState(new PushPullState(interactingCharacter));
+        transform.SetParent(interactingCharacter.transform);
+        //GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         GetComponent<SpriteRenderer>().color = Color.red;
+
         // Physics2D.IgnoreLayerCollision(playerLayer, interactablesLayer, true);
     }
 
     public void OnEndInteract(CharacterManager interactingCharacter)
     {
-        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        transform.SetParent(null);
+        //GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         GetComponent<SpriteRenderer>().color = Color.blue;
+        interactingCharacter.behaviourTree.SetNextState(true);
         // Physics2D.IgnoreLayerCollision(playerLayer, interactablesLayer, false);
     }
 
