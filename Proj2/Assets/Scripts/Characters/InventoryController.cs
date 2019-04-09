@@ -6,7 +6,7 @@ public class InventoryController
 {
     public Item storedItem { get; private set; }
 
-    public void RemoveStoredItem()
+    public void ClearStoredItem()
     {
         storedItem = null;
     }

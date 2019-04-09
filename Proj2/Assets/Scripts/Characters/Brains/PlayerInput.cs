@@ -14,7 +14,7 @@ public class PlayerInput : Brain
     {
         jumping = Input.GetButton("Jump");
         SetInteractState(Input.GetButton("Interact"));
-        action = Input.GetButton("Action");
+        action = Input.GetButtonDown("Action");
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         crouch = Input.GetButton("Crouch");
     }

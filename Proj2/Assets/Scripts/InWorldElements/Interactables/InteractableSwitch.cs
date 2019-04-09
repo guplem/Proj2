@@ -16,8 +16,6 @@ public class InteractableSwitch : MonoBehaviour, Interactable
 
     public void OnStartInteract(CharacterManager interactingCharacter)
     {
-        Debug.Log("Begin interact");
-
         AreLightsOn = !AreLightsOn;
 
         SwitchAllLightsTo(AreLightsOn);
@@ -26,7 +24,6 @@ public class InteractableSwitch : MonoBehaviour, Interactable
     public void OnEndInteract(CharacterManager interactingCharacter)
     {
         //Nothing happens
-        Debug.Log("End interact");
     }
 
     public void SwitchAllLightsTo(bool state)

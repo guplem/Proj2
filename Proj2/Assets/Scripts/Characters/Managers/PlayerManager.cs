@@ -5,8 +5,10 @@ using UnityEngine;
 #pragma warning disable CS0168 // Variable is declared but never used
 public class PlayerManager : CharacterManager
 {
-    [HideInInspector] private InventoryController inventory;
+    [HideInInspector] public InventoryController inventory;
     [HideInInspector] private List<CharacterManager> chasedBy;
+    [SerializeField] public Vector2 throwingForce;
+    [SerializeField] private Transform throwPoint;
 
     private void Start()
     {
@@ -20,6 +22,16 @@ public class PlayerManager : CharacterManager
     public new void Update()
     {
         base.Update();
+
+        if (brain.action)
+        {
+            if (inventory.HasStoredItem())
+            {
+                inventory.storedItem.gameObject.SetActive(true);
+                ThrowItem(inventory.storedItem);
+                inventory.ClearStoredItem();
+            }
+        }
     }
 
     public new void FixedUpdate()
@@ -36,5 +48,13 @@ public class PlayerManager : CharacterManager
     {
         chasedBy.Remove(characterManager);
         return this;
+    }
+
+    private void ThrowItem(Item item)
+    {
+        item.gameObject.transform.position = throwPoint.position;
+
+        Vector2 dir = new Vector2(throwingForce.x * lookingDirection, throwingForce.y);
+        item.rb2d.AddForce(dir, ForceMode2D.Impulse);
     }
 }

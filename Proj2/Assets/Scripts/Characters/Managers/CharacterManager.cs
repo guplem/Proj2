@@ -26,6 +26,9 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     [HideInInspector] public IState state { get; set; }
 
     [HideInInspector] public Interactable currentInteractable { get; set; }
+
+    public int lookingDirection { get; set; }
+
     //[HideInInspector] public GameObject currentInteractableGameObject { get; set; }
 
 
@@ -62,6 +65,8 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     public void FixedUpdate()
     {
         state.FixedTick(Time.fixedDeltaTime);
+
+        lookingDirection = rb2d.velocity.x > 0 ? 1 : -1;
     }
 
     public void SetState(IState newState)
@@ -86,6 +91,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         if (collInteract != null)
         {
             currentInteractable = collInteract;
+            Debug.Log("Setting interactable:" + currentInteractable);
         }
     }
 

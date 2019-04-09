@@ -21,4 +21,7 @@ public interface ICharacterManager
     Interactable currentInteractable { get; set; }
 
     void UpdateInteractState(bool isInteractionStart);
+
+    int lookingDirection { get; set; }
+
 }
