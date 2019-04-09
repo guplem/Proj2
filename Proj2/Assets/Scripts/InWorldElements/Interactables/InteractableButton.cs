@@ -4,19 +4,20 @@ using UnityEngine;
 
 #pragma warning disable CS0649
 [RequireComponent(typeof(Collider2D))]
-public class InteractableSwitch : Interactable
+public class InteractableButton : Interactable
 {
     [SerializeField] private Activable[] connectedActivables;
 
     protected override void AtStartInteract(CharacterManager interactingCharacter)
     {
-        currentState = !currentState;
+        currentState = !defaultState;
         SwitchAllActivablesTo(currentState, interactingCharacter);
     }
 
     public override void OnEndInteract(CharacterManager interactingCharacter)
     {
-        //Nothing happens
+        currentState = defaultState;
+        SwitchAllActivablesTo(currentState, interactingCharacter);
     }
 
     private void SwitchAllActivablesTo(bool state, CharacterManager interactingCharacter)
@@ -26,6 +27,5 @@ public class InteractableSwitch : Interactable
             item.SetState(currentState, interactingCharacter);
         }
     }
-
 
 }

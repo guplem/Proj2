@@ -13,20 +13,19 @@ public abstract class Activable : MonoBehaviour
 
     private void Awake()
     {
-        ForceSetState(defaultState);
+        ForceSetState(defaultState, null);
         alreadyActivated = false;
     }
 
-    public void SetState(bool state)
+    public void SetState(bool state, CharacterManager characterActivating)
     {
         if (RegisterAndAskForActivation())
         {
-            ForceSetState(state);
-            Debug.Log("Activation called");
+            ForceSetState(state, characterActivating);
         }
     }
 
-    protected abstract void ForceSetState(bool state);
+    protected abstract void ForceSetState(bool state, CharacterManager characterActivating);
 
     //Returns true if the action can be done and registers the action
     private bool RegisterAndAskForActivation()

@@ -22,7 +22,6 @@ public abstract class Interactable : MonoBehaviour
         if (RegisterAndAskForInteraction())
         {
             AtStartInteract(interactingCharacter);
-            Debug.Log("Interaction called");
         }
     }
 

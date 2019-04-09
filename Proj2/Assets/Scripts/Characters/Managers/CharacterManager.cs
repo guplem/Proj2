@@ -119,7 +119,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     {
         //currentInteractableGameObject = collision.gameObject;
         Interactable collInteract = collision.GetComponent<Interactable>();
-        if (collInteract != null)
+        if (collInteract != null && collision.isTrigger)
         {
             if (currentInteractable == collInteract)
             {

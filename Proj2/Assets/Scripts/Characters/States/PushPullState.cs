@@ -9,7 +9,6 @@ public class PushPullState : IState
     public PushPullState(CharacterManager characterManager)
     {
         this.characterManager = characterManager;
-        Debug.Log("Entered PushPull");
     }
 
     public void FixedTick(float fixedDeltaTime)
