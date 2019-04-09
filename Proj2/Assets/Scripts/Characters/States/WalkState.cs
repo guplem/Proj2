@@ -18,7 +18,7 @@ public class WalkingState : IState
 
     public void FixedTick(float fixedDeltaTime)
     {
-        characterManager.movementController.MoveTowards(new Vector2(characterManager.brain.direction.x, 0), new Vector2(characterManager.characterProperties.acceleration.x, characterManager.characterProperties.acceleration.y) );
+        characterManager.movementController.MoveTowards(new Vector2(characterManager.brain.direction.x, 0), new Vector2(characterManager.characterProperties.acceleration.x, characterManager.characterProperties.acceleration.y), characterManager.characterProperties.maxWalkVelocity);
     }
 
 }
