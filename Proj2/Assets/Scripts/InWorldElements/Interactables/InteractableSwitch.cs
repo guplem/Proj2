@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable CS0168 // Variable is declared but never used
 public class InteractableSwitch : MonoBehaviour, Interactable
 {
     [SerializeField] private bool AreLightsOn;
