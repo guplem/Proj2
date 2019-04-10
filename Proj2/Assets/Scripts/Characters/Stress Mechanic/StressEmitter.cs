@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StressEmitter
 {
-    
+
     private Vector3 emittingPoint;
     private float radius;
 
@@ -65,7 +65,9 @@ public class StressEmitter
         foreach (StressManager target in targets)
         {
             target.AddStress(amountPerSecond);
+
         }
-        
+        yield return new WaitForSeconds(duration * Time.deltaTime);
+
     }
 }
