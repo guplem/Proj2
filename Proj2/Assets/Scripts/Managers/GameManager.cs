@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Transform startPoint;
     [SerializeField] public LayerMask groundLayer;
     [SerializeField] public LayerMask interactablesLayer;
+    [SerializeField] public LayerMask playerLayer;
+    [SerializeField] public LayerMask worldLayer;
+    [SerializeField] public LayerMask enemyLayer;
 
     //[HideInInspector] public PlayerManager playerManager;
 
