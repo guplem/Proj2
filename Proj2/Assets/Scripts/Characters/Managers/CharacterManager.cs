@@ -23,7 +23,7 @@ public abstract class CharacterManager : MonoBehaviour
     [HideInInspector] public Animator animator;
     [HideInInspector] public AudioManager audioManager;
 
-    public IState state;
+    public IState state { get; private set; }
 
     public Interactable currentInteractable;
 
@@ -84,6 +84,7 @@ public abstract class CharacterManager : MonoBehaviour
         {
             if (state.GetType() != newState.GetType())
             {
+                state.OnExit();
                 state = newState;
             }
         }

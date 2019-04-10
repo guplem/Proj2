@@ -30,4 +30,8 @@ public class JumpingState : IState
         characterManager.behaviourTree.SetNextState(true);
     }
 
+    public void OnExit()
+    {
+        
+    }
 }

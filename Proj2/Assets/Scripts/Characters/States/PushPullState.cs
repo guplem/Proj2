@@ -20,4 +20,9 @@ public class PushPullState : IState
     {
         throw new System.NotImplementedException();
     }
+
+    public void OnExit()
+    {
+        
+    }
 }

@@ -36,4 +36,8 @@ public class HidingState : IState
         characterManager.transform.position = exitPoint;
     }
 
+    public void OnExit()
+    {
+        
+    }
 }
