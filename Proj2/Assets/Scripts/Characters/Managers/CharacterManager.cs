@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CharacterManager : MonoBehaviour, ICharacterManager
+public abstract class CharacterManager : MonoBehaviour
 {
     [SerializeField] public Collider2D groundCollider;
     //[SerializeField] public Collider2D topCollider;
@@ -13,21 +13,21 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     [SerializeField] public CharacterProperties characterProperties;
 
-    public IMovementController movementController { get; set; }
-    public Brain brain { get; set; }
+    public IMovementController movementController;
+    public Brain brain;
 
-    public BehaviourTree defaultBehaviourTree { get; set; }
-    public BehaviourTree behaviourTree { get; set; }
+    public BehaviourTree defaultBehaviourTree;
+    public BehaviourTree behaviourTree;
 
-    [HideInInspector] public Rigidbody2D rb2d { get; set; }
-    [HideInInspector] public Animator animator { get; set; }
-    [HideInInspector] public AudioManager audioManager { get; set; }
+    [HideInInspector] public Rigidbody2D rb2d;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public AudioManager audioManager;
 
-    public IState state { get; set; }
+    public IState state;
 
-    public Interactable currentInteractable { get; set; }
+    public Interactable currentInteractable;
 
-    public int lookingDirection { get; set; }
+    public int lookingDirection;
 
     //[HideInInspector] public GameObject currentInteractableGameObject { get; set; }
 
