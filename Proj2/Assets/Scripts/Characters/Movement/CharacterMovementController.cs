@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMovementController : IMovementController
+public class CharacterMovementController : MovementController
 {
-    public CharacterManager characterManager { get; set; }
-
     public CharacterMovementController(CharacterManager characterManager)
     {
         this.characterManager = characterManager;
     }
 
-    public void Jump(float force, ForceMode2D forceMode)
+    public override void Jump(float force, ForceMode2D forceMode)
     {
         characterManager.rb2d.AddForce(Vector2.up * force, forceMode);
     }
 
 
-    public void MoveTowards(Vector2 direction, Vector2 acceleration, Vector2 maxVelocity)
+    public override void MoveTowards(Vector2 direction, Vector2 acceleration, Vector2 maxVelocity)
     {
         characterManager.rb2d.AddForce(direction * acceleration, ForceMode2D.Impulse);
 

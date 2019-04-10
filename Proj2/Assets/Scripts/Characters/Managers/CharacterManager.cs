@@ -13,7 +13,7 @@ public abstract class CharacterManager : MonoBehaviour
 
     [SerializeField] public CharacterProperties characterProperties;
 
-    public IMovementController movementController;
+    public MovementController movementController;
     public Brain brain;
 
     public BehaviourTree defaultBehaviourTree;
@@ -36,7 +36,7 @@ public abstract class CharacterManager : MonoBehaviour
     public Action<int> EndInteract;*/
 
 
-    protected void Setup(IMovementController movementController, Brain actionController, BehaviourTree defaultBehaviourTree, AudioManager audioManager)
+    protected void Setup(MovementController movementController, Brain actionController, BehaviourTree defaultBehaviourTree, AudioManager audioManager)
     {
         this.movementController = movementController;
         this.brain = actionController;
