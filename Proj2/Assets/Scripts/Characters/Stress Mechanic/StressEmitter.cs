@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StressEmitter
 {
+    
     private Vector3 emittingPoint;
     private float radius;
 
@@ -24,12 +25,12 @@ public class StressEmitter
 
     }
 
-    public void AddStressOverTime(int amount, float cooldown)
+    public void AddStressOverTime(float amount, float cooldown)
     {
         StressManager[] temp = SearchForReceivers();
         if (temp.Length < 1)
             return;
-        StartCoroutine(AddStressToTargetsOverTime(temp, amount, cooldown));
+        GameManager.Instance.StartCoroutine(AddStressToTargetsOverTime(temp, amount, cooldown));
 
     }
 
@@ -37,7 +38,7 @@ public class StressEmitter
     {
         StressManager[] stressManagerArray;
 
-        Collider2D[] colArray = Physics2D.OverlapCircle(emittingPoint, radius, GameManager.Instance.playerLayer);
+        Collider2D[] colArray = Physics2D.OverlapCircleAll(emittingPoint, radius, GameManager.Instance.playerLayer);
 
         if (colArray.Length < 1)
             return null;
@@ -48,7 +49,7 @@ public class StressEmitter
         {
             try
             {
-                stressManagerArray[i] = colArray[i].GetComponent<PlayerManager>().stressManager;
+                stressManagerArray[i] = colArray[i].GetComponent<PlayerManager>().GetStressManager();
             }
             catch
             {
@@ -58,11 +59,12 @@ public class StressEmitter
         return stressManagerArray;
     }
 
-    IEnumerator AddStressToTargetsOverTime(StressManager[] targets, int amount, float cooldown)
+    IEnumerator AddStressToTargetsOverTime(StressManager[] targets, float amount, float duration)
     {
+        float amountPerSecond = amount / duration;
         foreach (StressManager target in targets)
         {
-            target.AddStress();
+            target.AddStress(amountPerSecond);
         }
         
     }

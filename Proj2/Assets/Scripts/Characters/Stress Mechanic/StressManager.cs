@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StressManager
 {
-    private int currentStress;
-    private int stressThreshold;
+    private float currentStress;
+    private float stressThreshold;
 
     private PlayerManager playerManager;
 
@@ -14,7 +14,7 @@ public class StressManager
         this.playerManager = playerManager;
     }
 
-    public bool AddStress(int amount)
+    public bool AddStress(float amount)
     {
         currentStress += amount;
         if (currentStress >= stressThreshold)
