@@ -16,8 +16,8 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     public IMovementController movementController { get; set; }
     public Brain brain { get; set; }
 
-    public IBehaviourTree defaultBehaviourTree { get; set; }
-    public IBehaviourTree behaviourTree { get; set; }
+    public BehaviourTree defaultBehaviourTree { get; set; }
+    public BehaviourTree behaviourTree { get; set; }
 
     [HideInInspector] public Rigidbody2D rb2d { get; set; }
     [HideInInspector] public Animator animator { get; set; }
@@ -36,7 +36,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     public Action<int> EndInteract;*/
 
 
-    protected void Setup(IMovementController movementController, Brain actionController, IBehaviourTree defaultBehaviourTree, AudioManager audioManager)
+    protected void Setup(IMovementController movementController, Brain actionController, BehaviourTree defaultBehaviourTree, AudioManager audioManager)
     {
         this.movementController = movementController;
         this.brain = actionController;

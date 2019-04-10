@@ -7,8 +7,8 @@ public interface ICharacterManager
     IMovementController movementController { get; set; }
     Brain brain { get; set; }
 
-    IBehaviourTree defaultBehaviourTree { get; set; }
-    IBehaviourTree behaviourTree { get; set; }
+    BehaviourTree defaultBehaviourTree { get; set; }
+    BehaviourTree behaviourTree { get; set; }
 
     Rigidbody2D rb2d { get; set; }
     Animator animator { get; set; }
