@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Brain : IBrain
+public abstract class Brain
 {
-    public bool jumping { get; set; }
-    public bool interact { get; set; }
-    public bool action { get; set; }
-    public bool crouch { get; set; }
-    public Vector2 direction { get; set; }
-    public CharacterManager characterManager { get; set; }
+    public bool jumping;
+    public bool interact;
+    public bool action;
+    public bool crouch;
+    public Vector2 direction;
+    public CharacterManager characterManager;
 
-    public virtual void GetActions()
-    {
-        Debug.LogError("GetActions not implemented in a class that inherits from Brain", characterManager.gameObject);
-    }
+    public abstract void GetActions();
 
     public void SetInteractState(bool state)
     {
+        if (characterManager == null)
+        {
+            Debug.LogError("characterManager not set in " + this + " (inherence of Brain class)");
+        }
+
         if (interact != state)
         {
             characterManager.UpdateInteractState(state);

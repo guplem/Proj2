@@ -2,19 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BehaviourTree : IBehaviourTree
+public abstract class BehaviourTree
 {
-    public IState defaultState { get; set; }
+    public IState defaultState;
 
     public void Setup(IState defaultState)
     {
         this.defaultState = defaultState;
     }
 
-    public virtual void SetNextState(bool forceExitState)
-    {
-        Debug.LogError("Overriding of 'GetNextState()' not implemented in a class that inherits from 'BehaviourTree'.");
-    }
+    public abstract void SetNextState(bool forceExitState);
 
     protected void ForceExitState(CharacterManager character)
     {
