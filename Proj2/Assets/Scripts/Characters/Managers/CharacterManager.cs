@@ -14,7 +14,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     [SerializeField] public CharacterProperties characterProperties;
 
     public IMovementController movementController { get; set; }
-    public IBrain brain { get; set; }
+    public Brain brain { get; set; }
 
     public IBehaviourTree defaultBehaviourTree { get; set; }
     public IBehaviourTree behaviourTree { get; set; }
@@ -36,7 +36,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     public Action<int> EndInteract;*/
 
 
-    protected void Setup(IMovementController movementController, IBrain actionController, IBehaviourTree defaultBehaviourTree, AudioManager audioManager)
+    protected void Setup(IMovementController movementController, Brain actionController, IBehaviourTree defaultBehaviourTree, AudioManager audioManager)
     {
         this.movementController = movementController;
         this.brain = actionController;
