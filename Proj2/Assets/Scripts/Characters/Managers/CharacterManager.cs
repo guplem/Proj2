@@ -103,7 +103,10 @@ public abstract class CharacterManager : MonoBehaviour
         if (state != null)
             state.OnExit();
 
-        Debug.Log("Exited state '" + state + "' on '" + gameObject.name +  (newState!= null?  "' to enter '" + newState + "'."  :  "'."  )  );
+        if (state != null)
+            Debug.Log("Exited state '" + state + "' on '" + gameObject.name +  (newState!= null?  "' to enter '" + newState + "'."  :  "'."  )  );
+        else
+            Debug.Log("'" + gameObject.name + "' entering state '" + newState + "'.");
 
         state = newState;
     } 
@@ -144,7 +147,7 @@ public abstract class CharacterManager : MonoBehaviour
         {
             if (currentInteractable == collInteract)
             {
-                currentInteractable.OnEndInteract(this);
+                currentInteractable.EndInteract(this);
                 currentInteractable = null;
             }
         }
@@ -156,11 +159,11 @@ public abstract class CharacterManager : MonoBehaviour
         {
             if (isInteractionStart)
             {
-                currentInteractable.OnStartInteract(this);
+                currentInteractable.StartInteract(this);
             }
             else
             {
-                currentInteractable.OnEndInteract(this);
+                currentInteractable.EndInteract(this);
             }
 
         }

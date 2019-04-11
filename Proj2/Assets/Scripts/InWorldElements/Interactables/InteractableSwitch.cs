@@ -6,25 +6,15 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class InteractableSwitch : Interactable
 {
-    [SerializeField] private Activable[] connectedActivables;
-
-    protected override void AtStartInteract(CharacterManager interactingCharacter)
+    
+    protected override void OnStartInteract(CharacterManager interactingCharacter)
     {
-        currentState = !currentState;
-        SwitchAllActivablesTo(currentState, interactingCharacter);
+        SwitchAllActivables(interactingCharacter);
     }
 
-    public override void OnEndInteract(CharacterManager interactingCharacter)
+    protected override void OnEndInteract(CharacterManager interactingCharacter)
     {
         //Nothing happens
-    }
-
-    private void SwitchAllActivablesTo(bool state, CharacterManager interactingCharacter)
-    {
-        foreach (Activable item in connectedActivables)
-        {
-            item.SetState(currentState, interactingCharacter);
-        }
     }
 
 

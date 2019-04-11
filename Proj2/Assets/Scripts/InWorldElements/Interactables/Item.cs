@@ -14,12 +14,8 @@ public class Item : Interactable
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    public override void OnEndInteract(CharacterManager interactingCharacter)
-    {
-        //Nothing
-    }
 
-    protected override void AtStartInteract(CharacterManager interactingCharacter)
+    protected override void OnStartInteract(CharacterManager interactingCharacter)
     {
         if (interactingCharacter is PlayerManager)
         {
@@ -47,5 +43,9 @@ public class Item : Interactable
         gameObject.transform.position = dropPosition;
     }
 
+    protected override void OnEndInteract(CharacterManager interactingCharacter)
+    {
+        // Do nothing
+    }
 }
 

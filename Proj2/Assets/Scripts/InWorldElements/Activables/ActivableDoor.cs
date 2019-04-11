@@ -8,15 +8,15 @@ public class ActivableDoor : Activable
 
     [SerializeField] private Collider2D doorCollider;
 
-    protected override void ForceSetState(bool state, CharacterManager characterActivating)
-    {
-        currentState = state;
 
-        doorCollider.enabled = currentState;
+    protected override void SetState(bool state, CharacterManager characterActivating)
+    {
+        doorCollider.enabled = state;
 
         if (state)
             GetComponent<SpriteRenderer>().color = Color.white;
         else
             GetComponent<SpriteRenderer>().color = Color.gray;
     }
+
 }
