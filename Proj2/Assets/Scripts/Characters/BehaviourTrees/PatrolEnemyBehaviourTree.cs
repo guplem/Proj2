@@ -12,7 +12,7 @@ public class PatrolEnemyBehaviourTree : BehaviourTree
         this.character = characterManager;
     }
 
-    public override void SetNextState(bool forceExitState)
+    public override void CalculateAndSetNextState(bool forceExitState)
     {
         if (forceExitState)
             ForceExitState(character);

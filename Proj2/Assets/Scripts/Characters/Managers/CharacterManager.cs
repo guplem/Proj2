@@ -57,7 +57,7 @@ public abstract class CharacterManager : MonoBehaviour
     {
         brain.GetActions();
 
-        behaviourTree.SetNextState(false);
+        behaviourTree.CalculateAndSetNextState(false);
 
         state.Tick(Time.deltaTime);
     }
@@ -80,19 +80,33 @@ public abstract class CharacterManager : MonoBehaviour
 
     public void SetState(IState newState)
     {
-        if (newState != null && state != null)
+        // If only one of both is null or neither any of both is
+        if ((state == null ^ newState == null) || (state != null && newState != null))
         {
-            if (state.GetType() != newState.GetType())
+            try // To ensue that a null state gives no problems. If one of both is null an exception will be catched.
             {
-                state.OnExit();
-                state = newState;
+                // If both are the same state
+                if (state.GetType() == newState.GetType())
+                    return;
             }
-        }
-        else
-        {
-            state = newState;
+            catch (NullReferenceException) { }
+
+            // If one of both is null (jumped trugh carching exception)
+            // ...or...
+            // Old state is not null and neither is newState but both are different
+            ForceSetState(newState);
         }
     }
+
+    private void ForceSetState(IState newState)
+    {
+        if (state != null)
+            state.OnExit();
+
+        Debug.Log("Exited state '" + state + "' on '" + gameObject.name +  (newState!= null?  "' to enter '" + newState + "'."  :  "'."  )  );
+
+        state = newState;
+    } 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -15,13 +15,20 @@ public static class Utils
         return collider.OverlapCollider(filter, results) > 0;
     }
 
-    public static void ChangeGameObjectLayer(GameObject go, int layer)
+    public static void ChangeGameObjectAndChildsLayerTo(GameObject gameObject, int layer)
     {
-        SpriteRenderer sprnd = go.GetComponent<SpriteRenderer>();
+        ChangeGameObjectLayerTo(gameObject, layer);
+
+        foreach (Transform child in gameObject.transform)
+            ChangeGameObjectLayerTo(child.gameObject, layer);
+
+    }
+
+    public static void ChangeGameObjectLayerTo(GameObject gameObject, int layer)
+    {
+        SpriteRenderer sprnd = gameObject.GetComponent<SpriteRenderer>();
         if (sprnd != null)
             sprnd.sortingOrder = layer;
-        else
-            Debug.Log("SpriteRenderer null in " + go.ToString());
     }
 
 }

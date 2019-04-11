@@ -42,7 +42,7 @@ public class ActivableBox : Activable
             else
             {
                 transform.SetParent(null);
-                characterActivating.behaviourTree.SetNextState(true);
+                characterActivating.behaviourTree.CalculateAndSetNextState(true);
                 rb2d.bodyType = RigidbodyType2D.Dynamic;
             }
     }

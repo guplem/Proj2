@@ -11,7 +11,7 @@ public abstract class BehaviourTree
         this.defaultState = defaultState;
     }
 
-    public abstract void SetNextState(bool forceExitState);
+    public abstract void CalculateAndSetNextState(bool forceExitState);
 
     protected void ForceExitState(CharacterManager character)
     {
