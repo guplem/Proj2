@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3671931602308430990}
   - component: {fileID: 3671931602308431090}
   - component: {fileID: 3671931602308430991}
-  - component: {fileID: 3671931602308431091}
+  - component: {fileID: 2035496207}
   m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10000
   m_Sprite: {fileID: 21300000, guid: 72921b7bd9a0eea4584e996ceff3c00a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.11605072, y: -0.032543182}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -107,7 +107,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.84, y: 3.97}
+  m_Size: {x: 8.543167, y: 4.2520485}
   m_EdgeRadius: 0
 --- !u!61 &3671931602308431090
 BoxCollider2D:
@@ -147,10 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e518e2ba3c64de64b8c5b3670ab37a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singleActivation: 0
   defaultState: 1
+  singleActivation: 0
+  alreadyActivated: 0
   doorCollider: {fileID: 3671931602308431090}
---- !u!114 &3671931602308431091
+--- !u!114 &2035496207
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,10 +160,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3671931602308430988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f330a29f876108d4aab882d7131eb739, type: 3}
+  m_Script: {fileID: 11500000, guid: 0823198d9bbb8f745b80c6c9078c4047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   singleInteraction: 0
-  defaultState: 0
+  alreadyInteracted: 0
+  interactAutomatically: 1
   connectedActivables:
   - {fileID: 3671931602308430991}

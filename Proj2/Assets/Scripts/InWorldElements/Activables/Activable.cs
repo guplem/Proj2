@@ -13,10 +13,9 @@ public abstract class Activable : MonoBehaviour
 
     private void Awake()
     {
-        currentState = false;
+        currentState = defaultState;
 
-        if (defaultState != currentState)
-            SwitchState(null);
+        SetState(currentState, null);
 
         alreadyActivated = false;
     }

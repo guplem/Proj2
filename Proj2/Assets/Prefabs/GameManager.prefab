@@ -61,3 +61,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 4096
+  walkableLayers:
+    serializedVersion: 2
+    m_Bits: 768

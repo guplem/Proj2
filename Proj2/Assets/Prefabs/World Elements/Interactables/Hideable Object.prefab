@@ -67,7 +67,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 115
   m_Sprite: {fileID: 21300000, guid: fbf09f0f54170de4bba830e445f24eb7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -195,8 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26471ceea015234188ba0c3d7ff35d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singleActivation: 0
   defaultState: 0
+  singleActivation: 0
+  alreadyActivated: 0
 --- !u!61 &214558115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -236,7 +237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   singleInteraction: 0
-  defaultState: 0
+  alreadyInteracted: 0
+  interactAutomatically: 0
   connectedActivables:
   - {fileID: 214558113}
 --- !u!1 &8751495294833804919
