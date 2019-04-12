@@ -10,6 +10,7 @@ public abstract class CharacterManager : MonoBehaviour
     [SerializeField] public Collider2D lateralCollider;
     [SerializeField] public Collider2D standingCollider;
     [SerializeField] public Collider2D crouchCollider;
+    [SerializeField] public Collider2D interactionsCollider;
 
     [SerializeField] public CharacterProperties characterProperties;
 
@@ -103,21 +104,32 @@ public abstract class CharacterManager : MonoBehaviour
         if (state != null)
             state.OnExit();
 
-        Debug.Log("Exited state '" + state + "' on '" + gameObject.name +  (newState!= null?  "' to enter '" + newState + "'."  :  "'."  )  );
+        if (state != null)
+            Debug.Log("Exited state '" + state + "' on '" + gameObject.name +  (newState!= null?  "' to enter '" + newState + "'."  :  "'."  )  );
+        else
+            Debug.Log("'" + gameObject.name + "' entering state '" + newState + "'.");
 
         state = newState;
     } 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnInterectableTriggerEnter(Collider2D collision)
     {
-        if (brain.interact)
-            return;
-
-        //currentInteractableGameObject = collision.gameObject;
-        Interactable collInteract = collision.GetComponent<Interactable>();
-        if (collInteract != null && collision.isTrigger)
+        // Is an interactable object
+        Interactable interactable = collision.GetComponent<Interactable>();
+        if (interactable != null && collision.isTrigger)
         {
-            currentInteractable = collInteract;
+            if (interactable.interactAutomatically)
+            {
+                Debug.Log("ON_TRIGGER_Enter event");
+                interactable.StartInteract(this);
+                return;
+            }
+
+            //Currently not interacting with any object
+            if (!brain.interact)
+            {
+                currentInteractable = interactable;
+            }
         }
     }
 
@@ -133,19 +145,26 @@ public abstract class CharacterManager : MonoBehaviour
         }
     }*/
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void OnInterectableTriggerExit(Collider2D collision)
     {
-        if (brain.interact)
-            return;
-
-        //currentInteractableGameObject = collision.gameObject;
-        Interactable collInteract = collision.GetComponent<Interactable>();
-        if (collInteract != null && collision.isTrigger)
+        // Is an interactable object
+        Interactable interactable = collision.GetComponent<Interactable>();
+        if (interactable != null && collision.isTrigger)
         {
-            if (currentInteractable == collInteract)
+            Debug.LogWarning("Exiting " + collision.gameObject + " - " + collision);
+
+            if (interactable.interactAutomatically)
             {
-                currentInteractable.OnEndInteract(this);
-                currentInteractable = null;
+                interactable.EndInteract(this);
+                return;
+            }
+
+            //Currently not interacting with any object
+            if (!brain.interact)
+            {
+                // If exiting the current interactable
+                if (currentInteractable == interactable)
+                    currentInteractable = null;
             }
         }
     }
@@ -154,13 +173,14 @@ public abstract class CharacterManager : MonoBehaviour
     {
         if (currentInteractable != null)
         {
+            Debug.Log("Button interaction");
             if (isInteractionStart)
             {
-                currentInteractable.OnStartInteract(this);
+                currentInteractable.StartInteract(this);
             }
             else
             {
-                currentInteractable.OnEndInteract(this);
+                currentInteractable.EndInteract(this);
             }
 
         }

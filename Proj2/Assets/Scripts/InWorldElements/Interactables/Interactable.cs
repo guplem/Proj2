@@ -2,31 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable CS0649
 public abstract class Interactable : MonoBehaviour
 {
     [SerializeField] public bool singleInteraction;
-    protected bool alreadyInteracted;
+    [HideInInspector] public bool alreadyInteracted;
 
-    [SerializeField] public bool defaultState;
-    protected bool currentState;
+    [SerializeField] public bool interactAutomatically;
+
+    [SerializeField] private Activable[] connectedActivables;
 
     private void Awake()
     {
-        currentState = defaultState;
         alreadyInteracted = false;
     }
 
 
-    public void OnStartInteract(CharacterManager interactingCharacter)
+    public void StartInteract(CharacterManager interactingCharacter)
     {
         if (RegisterAndAskForInteraction())
         {
-            AtStartInteract(interactingCharacter);
+            Debug.Log("'" + interactingCharacter.gameObject.name + "' is interacting with '" + gameObject.name + "'", gameObject);
+            OnStartInteract(interactingCharacter);
         }
     }
 
-    public abstract void OnEndInteract(CharacterManager interactingCharacter);
+    protected abstract void OnStartInteract(CharacterManager interactingCharacter);
 
+    public void EndInteract(CharacterManager interactingCharacter)
+    {
+        OnEndInteract(interactingCharacter);
+    }
+
+    protected abstract void OnEndInteract(CharacterManager interactingCharacter);
 
     //Returns true if the interaction can be done and registers the interaction
     private bool RegisterAndAskForInteraction()
@@ -38,6 +46,12 @@ public abstract class Interactable : MonoBehaviour
         return toReturn;
     }
 
-    protected abstract void AtStartInteract(CharacterManager interactingCharacter);
+    protected void SwitchAllActivables(CharacterManager interactingCharacter)
+    {
+        foreach (Activable activable in connectedActivables)
+        {
+            activable.SwitchState(interactingCharacter);
+        }
+    }
 
 }

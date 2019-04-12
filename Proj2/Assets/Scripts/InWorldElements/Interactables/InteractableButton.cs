@@ -6,26 +6,15 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class InteractableButton : Interactable
 {
-    [SerializeField] private Activable[] connectedActivables;
 
-    protected override void AtStartInteract(CharacterManager interactingCharacter)
+    protected override void OnStartInteract(CharacterManager interactingCharacter)
     {
-        currentState = !defaultState;
-        SwitchAllActivablesTo(currentState, interactingCharacter);
+        SwitchAllActivables(interactingCharacter);
     }
 
-    public override void OnEndInteract(CharacterManager interactingCharacter)
+    protected override void OnEndInteract(CharacterManager interactingCharacter)
     {
-        currentState = defaultState;
-        SwitchAllActivablesTo(currentState, interactingCharacter);
-    }
-
-    private void SwitchAllActivablesTo(bool state, CharacterManager interactingCharacter)
-    {
-        foreach (Activable item in connectedActivables)
-        {
-            item.SetState(currentState, interactingCharacter);
-        }
+        SwitchAllActivables(interactingCharacter);
     }
 
 }
