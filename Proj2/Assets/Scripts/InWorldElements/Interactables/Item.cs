@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class Item : Interactable
+public class Item : Activable
 {
 
     [HideInInspector] public Rigidbody2D rb2d;
@@ -12,20 +12,6 @@ public class Item : Interactable
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-    }
-
-
-    protected override void OnStartInteract(CharacterManager interactingCharacter)
-    {
-        if (interactingCharacter is PlayerManager)
-        {
-            PlayerManager player = (PlayerManager)interactingCharacter;
-
-            player.inventory.StoreItem(this);
-
-            gameObject.SetActive(false);
-        }
-
     }
 
     public void Throw(Vector2 forceAndDirection, Vector2 throwPosition)
@@ -43,9 +29,16 @@ public class Item : Interactable
         gameObject.transform.position = dropPosition;
     }
 
-    protected override void OnEndInteract(CharacterManager interactingCharacter)
+    protected override void SetState(bool state, CharacterManager characterActivating)
     {
-        // Do nothing
-    }
-}
+        if (characterActivating is PlayerManager)
+        {
+            PlayerManager player = (PlayerManager)characterActivating;
 
+            player.inventory.StoreItem(this);
+
+            gameObject.SetActive(false);
+        }
+    }
+
+}

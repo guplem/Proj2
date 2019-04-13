@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable CS0649
 [RequireComponent(typeof(Collider2D))]
 public class InteractionsCollider : MonoBehaviour
 {

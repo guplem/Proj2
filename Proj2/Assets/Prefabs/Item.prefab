@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 48236622705299598}
   - component: {fileID: 48236622705299599}
   - component: {fileID: 48236622705299594}
+  - component: {fileID: 600638328739050797}
   m_Layer: 9
   m_Name: Item
   m_TagString: Untagged
@@ -142,8 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f2bf00dc0c97543be8f994c64714f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singleInteraction: 0
   defaultState: 0
+  singleActivation: 0
+  alreadyActivated: 0
   rb2d: {fileID: 0}
 --- !u!58 &48236622705299594
 CircleCollider2D:
@@ -161,3 +163,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5.45
+--- !u!114 &600638328739050797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48236622705299632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f099d4fcc3840d5409edfedc11b584fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singleInteraction: 0
+  alreadyInteracted: 0
+  interactAutomatically: 0
+  connectedActivables:
+  - {fileID: 48236622705299599}
+  interactType: 0

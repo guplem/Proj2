@@ -233,7 +233,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8751495293279599912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0823198d9bbb8f745b80c6c9078c4047, type: 3}
+  m_Script: {fileID: 11500000, guid: f099d4fcc3840d5409edfedc11b584fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   singleInteraction: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   interactAutomatically: 0
   connectedActivables:
   - {fileID: 214558113}
+  interactType: 0
 --- !u!1 &8751495294833804919
 GameObject:
   m_ObjectHideFlags: 0
