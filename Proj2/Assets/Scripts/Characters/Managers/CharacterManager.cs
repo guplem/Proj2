@@ -120,7 +120,6 @@ public abstract class CharacterManager : MonoBehaviour
         {
             if (interactable.interactAutomatically)
             {
-                Debug.Log("ON_TRIGGER_Enter event");
                 interactable.StartInteract(this);
                 return;
             }
