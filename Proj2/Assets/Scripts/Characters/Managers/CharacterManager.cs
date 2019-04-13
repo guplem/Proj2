@@ -151,7 +151,6 @@ public abstract class CharacterManager : MonoBehaviour
         Interactable interactable = collision.GetComponent<Interactable>();
         if (interactable != null && collision.isTrigger)
         {
-            Debug.LogWarning("Exiting " + collision.gameObject + " - " + collision);
 
             if (interactable.interactAutomatically)
             {
@@ -173,7 +172,6 @@ public abstract class CharacterManager : MonoBehaviour
     {
         if (currentInteractable != null)
         {
-            Debug.Log("Button interaction");
             if (isInteractionStart)
             {
                 currentInteractable.StartInteract(this);

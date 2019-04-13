@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #pragma warning disable CS0649
-public abstract class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour
 {
     [SerializeField] public bool singleInteraction;
     [HideInInspector] public bool alreadyInteracted;
@@ -12,9 +12,22 @@ public abstract class Interactable : MonoBehaviour
 
     [SerializeField] private Activable[] connectedActivables;
 
+    [SerializeField] private InteractType interactType;
+
+    public enum InteractType
+    {
+        Button, 
+        Switch
+    }
+
     private void Awake()
     {
         alreadyInteracted = false;
+
+        //Security checks
+        if (connectedActivables.Length == 0)
+            Debug.LogWarning("No activables attatched to an interactable.", gameObject);
+
     }
 
 
@@ -23,18 +36,19 @@ public abstract class Interactable : MonoBehaviour
         if (RegisterAndAskForInteraction())
         {
             Debug.Log("'" + interactingCharacter.gameObject.name + "' is interacting with '" + gameObject.name + "'", gameObject);
-            OnStartInteract(interactingCharacter);
+            SwitchAllActivables(interactingCharacter);
         }
     }
 
-    protected abstract void OnStartInteract(CharacterManager interactingCharacter);
+    //protected abstract void OnStartInteract(CharacterManager interactingCharacter);
 
     public void EndInteract(CharacterManager interactingCharacter)
     {
-        OnEndInteract(interactingCharacter);
+        if (interactType == InteractType.Button)
+            SwitchAllActivables(interactingCharacter);
     }
 
-    protected abstract void OnEndInteract(CharacterManager interactingCharacter);
+    //protected abstract void OnEndInteract(CharacterManager interactingCharacter);
 
     //Returns true if the interaction can be done and registers the interaction
     private bool RegisterAndAskForInteraction()
