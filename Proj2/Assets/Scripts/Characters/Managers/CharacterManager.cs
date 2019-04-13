@@ -22,7 +22,7 @@ public abstract class CharacterManager : MonoBehaviour
 
     [HideInInspector] public Rigidbody2D rb2d;
     [HideInInspector] public Animator animator;
-    [HideInInspector] public AudioManager audioManager;
+    [HideInInspector] public AudioController audioController;
 
     public IState state { get; private set; }
 
@@ -37,7 +37,7 @@ public abstract class CharacterManager : MonoBehaviour
     public Action<int> EndInteract;*/
 
 
-    protected void Setup(MovementController movementController, Brain actionController, BehaviourTree defaultBehaviourTree, AudioManager audioManager)
+    protected void Setup(MovementController movementController, Brain actionController, BehaviourTree defaultBehaviourTree)
     {
         this.movementController = movementController;
         this.brain = actionController;
@@ -47,7 +47,7 @@ public abstract class CharacterManager : MonoBehaviour
 
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        this.audioManager = audioManager;
+        audioController = GetComponent<AudioController>();
 
         this.state = this.behaviourTree.defaultState;
 

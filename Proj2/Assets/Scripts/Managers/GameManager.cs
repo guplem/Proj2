@@ -6,9 +6,12 @@ using UnityEngine;
 #pragma warning disable CS0168 // Variable is declared but never used
 public class GameManager : MonoBehaviour
 {
+    [Header("Game's Configuration")]
     [SerializeField] public new CameraManager camera;
     [SerializeField] public PlayerManager playerManager;
     [SerializeField] public Transform startPoint;
+
+    [Header("Layers")]
     [SerializeField] public LayerMask groundLayer;
     [SerializeField] public LayerMask interactablesLayer;
     [SerializeField] public LayerMask playerLayer;
@@ -16,9 +19,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] public LayerMask enemyLayer;
     [SerializeField] public LayerMask walkableLayers;
 
+    [HideInInspector] public AudioController audioController;
+
     //[HideInInspector] public PlayerManager playerManager;
 
-    [HideInInspector] public AudioManager audioManager;
     private CheckPoint lastCheckPoint;
 
     public Action<int> ResetUntilLastCheckPoint;
@@ -34,20 +38,15 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
-            AwakeSetup();
-            Debug.Log("GameManager successfully initialized", gameObject);
         }
     }
 
-    private void AwakeSetup()
-    {
-        audioManager = new AudioManager(this.gameObject);
-    }
-
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        audioController = GetComponent<AudioController>();
         playerManager = playerManager.GetComponent<PlayerManager>();
         camera.Setup(playerManager.gameObject, 0.05f);
         StartGame();
