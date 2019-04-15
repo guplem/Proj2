@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 9161742863661425577}
   - component: {fileID: 8311217552249385299}
   - component: {fileID: 7729870114131683840}
+  - component: {fileID: 6398642084213908135}
   m_Layer: 10
   m_Name: player
   m_TagString: Untagged
@@ -189,10 +190,27 @@ MonoBehaviour:
     type: 2}
   rb2d: {fileID: 0}
   animator: {fileID: 0}
+  audioController: {fileID: 0}
   currentInteractable: {fileID: 0}
   lookingDirection: 0
   throwingForce: {x: 5, y: 5}
   throwPoint: {fileID: 4705788987633123289}
+--- !u!114 &6398642084213908135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687238802475380595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34cca5dd62087974892a529596997360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.151
+  bounciness: 0.693
+  Hardnesh: 0.253
+  sound: {fileID: 0}
 --- !u!1 &4622873014445708733
 GameObject:
   m_ObjectHideFlags: 0

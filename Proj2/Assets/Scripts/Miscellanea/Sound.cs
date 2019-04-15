@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 [CreateAssetMenu(fileName = "New Sound", menuName = "Sound")]
 public class Sound : ScriptableObject
 {
-    public AudioClip sound;
+    public AudioClip clip;
     public float volume;
     public AudioMixerGroup audioMixerGroup;
     float pitchRandomization;
