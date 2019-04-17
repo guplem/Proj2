@@ -124,6 +124,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86bcb302dbfd2d4682cbebb1b3dcb34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &136935211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 48236622705299632, guid: 2d1d5ed43efeb7241a595825e55af723,
+    type: 3}
+  m_PrefabInstance: {fileID: 48236623012939887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &136935212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136935211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34cca5dd62087974892a529596997360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialPhysics: {fileID: 0}
+  sound: {fileID: 0}
+  minVelocityAtCollisionForMaxSoundVolume: 0
+--- !u!114 &136935213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136935211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bda7bbd0e77294a87ac8a38fae58b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAudioSourcesQty: 0
+  playMaterialSoundAtCollision: 0
 --- !u!1001 &293159322
 PrefabInstance:
   m_ObjectHideFlags: 0

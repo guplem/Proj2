@@ -7,18 +7,26 @@ using UnityEngine;
 public class MaterialWithSound : MonoBehaviour
 {
 
-    [SerializeField] private MaterialPhysics materialPhysics;
-    [SerializeField] private Sound sound;
+    [SerializeField] public MaterialPhysics materialPhysics;
+    [SerializeField] public Sound sound;
+    [SerializeField] public float minVelocityAtCollisionForMaxSoundVolume;
 
     private void Awake()
     {
-        PhysicsMaterial2D mat = new PhysicsMaterial2D();
-        mat.friction = materialPhysics.friction;
-        mat.bounciness = materialPhysics.bounciness;
+        PhysicsMaterial2D pMat = new PhysicsMaterial2D();
+        pMat.friction = materialPhysics.friction;
+        pMat.bounciness = materialPhysics.bounciness;
 
         foreach (Collider2D collider in gameObject.GetComponents<Collider2D>())
         {
-            collider.sharedMaterial = mat;
+            collider.sharedMaterial = pMat;
         }
+    }
+
+    public MaterialWithSound()
+    {
+        this.materialPhysics = new MaterialPhysics();
+        this.sound = null;
+        this.minVelocityAtCollisionForMaxSoundVolume = 2f;
     }
 }

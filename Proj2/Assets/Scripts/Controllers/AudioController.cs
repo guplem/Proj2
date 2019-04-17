@@ -5,64 +5,89 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
 
-    private List<AudioSource> audioSources;
-
-    [SerializeField] private int defaultAudioSources;
+    [SerializeField] private int defaultAudioSourcesQty = 0;
+    [SerializeField] private bool playMaterialSoundAtCollision;
+    [HideInInspector] private List<AudioSource> audioSources = new List<AudioSource>();
 
     private void Awake()
     {
-        this.audioSources = new List<AudioSource>();
+        foreach (AudioSource audioSource in GetComponents<AudioSource>())
+            audioSources.Add(audioSource);
 
-        for (int i = 0; i < defaultAudioSources; i++)
-        {
-            
-        }
+        for (int i = audioSources.Count; i < defaultAudioSourcesQty; i++)
+            AddAudioSource();
     }
     
 
     public void PlaySound(Sound sound, bool loop)
     {
-        //TODO: working with audioSource
+        if (sound == null)
+            return;
 
-        //TODO: Destroy audiosource at the end
+        ConfigureAudioSource(GetFreeAudioSource(), sound, loop).Play();
+    }
 
+    
+    public AudioSource GetFreeAudioSource()
+    {
         foreach (AudioSource audioSource in audioSources)
         {
             if (!audioSource.isPlaying)
             {
-                //Play sound
-                return;
+                return audioSource;
             }
         }
 
-        AddAudioSource().clip(sound)
+        return AddAudioSource();
     }
 
     private AudioSource AddAudioSource()
     {
         AudioSource newAudioSource = gameObject.AddComponent<AudioSource>();
+        newAudioSource.playOnAwake = false;
+
         audioSources.Add(newAudioSource);
+
+        Debug.LogWarning("An audio source have been added in runtime for the object '" + gameObject.name + "'", gameObject);
+
         return newAudioSource;
     }
 
-    private AudioSource ConfigureAudioSource(AudioSource auioSource, Sound sound)
+    private AudioSource ConfigureAudioSource(AudioSource audioSource, Sound sound, bool loop)
     {
-        auioSource.clip = sound.clip;
-        return auioSource;
+        audioSource.clip = sound.clip;
+        audioSource.volume = sound.volume;
+        audioSource.outputAudioMixerGroup = sound.audioMixerGroup;
+        audioSource.pitch = sound.randomizedPitch;
+
+        audioSource.loop = loop;
+
+        return audioSource;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Play the sound depending on this object's material and the collison's object's material
 
-        /*
-             1. See if the collisioned object has a MaterialWithSound
-                1.a (true) 
-                    - Play this gameobject's sound at collisioned.hardness*volume of the sound
-                    - Play the collisioned gameobject sound at this.hardness*volume of the sound
-                1.b (false) 
-                    - Play this gameobject's sound at 100% volume of the sound
-         */
+        if (playMaterialSoundAtCollision)
+        {
+            MaterialWithSound mat = GetComponent<MaterialWithSound>();
+            if (mat != null)
+            {
+                if (mat.sound != null)
+                {
+                    MaterialWithSound colMat = collision.gameObject.GetComponent<MaterialWithSound>();
+                    if (colMat == null)
+                    { 
+                        colMat = new MaterialWithSound();
+                    }
+
+                    PlaySound(Sound.GetSoundOfColision(mat, colMat, collision.relativeVelocity.magnitude), false);
+                    PlaySound(Sound.GetSoundOfColision(colMat, mat, collision.relativeVelocity.magnitude), false);
+                }
+            }
+        }
+
     }
+
 
 }
