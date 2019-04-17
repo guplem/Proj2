@@ -25,8 +25,14 @@ public class Sound : ScriptableObject, ICloneable
 
     public float randomizedPitch { get => Mathf.Clamp(pitch + UnityEngine.Random.Range(-pitchRandomization, -pitchRandomization), 0, 1); set { } }
 
-
-
+    public Sound()
+    {
+        this.clip = null;
+        this.audioMixerGroup = null;
+        this.volume = 1;
+        this.pitch = 0.5f;
+        this.pitchRandomization = 0.2f;
+    }
 
     public Sound(AudioClip clip, float volume, AudioMixerGroup audioMixerGroup, float pitch, float pitchRandomization)
     {

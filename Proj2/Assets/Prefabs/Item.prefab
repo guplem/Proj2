@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 48236622705299596}
   - component: {fileID: 48236622705299597}
   - component: {fileID: 48236622705299598}
-  - component: {fileID: 48236622705299599}
   - component: {fileID: 48236622705299594}
+  - component: {fileID: 48236622705299599}
   - component: {fileID: 600638328739050797}
+  - component: {fileID: 8324473268950946671}
+  - component: {fileID: 8024989292537650061}
   m_Layer: 9
   m_Name: Item
   m_TagString: Untagged
@@ -131,22 +133,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &48236622705299599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48236622705299632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5f2bf00dc0c97543be8f994c64714f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultState: 0
-  singleActivation: 0
-  alreadyActivated: 0
-  rb2d: {fileID: 0}
 --- !u!58 &48236622705299594
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -163,6 +149,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5.45
+--- !u!114 &48236622705299599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48236622705299632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f2bf00dc0c97543be8f994c64714f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultState: 0
+  singleActivation: 0
+  alreadyActivated: 0
+  rb2d: {fileID: 0}
 --- !u!114 &600638328739050797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,9 +177,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f099d4fcc3840d5409edfedc11b584fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singleInteraction: 0
-  alreadyInteracted: 0
+  interactType: 0
   interactAutomatically: 0
+  singleInteraction: 0
+  alreadyStartedInteraction: 0
+  alreadyEndedInteraction: 0
+  initialVisuals: {fileID: 0}
+  interactingVisuals: {fileID: 0}
   connectedActivables:
   - {fileID: 48236622705299599}
-  interactType: 0
+--- !u!114 &8324473268950946671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48236622705299632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bda7bbd0e77294a87ac8a38fae58b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAudioSourcesQty: 0
+  playMaterialSoundAtCollision: 1
+--- !u!114 &8024989292537650061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48236622705299632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34cca5dd62087974892a529596997360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialPhysics: {fileID: 11400000, guid: 3a112dee1d4dd4a4283a668d19b4cb97, type: 2}
+  sound: {fileID: 11400000, guid: 707baf420be87ee4596d15ca5dd5ce38, type: 2}
+  minVelocityAtCollisionForMaxSoundVolume: 1

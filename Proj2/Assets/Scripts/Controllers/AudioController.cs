@@ -6,7 +6,7 @@ public class AudioController : MonoBehaviour
 {
 
     [SerializeField] private int defaultAudioSourcesQty = 0;
-    [SerializeField] private bool playMaterialSoundAtCollision;
+    [SerializeField] private bool playMaterialSoundAtCollision = true;
     [HideInInspector] private List<AudioSource> audioSources = new List<AudioSource>();
 
     private void Awake()
@@ -78,7 +78,8 @@ public class AudioController : MonoBehaviour
                     MaterialWithSound colMat = collision.gameObject.GetComponent<MaterialWithSound>();
                     if (colMat == null)
                     { 
-                        colMat = new MaterialWithSound();
+                        colMat = collision.gameObject.AddComponent<MaterialWithSound>().SetDefaultValues();
+                        Debug.LogWarning("'" + collision.gameObject.name + "' does not have a MaterialWithSound attatched. Attatching it dinamically");
                     }
 
                     PlaySound(Sound.GetSoundOfColision(mat, colMat, collision.relativeVelocity.magnitude), false);

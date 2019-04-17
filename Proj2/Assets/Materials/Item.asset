@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 144c603ac537393468758cdaf85c90d6, type: 3}
-  m_Name: New Sound
+  m_Script: {fileID: 11500000, guid: 6b996db4b0b200e49a3fc494fe853925, type: 3}
+  m_Name: Item
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 1c96d7ead1a41e746a6f1a6a6b9ee272, type: 3}
-  audioMixerGroup: {fileID: 0}
-  volume: 0
-  pitch: 0
-  pitchRandomization: 0
+  friction: 0.5
+  bounciness: 0.25
+  hardnesh: 1
+  size: 0.5
