@@ -13,6 +13,9 @@ public class MaterialWithSound : MonoBehaviour
 
     private void Awake()
     {
+        if (materialPhysics == null)
+            SetDefaultValues();
+
         PhysicsMaterial2D pMat = new PhysicsMaterial2D();
         pMat.friction = materialPhysics.friction;
         pMat.bounciness = materialPhysics.bounciness;

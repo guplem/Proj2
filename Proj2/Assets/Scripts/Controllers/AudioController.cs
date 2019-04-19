@@ -77,8 +77,8 @@ public class AudioController : MonoBehaviour
                 {
                     MaterialWithSound colMat = collision.gameObject.GetComponent<MaterialWithSound>();
                     if (colMat == null)
-                    { 
-                        colMat = collision.gameObject.AddComponent<MaterialWithSound>().SetDefaultValues();
+                    {
+                        colMat = collision.gameObject.AddComponent<MaterialWithSound>(); //.SetDefaultValues();
                         Debug.LogWarning("'" + collision.gameObject.name + "' does not have a MaterialWithSound attatched. Attatching it dinamically");
                     }
 
