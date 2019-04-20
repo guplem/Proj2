@@ -34,18 +34,26 @@ public class Sound : ScriptableObject, ICloneable
         this.pitchRandomization = 0.2f;
     }
 
-    public Sound(AudioClip clip, float volume, AudioMixerGroup audioMixerGroup, float pitch, float pitchRandomization)
+    /*public Sound(AudioClip clip, float volume, AudioMixerGroup audioMixerGroup, float pitch, float pitchRandomization)
     {
         this.clip = clip;
         this.volume = volume;
         this.audioMixerGroup = audioMixerGroup;
         this.pitch = pitch;
         this.pitchRandomization = pitchRandomization;
-    }
+    }*/
 
     public object Clone()
     {
-        return new Sound(this.clip, this.volume, this.audioMixerGroup, this.pitch, this.pitchRandomization);
+        Sound newSound = ScriptableObject.CreateInstance<Sound>();
+
+        newSound.clip = this.clip;
+        newSound.volume = this.volume;
+        newSound.audioMixerGroup = this.audioMixerGroup;
+        newSound.pitch = this.pitch;
+        newSound.pitchRandomization = this.pitchRandomization;
+
+        return newSound;
     }
 
     public static Sound GetSoundOfColision(MaterialWithSound originMat, MaterialWithSound colMat, float relativeVelocity)
@@ -55,7 +63,6 @@ public class Sound : ScriptableObject, ICloneable
 
         //Construct the new sound
         Sound sound = (Sound)originMat.sound.Clone();
-
 
 
         //Modify the sound to get the proper sound from the collision

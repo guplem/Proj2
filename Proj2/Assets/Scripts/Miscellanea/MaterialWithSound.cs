@@ -28,7 +28,7 @@ public class MaterialWithSound : MonoBehaviour
 
     public MaterialWithSound SetDefaultValues()
     {
-        this.materialPhysics = new MaterialPhysics();
+        this.materialPhysics = ScriptableObject.CreateInstance<MaterialPhysics>(); //new MaterialPhysics();
         this.sound = null;
         this.minVelocityAtCollisionForMaxSoundVolume = 2f;
 

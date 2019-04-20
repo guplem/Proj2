@@ -18,7 +18,7 @@ public class MaterialPhysics : ScriptableObject
     [Tooltip("Used to generate sound effects")]
     [SerializeField] public float size;
 
-    public MaterialPhysics ()
+    public MaterialPhysics()
     {
         this.friction = 0.5f;
         this.bounciness = 0.25f;
