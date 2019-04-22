@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 144c603ac537393468758cdaf85c90d6, type: 3}
-  m_Name: Item
+  m_Name: FleshImpact
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 1c96d7ead1a41e746a6f1a6a6b9ee272, type: 3}
+  clip: {fileID: 8300000, guid: 974637b0f2e05654088a66fbd758d63d, type: 3}
   audioMixerGroup: {fileID: 0}
   volume: 1
   pitch: 0.5

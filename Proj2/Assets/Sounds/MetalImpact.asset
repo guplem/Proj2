@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b996db4b0b200e49a3fc494fe853925, type: 3}
-  m_Name: Item
+  m_Script: {fileID: 11500000, guid: 144c603ac537393468758cdaf85c90d6, type: 3}
+  m_Name: MetalImpact
   m_EditorClassIdentifier: 
-  friction: 0.5
-  bounciness: 0.25
-  hardnesh: 1
-  size: 0.5
+  clip: {fileID: 8300000, guid: 0fc87b089ef4d534eb127b382557933c, type: 3}
+  audioMixerGroup: {fileID: 0}
+  volume: 1
+  pitch: 0.5
+  pitchRandomization: 0.2
