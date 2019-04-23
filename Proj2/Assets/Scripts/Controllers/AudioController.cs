@@ -5,12 +5,15 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
 
-    [SerializeField] private int defaultAudioSourcesQty = 0;
-    [SerializeField] private bool playMaterialSoundAtCollision = true;
-    [HideInInspector] private List<AudioSource> audioSources = new List<AudioSource>();
+    [SerializeField] private int defaultAudioSourcesQty;
+    [SerializeField] private bool playSoundsAtColision; //WHY IS TRUE??? Is false in the inspector...
+    [HideInInspector] private List<AudioSource> audioSources;
 
     private void Awake()
     {
+        //playSoundsAtColision = false;
+        audioSources = new List<AudioSource>();
+
         foreach (AudioSource audioSource in GetComponents<AudioSource>())
             audioSources.Add(audioSource);
 
@@ -48,7 +51,21 @@ public class AudioController : MonoBehaviour
 
         audioSources.Add(newAudioSource);
 
-        Debug.LogWarning("An audio source have been added in runtime for the object '" + gameObject.name + "'", gameObject);
+        //Fdilter debug messages
+        if (defaultAudioSourcesQty+5 == audioSources.Count)
+        {
+            Debug.LogWarning("More than 5 audio sources have been added in RUNTIME for the object '" + gameObject.name + "'. Maybe more AudioSources should be created by default during the scene's loading.", gameObject);
+        }
+        if (defaultAudioSourcesQty + 10 == audioSources.Count)
+        {
+            Debug.LogWarning("More than 10 audio sources have been added in RUNTIME for the object '" + gameObject.name + "'. Maybe more AudioSources should be created by default during the scene's loading.", gameObject);
+        }
+        else if (defaultAudioSourcesQty == 0 && audioSources.Count == 1)
+        {
+            Debug.LogWarning("An audio source have been added in RUNTIME for the object '" + gameObject.name + "' while it has been configured to do not have any by default.  Maybe some AudioSources should be created by default during the scene's loading.", gameObject);
+        }
+        //Debug.LogWarning("An audio source have been added in runtime for the object '" + gameObject.name + "'", gameObject);
+
 
         return newAudioSource;
     }
@@ -68,8 +85,9 @@ public class AudioController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (playMaterialSoundAtCollision)
+        if (this.playSoundsAtColision)
         {
+            Debug.Log("playSoundsAtColision = " + this.playSoundsAtColision + " by: " + gameObject.name, gameObject);
             MaterialWithSound mat = GetComponent<MaterialWithSound>();
             if (mat != null)
             {

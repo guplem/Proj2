@@ -50,7 +50,11 @@ public class Interactable : MonoBehaviour
     {
         if (RegisterAndAskForStartInteraction())
         {
+            // DEBUG Interactions
+            /*
             Debug.Log("'" + interactingCharacter.gameObject.name + "' is interacting with '" + gameObject.name + "'", gameObject);
+            */
+
             SwitchAllActivables(interactingCharacter);
         }
     }

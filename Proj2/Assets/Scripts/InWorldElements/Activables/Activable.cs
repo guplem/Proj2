@@ -24,8 +24,11 @@ public abstract class Activable : MonoBehaviour
     {
         if (RegisterAndAskForActivation())
         {
+            // DEBUG activations
+            /*
             if (characterActivating != null)
                 Debug.Log("'" + characterActivating.gameObject.name + "' is activating (switching state of) '" + gameObject.name + "'", gameObject );
+            */
 
             currentState = !currentState;
             SetState(currentState, characterActivating);

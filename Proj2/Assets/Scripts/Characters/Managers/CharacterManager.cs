@@ -104,10 +104,13 @@ public abstract class CharacterManager : MonoBehaviour
         if (state != null)
             state.OnExit();
 
+        //DEBUG state's change
+        /*
         if (state != null)
             Debug.Log("Exited state '" + state + "' on '" + gameObject.name +  (newState!= null?  "' to enter '" + newState + "'."  :  "'."  )  );
         else
             Debug.Log("'" + gameObject.name + "' entering state '" + newState + "'.");
+        */
 
         state = newState;
     } 
