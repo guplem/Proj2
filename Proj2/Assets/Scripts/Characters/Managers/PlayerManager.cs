@@ -13,14 +13,14 @@ public class PlayerManager : CharacterManager
 
     private void Start()
     {
-        base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new WalkingState(this), this), new AudioManager(gameObject) );
+        base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new WalkingState(this), this) );
 
         //Particular of the player
         inventory = new InventoryController(this);
         chasedBy = new List<CharacterManager>();
     }
 
-    public new void Update()
+    private new void Update()
     {
         base.Update();
 
@@ -34,7 +34,7 @@ public class PlayerManager : CharacterManager
         }
     }
 
-    public new void FixedUpdate()
+    private new void FixedUpdate()
     {
         base.FixedUpdate();
     }

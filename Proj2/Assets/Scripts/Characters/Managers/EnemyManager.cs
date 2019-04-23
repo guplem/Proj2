@@ -12,7 +12,7 @@ public class EnemyManager : ChasingEnemy
     private void Start()
     {
         BehaviourTree bt = new PatrolEnemyBehaviourTree(new WalkingState(this), this);
-        base.Setup(new CharacterMovementController(this), new EnemyPatrolBrain(this), bt, new AudioManager(gameObject));
+        base.Setup(new CharacterMovementController(this), new EnemyPatrolBrain(this), bt);
     }
 
     public new void Update()

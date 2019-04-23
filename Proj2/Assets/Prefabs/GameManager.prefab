@@ -64,3 +64,4 @@ MonoBehaviour:
   walkableLayers:
     serializedVersion: 2
     m_Bits: 768
+  audioController: {fileID: 0}

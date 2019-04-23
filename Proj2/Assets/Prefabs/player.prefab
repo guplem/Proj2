@@ -189,6 +189,7 @@ MonoBehaviour:
     type: 2}
   rb2d: {fileID: 0}
   animator: {fileID: 0}
+  audioController: {fileID: 0}
   currentInteractable: {fileID: 0}
   lookingDirection: 0
   throwingForce: {x: 5, y: 5}
