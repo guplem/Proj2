@@ -20,7 +20,7 @@ public class PlayerManager : CharacterManager
         chasedBy = new List<CharacterManager>();
     }
 
-    public new void Update()
+    private new void Update()
     {
         base.Update();
 
@@ -34,7 +34,7 @@ public class PlayerManager : CharacterManager
         }
     }
 
-    public new void FixedUpdate()
+    private new void FixedUpdate()
     {
         base.FixedUpdate();
     }

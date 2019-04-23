@@ -10,7 +10,11 @@ public class MaterialWithSound : MonoBehaviour
 
     [SerializeField] public MaterialPhysics materialPhysics;
     [SerializeField] public Sound sound;
-    [SerializeField] public float minVelocityAtCollisionForMaxSoundVolume;
+    [Tooltip("Used to generate sound effects")]
+    [SerializeField] public float minVelocityAtCollisionForMaxSoundVolume = 10;
+    [Range(0f, 1f)]
+    [Tooltip("Used to generate sound effects")]
+    [SerializeField] public float objectSize = 0.5f;
 
     private void Awake()
     {

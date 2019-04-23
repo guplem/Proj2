@@ -1,13 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
+#pragma warning disable CS0649
 public class AudioController : MonoBehaviour
 {
-
     [SerializeField] private int defaultAudioSourcesQty;
-    [SerializeField] private bool playSoundsAtColision; //WHY IS TRUE??? Is false in the inspector...
+    [SerializeField] private bool playSoundsAtColision;
     [HideInInspector] private List<AudioSource> audioSources;
 
     private void Awake()
@@ -23,16 +24,29 @@ public class AudioController : MonoBehaviour
     }
     
 
-    public void PlaySound(Sound sound, bool loop)
+    public void PlaySound(Sound sound, bool loop, bool sendAlert)
     {
         if (sound == null)
             return;
-
+        
         ConfigureAudioSource(GetFreeAudioSource(), sound, loop).Play();
+
+        if (sendAlert)
+            SendAlertsBySound(sound);
     }
 
     
-    public AudioSource GetFreeAudioSource()
+    private void SendAlertsBySound(Sound sound)
+    {
+        float radiusAtMaxVolume = 10;
+        float radiusOfAlert = sound.volume * radiusAtMaxVolume;
+
+        Alertable.AlertAllInRadius(transform.position, radiusOfAlert);
+    }
+
+
+
+    private AudioSource GetFreeAudioSource()
     {
         foreach (AudioSource audioSource in audioSources)
         {
@@ -88,7 +102,6 @@ public class AudioController : MonoBehaviour
 
         if (this.playSoundsAtColision)
         {
-            Debug.Log("playSoundsAtColision = " + this.playSoundsAtColision + " by: " + gameObject.name, gameObject);
             MaterialWithSound mat = GetComponent<MaterialWithSound>();
             if (mat != null)
             {
@@ -101,8 +114,8 @@ public class AudioController : MonoBehaviour
                         Debug.LogWarning("'" + collision.gameObject.name + "' does not have a MaterialWithSound attatched. Attatching it dinamically");
                     }
 
-                    PlaySound(Sound.GetSoundOfColision(mat, colMat, collision.relativeVelocity.magnitude), false);
-                    PlaySound(Sound.GetSoundOfColision(colMat, mat, collision.relativeVelocity.magnitude), false);
+                    PlaySound(Sound.GetSoundOfColision(mat, colMat, collision.relativeVelocity.magnitude), false, true);
+                    PlaySound(Sound.GetSoundOfColision(colMat, mat, collision.relativeVelocity.magnitude), false, true);
                 }
             }
         }

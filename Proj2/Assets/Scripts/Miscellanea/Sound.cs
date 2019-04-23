@@ -67,11 +67,11 @@ public class Sound : ScriptableObject, ICloneable
 
         //Modify the sound to get the proper sound from the collision
 
-        sound.pitch = 1 - originMat.materialPhysics.size; //As bigger the object, lower is the pitch
+        sound.pitch = 1 - originMat.objectSize; //As bigger the object, lower is the pitch
+
 
         float volumeByCollision = (relativeVelocity * sound.volume) / originMat.minVelocityAtCollisionForMaxSoundVolume; //The faster the collision, louder is the sound
         sound.volume = volumeByCollision * colMat.materialPhysics.hardnesh; //The harder the collided object, louder is the sound
-
 
 
         return sound;
