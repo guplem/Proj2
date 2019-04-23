@@ -4,6 +4,7 @@ using UnityEngine;
 
 #pragma warning disable CS0649
 [RequireComponent(typeof(Collider2D))]
+[DisallowMultipleComponent]
 public class MaterialWithSound : MonoBehaviour
 {
 

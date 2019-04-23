@@ -951,10 +951,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 136935213, guid: 2d1d5ed43efeb7241a595825e55af723, type: 3}
-      propertyPath: defaultAudioSourcesQty
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d1d5ed43efeb7241a595825e55af723, type: 3}
 --- !u!1001 &959301652415136189
