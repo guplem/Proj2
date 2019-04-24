@@ -28,13 +28,6 @@ public class GUIManager : MonoBehaviour
         backgroundVignetteImg = backgroundVignette.GetComponent<Image>();
     }
 
-    public void QuitPauseMenu()
-    {
-        //TODO
-        Debug.Log("Clicked resume game button");
-        pausePanel.SetActive(false);
-    }
-
     public void PauseMenu(bool show)
     {
         pausePanel.SetActive(show);
