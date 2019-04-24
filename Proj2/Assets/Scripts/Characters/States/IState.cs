@@ -7,4 +7,5 @@ public interface IState
     CharacterManager characterManager { get; set; }
     void Tick(float deltaTime);
     void FixedTick(float fixedDeltaTime);
+    void OnExit();
 }

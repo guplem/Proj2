@@ -12,33 +12,87 @@ public class PlayerChillBehaviourTree : BehaviourTree
         this.character = characterManager;
     }
 
-    public override void SetNextState(bool forceExitState)
+    public override void CalculateAndSetNextState(bool forceExitState)
     {
 
         if (forceExitState)
             ForceExitState(character);
 
-        //base.CheckTransition(forceExitState);
+
+
+        // Walking state transitions
         if (character.state is WalkingState)
         {
+            // Trigger to enter jumping
             if (character.brain.jumping)
             {
-                //Check transitions
                 character.SetState( new JumpingState(character) );
+                return;
             }
-            //ToDo - Run?
-        }
-        if (!(character.state is JumpingState))
-        {
-            // Added the check on the interactablesLayer, allows the player to walk on interactable physics objects.
-            if (Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.groundLayer + GameManager.Instance.interactablesLayer))
+
+            // Trigger to enter crouched
+            else if (character.brain.crouch)
             {
-                character.SetState( new WalkingState(character) );
+                character.SetState(new CrouchedState(character) );
+                return;
+            }
+
+            // Force exit state
+            else if (! Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
+            {
+                CalculateAndSetNextState(true);
+                return;
+            }
+        }
+
+
+
+        // CrouchedState state transitions
+        else if (character.state is CrouchedState)
+        {
+            // Force exit state
+            if (!character.brain.crouch)
+            {
+                CalculateAndSetNextState(true);
+                return;
+            }
+
+            // Force exit state
+            else if (!Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
+            {
+                CalculateAndSetNextState(true);
+                return;
+            }
+        }
+
+
+
+        // OnAirState state transitions
+        else if (character.state is OnAirState)
+        {
+            // Force exit state
+            if (Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
+            {
+                CalculateAndSetNextState(true);
+                return;
+            }
+        }
+
+
+
+
+        // Default state transitions (if there is no state)
+        if (character.state == null)
+        {
+            if (Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
+            {
+                character.SetState(new WalkingState(character));
+                return;
             }
             else
             {
-                if (!(character.state is OnAirState))
-                    character.SetState( new OnAirState(character) );
+                character.SetState(new OnAirState(character));
+                return;
             }
         }
 

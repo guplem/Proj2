@@ -3,40 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CharacterManager : MonoBehaviour, ICharacterManager
+[DisallowMultipleComponent]
+public abstract class CharacterManager : MonoBehaviour
 {
     [SerializeField] public Collider2D groundCollider;
     //[SerializeField] public Collider2D topCollider;
-    [SerializeField] public Collider2D lateralCollider;
+    //[SerializeField] public Collider2D lateralCollider;
     [SerializeField] public Collider2D standingCollider;
     [SerializeField] public Collider2D crouchCollider;
+    //[SerializeField] public Collider2D interactionsCollider;
 
     [SerializeField] public CharacterProperties characterProperties;
 
-    public IMovementController movementController { get; set; }
-    public IBrain brain { get; set; }
+    public MovementController movementController;
+    public Brain brain;
 
-    public IBehaviourTree defaultBehaviourTree { get; set; }
-    public IBehaviourTree behaviourTree { get; set; }
+    public BehaviourTree defaultBehaviourTree;
+    public BehaviourTree behaviourTree;
 
-    [HideInInspector] public Rigidbody2D rb2d { get; set; }
-    [HideInInspector] public Animator animator { get; set; }
-    [HideInInspector] public AudioManager audioManager { get; set; }
+    [HideInInspector] public Rigidbody2D rb2d;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public AudioController audioController;
 
-    public IState state { get; set; }
+    [HideInInspector] protected Interactable currentInteractable;
+    [HideInInspector] protected int lookingDirection;
+    public IState state { get; private set; }
 
-    public Interactable currentInteractable { get; set; }
-
-    public int lookingDirection { get; set; }
-
-    //[HideInInspector] public GameObject currentInteractableGameObject { get; set; }
-
-
-    /*public Action<int> StartInteract;
-    public Action<int> EndInteract;*/
-
-
-    protected void Setup(IMovementController movementController, IBrain actionController, IBehaviourTree defaultBehaviourTree, AudioManager audioManager)
+    protected void Setup(MovementController movementController, Brain actionController, BehaviourTree defaultBehaviourTree)
     {
         this.movementController = movementController;
         this.brain = actionController;
@@ -46,7 +39,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        this.audioManager = audioManager;
+        audioController = GetComponent<AudioController>();
 
         this.state = this.behaviourTree.defaultState;
 
@@ -57,7 +50,7 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
     {
         brain.GetActions();
 
-        behaviourTree.SetNextState(false);
+        behaviourTree.CalculateAndSetNextState(false);
 
         state.Tick(Time.deltaTime);
     }
@@ -80,29 +73,57 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
 
     public void SetState(IState newState)
     {
-        if (newState != null && state != null)
+        // If only one of both is null or neither any of both is
+        if ((state == null ^ newState == null) || (state != null && newState != null))
         {
-            if (state.GetType() != newState.GetType())
+            try // To ensue that a null state gives no problems. If one of both is null an exception will be catched.
             {
-                state = newState;
+                // If both are the same state
+                if (state.GetType() == newState.GetType())
+                    return;
             }
-        }
-        else
-        {
-            state = newState;
+            catch (NullReferenceException) { }
+
+            // If one of both is null (jumped trugh carching exception)
+            // ...or...
+            // Old state is not null and neither is newState but both are different
+            ForceSetState(newState);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void ForceSetState(IState newState)
     {
-        if (brain.interact)
-            return;
+        if (state != null)
+            state.OnExit();
 
-        //currentInteractableGameObject = collision.gameObject;
-        Interactable collInteract = collision.GetComponent<Interactable>();
-        if (collInteract != null && collision.isTrigger)
+        //DEBUG state's change
+        /*
+        if (state != null)
+            Debug.Log("Exited state '" + state + "' on '" + gameObject.name +  (newState!= null?  "' to enter '" + newState + "'."  :  "'."  )  );
+        else
+            Debug.Log("'" + gameObject.name + "' entering state '" + newState + "'.");
+        */
+
+        state = newState;
+    } 
+
+    public void OnInterectableTriggerEnter(Collider2D collision)
+    {
+        // Is an interactable object
+        Interactable interactable = collision.GetComponent<Interactable>();
+        if (interactable != null && collision.isTrigger)
         {
-            currentInteractable = collInteract;
+            if (interactable.interactAutomatically)
+            {
+                interactable.StartInteract(this);
+                return;
+            }
+
+            //Currently not interacting with any object
+            if (!brain.interact)
+            {
+                currentInteractable = interactable;
+            }
         }
     }
 
@@ -118,19 +139,25 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         }
     }*/
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void OnInterectableTriggerExit(Collider2D collision)
     {
-        if (brain.interact)
-            return;
-
-        //currentInteractableGameObject = collision.gameObject;
-        Interactable collInteract = collision.GetComponent<Interactable>();
-        if (collInteract != null && collision.isTrigger)
+        // Is an interactable object
+        Interactable interactable = collision.GetComponent<Interactable>();
+        if (interactable != null && collision.isTrigger)
         {
-            if (currentInteractable == collInteract)
+
+            if (interactable.interactAutomatically)
             {
-                currentInteractable.OnEndInteract(this);
-                currentInteractable = null;
+                interactable.EndInteract(this);
+                return;
+            }
+
+            //Currently not interacting with any object
+            if (!brain.interact)
+            {
+                // If exiting the current interactable
+                if (currentInteractable == interactable)
+                    currentInteractable = null;
             }
         }
     }
@@ -141,11 +168,11 @@ public abstract class CharacterManager : MonoBehaviour, ICharacterManager
         {
             if (isInteractionStart)
             {
-                currentInteractable.OnStartInteract(this);
+                currentInteractable.StartInteract(this);
             }
             else
             {
-                currentInteractable.OnEndInteract(this);
+                currentInteractable.EndInteract(this);
             }
 
         }

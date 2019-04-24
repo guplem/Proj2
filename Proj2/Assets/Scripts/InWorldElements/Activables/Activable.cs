@@ -4,28 +4,38 @@ using UnityEngine;
 
 public abstract class Activable : MonoBehaviour
 {
-    [SerializeField] public bool singleActivation;
-    protected bool alreadyActivated;
 
     [SerializeField] public bool defaultState;
-    protected bool currentState;
+    public bool currentState { get; private set; }
 
+    [SerializeField] public bool singleActivation;
+    [HideInInspector] public bool alreadyActivated;
 
     private void Awake()
     {
-        ForceSetState(defaultState, null);
+        currentState = defaultState;
+
+        SetState(currentState, null);
+
         alreadyActivated = false;
     }
 
-    public void SetState(bool state, CharacterManager characterActivating)
+    public void SwitchState(CharacterManager characterActivating)
     {
         if (RegisterAndAskForActivation())
         {
-            ForceSetState(state, characterActivating);
+            // DEBUG activations
+            /*
+            if (characterActivating != null)
+                Debug.Log("'" + characterActivating.gameObject.name + "' is activating (switching state of) '" + gameObject.name + "'", gameObject );
+            */
+
+            currentState = !currentState;
+            SetState(currentState, characterActivating);
         }
     }
 
-    protected abstract void ForceSetState(bool state, CharacterManager characterActivating);
+    protected abstract void SetState(bool state, CharacterManager characterActivating);
 
     //Returns true if the action can be done and registers the action
     private bool RegisterAndAskForActivation()

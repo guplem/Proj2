@@ -21,4 +21,8 @@ public class OnAirState : IState
         characterManager.movementController.MoveTowards(new Vector2(characterManager.brain.direction.x, 0), new Vector2(characterManager.characterProperties.acceleration.x * 0.5f, characterManager.characterProperties.acceleration.y * 0.5f), characterManager.characterProperties.maxOnAirVelocity);
     }
 
+    public void OnExit()
+    {
+        
+    }
 }

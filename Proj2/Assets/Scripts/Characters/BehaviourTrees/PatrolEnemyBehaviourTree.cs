@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PatrolEnemyBehaviourTree : BehaviourTree
 {
-    public EnemyManager character;
+    public PatrolEnemyManager character;
 
-    public PatrolEnemyBehaviourTree(IState defaultState, EnemyManager characterManager)
+    public PatrolEnemyBehaviourTree(IState defaultState, PatrolEnemyManager characterManager)
     {
         base.Setup(defaultState);
         this.character = characterManager;
     }
 
-    public override void SetNextState(bool forceExitState)
+    public override void CalculateAndSetNextState(bool forceExitState)
     {
         if (forceExitState)
             ForceExitState(character);

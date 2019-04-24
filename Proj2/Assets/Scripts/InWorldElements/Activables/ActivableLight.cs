@@ -5,7 +5,7 @@ using UnityEngine;
 public class ActivableLight : Activable
 {
 
-    protected override void ForceSetState(bool state, CharacterManager characterActivating)
+    protected override void SetState(bool state, CharacterManager characterActivating)
     {
         if (state)
             GetComponent<SpriteRenderer>().color = Color.yellow;
