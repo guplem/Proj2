@@ -2,72 +2,90 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StressEmitter
+
+[RequireComponent(typeof(CircleCollider2D))]
+public class StressEmitter : MonoBehaviour
 {
 
+    /*[Header("Stress Config per Wave")]
+    public float stressAmount;
+    public float stressWaveDelay;*/
+
+    [Header("Stress config per second")]
+    public float stressAmountPerSecond;
+    [Range(0f, 1f)] public float stressPerSecondDelay;
+
+    [Header("Others")]
+    [SerializeField] private float radius;
+
     private Vector3 emittingPoint;
-    private float radius;
+    [SerializeField] private bool stressingOut;
 
-    public StressEmitter(Vector3 emittingPoint)
+    private IEnumerator coroutineHolder;
+
+    public void Start()
     {
-        this.emittingPoint = emittingPoint;
+        stressingOut = false;
+        //GameManager.Instance.playerManager.GetStressManager().AddStress(amount);
+
+        this.emittingPoint = gameObject.transform.position;
+        this.radius = GetComponent<CircleCollider2D>().radius;
     }
 
-    public void EmitStressBurst(int amount)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        StressManager[] temp = SearchForReceivers();
-        if (temp.Length < 1)
-            return;
-        foreach (StressManager stressManager in temp)
+        Debug.Log("Collided with " + collision.transform.ToString());
+        if (collision.GetComponent<PlayerManager>() != null)
         {
-            stressManager.AddStress(amount);
+            if (coroutineHolder != null)
+                StopCoroutine(coroutineHolder);
+            stressingOut = true;
+            coroutineHolder = AddStressOverTime(stressPerSecondDelay, stressAmountPerSecond);
+            StartCoroutine(coroutineHolder);
         }
-
     }
 
-    public void AddStressOverTime(float amount, float cooldown)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        StressManager[] temp = SearchForReceivers();
-        if (temp.Length < 1)
-            return;
-        GameManager.Instance.StartCoroutine(AddStressToTargetsOverTime(temp, amount, cooldown));
-
-    }
-
-    public StressManager[] SearchForReceivers()
-    {
-        StressManager[] stressManagerArray;
-
-        Collider2D[] colArray = Physics2D.OverlapCircleAll(emittingPoint, radius, GameManager.Instance.playerLayer);
-
-        if (colArray.Length < 1)
-            return null;
-
-        stressManagerArray = new StressManager[colArray.Length];
-
-        for (int i = 0; i < colArray.Length - 1; i++)
+        if (collision.GetComponent<PlayerManager>() != null)
         {
-            try
-            {
-                stressManagerArray[i] = colArray[i].GetComponent<PlayerManager>().GetStressManager();
-            }
-            catch
-            {
-                Debug.Log("Doesn't have StressManager");
-            }
+            stressingOut = false;
+            if (coroutineHolder != null)
+                StopCoroutine(coroutineHolder);
+            coroutineHolder = null;
         }
-        return stressManagerArray;
     }
 
-    IEnumerator AddStressToTargetsOverTime(StressManager[] targets, float amount, float duration)
+    private void OnDrawGizmos()
     {
-        float amountPerSecond = amount / duration;
-        foreach (StressManager target in targets)
+        this.emittingPoint = gameObject.transform.position;
+
+        Gizmos.DrawWireSphere(emittingPoint, radius);
+    }
+
+    public static void AddStress(float amount)
+    {
+        GameManager.Instance.playerManager.GetStressManager().AddStress(amount);
+    }
+
+    /*private IEnumerator EmitStressWave(float delay)
+    {
+        while (stressingOut)
         {
-            target.AddStress(amountPerSecond);
-
+            Debug.Log("Emitting Stress 2.0");
+            AddStress(stressAmount);
+            yield return new WaitForSeconds(delay);
         }
-        yield return new WaitForSeconds(duration * Time.deltaTime);
+    }*/
 
+    private IEnumerator AddStressOverTime(float delayBetweenStress, float amountPerSecond)
+    {
+        while (stressingOut)
+        {
+            yield return new WaitForSeconds(delayBetweenStress);
+            Debug.Log("Getting Scared!");
+            float amount = amountPerSecond * delayBetweenStress;
+            AddStress(amount);
+        }
     }
 }

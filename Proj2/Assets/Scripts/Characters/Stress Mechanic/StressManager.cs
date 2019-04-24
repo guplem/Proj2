@@ -17,6 +17,7 @@ public class StressManager
     public bool AddStress(float amount)
     {
         currentStress += amount;
+        Debug.Log(currentStress);
         if (currentStress >= stressThreshold)
             SomethingHappens();
         return true;
@@ -25,6 +26,6 @@ public class StressManager
     public void SomethingHappens()
     {
         //TODO idea is to make the player random movements, thingys or fuck-ups.
-
+        //playerManager.behaviourTree.SetStressed();
     }
 }
