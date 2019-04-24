@@ -3,14 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public abstract class CharacterManager : MonoBehaviour
 {
     [SerializeField] public Collider2D groundCollider;
     //[SerializeField] public Collider2D topCollider;
-    [SerializeField] public Collider2D lateralCollider;
+    //[SerializeField] public Collider2D lateralCollider;
     [SerializeField] public Collider2D standingCollider;
     [SerializeField] public Collider2D crouchCollider;
-    [SerializeField] public Collider2D interactionsCollider;
+    //[SerializeField] public Collider2D interactionsCollider;
 
     [SerializeField] public CharacterProperties characterProperties;
 
@@ -24,18 +25,9 @@ public abstract class CharacterManager : MonoBehaviour
     [HideInInspector] public Animator animator;
     [HideInInspector] public AudioController audioController;
 
+    [HideInInspector] protected Interactable currentInteractable;
+    [HideInInspector] protected int lookingDirection;
     public IState state { get; private set; }
-
-    public Interactable currentInteractable;
-
-    public int lookingDirection;
-
-    //[HideInInspector] public GameObject currentInteractableGameObject { get; set; }
-
-
-    /*public Action<int> StartInteract;
-    public Action<int> EndInteract;*/
-
 
     protected void Setup(MovementController movementController, Brain actionController, BehaviourTree defaultBehaviourTree)
     {

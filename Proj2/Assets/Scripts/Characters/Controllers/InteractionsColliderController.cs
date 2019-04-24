@@ -4,7 +4,7 @@ using UnityEngine;
 
 #pragma warning disable CS0649
 [RequireComponent(typeof(Collider2D))]
-public class InteractionsCollider : MonoBehaviour
+public class InteractionsColliderController : MonoBehaviour
 {
 
     [SerializeField] private CharacterManager characterManager;

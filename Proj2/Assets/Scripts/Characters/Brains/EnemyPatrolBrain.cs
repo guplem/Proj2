@@ -6,9 +6,9 @@ using UnityEngine;
 public class EnemyPatrolBrain : Brain
 {
 
-    public EnemyManager enemyManager;
+    public PatrolEnemyManager enemyManager;
 
-    public EnemyPatrolBrain(EnemyManager characterManager)
+    public EnemyPatrolBrain(PatrolEnemyManager characterManager)
     {
         this.characterManager = characterManager;
         this.enemyManager = characterManager;

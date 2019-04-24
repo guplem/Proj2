@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PatrolEnemyBehaviourTree : BehaviourTree
 {
-    public EnemyManager character;
+    public PatrolEnemyManager character;
 
-    public PatrolEnemyBehaviourTree(IState defaultState, EnemyManager characterManager)
+    public PatrolEnemyBehaviourTree(IState defaultState, PatrolEnemyManager characterManager)
     {
         base.Setup(defaultState);
         this.character = characterManager;
