@@ -11,7 +11,8 @@ public class StressEmitter : MonoBehaviour
     public float stressAmount;
     public float stressWaveDelay;*/
 
-    [Header("Stress config per second")]
+    [Header("Stress Config")]
+    public bool emitStress;
     public float stressAmountPerSecond;
     [Range(0f, 1f)] public float stressPerSecondDelay;
 
@@ -34,8 +35,8 @@ public class StressEmitter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collided with " + collision.transform.ToString());
-        if (collision.GetComponent<PlayerManager>() != null)
+        //Debug.Log("Collided with " + collision.transform.ToString());
+        if (collision.GetComponent<PlayerManager>() != null && emitStress)
         {
             if (coroutineHolder != null)
                 StopCoroutine(coroutineHolder);
