@@ -7,11 +7,12 @@ using UnityEngine;
 public class CheckPointObject : MonoBehaviour
 {
     [SerializeField] private int zone;
+    [SerializeField] private Transform spawnPoint;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerManager>() != null)
-            GameManager.Instance.CheckPointReached(new CheckPoint(zone, transform.position));
+            GameManager.Instance.CheckPointReached(new CheckPoint(zone, spawnPoint.position));
     }
 
 
