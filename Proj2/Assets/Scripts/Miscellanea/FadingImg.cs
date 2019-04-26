@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FadingImg : MonoBehaviour
 {
@@ -19,21 +20,32 @@ public class FadingImg : MonoBehaviour
 
     private int fadeDirection { get => fadeDirectionChecked; set { if (value == 1 || value == 0 || value == -1) fadeDirectionChecked = value; } }
     private int fadeDirectionChecked;
+
     private List<Image> imagesToFade = new List<Image>();
+    private List<TextMeshProUGUI> textsToFade = new List<TextMeshProUGUI>();
 
     private void Start()
     {
-        //imagesToFade = GetComponents<Image>().ToList();
-
-        foreach (Transform child in transform)
-        {
-            List<Image> imagesToAdd = GetComponents<Image>().ToList();
-
-            if (imagesToAdd.Count != 0)
-                imagesToFade.AddRange(imagesToAdd);
-        }
+        DetectAllFadeElementsIn(gameObject);
 
         UpdateConfiguration(fadeDirectionAtStart, fadeTimeAtStart);
+    }
+
+    private void DetectAllFadeElementsIn(GameObject gObject)
+    {
+        if (gObject == null)
+            return;
+
+        imagesToFade.AddRange(gObject.GetComponents<Image>().ToList());
+        textsToFade.AddRange(gObject.GetComponents<TextMeshProUGUI>().ToList());
+
+        foreach (Transform child in gObject.transform)
+        {
+            if (child == null)
+                continue;
+
+            DetectAllFadeElementsIn(child.gameObject);
+        }
     }
 
 
@@ -93,6 +105,11 @@ public class FadingImg : MonoBehaviour
         foreach (Image image in imagesToFade)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, opacity);
+        }
+
+        foreach (TextMeshProUGUI text in textsToFade)
+        {
+            text.color = new Color(text.color.r, text.color.g, text.color.b, opacity);
         }
 
     }
