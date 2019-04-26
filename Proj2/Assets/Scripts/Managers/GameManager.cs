@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public Action<int> ResetUntilLastCheckPoint;
 
+    public bool gamePaused { get; private set; }
+
     public static GameManager Instance;
     private void Awake()
     {
@@ -41,7 +43,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    internal void SetPause(bool state)
+    {
+        gamePaused = state;
+        Debug.Log("Set Pause " + state);
+        GUIManager.Instance.PausePanel.SetObjectActive(state);
+    }
+
+    internal void ExitGame()
+    {
+        Application.Quit();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -83,5 +95,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown("escape"))
+        {
+            SetPause(!gamePaused);
+        }
+    }
 
 }

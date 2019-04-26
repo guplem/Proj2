@@ -9,7 +9,7 @@ public class FadingImg : MonoBehaviour
 {
 
     [SerializeField] private AnimationCurve fade = AnimationCurve.EaseInOut(0, 0, 1, 1);
-    [SerializeField] private float fadeDuration = 1.5f;
+    [SerializeField] private float fadeTimeDuration = 1.5f;
     private float currentFadeTime = 0;
     [Range(-1, 1)]
     [SerializeField] private int fadeDirectionAtStart = 1;
@@ -33,11 +33,7 @@ public class FadingImg : MonoBehaviour
                 imagesToFade.AddRange(imagesToAdd);
         }
 
-        //imagesToFade.AddRange(GetComponents<Image>().ToList());
-
-        fadeDirection = fadeDirectionAtStart;
-        currentFadeTime = fadeTimeAtStart;
-        SetOpacityTo(GetCurrentOpacity());
+        UpdateConfiguration(fadeDirectionAtStart, fadeTimeAtStart);
     }
 
 
@@ -47,30 +43,26 @@ public class FadingImg : MonoBehaviour
         if (fadeDirection != 0)
         {
             currentFadeTime += Time.unscaledDeltaTime* fadeDirection;
+            currentFadeTime = Mathf.Clamp(currentFadeTime, 0, fadeTimeDuration);
 
             float newOpacity = GetCurrentOpacity();
-
             SetOpacityTo(newOpacity);
 
-            if (newOpacity == 0 || newOpacity == 1)
+            if (newOpacity <= 0 && fadeDirection == -1)
+            {
+                gameObject.SetActive(false);
+            }
+
+            if (currentFadeTime <= 0 || currentFadeTime >= fadeTimeDuration)
             {
                 fadeDirection = 0;
             }
-
-            if (newOpacity == 0)
-            {
-                SetObjectActive(false);
-            }
-        }
-        else
-        {
-            currentFadeTime = 0;
         }
     }
 
     private float GetCurrentOpacity()
     {
-        return fade.Evaluate(currentFadeTime / fadeDuration);
+        return fade.Evaluate(currentFadeTime / fadeTimeDuration);
     }
 
     public void SetObjectActive(bool enabled)
@@ -78,15 +70,22 @@ public class FadingImg : MonoBehaviour
         if (enabled)
         {
             gameObject.SetActive(true);
-            fadeDirection = 1;
+            UpdateConfiguration(1, currentFadeTime);
         }
         else
         {
-            fadeDirection = -1;
-            //Wil be disbled at the end of the fade
+            UpdateConfiguration(-1, currentFadeTime);
         }
 
-        gameObject.SetActive(enabled);
+        
+    }
+
+    private void UpdateConfiguration(int fadeDirection, float fadeTimestamp)
+    {
+        this.fadeDirection = fadeDirection;
+        this.currentFadeTime = fadeTimestamp;
+
+        SetOpacityTo(GetCurrentOpacity());
     }
 
     public void SetOpacityTo(float opacity)

@@ -30,14 +30,12 @@ public class GUIManager : MonoBehaviour
 
     public void ResumeGameButton()
     {
-        //TODO
-        Debug.Log("Clicked resume game button");
+        GameManager.Instance.SetPause(false);
     }
 
     public void ExitGameButton()
     {
-        //TODO
-        Debug.Log("Clicked exit game button");
+        GameManager.Instance.ExitGame();
     }
 
 }
