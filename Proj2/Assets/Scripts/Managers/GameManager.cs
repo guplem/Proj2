@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public Action<int> ResetUntilLastCheckPoint;
 
+    public bool gamePaused { get; private set; }
+
     public static GameManager Instance;
     private void Awake()
     {
@@ -41,7 +43,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    internal void SetPause(bool state)
+    {
+        gamePaused = state;
+        GUIManager.Instance.PausePanel.SetObjectActive(state);
+        GUIManager.Instance.ControlsPanel.SetObjectActive(state);
+    }
+
+    internal void ExitGame()
+    {
+        Application.Quit();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +68,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Starting game");
-        lastCheckPoint = new CheckPoint(0, startPoint.transform.position);
+        lastCheckPoint = new CheckPoint(-1, startPoint.transform.position);
     }
 
     private void PlayerDead()
@@ -80,8 +92,23 @@ public class GameManager : MonoBehaviour
         if (checkPoint.zone > lastCheckPoint.zone)
         {
             lastCheckPoint = checkPoint;
+
+            HideMainMenu();
         }
     }
 
+    private void HideMainMenu()
+    {
+        GUIManager.Instance.MainMenuPanel.SetObjectActive(false);
+        GUIManager.Instance.ControlsPanel.SetObjectActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("escape"))
+        {
+            SetPause(!gamePaused);
+        }
+    }
 
 }
