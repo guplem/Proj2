@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FadingInOutImg : MonoBehaviour
+public class FadingImg : MonoBehaviour
 {
 
     [SerializeField] private AnimationCurve fade = AnimationCurve.EaseInOut(0, 0, 1, 1);
@@ -19,7 +19,6 @@ public class FadingInOutImg : MonoBehaviour
 
     private int fadeDirection { get => fadeDirectionChecked; set { if (value == 1 || value == 0 || value == -1) fadeDirectionChecked = value; } }
     private int fadeDirectionChecked;
-
     private List<Image> imagesToFade = new List<Image>();
 
     private void Start()
@@ -38,24 +37,7 @@ public class FadingInOutImg : MonoBehaviour
 
         fadeDirection = fadeDirectionAtStart;
         currentFadeTime = fadeTimeAtStart;
-        SetOpacityTo(GetNewOpacity());
-    }
-
-
-    public void SetObjectActive(bool enabled)
-    {
-        if (enabled)
-        {
-            gameObject.SetActive(true);
-            fadeDirection = 1;
-        }
-        else
-        {
-            fadeDirection = -1;
-            //Wil be disbled at the end of the fade
-        }
-
-        gameObject.SetActive(enabled);
+        SetOpacityTo(GetCurrentOpacity());
     }
 
 
@@ -66,7 +48,7 @@ public class FadingInOutImg : MonoBehaviour
         {
             currentFadeTime += Time.unscaledDeltaTime* fadeDirection;
 
-            float newOpacity = GetNewOpacity();
+            float newOpacity = GetCurrentOpacity();
 
             SetOpacityTo(newOpacity);
 
@@ -86,12 +68,28 @@ public class FadingInOutImg : MonoBehaviour
         }
     }
 
-    private float GetNewOpacity()
+    private float GetCurrentOpacity()
     {
         return fade.Evaluate(currentFadeTime / fadeDuration);
     }
 
-    private void SetOpacityTo(float opacity)
+    public void SetObjectActive(bool enabled)
+    {
+        if (enabled)
+        {
+            gameObject.SetActive(true);
+            fadeDirection = 1;
+        }
+        else
+        {
+            fadeDirection = -1;
+            //Wil be disbled at the end of the fade
+        }
+
+        gameObject.SetActive(enabled);
+    }
+
+    public void SetOpacityTo(float opacity)
     {
         foreach (Image image in imagesToFade)
         {

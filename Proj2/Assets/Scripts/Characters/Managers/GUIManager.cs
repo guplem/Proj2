@@ -9,17 +9,17 @@ using System;
 public class GUIManager : MonoBehaviour
 {
 
-    [SerializeField] private FadingInOutImg backgroundVignette;
-    [SerializeField] private FadingInOutImg pausePanel;
-    [SerializeField] private FadingInOutImg mainMenuPanel;
-    [SerializeField] private FadingInOutImg controlsPanel;
+    
+    public FadingImg BackgroundVignette { get => backgroundVignette; private set => backgroundVignette = value; }
+    [SerializeField] private FadingImg backgroundVignette;
+    public FadingImg PausePanel { get => pausePanel; private set => pausePanel = value; }
+    [SerializeField] private FadingImg pausePanel;
+    public FadingImg MainMenuPanel { get => mainMenuPanel; private set => mainMenuPanel = value; }
+    [SerializeField] private FadingImg mainMenuPanel;
+    public FadingImg ControlsPanel { get => controlsPanel; private set => controlsPanel = value; }
+    [SerializeField] private FadingImg controlsPanel;
 
-    //[SerializeField] private TextMeshProUGUI goLeftButton, goRightButton, jumpButton, crouchButton, interactButton, throwButton;
-
-    [HideInInspector] private Image backgroundVignetteImg;
-
-    [HideInInspector] private static GUIManager Instance;
-
+    [HideInInspector] public static GUIManager Instance;
     private void Awake()
     {
         if (Instance != null)
@@ -28,33 +28,16 @@ public class GUIManager : MonoBehaviour
             Instance = this;
     }
 
-    private void Start()
+    public void ResumeGameButton()
     {
-        backgroundVignetteImg = backgroundVignette.GetComponent<Image>();
-
-        //UpdateControlsButtonsText();
+        //TODO
+        Debug.Log("Clicked resume game button");
     }
 
-    public void PauseMenu(bool show)
-    {
-        pausePanel.SetObjectActive(show);
-        Controls(show);
-    }
-
-    public void Controls(bool show)
-    {
-        controlsPanel.SetObjectActive(show);
-    }
-
-    public void ExitGame()
+    public void ExitGameButton()
     {
         //TODO
         Debug.Log("Clicked exit game button");
-    }
-
-    public void SetVignetteOpacity(float opacityPercentage)
-    {
-        //TODO
     }
 
 }

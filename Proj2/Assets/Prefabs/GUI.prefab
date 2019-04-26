@@ -510,11 +510,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -569,7 +569,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 209528119945513693}
-        m_MethodName: DebButon
+        m_MethodName: ExitGameButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -769,11 +769,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -828,7 +828,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 209528119945513693}
-        m_MethodName: DebButon
+        m_MethodName: ResumeGameButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1123,8 +1123,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1339507451825256672}
-  - {fileID: 2232546436481771348}
   - {fileID: 8968430187484673320}
+  - {fileID: 2232546436481771348}
   - {fileID: 3133968011616295954}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1315,15 +1315,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9d1dd904851672842b6641550f7cf8ed, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1368,8 +1368,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   fadeDuration: 1.5
-  fadeDirectionAtStart: 1
-  fadeTimeAtStart: 0
+  fadeDirectionAtStart: 0
+  fadeTimeAtStart: 0.25
 --- !u!1 &5029440291973221476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,7 +1388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2232546436481771348
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1402,7 +1402,7 @@ RectTransform:
   m_Children:
   - {fileID: 8876941197454978554}
   m_Father: {fileID: 4266462486271419139}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1430,14 +1430,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 72921b7bd9a0eea4584e996ceff3c00a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68dafa1f3f46e4548ad4acc23689109f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1483,7 +1483,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   fadeDuration: 1.5
-  fadeDirectionAtStart: 1
+  fadeDirectionAtStart: -1
   fadeTimeAtStart: 0
 --- !u!1 &5031798975027865674
 GameObject:
@@ -1892,15 +1892,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 68dafa1f3f46e4548ad4acc23689109f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2466,7 +2466,7 @@ RectTransform:
   m_Children:
   - {fileID: 2198411608715514605}
   m_Father: {fileID: 4266462486271419139}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2494,14 +2494,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 72921b7bd9a0eea4584e996ceff3c00a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68dafa1f3f46e4548ad4acc23689109f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2547,8 +2547,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   fadeDuration: 1.5
-  fadeDirectionAtStart: 1
-  fadeTimeAtStart: 0
+  fadeDirectionAtStart: 0
+  fadeTimeAtStart: 1
 --- !u!1 &8653782627570752150
 GameObject:
   m_ObjectHideFlags: 0
