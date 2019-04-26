@@ -10,14 +10,14 @@ public class GUIManager : MonoBehaviour
 {
 
     
-    public FadingImg BackgroundVignette { get => backgroundVignette; private set => backgroundVignette = value; }
-    [SerializeField] private FadingImg backgroundVignette;
-    public FadingImg PausePanel { get => pausePanel; private set => pausePanel = value; }
-    [SerializeField] private FadingImg pausePanel;
-    public FadingImg MainMenuPanel { get => mainMenuPanel; private set => mainMenuPanel = value; }
-    [SerializeField] private FadingImg mainMenuPanel;
-    public FadingImg ControlsPanel { get => controlsPanel; private set => controlsPanel = value; }
-    [SerializeField] private FadingImg controlsPanel;
+    public Fading BackgroundVignette { get => backgroundVignette; private set => backgroundVignette = value; }
+    [SerializeField] private Fading backgroundVignette;
+    public Fading PausePanel { get => pausePanel; private set => pausePanel = value; }
+    [SerializeField] private Fading pausePanel;
+    public Fading MainMenuPanel { get => mainMenuPanel; private set => mainMenuPanel = value; }
+    [SerializeField] private Fading mainMenuPanel;
+    public Fading ControlsPanel { get => controlsPanel; private set => controlsPanel = value; }
+    [SerializeField] private Fading controlsPanel;
 
     [HideInInspector] public static GUIManager Instance;
     private void Awake()
