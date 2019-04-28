@@ -10,14 +10,18 @@ public class PlayerManager : CharacterManager
     [HideInInspector] private List<CharacterManager> chasedBy;
     [SerializeField] public Vector2 throwingForce;
     [SerializeField] private Transform throwPoint;
+    private StressManager stressManager;
 
     private void Start()
     {
+
         base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new WalkingState(this), this) );
+
 
         //Particular of the player
         inventory = new InventoryController(this);
         chasedBy = new List<CharacterManager>();
+        stressManager = new StressManager(this);
     }
 
     private new void Update()
@@ -44,11 +48,17 @@ public class PlayerManager : CharacterManager
         chasedBy.Add(characterManager);
         return this;
     }
+
     public PlayerManager RemoveChasing(CharacterManager characterManager)
     {
         chasedBy.Remove(characterManager);
         return this;
     }
 
+    public StressManager GetStressManager()
+    {
+        return stressManager;
+
+    }
 
 }
