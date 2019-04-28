@@ -20,10 +20,13 @@ public class Alertable : MonoBehaviour
 
     public static void AlertAllInRadius(Vector2 position, float radius)
     {
-        if (radius <= 0) return;
+        if (radius <= 0)
+            return;
 
-        if (debugger != null) //Check if there is any object with an Alertable component set as debugger 
-            debugger.StartCoroutine(debugger.DebugAlertRadius(position, radius));
+        if (debugger == null)
+            return;
+
+        debugger.StartCoroutine(debugger.DebugAlertRadius(position, radius));
 
         //TODO --> use "Alert(...)"
     }
@@ -60,13 +63,9 @@ public class Alertable : MonoBehaviour
         }
         catch (System.ArgumentException)
         {
-            //if (alertRadiusZones[position] < radiusOfAlert)
-            //{
-                alertRadiusZones.Remove(position);
-                alertRadiusZones.Add(position, radiusOfAlert);
-            //}
+            alertRadiusZones.Remove(position);
+            alertRadiusZones.Add(position, radiusOfAlert);
         }
-        
 
         // Set the time to wait until continuing the execution
         yield return new WaitForSeconds(1.0f);
@@ -80,6 +79,5 @@ public class Alertable : MonoBehaviour
             Gizmos.DrawWireSphere(posAndRad.Key, posAndRad.Value);
         }
     }
-
 
 }
