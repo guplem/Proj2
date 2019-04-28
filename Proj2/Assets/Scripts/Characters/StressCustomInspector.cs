@@ -3,7 +3,7 @@ using System;
 using UnityEditor;
 
 [CustomEditor(typeof(StressEmitter))]
-public class StressCustomGUI : Editor
+public class StressCustomInspector : Editor
 {
 
     public override void OnInspectorGUI()
@@ -15,7 +15,7 @@ public class StressCustomGUI : Editor
         using (new EditorGUI.DisabledScope(!myScript.emitStress))
         {
             myScript.stressAmountPerSecond = EditorGUILayout.FloatField("Amount of Stress per second", myScript.stressAmountPerSecond);
-            myScript.stressPerSecondDelay = EditorGUILayout.FloatField("Delay between stress", myScript.stressPerSecondDelay);
+            myScript.timeBetweenEmisions = EditorGUILayout.FloatField("Delay between stress", myScript.timeBetweenEmisions);
         }
     }
 }

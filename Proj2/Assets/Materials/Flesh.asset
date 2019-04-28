@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Flesh
   m_EditorClassIdentifier: 
   friction: 0.5
-  bounciness: 1
+  bounciness: 0
   hardnesh: 1
-  size: 0.5

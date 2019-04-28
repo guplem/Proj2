@@ -3,33 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #pragma warning disable 0649
-[RequireComponent(typeof(Rigidbody2D))]
 public class ZoneManager : MonoBehaviour
 {
+    [SerializeField] private int zoneNumber;
+    //[SerializeField] private CheckPointObject checkPoint;
 
-    [SerializeField] private int zone;
-    private void Start()
+    private void Awake()
     {
-        foreach (Transform child in transform)
+        List<GameObject> objectsInZone = new List<GameObject>();
+        Utils.SaveAllChilds(gameObject, objectsInZone);
+
+        //objectsInZone.Add(checkPoint.gameObject);
+
+        // Surely unnecessary
+        objectsInZone.Add(gameObject);
+
+        foreach (GameObject obj in objectsInZone)
         {
-            ReseteableObject reseteableObject = child.GetComponent<ReseteableObject>();
+            ReseteableObject reseteableObject = obj.GetComponent<ReseteableObject>();
             if (reseteableObject != null)
             {
-                reseteableObject.Setup(zone, child.transform.position);
+                reseteableObject.Setup(zoneNumber, obj.transform.position);
             }
         }
     }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<PlayerManager>() != null)
-        {
-            Debug.Log("Player entered zone " + zone);
-        }
-    }
-
-
-
 
 }

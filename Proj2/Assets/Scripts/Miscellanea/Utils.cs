@@ -31,4 +31,20 @@ public static class Utils
             sprnd.sortingOrder = layer;
     }
 
+    public static void SaveAllChilds(GameObject gameObject, List<GameObject> childsList)
+    {
+        if (gameObject == null)
+            return;
+
+        foreach (Transform child in gameObject.transform)
+        {
+            if (child == null)
+                continue;
+
+            childsList.Add(child.gameObject);
+
+            SaveAllChilds(child.gameObject, childsList);
+        }
+    }
+
 }

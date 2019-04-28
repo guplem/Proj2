@@ -91,11 +91,11 @@ GameObject:
   - component: {fileID: 8751495293279599919}
   - component: {fileID: 3943744874883209039}
   - component: {fileID: 3556152625428042515}
-  - component: {fileID: 214558113}
   - component: {fileID: 214558115}
   - component: {fileID: 976923535870799083}
   - component: {fileID: 214558114}
   - component: {fileID: 805759027}
+  - component: {fileID: 926777633242791028}
   m_Layer: 9
   m_Name: Hideable Object
   m_TagString: Untagged
@@ -185,21 +185,6 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!114 &214558113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8751495293279599912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a26471ceea015234188ba0c3d7ff35d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultState: 0
-  singleActivation: 0
-  alreadyActivated: 0
 --- !u!61 &214558115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -272,7 +257,7 @@ MonoBehaviour:
   initialVisuals: {fileID: 0}
   interactingVisuals: {fileID: 0}
   connectedActivables:
-  - {fileID: 214558113}
+  - {fileID: 805759027}
 --- !u!114 &805759027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +273,19 @@ MonoBehaviour:
   defaultState: 0
   singleActivation: 0
   alreadyActivated: 0
+--- !u!114 &926777633242791028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751495293279599912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bda7bbd0e77294a87ac8a38fae58b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAudioSourcesQty: 0
 --- !u!1 &8751495294833804919
 GameObject:
   m_ObjectHideFlags: 0

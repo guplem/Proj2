@@ -19,24 +19,26 @@ public class ReseteableObject : MonoBehaviour
     {
         this.initialPosition = initialPosition;
         this.zone = zone;
-        GameManager.Instance.ResetUntilLastCheckPoint += MethodToCallOnEvent;
+        GameManager.Instance.ResetElementsUntilLastCheckPoint += ResetMethodToCallOnResetEvent;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.ResetUntilLastCheckPoint -= MethodToCallOnEvent;
+        GameManager.Instance.ResetElementsUntilLastCheckPoint -= ResetMethodToCallOnResetEvent;
     }
 
-    public void MethodToCallOnEvent(int lastZone)
+    public void ResetMethodToCallOnResetEvent(int lastZoneVisited)
     {
-        Debug.Log("MethodToCallOnEvent being called with param zone: " + lastZone, gameObject);
-
-        if (lastZone <= zone)
+        if (lastZoneVisited <= zone)
         {
-            Debug.Log("Resseting object.", gameObject);
             transform.position = initialPosition;
 
-            //TODO: if it is character set state to default state
+            CharacterManager character = GetComponent<CharacterManager>();
+            if (character != null)
+            {
+                character.brain = character.defaultBrain;
+                character.behaviourTree = character.defaultBehaviourTree;
+            }
         }
     }
 

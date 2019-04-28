@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,20 +10,25 @@ public abstract class Brain
     public bool action;
     public bool crouch;
     public Vector2 direction;
-    public CharacterManager characterManager;
+    protected CharacterManager character;
 
     public abstract void GetActions();
 
-    public void SetInteractState(bool state)
+    protected void Setup(CharacterManager characterManager)
     {
-        if (characterManager == null)
+        this.character = characterManager;
+    }
+
+    public void SetInteractingTo(bool state)
+    {
+        if (character == null)
         {
             Debug.LogError("characterManager not set in " + this + " (inherence of Brain class)");
         }
 
         if (interact != state)
         {
-            characterManager.UpdateInteractState(state);
+            character.ProcessNewInteractState(state);
             interact = state;
         }
     }

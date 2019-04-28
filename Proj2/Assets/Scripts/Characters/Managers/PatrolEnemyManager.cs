@@ -7,12 +7,11 @@ public class PatrolEnemyManager : CharacterManager
 {
 
     [SerializeField] public Vector2[] patrolPoints;
-    [HideInInspector] public int patrolPointsIndex;
 
     private void Start()
     {
-        BehaviourTree bt = new PatrolEnemyBehaviourTree(new WalkingState(this), this);
-        base.Setup(new CharacterMovementController(this), new EnemyPatrolBrain(this), bt);
+        BehaviourTree bt = new PatrolEnemyBehaviourTree(this, new WalkingState(this));
+        base.Setup(new CharacterMovementController(this), new EnemyPatrolBrain(this, patrolPoints), bt);
     }
 
     public new void Update()

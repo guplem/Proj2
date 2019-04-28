@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 608302364}
   - component: {fileID: 608302363}
   - component: {fileID: 608302362}
+  - component: {fileID: 608302365}
   - component: {fileID: 608302361}
   m_Layer: 0
   m_Name: Water
@@ -305,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialPhysics: {fileID: 11400000, guid: 25da2be3a0bdb5447ac3ef20ba43497a, type: 2}
+  playSoundsAtColision: 1
   sound: {fileID: 11400000, guid: 7c281134ce0b76e4997409d182055e75, type: 2}
   minVelocityAtCollisionForMaxSoundVolume: 10
   objectSize: 0.5
@@ -396,6 +398,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &608302365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608302360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bda7bbd0e77294a87ac8a38fae58b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAudioSourcesQty: 0
 --- !u!1001 &668171902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -485,24 +500,6 @@ PrefabInstance:
       objectReference: {fileID: 1771519526}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2abb93ca1486c44cac561ebd9178475, type: 3}
---- !u!1 &1009278811 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2687238802475380595, guid: 119623ae199deb743975ea4101043426,
-    type: 3}
-  m_PrefabInstance: {fileID: 6374930876619000433}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1009278816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009278811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202f1008dc592ed45a29c7910a35f5e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1088880345
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1088880346}
   - component: {fileID: 1088880347}
+  - component: {fileID: 1088880349}
   - component: {fileID: 1088880348}
   m_Layer: 8
   m_Name: GroundCollider
@@ -600,9 +598,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialPhysics: {fileID: 11400000, guid: d9d5db673a684bd4f927300802f56bec, type: 2}
+  playSoundsAtColision: 1
   sound: {fileID: 11400000, guid: 5769443826f51b04d9a128fdb0c41784, type: 2}
   minVelocityAtCollisionForMaxSoundVolume: 10
   objectSize: 0.5
+--- !u!114 &1088880349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088880345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bda7bbd0e77294a87ac8a38fae58b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAudioSourcesQty: 0
 --- !u!1001 &1567121566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -762,6 +774,7 @@ GameObject:
   - component: {fileID: 1756004817}
   - component: {fileID: 1756004816}
   - component: {fileID: 1756004815}
+  - component: {fileID: 1756004819}
   m_Layer: 0
   m_Name: Flesh
   m_TagString: Untagged
@@ -782,6 +795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialPhysics: {fileID: 11400000, guid: 75915b3e4ecfc1b45b67cd8ea911a406, type: 2}
+  playSoundsAtColision: 1
   sound: {fileID: 11400000, guid: c256c6ade87089a42821ecb591018d08, type: 2}
   minVelocityAtCollisionForMaxSoundVolume: 10
   objectSize: 0.5
@@ -873,6 +887,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1756004819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756004814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bda7bbd0e77294a87ac8a38fae58b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAudioSourcesQty: 0
 --- !u!1001 &1767824305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1242,6 +1269,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876941197454978554, guid: 323493f516330174b90ab7bb59eee316,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 129.9502
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876941197454978554, guid: 323493f516330174b90ab7bb59eee316,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50.000008
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 323493f516330174b90ab7bb59eee316, type: 3}
@@ -1671,7 +1708,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 6374930876619000433}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009278811}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e4544989d65f3f4d8ceb1a7dc3184de, type: 3}

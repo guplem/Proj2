@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StressManager
+public class StressController
 {
     private float currentStress;
     private float stressThreshold;
 
     private PlayerManager playerManager;
 
-    public StressManager(PlayerManager playerManager)
+    public StressController(PlayerManager playerManager, float stressThreshold)
     {
         this.playerManager = playerManager;
+        this.stressThreshold = stressThreshold;
+        this.currentStress = 0f;
     }
 
     public bool AddStress(float amount)
     {
         currentStress += amount;
-        Debug.Log(currentStress);
+
         if (currentStress >= stressThreshold)
             SomethingHappens();
+
         return true;
     }
 

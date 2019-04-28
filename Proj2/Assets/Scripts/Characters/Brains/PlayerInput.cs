@@ -7,13 +7,13 @@ public class PlayerInput : Brain
 
     public PlayerInput(CharacterManager characterManager)
     {
-        base.characterManager = characterManager;
+        base.Setup(characterManager);
     }
 
     public override void GetActions()
     {
         jumping = Input.GetButton("Jump");
-        SetInteractState(Input.GetButton("Interact"));
+        SetInteractingTo(Input.GetButton("Interact"));
         action = Input.GetButtonDown("Action");
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         crouch = Input.GetButton("Crouch");

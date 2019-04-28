@@ -7,7 +7,7 @@ public class CrouchedState : IState
     public CharacterManager characterManager { get; set; }
     public CharacterManager playerManager { get; set; }
 
-    public CrouchedState(PlayerManager characterManager)
+    public CrouchedState(CharacterManager characterManager)
     {
         this.characterManager = characterManager;
         this.playerManager = characterManager;

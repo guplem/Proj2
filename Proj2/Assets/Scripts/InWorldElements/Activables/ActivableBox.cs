@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class ActivableBox : Activable
 {
     // [SerializeField] private LayerMask playerLayer;
@@ -30,22 +31,5 @@ public class ActivableBox : Activable
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
-
-    /*
-    protected override void AtStartInteract(CharacterManager interactingCharacter)
-    {
-        interactingCharacter.SetState(new PushPullState(interactingCharacter));
-        transform.SetParent(interactingCharacter.transform);
-        rb2d.bodyType = RigidbodyType2D.Kinematic;
-    }
-
-    public override void OnEndInteract(CharacterManager interactingCharacter)
-    {
-        transform.SetParent(null);
-        interactingCharacter.behaviourTree.SetNextState(true);
-        rb2d.bodyType = RigidbodyType2D.Dynamic;
-    }
-    */
-
 
 }

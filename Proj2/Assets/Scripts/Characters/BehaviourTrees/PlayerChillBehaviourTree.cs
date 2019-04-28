@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class PlayerChillBehaviourTree : BehaviourTree
 {
-    public PlayerManager character;
 
     public PlayerChillBehaviourTree(IState defaultState, PlayerManager characterManager)
     {
-        base.Setup(defaultState);
-        this.character = characterManager;
+        base.Setup(defaultState, characterManager);
     }
 
     public override void CalculateAndSetNextState(bool forceExitState)

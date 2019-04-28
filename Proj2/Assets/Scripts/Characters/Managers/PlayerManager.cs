@@ -6,11 +6,13 @@ using UnityEngine;
 #pragma warning disable CS0649
 public class PlayerManager : CharacterManager
 {
-    [HideInInspector] public InventoryController inventory;
-    [HideInInspector] private List<CharacterManager> chasedBy;
-    [SerializeField] public Vector2 throwingForce;
+    [HideInInspector] public InventoryController inventory { get; private set; }
+    [HideInInspector] public StressController stressController { get; private set; }
+
+    [Header("Player Only")]
     [SerializeField] private Transform throwPoint;
-    private StressManager stressManager;
+    [SerializeField] public Vector2 throwingForce;
+    [SerializeField] public float stressThreshold;
 
     private void Start()
     {
@@ -20,8 +22,7 @@ public class PlayerManager : CharacterManager
 
         //Particular of the player
         inventory = new InventoryController(this);
-        chasedBy = new List<CharacterManager>();
-        stressManager = new StressManager(this);
+        stressController = new StressController(this, stressThreshold);
     }
 
     private new void Update()
@@ -32,8 +33,7 @@ public class PlayerManager : CharacterManager
         {
             if (inventory.HasStoredItem())
             {
-                inventory.storedItem.Throw(new Vector2(throwingForce.x * lookingDirection, throwingForce.y), throwPoint.position);
-                inventory.ClearStoredItem();
+                inventory.ThrowStoredItem(new Vector2(throwingForce.x * lookingDirection, throwingForce.y), throwPoint.position);
             }
         }
     }
@@ -41,24 +41,6 @@ public class PlayerManager : CharacterManager
     private new void FixedUpdate()
     {
         base.FixedUpdate();
-    }
-
-    public PlayerManager AddChasing(CharacterManager characterManager)
-    {
-        chasedBy.Add(characterManager);
-        return this;
-    }
-
-    public PlayerManager RemoveChasing(CharacterManager characterManager)
-    {
-        chasedBy.Remove(characterManager);
-        return this;
-    }
-
-    public StressManager GetStressManager()
-    {
-        return stressManager;
-
     }
 
 }

@@ -147,7 +147,6 @@ MonoBehaviour:
   defaultState: 0
   singleActivation: 0
   alreadyActivated: 0
-  rb2d: {fileID: 0}
 --- !u!114 &8324473268950946671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultAudioSourcesQty: 3
-  playSoundsAtColision: 1
 --- !u!114 &8024989292537650061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,8 +173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialPhysics: {fileID: 11400000, guid: 3a112dee1d4dd4a4283a668d19b4cb97, type: 2}
+  playSoundsAtColision: 1
   sound: {fileID: 11400000, guid: 707baf420be87ee4596d15ca5dd5ce38, type: 2}
   minVelocityAtCollisionForMaxSoundVolume: 10
+  objectSize: 0.5
 --- !u!1 &7453960573528057067
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5.45
+  m_Radius: 10
 --- !u!114 &3724423035195364220
 MonoBehaviour:
   m_ObjectHideFlags: 0

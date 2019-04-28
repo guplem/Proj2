@@ -11,7 +11,7 @@ public class CameraMovmentController
             if (value >= 0 && value <= 1)
                 vel = value;
             else
-                Debug.LogWarning("A wrong value is wanted to be saved as camera velocity: " + value, camera.gameObject);
+                Debug.LogError("The camera velocity must be between '0' and '1' and it is trying to be set as '" + value + "'", camera.gameObject);
         } }
     private float vel;
 

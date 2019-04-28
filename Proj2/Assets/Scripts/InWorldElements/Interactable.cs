@@ -50,16 +50,11 @@ public class Interactable : MonoBehaviour
     {
         if (RegisterAndAskForStartInteraction())
         {
-            // DEBUG Interactions
-            /*
-            Debug.Log("'" + interactingCharacter.gameObject.name + "' is interacting with '" + gameObject.name + "'", gameObject);
-            */
-
-            SwitchAllActivables(interactingCharacter);
+            Interact(interactingCharacter);
         }
     }
 
-    //Returns true if the interaction can be started and registers the interaction
+    //registers the interaction and Returns true if the interaction can be started.
     private bool RegisterAndAskForStartInteraction()
     {
         bool toReturn = ((singleInteraction && !alreadyStartedInteraction) || !singleInteraction);
@@ -74,7 +69,7 @@ public class Interactable : MonoBehaviour
         if (RegisterAndAskForEndInteraction())
         {
             if (interactType == InteractType.Button)
-                SwitchAllActivables(interactingCharacter);
+                Interact(interactingCharacter);
         }
     }
 
@@ -89,7 +84,7 @@ public class Interactable : MonoBehaviour
     }
 
 
-    protected void SwitchAllActivables(CharacterManager interactingCharacter)
+    protected void Interact(CharacterManager interactingCharacter)
     {
 
         foreach (Activable activable in connectedActivables)

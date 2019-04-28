@@ -8,12 +8,10 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     [SerializeField] private int defaultAudioSourcesQty;
-    [SerializeField] private bool playSoundsAtColision;
     [HideInInspector] private List<AudioSource> audioSources;
 
     private void Awake()
     {
-        //playSoundsAtColision = false;
         audioSources = new List<AudioSource>();
 
         foreach (AudioSource audioSource in GetComponents<AudioSource>())
@@ -44,8 +42,6 @@ public class AudioController : MonoBehaviour
         Alertable.AlertAllInRadius(transform.position, radiusOfAlert);
     }
 
-
-
     private AudioSource GetFreeAudioSource()
     {
         foreach (AudioSource audioSource in audioSources)
@@ -69,15 +65,15 @@ public class AudioController : MonoBehaviour
         //Fdilter debug messages
         if (defaultAudioSourcesQty+5 == audioSources.Count)
         {
-            Debug.LogWarning("More than 5 audio sources have been added in RUNTIME for the object '" + gameObject.name + "'. Maybe more AudioSources should be created by default during the scene's loading.", gameObject);
+            Debug.LogWarning("More than 5 audio sources have been added in RUNTIME for the object '" + gameObject.name + "'", gameObject);
         }
         if (defaultAudioSourcesQty + 10 == audioSources.Count)
         {
-            Debug.LogWarning("More than 10 audio sources have been added in RUNTIME for the object '" + gameObject.name + "'. Maybe more AudioSources should be created by default during the scene's loading.", gameObject);
+            Debug.LogWarning("More than 10 audio sources have been added in RUNTIME for the object '" + gameObject.name + "'", gameObject);
         }
         else if (defaultAudioSourcesQty == 0 && audioSources.Count == 1)
         {
-            Debug.LogWarning("An audio source have been added in RUNTIME for the object '" + gameObject.name + "' while it has been configured to do not have any by default.  Maybe some AudioSources should be created by default during the scene's loading.", gameObject);
+            Debug.LogWarning("An audio source have been added in RUNTIME for the object '" + gameObject.name + "' while it has been configured to do not have any by default.", gameObject);
         }
         //Debug.LogWarning("An audio source have been added in runtime for the object '" + gameObject.name + "'", gameObject);
 
@@ -97,30 +93,7 @@ public class AudioController : MonoBehaviour
         return audioSource;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
 
-        if (this.playSoundsAtColision)
-        {
-            MaterialWithSound mat = GetComponent<MaterialWithSound>();
-            if (mat != null)
-            {
-                if (mat.sound != null)
-                {
-                    MaterialWithSound colMat = collision.gameObject.GetComponent<MaterialWithSound>();
-                    if (colMat == null)
-                    {
-                        colMat = collision.gameObject.AddComponent<MaterialWithSound>(); //.SetDefaultValues();
-                        Debug.LogWarning("'" + collision.gameObject.name + "' does not have a MaterialWithSound attatched. Attatching it dinamically");
-                    }
-
-                    PlaySound(Sound.GetSoundOfColision(mat, colMat, collision.relativeVelocity.magnitude), false, true);
-                    PlaySound(Sound.GetSoundOfColision(colMat, mat, collision.relativeVelocity.magnitude), false, true);
-                }
-            }
-        }
-
-    }
 
 
 }

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioController))]
 public abstract class CharacterManager : MonoBehaviour
 {
     [SerializeField] public Collider2D groundCollider;
@@ -16,6 +19,8 @@ public abstract class CharacterManager : MonoBehaviour
     [SerializeField] public CharacterProperties characterProperties;
 
     public MovementController movementController;
+
+    public Brain defaultBrain;
     public Brain brain;
 
     public BehaviourTree defaultBehaviourTree;
@@ -29,10 +34,12 @@ public abstract class CharacterManager : MonoBehaviour
     [HideInInspector] protected int lookingDirection;
     public IState state { get; private set; }
 
-    protected void Setup(MovementController movementController, Brain actionController, BehaviourTree defaultBehaviourTree)
+    protected void Setup(MovementController movementController, Brain defaultBrain, BehaviourTree defaultBehaviourTree)
     {
         this.movementController = movementController;
-        this.brain = actionController;
+
+        this.defaultBrain = defaultBrain;
+        this.brain = this.defaultBrain;
 
         this.defaultBehaviourTree = defaultBehaviourTree;
         this.behaviourTree = this.defaultBehaviourTree;
@@ -96,14 +103,6 @@ public abstract class CharacterManager : MonoBehaviour
         if (state != null)
             state.OnExit();
 
-        //DEBUG state's change
-        /*
-        if (state != null)
-            Debug.Log("Exited state '" + state + "' on '" + gameObject.name +  (newState!= null?  "' to enter '" + newState + "'."  :  "'."  )  );
-        else
-            Debug.Log("'" + gameObject.name + "' entering state '" + newState + "'.");
-        */
-
         state = newState;
     } 
 
@@ -126,18 +125,6 @@ public abstract class CharacterManager : MonoBehaviour
             }
         }
     }
-
-    /*private void OnTriggerStay2D(Collider2D collision)
-    {
-        //currentInteractableGameObject = collision.gameObject;
-        Interactable collInteract = collision.GetComponent<Interactable>();
-        if (collInteract == currentInteractable)
-            return;
-        if (collInteract != null)
-        {
-            currentInteractable = collInteract;
-        }
-    }*/
 
     public void OnInterectableTriggerExit(Collider2D collision)
     {
@@ -162,11 +149,11 @@ public abstract class CharacterManager : MonoBehaviour
         }
     }
 
-    public void UpdateInteractState(bool isInteractionStart)
+    public void ProcessNewInteractState(bool isInteractionBegining)
     {
         if (currentInteractable != null)
         {
-            if (isInteractionStart)
+            if (isInteractionBegining)
             {
                 currentInteractable.StartInteract(this);
             }

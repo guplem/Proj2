@@ -6,12 +6,12 @@ using UnityEngine;
 public class EnemyPatrolBrain : Brain
 {
 
-    public PatrolEnemyManager enemyManager;
+    private Vector2[] patrolPoints;
 
-    public EnemyPatrolBrain(PatrolEnemyManager characterManager)
+    public EnemyPatrolBrain(CharacterManager characterManager, Vector2[] patrolPoints)
     {
-        this.characterManager = characterManager;
-        this.enemyManager = characterManager;
+        base.Setup(characterManager);
+        this.patrolPoints = patrolPoints;
     }
 
     public override void GetActions()

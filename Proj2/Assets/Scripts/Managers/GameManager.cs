@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #pragma warning disable CS0168 // Variable is declared but never used
+[RequireComponent(typeof(AudioController))]
 public class GameManager : MonoBehaviour
 {
     [Header("Game's Configuration")]
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private CheckPoint lastCheckPoint;
 
-    public Action<int> ResetUntilLastCheckPoint;
+    public Action<int> ResetElementsUntilLastCheckPoint;
 
     public bool gamePaused { get; private set; }
 
@@ -59,7 +60,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         audioController = GetComponent<AudioController>();
-        playerManager = playerManager.GetComponent<PlayerManager>();
         camera.Setup(playerManager.gameObject, 0.05f);
         StartGame();
     }
@@ -68,17 +68,29 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Starting game");
-        lastCheckPoint = new CheckPoint(-1, startPoint.transform.position);
+        lastCheckPoint = null;
     }
 
     private void PlayerDead()
     {
         Debug.Log("Player is dead");
 
-        SpawnPlayer(lastCheckPoint.position);
+        try
+        {
+            SpawnPlayer(lastCheckPoint.respawnPoint.position);
 
-        if (ResetUntilLastCheckPoint != null)
-            ResetUntilLastCheckPoint(lastCheckPoint.zone);
+            if (ResetElementsUntilLastCheckPoint != null)
+                ResetElementsUntilLastCheckPoint(lastCheckPoint.zone);
+        }
+        catch (NullReferenceException)
+        {
+            SpawnPlayer(startPoint.position);
+
+            if (ResetElementsUntilLastCheckPoint != null)
+                ResetElementsUntilLastCheckPoint(-1);
+        }
+
+
     }
 
     private void SpawnPlayer(Vector3 position)
@@ -89,7 +101,7 @@ public class GameManager : MonoBehaviour
 
     public void CheckPointReached(CheckPoint checkPoint)
     {
-        if (checkPoint.zone > lastCheckPoint.zone)
+        if (lastCheckPoint == null || checkPoint.zone > lastCheckPoint.zone)
         {
             lastCheckPoint = checkPoint;
 

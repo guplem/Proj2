@@ -40,28 +40,34 @@ public class Fading : MonoBehaviour
 
     private void Start()
     {
-        DetectAllFadeElementsIn(gameObject);
+        SaveAllFadingElements();
+
+        imagesToFade.AddRange(gameObject.GetComponents<Image>().ToList());
+        textsToFade.AddRange(gameObject.GetComponents<TextMeshProUGUI>().ToList());
 
         Configure(targetOpacityAtStart, opacityAtStart);
     }
 
-    private void DetectAllFadeElementsIn(GameObject gObject)
+    private void SaveAllFadingElements()
     {
-        if (gObject == null)
-            return;
+        List<GameObject> objectsWithWithFadableComponents = new List<GameObject>();
+        Utils.SaveAllChilds(gameObject, objectsWithWithFadableComponents);
+        objectsWithWithFadableComponents.Add(gameObject);
 
-        imagesToFade.AddRange(gObject.GetComponents<Image>().ToList());
-        textsToFade.AddRange(gObject.GetComponents<TextMeshProUGUI>().ToList());
-
-        foreach (Transform child in gObject.transform)
+        foreach (GameObject child in objectsWithWithFadableComponents)
         {
-            if (child == null)
-                continue;
-
-            DetectAllFadeElementsIn(child.gameObject);
+            imagesToFade.AddRange(child.GetComponents<Image>().ToList());
+            textsToFade.AddRange(child.GetComponents<TextMeshProUGUI>().ToList());
         }
     }
 
+    private void Configure(float targetOpacity, float currentOpacity)
+    {
+        this.targetOpacity = targetOpacity;
+        this.currentOpacity = currentOpacity;
+
+        SetOpacityInstantly(currentOpacity);
+    }
 
     private void Update()
     {
@@ -104,14 +110,6 @@ public class Fading : MonoBehaviour
         {
             Configure(opacityAtDisabled, currentOpacity);
         }
-    }
-
-    private void Configure(float targetOpacity, float currentOpacity)
-    {
-        this.targetOpacity = targetOpacity;
-        this.currentOpacity = currentOpacity;
-
-        SetOpacityInstantly(currentOpacity);
     }
 
     public void SetOpacityInstantly(float opacity)
