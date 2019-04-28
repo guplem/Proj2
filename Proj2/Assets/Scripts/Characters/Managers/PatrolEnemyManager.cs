@@ -24,5 +24,14 @@ public class PatrolEnemyManager : CharacterManager
         base.FixedUpdate();
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        foreach (Vector2 point in patrolPoints)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(point, 0.2f);
+        }
+    }
+
 
 }

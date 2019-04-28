@@ -10,6 +10,12 @@ public class InteractionsColliderController : MonoBehaviour
 
     [SerializeField] private CharacterManager characterManager;
 
+    private void Start()
+    {
+        if (characterManager == null)
+            Debug.LogWarning("'CharacterManager' is not setted up in the 'InteractionsColliderController' of the object '" + gameObject.name + "'", gameObject) ;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Interactable>() != null)
