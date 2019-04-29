@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b996db4b0b200e49a3fc494fe853925, type: 3}
   m_Name: Flesh
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   friction: 0.5
+=======
+  friction: 1
+>>>>>>> feature/Stress_Feature
   bounciness: 0
   hardnesh: 1
