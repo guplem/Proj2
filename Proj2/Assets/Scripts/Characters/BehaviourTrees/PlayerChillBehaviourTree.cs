@@ -22,7 +22,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (character.state is WalkingState)
         {
             // Trigger to enter jumping 
-            if (character.brain.jumping && character.GetComponent<Rigidbody2D>().velocity.y <= 0)
+            if (character.brain.jumping && character.GetComponent<Rigidbody2D>().velocity.y <= 0.1f)
             {
                 character.SetState( new JumpingState(character) );
                 return;
