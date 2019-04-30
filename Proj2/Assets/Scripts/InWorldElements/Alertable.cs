@@ -8,6 +8,7 @@ public class Alertable : MonoBehaviour
 {
 
     public Vector2 alertPosition { get; private set; }
+    private CharacterManager character;
 
     public static Alertable debugger;
     private void Awake()
@@ -16,6 +17,11 @@ public class Alertable : MonoBehaviour
         {
             debugger = this;
         }
+    }
+
+    private void Start()
+    {
+        character = GetComponent<CharacterManager>();
     }
 
     public static void AlertAllInRadius(Vector2 position, float radius)
@@ -28,7 +34,15 @@ public class Alertable : MonoBehaviour
 
         debugger.StartCoroutine(debugger.DebugAlertRadius(position, radius));
 
-        //TODO --> use "Alert(...)"
+        foreach (Collider2D objInRange in Physics2D.OverlapCircleAll(position, radius))
+        {
+            Alertable alertable = objInRange.GetComponent<Alertable>();
+            if (alertable != null)
+            {
+                alertable.Alert(position);
+            }
+        }
+        
     }
 
     public static void AlertAllWithVisualContact(Vector2 position)
@@ -44,9 +58,12 @@ public class Alertable : MonoBehaviour
 
     public void Alert(Vector2 position)
     {
+        if (position == null)
+            return;
+
         alertPosition = position;
-        
-        //TODO --> Alert the brain in some way? (change the behaviour tree to an alrt one if position != null ???)
+
+        character.brain = new InvestigatingBrain(character, position);
     }
 
 

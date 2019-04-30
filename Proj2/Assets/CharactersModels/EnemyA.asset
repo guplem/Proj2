@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91badb818a518cb4f983c7f59de293bb, type: 3}
   m_Name: EnemyA
   m_EditorClassIdentifier: 
-  jumpForce: 2
+  jumpForce: 5
   acceleration: {x: 0.25, y: 0.25}
   maxWalkVelocity: {x: 4, y: 4}
   maxRunVelocity: {x: 5, y: 5}
