@@ -55,11 +55,12 @@ public abstract class CharacterManager : MonoBehaviour
 
     public void Update()
     {
-        brain.GetActions();
+        brain.Act();
 
         behaviourTree.CalculateAndSetNextState(false);
 
         state.Tick(Time.deltaTime);
+
     }
 
     public void FixedUpdate()
@@ -70,7 +71,8 @@ public abstract class CharacterManager : MonoBehaviour
         {
             if (brain.direction.x != 0)
                 lookingDirection = brain.direction.x > 0 ? 1 : -1;
-        } else
+        }
+        else
         {
             if (rb2d.velocity.x != 0)
                 lookingDirection = rb2d.velocity.x > 0 ? 1 : -1;
@@ -98,13 +100,15 @@ public abstract class CharacterManager : MonoBehaviour
         }
     }
 
+   
+
     private void ForceSetState(IState newState)
     {
         if (state != null)
             state.OnExit();
 
         state = newState;
-    } 
+    }
 
     public void OnInterectableTriggerEnter(Collider2D collision)
     {

@@ -15,7 +15,7 @@ public class InvestigatingBrain : Brain
         this.investigatingPosition = investigatingPosition;
     }
 
-    public override void GetActions()
+    protected override void GetActions()
     {
         jumping = false;
         SetInteractingTo(false);

@@ -10,7 +10,7 @@ public class PlayerInput : Brain
         base.Setup(characterManager);
     }
 
-    public override void GetActions()
+    protected override void GetActions()
     {
         jumping = Input.GetButton("Jump");
         SetInteractingTo(Input.GetButton("Interact"));

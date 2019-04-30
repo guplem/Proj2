@@ -12,7 +12,13 @@ public abstract class Brain
     public Vector2 direction;
     protected CharacterManager character;
 
-    public abstract void GetActions();
+    public void Act()
+    {
+        GetActions();
+        CheckAndFlip();
+    }
+
+    protected abstract void GetActions();
 
     protected void Setup(CharacterManager characterManager)
     {
@@ -32,4 +38,18 @@ public abstract class Brain
             interact = state;
         }
     }
+
+    protected void CheckAndFlip()
+    {
+        if (direction.x >= 0.1f)
+        {
+            character.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (direction.x < -0.1f)
+        {
+            character.transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+    }
+
+
 }

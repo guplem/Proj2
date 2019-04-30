@@ -17,7 +17,7 @@ public class EnemyPatrolBrain : Brain
         this.patrolPoints = patrolPoints;
     }
 
-    public override void GetActions()
+    protected override void GetActions()
     {
         jumping = false;
         SetInteractingTo(false);
