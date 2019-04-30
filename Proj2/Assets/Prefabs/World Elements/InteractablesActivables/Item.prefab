@@ -177,6 +177,7 @@ MonoBehaviour:
   sound: {fileID: 11400000, guid: 707baf420be87ee4596d15ca5dd5ce38, type: 2}
   minVelocityAtCollisionForMaxSoundVolume: 10
   objectSize: 0.5
+  alertAlertablesOnCollision: 1
 --- !u!1 &7453960573528057067
 GameObject:
   m_ObjectHideFlags: 0
