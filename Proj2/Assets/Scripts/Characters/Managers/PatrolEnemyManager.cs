@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,17 @@ public class PatrolEnemyManager : CharacterManager
             Gizmos.color = Color.red;
             Gizmos.DrawSphere(point, 0.2f);
         }
+
+        for (int p = 0; p < patrolPoints.Length-1; p++)
+        {
+            try
+            {
+                Gizmos.DrawLine(patrolPoints[p], patrolPoints[p + 1]);
+            }
+            catch (IndexOutOfRangeException)
+            { }
+        }
+
     }
 
 

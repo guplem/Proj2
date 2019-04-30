@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ public class MaterialWithSound : MonoBehaviour
     [Tooltip("Used to generate sound effects")]
     [SerializeField] public float objectSize = 0.5f;
     [HideInInspector] private AudioController audioController;
+    [SerializeField] private bool alertAlertablesOnCollision = false;
 
     private void Awake()
     {
@@ -62,7 +64,7 @@ public class MaterialWithSound : MonoBehaviour
                     Debug.LogWarning("'" + collision.gameObject.name + "' does not have a MaterialWithSound attatched. Attatching it dinamically", colMat.gameObject);
                 }
 
-                audioController.PlaySound(GetSoundOfColision(this, colMat, collision.relativeVelocity.magnitude), false, true);
+                audioController.PlaySound(GetSoundOfColision(this, colMat, collision.relativeVelocity.magnitude), false, alertAlertablesOnCollision);
                 //PlaySound(Sound.GetSoundOfColision(colMat, mat, collision.relativeVelocity.magnitude), false, true);
             }
 

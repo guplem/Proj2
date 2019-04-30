@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CameraMovmentController
 {
-    public GameObject camera;
+    public CameraManager camera;
     public GameObject target;
     public float velocity { get { return vel; } set {
             if (value >= 0 && value <= 1)
@@ -15,7 +15,7 @@ public class CameraMovmentController
         } }
     private float vel;
 
-    public CameraMovmentController(GameObject camera, GameObject target, float velocity)
+    public CameraMovmentController(CameraManager camera, GameObject target, float velocity)
     {
         this.camera = camera;
         this.target = target;
@@ -26,7 +26,7 @@ public class CameraMovmentController
     {
         if (target != null)
         {
-            Vector3 targetPos = new Vector3(target.transform.position.x, target.transform.position.y, camera.transform.position.z);
+            Vector3 targetPos = new Vector3(target.transform.position.x+camera.cameraOffset.x, target.transform.position.y + camera.cameraOffset.y, camera.transform.position.z);
             camera.transform.position = Vector3.Lerp(camera.transform.position, targetPos, velocity);
         }
         else
