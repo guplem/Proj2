@@ -47,7 +47,7 @@ public class Alertable : MonoBehaviour
 
     public static void AlertAllWithVisualContact(Vector2 position)
     {
-        //TODO --> use "Alert(...)"
+        Debug.LogError("'AlertAllWithVisualContact' is not implemented.");
     }
 
     public static void AlertAll(Vector2 position, List<Alertable> toAlert)

@@ -9,6 +9,7 @@
 
  ### Notes
  #### # Sorting layers
+  - [-100] --> Ambient Light
   - [0, 99] --> Background world elements
   - [100] --> Player crouched
   - [101, 149] --> Hiding objects
