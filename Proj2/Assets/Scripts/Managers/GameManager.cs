@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     //[HideInInspector] public PlayerManager playerManager;
 
-    private CheckPoint lastCheckPoint;
+    public CheckPoint lastCheckPoint { get; private set; }
 
     public Action<int> ResetElementsUntilLastCheckPoint;
 
