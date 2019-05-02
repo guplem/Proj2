@@ -71,7 +71,12 @@ public abstract class EnemyManager : CharacterManager
 
     private Vector2 GetPosForStartSearching()
     {
-        return new Vector2(transform.position.x, transform.position.y) + lookingStartPoint;
+        return new Vector2(transform.position.x, transform.position.y) + ( lookingStartPoint * GetFlip());
+    }
+
+    private Vector2 GetFlip()
+    {
+        return new Vector2(Mathf.Cos(transform.eulerAngles.y * Mathf.Deg2Rad), 1f/*Mathf.Sin(transform.eulerAngles.y * Mathf.Deg2Rad)*/);
     }
 
     private Vector2[] GetPointsToLookAt(Vector2 pos)
@@ -81,7 +86,7 @@ public abstract class EnemyManager : CharacterManager
         for (int i = 0; i < lookingRaysQty; i++)
         {
             float rayAngle = (lookingDirection - lookingConeSize / 2) + i * (lookingConeSize / lookingRaysQty);
-            returnVectors[i] = pos + new Vector2(Mathf.Cos(rayAngle), Mathf.Sin(rayAngle)) * lookingDistance;
+            returnVectors[i] = pos + new Vector2(Mathf.Cos(rayAngle), Mathf.Sin(rayAngle)) * lookingDistance * GetFlip();
         }
 
         return returnVectors;
