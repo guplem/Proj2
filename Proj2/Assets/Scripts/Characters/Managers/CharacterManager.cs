@@ -53,7 +53,7 @@ public abstract class CharacterManager : MonoBehaviour
         // characterProperties = Instantiate(characterProperties); //To create a copy
     }
 
-    public void Update()
+    protected void Update()
     {
         brain.Act();
 
@@ -62,7 +62,7 @@ public abstract class CharacterManager : MonoBehaviour
         state.Tick(Time.deltaTime);
     }
 
-    public void FixedUpdate()
+    protected void FixedUpdate()
     {
         state.FixedTick(Time.fixedDeltaTime);
     }

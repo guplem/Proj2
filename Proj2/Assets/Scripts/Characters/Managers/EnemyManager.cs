@@ -15,52 +15,74 @@ public abstract class EnemyManager : CharacterManager
     [Range(2f, 50f)]
     [SerializeField] private float lookingDistance;
 
+    protected new void Setup(MovementController movementController, Brain defaultBrain, BehaviourTree defaultBehaviourTree)
+    {
+        base.Setup(movementController, defaultBrain, defaultBehaviourTree);
+
+        InvokeRepeating("LookForPlayer", UnityEngine.Random.Range(0.5f, 1.5f), UnityEngine.Random.Range(0f, 1f));
+    }
+
     protected void OnDrawGizmosSelected()
     {
-        Vector2 pos = new Vector2(transform.position.x, transform.position.y) + lookingStartPoint;
+        Vector2 pos = GetPosForStartSearching();
         Gizmos.DrawSphere(pos, 0.2f);
 
-        Vector2[] pointsToLookAt = GetPointsToLookAt();
+        Vector2[] pointsToLookAt = GetPointsToLookAt(pos);
         for (int i = 0; i < pointsToLookAt.Length; i++)
-            Gizmos.DrawLine(pos, pointsToLookAt[i]);
+            Gizmos.DrawLine(pos, pointsToLookAt[i] );
 
     }
 
     public bool CanSeePlayer()
     {
-        RaycastHit hit;
-        Vector2[] pointsToLookAt = GetPointsToLookAt();
+        RaycastHit2D hit;
+
+        Vector2 pos = GetPosForStartSearching();
+        Vector2[] pointsToLookAt = GetPointsToLookAt(pos);
+
         for (var i = 0; i < pointsToLookAt.Length; i++)
         {
-            if (Physics.Raycast(transform.position, pointsToLookAt[i], out hit, lookingDistance))
+            Vector2 direction = ((pointsToLookAt[i] - pos).normalized);
+
+            hit = Physics2D.Raycast(pos, direction, lookingDistance);
+            if (hit.collider != null)
             {
+                Debug.Log("Touching something");
+
                 var player = hit.collider.GetComponent<PlayerManager>();
                 if (player != null)
-                {
+                { 
+                    Debug.Log("player");
                     //Hitted the player
-                    //Debug.DrawRay(transform.position, direction * hit.distance, Color.red);
+                    Debug.DrawRay(pos, direction * hit.distance, Color.red, 0.5f);
                     return true;
                 }
                 else
                 {
+                    Debug.Log("!pl" + hit.collider.name);
                     //Hitted something that is not the player
-                    //Debug.DrawRay(transform.position, direction * hit.distance, Color.yellow);
+                    Debug.DrawRay(pos, direction * hit.distance, Color.yellow, 0.5f);
                 }
             }
             else
             {
                 //Nothing hitted
-                //Debug.DrawRay(transform.position, direction * lookingDistance, Color.white);
+                Debug.Log("Nothing");
+                Debug.DrawRay(pos, direction * lookingDistance, Color.white, 0.5f);
             }
         }
         return false;
     }
 
-    private Vector2[] GetPointsToLookAt()
+    private Vector2 GetPosForStartSearching()
+    {
+        return new Vector2(transform.position.x, transform.position.y) + lookingStartPoint;
+    }
+
+    private Vector2[] GetPointsToLookAt(Vector2 pos)
     {
         Vector2[] returnVectors = new Vector2[lookingRaysQty];
 
-        Vector2 pos = new Vector2(transform.position.x, transform.position.y) + lookingStartPoint;
         for (int i = 0; i < lookingRaysQty; i++)
         {
             float rayAngle = (lookingDirection - lookingConeSize / 2) + i * (lookingConeSize / lookingRaysQty);
@@ -72,9 +94,21 @@ public abstract class EnemyManager : CharacterManager
 
     public void LookForPlayer()
     {
+        Debug.Log("Looking");
         if (CanSeePlayer())
         {
-            brain = new ChasingBrain(this, GameManager.Instance.playerManager.gameObject);
+            Debug.Log("See");
+            if (brain.GetType() != typeof(ChasingBrain)
+                ||
+                ((ChasingBrain)brain).target != GameManager.Instance.playerManager.gameObject)
+            {
+                brain = new ChasingBrain(this, GameManager.Instance.playerManager.gameObject);
+            }
+        }
+        else
+        {
+            brain = defaultBrain;
         }
     }
+
 }

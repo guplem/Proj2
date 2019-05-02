@@ -6,7 +6,7 @@ using UnityEngine;
 public class ChasingBrain : Brain
 {
 
-    private GameObject target;
+    public GameObject target { get; private set; }
 
     public ChasingBrain(CharacterManager characterManager, GameObject target)
     {
@@ -30,7 +30,8 @@ public class ChasingBrain : Brain
     {
         if (Vector2.Distance( character.transform.position, target.transform.position) <= 1.5f)
         {
-            character.brain = character.defaultBrain; //Hit?
+            //TODO Hit?
+            character.brain = character.defaultBrain; 
         }
 
     }
