@@ -331,7 +331,9 @@ MonoBehaviour:
   lookingRaysQty: 5
   lookingConeSize: 1.7
   lookingDistance: 4.9
-  patrolPoints: []
+  patrolPoints:
+  - {x: 15.14, y: -0.3}
+  - {x: 24.15, y: -0.3}
 --- !u!1 &5860812456021704873
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +412,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3288080737175248161}
     m_Modifications:
+    - target: {fileID: 3505883074891551292, guid: 8a2f06dc9e880c7458be68422fdbdcea,
+        type: 3}
+      propertyPath: m_Name
+      value: Stress Emitter
+      objectReference: {fileID: 0}
     - target: {fileID: 3505883074891551293, guid: 8a2f06dc9e880c7458be68422fdbdcea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -464,21 +471,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3505883074891551292, guid: 8a2f06dc9e880c7458be68422fdbdcea,
-        type: 3}
-      propertyPath: m_Name
-      value: Stress Emitter
-      objectReference: {fileID: 0}
-    - target: {fileID: 3505883074891551292, guid: 8a2f06dc9e880c7458be68422fdbdcea,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3505883074891551290, guid: 8a2f06dc9e880c7458be68422fdbdcea,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a2f06dc9e880c7458be68422fdbdcea, type: 3}

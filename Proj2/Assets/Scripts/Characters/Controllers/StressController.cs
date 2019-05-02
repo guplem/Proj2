@@ -20,6 +20,8 @@ public class StressController
     {
         currentStress += amount;
 
+        GUIManager.Instance.BackgroundVignette.SetOpacitySmooth(currentStress / stressThreshold);
+
         if (currentStress >= stressThreshold)
             SomethingHappens();
 

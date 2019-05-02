@@ -45,11 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc87c18d16c2e341a4713c57919e6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitStress: 0
-  stressAmountPerSecond: 5
-  stressPerSecondDelay: 0.1
-  radius: 3
-  stressingOut: 0
+  emitStress: 1
+  stressAmountPerSecond: 0.5
+  timeBetweenEmisions: 0.5
 --- !u!58 &3505883074891551290
 CircleCollider2D:
   m_ObjectHideFlags: 0

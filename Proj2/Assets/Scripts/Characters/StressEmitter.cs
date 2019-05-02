@@ -9,7 +9,7 @@ public class StressEmitter : MonoBehaviour
     [Header("Stress Config")]
     public bool emitStress;
     public float stressAmountPerSecond;
-    [Range(0f, 1f)] public float timeBetweenEmisions;
+    public float timeBetweenEmisions;
 
     [HideInInspector] private float effectRadius;
     [HideInInspector] private Vector3 emittingPoint;
