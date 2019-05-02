@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6196863622840744243}
   - component: {fileID: 8206122056261830003}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3816076086342582964}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: ThrowPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 3474346166415430201}
   - component: {fileID: 8483443444918278841}
   - component: {fileID: 9176526076712924883}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: PatrolEnemy
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 4948736542773276979}
   - component: {fileID: 881804019803812343}
   - component: {fileID: 8483443445278108754}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: InteractionsCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,6 +469,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stress Emitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505883074891551292, guid: 8a2f06dc9e880c7458be68422fdbdcea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3505883074891551290, guid: 8a2f06dc9e880c7458be68422fdbdcea,
         type: 3}
