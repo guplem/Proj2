@@ -102,4 +102,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zone: 0
-  spawnPoint: {fileID: 2689867100177937816}
+  respawnPoint: {fileID: 2689867100177937816}

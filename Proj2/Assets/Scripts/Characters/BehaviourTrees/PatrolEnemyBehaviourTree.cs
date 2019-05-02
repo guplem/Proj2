@@ -16,9 +16,19 @@ public class PatrolEnemyBehaviourTree : BehaviourTree
         if (forceExitState)
             ForceExitState(character);
 
+        if (character.brain is ChasingBrain)
+        {
+            if (character.brain.action)
+            {
+                character.SetState(new AttackState(character, character.characterProperties.attackLoadingTime));
+            }
+            //TODO: Running if is chasing
+            /*else if (character.state is WalkingState)
+            {
+                character.SetState(new RunningState(character));
+            }*/
 
-        //TODO: Call "character.SetState( new ISTATE(...) );" with the state that should be being used.
-
+        }
     }
 
 

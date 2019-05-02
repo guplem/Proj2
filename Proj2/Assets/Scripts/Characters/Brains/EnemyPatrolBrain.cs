@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO
 public class EnemyPatrolBrain : Brain
 {
 
@@ -15,6 +14,12 @@ public class EnemyPatrolBrain : Brain
     {
         base.Setup(characterManager);
         this.patrolPoints = patrolPoints;
+
+        if (patrolPoints.Length <= 0)
+        {
+            Debug.LogError("'patrolPoints' not set on a EnemyPatrolBrain.", characterManager.gameObject);
+            Debug.Break();
+        }
     }
 
     protected override void GetActions()

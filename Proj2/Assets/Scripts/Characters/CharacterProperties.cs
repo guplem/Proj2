@@ -11,6 +11,7 @@ public class CharacterProperties : ScriptableObject
     public Vector2 maxRunVelocity;
     public Vector2 maxCrouchVelocity;
     public Vector2 maxOnAirVelocity;
+    public float attackLoadingTime;
 
     //Default values
     public CharacterProperties()

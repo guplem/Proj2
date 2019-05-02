@@ -31,7 +31,7 @@ public abstract class CharacterManager : MonoBehaviour
     [HideInInspector] public AudioController audioController;
 
     [HideInInspector] protected Interactable currentInteractable;
-    [HideInInspector] protected int lookingDirection;
+
     public IState state { get; private set; }
 
     protected void Setup(MovementController movementController, Brain defaultBrain, BehaviourTree defaultBehaviourTree)
@@ -53,31 +53,18 @@ public abstract class CharacterManager : MonoBehaviour
         // characterProperties = Instantiate(characterProperties); //To create a copy
     }
 
-    public void Update()
+    protected void Update()
     {
         brain.Act();
 
         behaviourTree.CalculateAndSetNextState(false);
 
         state.Tick(Time.deltaTime);
-
     }
 
-    public void FixedUpdate()
+    protected void FixedUpdate()
     {
         state.FixedTick(Time.fixedDeltaTime);
-
-        if (Mathf.Abs(rb2d.velocity.x) < 0.1)
-        {
-            if (brain.direction.x != 0)
-                lookingDirection = brain.direction.x > 0 ? 1 : -1;
-        }
-        else
-        {
-            if (rb2d.velocity.x != 0)
-                lookingDirection = rb2d.velocity.x > 0 ? 1 : -1;
-        }
-
     }
 
     public void SetState(IState newState)
@@ -87,7 +74,7 @@ public abstract class CharacterManager : MonoBehaviour
         {
             try // To ensue that a null state gives no problems. If one of both is null an exception will be catched.
             {
-                // If both are the same state
+                // If both are the same state do not conitnue
                 if (state.GetType() == newState.GetType())
                     return;
             }
