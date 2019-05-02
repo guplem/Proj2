@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IState
 {
-    CharacterManager characterManager { get; set; }
+    CharacterManager character { get; set; }
     void Tick(float deltaTime);
     void FixedTick(float fixedDeltaTime);
     void OnExit();

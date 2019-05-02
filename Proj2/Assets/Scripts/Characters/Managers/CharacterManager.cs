@@ -74,7 +74,7 @@ public abstract class CharacterManager : MonoBehaviour
         {
             try // To ensue that a null state gives no problems. If one of both is null an exception will be catched.
             {
-                // If both are the same state
+                // If both are the same state do not conitnue
                 if (state.GetType() == newState.GetType())
                     return;
             }

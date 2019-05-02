@@ -2,18 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkingState : IState
+public class AttackState : IState
 {
     public CharacterManager character { get; set; }
+    private float timeToAttack;
 
-    public WalkingState(CharacterManager characterManager)
+    public AttackState(CharacterManager characterManager, float loadingTime)
     {
         this.character = characterManager;
+        timeToAttack = loadingTime;
     }
 
     public void Tick(float deltaTime)
     {
-        
+        timeToAttack -= deltaTime;
+
+        if (timeToAttack <= 0)
+        {
+            if (character.brain.action) // If the player still in range
+            {
+                GameManager.Instance.HitPlayer();
+            }
+        }
     }
 
     public void FixedTick(float fixedDeltaTime)

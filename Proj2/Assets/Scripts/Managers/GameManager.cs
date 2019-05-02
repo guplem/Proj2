@@ -71,6 +71,11 @@ public class GameManager : MonoBehaviour
         lastCheckPoint = null;
     }
 
+    public void HitPlayer()
+    {
+        PlayerDead();
+    }
+
     private void PlayerDead()
     {
         Debug.Log("Player is dead");

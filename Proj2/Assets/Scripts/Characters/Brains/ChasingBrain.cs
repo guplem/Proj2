@@ -18,21 +18,11 @@ public class ChasingBrain : Brain
     {
         jumping = false;
         SetInteractingTo(false);
-        action = false;
+        action = (Vector2.Distance(character.transform.position, target.transform.position) <= 1.5f);
         crouch = false;
-
-        UpdateCurrentInvestigatingPoint();
 
         direction = ((Vector2)target.transform.position - (Vector2)character.transform.position).normalized;
     }
 
-    private void UpdateCurrentInvestigatingPoint()
-    {
-        if (Vector2.Distance( character.transform.position, target.transform.position) <= 1.5f)
-        {
-            //TODO Hit?
-            character.brain = character.defaultBrain; 
-        }
 
-    }
 }

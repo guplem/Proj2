@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class OnAirState : IState
 {
-    public CharacterManager characterManager { get; set; }
+    public CharacterManager character { get; set; }
 
     public OnAirState(CharacterManager characterManager)
     {
-        this.characterManager = characterManager;
+        this.character = characterManager;
     }
 
     public void Tick(float deltaTime)
@@ -18,7 +18,7 @@ public class OnAirState : IState
 
     public void FixedTick(float fixedDeltaTime)
     {
-        characterManager.movementController.MoveTowards(new Vector2(characterManager.brain.direction.x, 0), new Vector2(characterManager.characterProperties.acceleration.x * 0.5f, characterManager.characterProperties.acceleration.y * 0.5f), characterManager.characterProperties.maxOnAirVelocity);
+        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x * 0.5f, character.characterProperties.acceleration.y * 0.5f), character.characterProperties.maxOnAirVelocity);
     }
 
     public void OnExit()

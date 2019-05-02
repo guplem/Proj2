@@ -19,7 +19,7 @@ public abstract class EnemyManager : CharacterManager
     {
         base.Setup(movementController, defaultBrain, defaultBehaviourTree);
 
-        InvokeRepeating("LookForPlayer", UnityEngine.Random.Range(0.5f, 1.5f), UnityEngine.Random.Range(0f, 1f));
+        InvokeRepeating("LookForPlayer", UnityEngine.Random.Range(0.5f, 1.5f), UnityEngine.Random.Range(0.5f, 1f));
     }
 
     protected void OnDrawGizmosSelected()
@@ -47,19 +47,15 @@ public abstract class EnemyManager : CharacterManager
             hit = Physics2D.Raycast(pos, direction, lookingDistance);
             if (hit.collider != null)
             {
-                Debug.Log("Touching something");
-
                 var player = hit.collider.GetComponent<PlayerManager>();
                 if (player != null)
                 { 
-                    Debug.Log("player");
                     //Hitted the player
                     Debug.DrawRay(pos, direction * hit.distance, Color.red, 0.5f);
                     return true;
                 }
                 else
                 {
-                    Debug.Log("!pl" + hit.collider.name);
                     //Hitted something that is not the player
                     Debug.DrawRay(pos, direction * hit.distance, Color.yellow, 0.5f);
                 }
@@ -67,7 +63,6 @@ public abstract class EnemyManager : CharacterManager
             else
             {
                 //Nothing hitted
-                Debug.Log("Nothing");
                 Debug.DrawRay(pos, direction * lookingDistance, Color.white, 0.5f);
             }
         }
@@ -94,10 +89,8 @@ public abstract class EnemyManager : CharacterManager
 
     public void LookForPlayer()
     {
-        Debug.Log("Looking");
         if (CanSeePlayer())
         {
-            Debug.Log("See");
             if (brain.GetType() != typeof(ChasingBrain)
                 ||
                 ((ChasingBrain)brain).target != GameManager.Instance.playerManager.gameObject)

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PushPullState : IState
 {
-    public CharacterManager characterManager { get; set; }
+    public CharacterManager character { get; set; }
 
     public PushPullState(CharacterManager characterManager)
     {
-        this.characterManager = characterManager;
+        this.character = characterManager;
     }
 
     public void FixedTick(float fixedDeltaTime)
     {
-        characterManager.movementController.MoveTowards(new Vector2(characterManager.brain.direction.x, 0), new Vector2(characterManager.characterProperties.acceleration.x, 0) * 0.5f, characterManager.characterProperties.maxWalkVelocity);
+        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, 0) * 0.5f, character.characterProperties.maxWalkVelocity);
     }
 
     public void Tick(float deltaTime)
