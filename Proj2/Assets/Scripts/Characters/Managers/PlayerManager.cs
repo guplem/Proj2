@@ -33,7 +33,7 @@ public class PlayerManager : CharacterManager
         {
             if (inventory.HasStoredItem())
             {
-                inventory.ThrowStoredItem(new Vector2(throwingForce.x * lookingDirection, throwingForce.y), throwPoint.position);
+                inventory.ThrowStoredItem(new Vector2(throwingForce.x, throwingForce.y), throwPoint.position);
             }
         }
     }

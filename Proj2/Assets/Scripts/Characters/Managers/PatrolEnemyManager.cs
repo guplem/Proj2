@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #pragma warning disable CS0168 // Variable is declared but never used
-public class PatrolEnemyManager : CharacterManager
+public class PatrolEnemyManager : EnemyManager
 {
 
     [SerializeField] public Vector2[] patrolPoints;
@@ -25,8 +25,10 @@ public class PatrolEnemyManager : CharacterManager
         base.FixedUpdate();
     }
 
-    private void OnDrawGizmosSelected()
+    protected new void OnDrawGizmosSelected()
     {
+        base.OnDrawGizmosSelected();
+
         foreach (Vector2 point in patrolPoints)
         {
             Gizmos.color = Color.red;

@@ -31,7 +31,7 @@ public abstract class CharacterManager : MonoBehaviour
     [HideInInspector] public AudioController audioController;
 
     [HideInInspector] protected Interactable currentInteractable;
-    [HideInInspector] protected int lookingDirection;
+
     public IState state { get; private set; }
 
     protected void Setup(MovementController movementController, Brain defaultBrain, BehaviourTree defaultBehaviourTree)
@@ -60,24 +60,11 @@ public abstract class CharacterManager : MonoBehaviour
         behaviourTree.CalculateAndSetNextState(false);
 
         state.Tick(Time.deltaTime);
-
     }
 
     public void FixedUpdate()
     {
         state.FixedTick(Time.fixedDeltaTime);
-
-        if (Mathf.Abs(rb2d.velocity.x) < 0.1)
-        {
-            if (brain.direction.x != 0)
-                lookingDirection = brain.direction.x > 0 ? 1 : -1;
-        }
-        else
-        {
-            if (rb2d.velocity.x != 0)
-                lookingDirection = rb2d.velocity.x > 0 ? 1 : -1;
-        }
-
     }
 
     public void SetState(IState newState)
