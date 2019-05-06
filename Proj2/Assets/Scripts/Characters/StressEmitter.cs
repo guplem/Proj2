@@ -15,6 +15,7 @@ public class StressEmitter : MonoBehaviour
     [HideInInspector] private Vector3 emittingPoint;
 
     private IEnumerator coroutineHolder;
+    private List<StressController> stressing = new List<StressController>();
 
     public void Start()
     {
@@ -24,25 +25,37 @@ public class StressEmitter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerManager>() != null && emitStress)
+        StressController stressController = collision.GetComponent<StressController>();
+        if (stressController != null && emitStress)
         {
-            if (coroutineHolder != null)
-                StopCoroutine(coroutineHolder);
+            stressing.Add(stressController);
+            /*if (coroutineHolder != null)
+                StopCoroutine(coroutineHolder);*/
 
-            coroutineHolder = AddStressOverTime(timeBetweenEmisions, stressAmountPerSecond);
-
-            StartCoroutine(coroutineHolder);
+            if (coroutineHolder == null)
+            {
+                coroutineHolder = AddStressOverTime(timeBetweenEmisions, stressAmountPerSecond);
+                StartCoroutine(coroutineHolder);
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerManager>() != null)
+        StressController stressController = collision.GetComponent<StressController>();
+        if (stressController != null)
         {
-            if (coroutineHolder != null)
-                StopCoroutine(coroutineHolder);
+            try
+            {
+                stressing.Remove(stressController);
+            }
+            catch (System.NullReferenceException) { }
 
-            coroutineHolder = null;
+            if (coroutineHolder != null && stressing.Count <= 0)
+            {
+                StopCoroutine(coroutineHolder);
+                coroutineHolder = null;
+            }
         }
     }
 
@@ -56,9 +69,12 @@ public class StressEmitter : MonoBehaviour
         }
     }
 
-    public static void EmitStress(float amount)
+    public void EmitStress(float amount)
     {
-        GameManager.Instance.playerManager.stressController.AddStress(amount);
+        foreach (StressController sc in stressing)
+        {
+            sc.AddStress(amount);
+        }
     }
 
     private void OnDrawGizmos()

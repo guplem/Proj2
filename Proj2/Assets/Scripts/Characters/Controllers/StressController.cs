@@ -2,33 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StressController
+public class StressController : MonoBehaviour
 {
     private float currentStress;
-    private float stressThreshold;
+    [SerializeField] private float stressThreshold;
+    private bool isPlayer;
 
-    private PlayerManager playerManager;
-
-    public StressController(PlayerManager playerManager, float stressThreshold)
+    private void Start()
     {
-        this.playerManager = playerManager;
-        this.stressThreshold = stressThreshold;
-        this.currentStress = 0f;
+        isPlayer = GetComponent<PlayerManager>() != null;
     }
 
     public bool AddStress(float amount)
     {
         currentStress += amount;
 
-        GUIManager.Instance.BackgroundVignette.SetOpacitySmooth(currentStress / stressThreshold);
+        if (isPlayer)
+            GUIManager.Instance.BackgroundVignette.SetOpacitySmooth(currentStress / stressThreshold);
 
         if (currentStress >= stressThreshold)
-            SomethingHappens();
+            ActionOnStressThreshold();
 
         return true;
     }
 
-    public void SomethingHappens()
+    public void ActionOnStressThreshold()
     {
         //TODO idea is to make the player random movements, thingys or fuck-ups.
         //playerManager.behaviourTree.SetStressed();

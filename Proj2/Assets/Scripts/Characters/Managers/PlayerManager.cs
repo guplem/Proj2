@@ -12,7 +12,7 @@ public class PlayerManager : CharacterManager
     [Header("Player Only")]
     [SerializeField] private Transform throwPoint;
     [SerializeField] public Vector2 throwingForce;
-    [SerializeField] public float stressThreshold;
+    //[SerializeField] public float stressThreshold;
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class PlayerManager : CharacterManager
 
         //Particular of the player
         inventory = new InventoryController(this);
-        stressController = new StressController(this, stressThreshold);
+        stressController = GetComponent<StressController>();//new StressController(this, stressThreshold);
     }
 
     protected new void Update()
