@@ -17,7 +17,7 @@ public class PlayerManager : CharacterManager
     private void Start()
     {
 
-        base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new WalkingState(this), this) );
+        base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new WalkingState(this), this));
 
 
         //Particular of the player
@@ -34,6 +34,17 @@ public class PlayerManager : CharacterManager
             if (inventory.HasStoredItem())
             {
                 inventory.ThrowStoredItem(new Vector2(throwingForce.x, throwingForce.y), throwPoint.position);
+                //inventory.ThrowStoredItem(new Vector2(throwingForce.x * lookingDirection, throwingForce.y), throwPoint.position);
+                Vector3 thisVector;
+                Vector3 mousePosition = GameManager.Instance.camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+
+                Vector3 limit = new Vector3(0.6f, 0.5f, 0);
+                //float limit2 = 10.0f;
+                thisVector = mousePosition - throwPoint.position;
+                //Vector3 treatedPoint = throwPoint.position + (thisVector.normalized * thisVector.magnitude);
+                //treatedPoint = new Vector3(Mathf.Clamp(treatedPoint.x, -limit.x, limit.x), Mathf.Clamp(treatedPoint.y, -limit.y, limit.x), treatedPoint.z);
+
+                inventory.ThrowStoredItem(new Vector2(throwingForce.x , throwingForce.y) * thisVector, throwPoint.position);
             }
         }
     }
