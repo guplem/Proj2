@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] public LayerMask walkableLayers;
 
     [HideInInspector] public AudioController audioController;
+    [HideInInspector] public LineManager lineManager;
+
+    [HideInInspector] public LineRenderer lineRenderer;
 
     //[HideInInspector] public PlayerManager playerManager;
 
@@ -35,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogWarning("Trying to create a second GmeManager", gameObject);
+            Debug.LogWarning("Trying to create a second GameManager", gameObject);
             Destroy(this.gameObject);
         }
         else
@@ -60,6 +63,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         audioController = GetComponent<AudioController>();
+        lineRenderer = GetComponent<LineRenderer>();
+        lineManager = new LineManager();
         camera.Setup(playerManager.gameObject, 0.05f);
         StartGame();
     }

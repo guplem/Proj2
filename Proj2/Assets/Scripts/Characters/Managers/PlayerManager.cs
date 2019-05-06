@@ -14,6 +14,8 @@ public class PlayerManager : CharacterManager
     [SerializeField] public Vector2 throwingForce;
     [SerializeField] public float stressThreshold;
 
+    private bool cancelAction; //this bool is used to cancel the throw.
+
     private void Start()
     {
 
@@ -23,34 +25,63 @@ public class PlayerManager : CharacterManager
         //Particular of the player
         inventory = new InventoryController(this);
         stressController = new StressController(this, stressThreshold);
+
+        cancelAction = false;
     }
 
     private new void Update()
     {
         base.Update();
 
-        if (brain.action)
-        {
-            if (inventory.HasStoredItem())
-            {
-                //inventory.ThrowStoredItem(new Vector2(throwingForce.x * lookingDirection, throwingForce.y), throwPoint.position);
-                Vector3 thisVector;
-                Vector3 mousePosition = GameManager.Instance.camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+        CheckThrow();
 
-                Vector3 limit = new Vector3(0.6f, 0.5f, 0);
-                //float limit2 = 10.0f;
-                thisVector = mousePosition - throwPoint.position;
-                //Vector3 treatedPoint = throwPoint.position + (thisVector.normalized * thisVector.magnitude);
-                //treatedPoint = new Vector3(Mathf.Clamp(treatedPoint.x, -limit.x, limit.x), Mathf.Clamp(treatedPoint.y, -limit.y, limit.x), treatedPoint.z);
-
-                inventory.ThrowStoredItem(new Vector2(throwingForce.x , throwingForce.y) * thisVector, throwPoint.position);
-            }
-        }
     }
 
     private new void FixedUpdate()
     {
         base.FixedUpdate();
+    }
+
+    private void CheckThrow()
+    {
+        if (brain.action && !cancelAction)
+        {
+            if (brain.interact)  //Use this button to cancel while holding the throwing button.
+            {
+                GameManager.Instance.lineManager.SetDrawing(false);
+                cancelAction = true;
+                return;
+            }
+            if (inventory.HasStoredItem())
+            {
+                Vector3 mousePosition = GameManager.Instance.camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+
+                Vector3[] points = { throwPoint.position, mousePosition };
+
+                GameManager.Instance.lineManager.SetupLinePoints(points);
+                GameManager.Instance.lineManager.SetDrawing(true);
+            }
+            else
+            {
+                Debug.Log("I do not have an item stored!");
+            }
+        }
+        else if (brain.actionRelease)
+        {
+            if (inventory.HasStoredItem() && !cancelAction)
+            {
+                //inventory.ThrowStoredItem(new Vector2(throwingForce.x * lookingDirection, throwingForce.y), throwPoint.position);
+
+                Vector3 thisVector;
+                Vector3 mousePosition = GameManager.Instance.camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+
+                thisVector = mousePosition - throwPoint.position;
+
+                inventory.ThrowStoredItem(new Vector2(throwingForce.x, throwingForce.y) * thisVector, throwPoint.position);
+                GameManager.Instance.lineManager.SetDrawing(false);
+            }
+            cancelAction = false;
+        }
     }
 
 }
