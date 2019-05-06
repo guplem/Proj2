@@ -8,6 +8,7 @@ public abstract class Brain
     public bool jumping;
     public bool interact;
     public bool action;
+    public bool actionRelease;
     public bool crouch;
     public Vector2 direction;
     protected CharacterManager character;
