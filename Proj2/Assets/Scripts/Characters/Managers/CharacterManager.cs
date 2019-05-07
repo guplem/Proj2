@@ -16,6 +16,13 @@ public abstract class CharacterManager : MonoBehaviour
     [SerializeField] public Collider2D crouchCollider;
     //[SerializeField] public Collider2D interactionsCollider;
 
+
+    [HideInInspector] public Rigidbody2D rb2d;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public AudioController audioController;
+
+    [HideInInspector] protected Interactable currentInteractable;
+
     [SerializeField] public CharacterProperties characterProperties;
 
     public MovementController movementController;
@@ -26,12 +33,7 @@ public abstract class CharacterManager : MonoBehaviour
     public BehaviourTree defaultBehaviourTree;
     public BehaviourTree behaviourTree;
 
-    [HideInInspector] public Rigidbody2D rb2d;
-    [HideInInspector] public Animator animator;
-    [HideInInspector] public AudioController audioController;
-
-    [HideInInspector] protected Interactable currentInteractable;
-
+    // Note: the default state is given by the current behaviour tree
     public State state;
 
     protected void Setup(MovementController movementController, Brain defaultBrain, BehaviourTree defaultBehaviourTree)
@@ -48,9 +50,9 @@ public abstract class CharacterManager : MonoBehaviour
         animator = GetComponent<Animator>();
         audioController = GetComponent<AudioController>();
 
-        this.state = this.behaviourTree.defaultState;
+        State.SetState(this.behaviourTree.defaultState, this);
 
-        // characterProperties = Instantiate(characterProperties); //To create a copy
+        // characterProperties = Instantiate(characterProperties); //To create a copy to debug
     }
 
     protected void Update()
@@ -66,8 +68,6 @@ public abstract class CharacterManager : MonoBehaviour
     {
         state.FixedTick(Time.fixedDeltaTime);
     }
-
-    
 
     public void OnInterectableTriggerEnter(Collider2D collision)
     {

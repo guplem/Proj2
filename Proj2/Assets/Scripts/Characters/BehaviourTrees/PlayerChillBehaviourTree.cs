@@ -23,21 +23,21 @@ public class PlayerChillBehaviourTree : BehaviourTree
             // Trigger to enter jumping 
             if (character.brain.jumping && character.GetComponent<Rigidbody2D>().velocity.y <= 0.1f)
             {
-                character.state.SetState( new JumpingState(character) );
+                State.SetState( new JumpingState(character) , character);
                 return;
             }
 
             // Trigger to enter crouched
             else if (character.brain.crouch)
             {
-                character.state.SetState( new CrouchedState(character) );
+                State.SetState( new CrouchedState(character) , character);
                 return;
             }
 
             // Trigger to enter throw mode
             else if (character.brain.action && ((PlayerManager)character).inventory.HasStoredItem())
             {
-                character.state.SetState( new ThrowState(character) );
+                State.SetState( new ThrowState(character), character);
                 return;
             }
 
@@ -90,12 +90,12 @@ public class PlayerChillBehaviourTree : BehaviourTree
         {
             if (Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
             {
-                character.state.SetState(new WalkingState(character));
+                State.SetState(new WalkingState(character), character);
                 return;
             }
             else
             {
-                character.state.SetState(new OnAirState(character));
+                State.SetState(new OnAirState(character), character);
                 return;
             }
         }

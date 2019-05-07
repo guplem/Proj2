@@ -9,7 +9,7 @@ public abstract class State
     public abstract void FixedTick(float fixedDeltaTime);
     public abstract void OnExit();
 
-    public void SetState(State newState)
+    public static void SetState(State newState, CharacterManager character)
     {
         // If only one of both is null or neither any of both is
         if ((character.state == null ^ newState == null) || (character.state != null && newState != null))
@@ -25,16 +25,17 @@ public abstract class State
             // If one of both is null (jumped trugh carching exception)
             // ...or...
             // Old state is not null and neither is newState but both are different
-            ForceSetState(newState);
+            State.ForceSetState(newState, character);
         }
     }
 
-
-
-    private void ForceSetState(State newState)
+    private static void ForceSetState(State newState, CharacterManager character)
     {
         if (character.state != null)
             character.state.OnExit();
+
+        if (newState == null)
+            Debug.LogWarning("Setting null state");
 
         character.state = newState;
     }

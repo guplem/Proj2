@@ -17,7 +17,7 @@ public abstract class BehaviourTree
 
     protected void ForceExitState(CharacterManager character)
     {
-        character.state.SetState(null);
+        State.SetState(null, character);
     }
 
 }

@@ -16,7 +16,7 @@ public class ActivableBox : Activable
             if (state == true)
             {
                 transform.SetParent(characterActivating.transform);
-                characterActivating.state.SetState(new PushPullState(characterActivating));
+                State.SetState(new PushPullState(characterActivating), characterActivating);
                 rb2d.bodyType = RigidbodyType2D.Kinematic;
             }
             else
