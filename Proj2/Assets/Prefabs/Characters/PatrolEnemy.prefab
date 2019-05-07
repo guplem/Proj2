@@ -321,11 +321,12 @@ MonoBehaviour:
   groundCollider: {fileID: 8080599495276284416}
   standingCollider: {fileID: 765104282147184324}
   crouchCollider: {fileID: 498877604276849726}
-  characterProperties: {fileID: 11400000, guid: d34568373ab42524a8361ef91c2871bc,
-    type: 2}
   rb2d: {fileID: 0}
   animator: {fileID: 0}
   audioController: {fileID: 0}
+  interactionsController: {fileID: 0}
+  characterProperties: {fileID: 11400000, guid: d34568373ab42524a8361ef91c2871bc,
+    type: 2}
   lookingStartPoint: {x: 0.8, y: 1.7}
   lookingDirection: 6.06
   lookingRaysQty: 5
@@ -378,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0b82bc67926e784799e30088b076170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterManager: {fileID: 9176526076712924883}
+  character: {fileID: 9176526076712924883}
 --- !u!61 &8483443445278108754
 BoxCollider2D:
   m_ObjectHideFlags: 0

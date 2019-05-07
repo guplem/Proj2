@@ -35,10 +35,14 @@ public abstract class State
         if (character.state != null)
             character.state.OnExit();
 
-        if (newState == null)
-            Debug.LogWarning("Setting null state");
-
         character.state = newState;
+
+        if (newState == null)
+        {
+            Debug.LogWarning("Setting null state");
+            return;
+        }
+
         character.state.StartState();
     }
 

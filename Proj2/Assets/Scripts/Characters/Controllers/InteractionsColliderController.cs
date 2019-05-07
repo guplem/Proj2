@@ -15,7 +15,7 @@ public class InteractionsColliderController : MonoBehaviour
     private void Start()
     {
         if (character == null)
-            Debug.LogWarning("'CharacterManager' is not setted up in the 'InteractionsColliderController' of the object '" + gameObject.name + "'", gameObject) ;
+            Debug.LogError("'CharacterManager' is not setted up in the 'InteractionsColliderController' of the object '" + gameObject.name + "'", gameObject) ;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
