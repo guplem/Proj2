@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerChillBehaviourTree : BehaviourTree
 {
-    public PlayerChillBehaviourTree(IState defaultState, PlayerManager characterManager)
+    public PlayerChillBehaviourTree(State defaultState, PlayerManager characterManager)
     {
         base.Setup(defaultState, characterManager);
     }
@@ -23,21 +23,21 @@ public class PlayerChillBehaviourTree : BehaviourTree
             // Trigger to enter jumping 
             if (character.brain.jumping && character.GetComponent<Rigidbody2D>().velocity.y <= 0.1f)
             {
-                character.SetState( new JumpingState(character) );
+                character.state.SetState( new JumpingState(character) );
                 return;
             }
 
             // Trigger to enter crouched
             else if (character.brain.crouch)
             {
-                character.SetState( new CrouchedState(character) );
+                character.state.SetState( new CrouchedState(character) );
                 return;
             }
 
             // Trigger to enter throw mode
             else if (character.brain.action && ((PlayerManager)character).inventory.HasStoredItem())
             {
-                character.SetState( new ThrowState(character) );
+                character.state.SetState( new ThrowState(character) );
                 return;
             }
 
@@ -90,12 +90,12 @@ public class PlayerChillBehaviourTree : BehaviourTree
         {
             if (Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
             {
-                character.SetState(new WalkingState(character));
+                character.state.SetState(new WalkingState(character));
                 return;
             }
             else
             {
-                character.SetState(new OnAirState(character));
+                character.state.SetState(new OnAirState(character));
                 return;
             }
         }

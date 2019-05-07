@@ -2,10 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IState
+public abstract class State
 {
-    CharacterManager character { get; set; }
-    void Tick(float deltaTime);
-    void FixedTick(float fixedDeltaTime);
-    void OnExit();
+    protected CharacterManager character { get; set; }
+    public abstract void Tick(float deltaTime);
+    public abstract void FixedTick(float fixedDeltaTime);
+    public abstract void OnExit();
+
+    public void SetState(State newState)
+    {
+        // If only one of both is null or neither any of both is
+        if ((character.state == null ^ newState == null) || (character.state != null && newState != null))
+        {
+            try // To ensue that a null state gives no problems. If one of both is null an exception will be catched.
+            {
+                // If both are the same state do not conitnue
+                if (character.state.GetType() == newState.GetType())
+                    return;
+            }
+            catch (System.NullReferenceException) { }
+
+            // If one of both is null (jumped trugh carching exception)
+            // ...or...
+            // Old state is not null and neither is newState but both are different
+            ForceSetState(newState);
+        }
+    }
+
+
+
+    private void ForceSetState(State newState)
+    {
+        if (character.state != null)
+            character.state.OnExit();
+
+        character.state = newState;
+    }
 }

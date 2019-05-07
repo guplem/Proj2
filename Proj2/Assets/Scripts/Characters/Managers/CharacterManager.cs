@@ -32,7 +32,7 @@ public abstract class CharacterManager : MonoBehaviour
 
     [HideInInspector] protected Interactable currentInteractable;
 
-    public IState state { get; private set; }
+    public State state;
 
     protected void Setup(MovementController movementController, Brain defaultBrain, BehaviourTree defaultBehaviourTree)
     {
@@ -67,35 +67,7 @@ public abstract class CharacterManager : MonoBehaviour
         state.FixedTick(Time.fixedDeltaTime);
     }
 
-    public void SetState(IState newState)
-    {
-        // If only one of both is null or neither any of both is
-        if ((state == null ^ newState == null) || (state != null && newState != null))
-        {
-            try // To ensue that a null state gives no problems. If one of both is null an exception will be catched.
-            {
-                // If both are the same state do not conitnue
-                if (state.GetType() == newState.GetType())
-                    return;
-            }
-            catch (NullReferenceException) { }
-
-            // If one of both is null (jumped trugh carching exception)
-            // ...or...
-            // Old state is not null and neither is newState but both are different
-            ForceSetState(newState);
-        }
-    }
-
-   
-
-    private void ForceSetState(IState newState)
-    {
-        if (state != null)
-            state.OnExit();
-
-        state = newState;
-    }
+    
 
     public void OnInterectableTriggerEnter(Collider2D collision)
     {
