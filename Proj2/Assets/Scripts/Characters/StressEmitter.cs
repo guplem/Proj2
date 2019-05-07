@@ -50,7 +50,6 @@ public class StressEmitter : MonoBehaviour
             try
             {
                 stressing.Remove(stressController);
-                Debug.Log("Removing!");
             }
             catch (System.NullReferenceException) { }
 
@@ -58,7 +57,6 @@ public class StressEmitter : MonoBehaviour
             {
                 StopCoroutine(coroutineHolder);
                 coroutineHolder = null;
-                Debug.Log("Stopping Emitting");
             }
         }
     }
@@ -67,7 +65,6 @@ public class StressEmitter : MonoBehaviour
     {
         do
         {
-            Debug.Log("Adding Stress Over Time Called");
             yield return new WaitForSeconds(timeBetweenEmisions);
 
             EmitStress(stressAmountPerSecond * timeBetweenEmisions);
@@ -77,11 +74,9 @@ public class StressEmitter : MonoBehaviour
 
     public void EmitStress(float amount)
     {
-        Debug.Log("Called emit stress!");
         foreach (StressController sc in stressing)
         {
             sc.AddStress(amount);
-            Debug.Log("d...");
         }
     }
 
@@ -91,6 +86,5 @@ public class StressEmitter : MonoBehaviour
 
         Gizmos.DrawWireSphere(emittingPoint, effectRadius);
     }
-
 
 }
