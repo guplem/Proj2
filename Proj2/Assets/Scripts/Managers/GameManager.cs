@@ -66,13 +66,6 @@ public class GameManager : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         lineManager = new LineManager();
         camera.Setup(playerManager.gameObject, 0.05f);
-        StartGame();
-    }
-
-
-    public void StartGame()
-    {
-        Debug.Log("Starting game");
         lastCheckPoint = null;
     }
 
