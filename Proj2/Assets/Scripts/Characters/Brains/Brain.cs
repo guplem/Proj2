@@ -40,7 +40,7 @@ public abstract class Brain
         }
     }
 
-    protected void CheckAndFlip()
+    private void CheckAndFlip()
     {
         if (direction.x >= 0.1f)
         {
