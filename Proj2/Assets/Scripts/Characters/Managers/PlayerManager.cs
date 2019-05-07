@@ -20,22 +20,15 @@ public class PlayerManager : CharacterManager
     {
 
         base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new WalkingState(this), this));
-<<<<<<< HEAD
-=======
 
->>>>>>> feature/Corrected_dinamic_throw
 
         //Particular of the player
         inventory = new InventoryController(this);
 
         stressController = GetComponent<StressController>();//new StressController(this, stressThreshold);
-<<<<<<< HEAD
 
         cancelAction = false;
 
-=======
-        cancelAction = false;
->>>>>>> feature/Corrected_dinamic_throw
     }
 
     protected new void Update()
@@ -63,10 +56,6 @@ public class PlayerManager : CharacterManager
             }
             if (inventory.HasStoredItem())
             {
-<<<<<<< HEAD
-                inventory.ThrowStoredItem(new Vector2(throwingForce.x, throwingForce.y), throwPoint.position);
-=======
->>>>>>> feature/Corrected_dinamic_throw
                 Vector3 mousePosition = GameManager.Instance.camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
 
                 Vector3[] points = { throwPoint.position, mousePosition };
@@ -77,8 +66,6 @@ public class PlayerManager : CharacterManager
             else
             {
                 Debug.Log("I do not have an item stored!");
-<<<<<<< HEAD
-=======
             }
         }
         else if (brain.actionRelease)
@@ -94,7 +81,6 @@ public class PlayerManager : CharacterManager
 
                 inventory.ThrowStoredItem(new Vector2(throwingForce.x, throwingForce.y) * thisVector, throwPoint.position);
                 GameManager.Instance.lineManager.SetDrawing(false);
->>>>>>> feature/Corrected_dinamic_throw
             }
             cancelAction = false;
         }
@@ -103,12 +89,12 @@ public class PlayerManager : CharacterManager
             if (inventory.HasStoredItem() && !cancelAction)
             {
                 //inventory.ThrowStoredItem(new Vector2(throwingForce.x * lookingDirection, throwingForce.y), throwPoint.position);
-                Vector3 thisVector;
+                Vector3 direction;
                 Vector3 mousePosition = GameManager.Instance.camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
 
-                thisVector = mousePosition - throwPoint.position;
+                direction = mousePosition - throwPoint.position;
 
-                inventory.ThrowStoredItem(new Vector2(throwingForce.x, throwingForce.y) * thisVector, throwPoint.position);
+                inventory.ThrowStoredItem(new Vector2(throwingForce.x, throwingForce.y) * direction, throwPoint.position);
                 GameManager.Instance.lineManager.SetDrawing(false);
             }
             cancelAction = false;
