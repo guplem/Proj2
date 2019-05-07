@@ -35,7 +35,7 @@ public abstract class Brain
 
         if (interact != state)
         {
-            character.ProcessNewInteractState(state);
+            character.interactionsController.ProcessNewInteractState(state);
             interact = state;
         }
     }

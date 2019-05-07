@@ -21,7 +21,8 @@ public abstract class CharacterManager : MonoBehaviour
     [HideInInspector] public Animator animator;
     [HideInInspector] public AudioController audioController;
 
-    [HideInInspector] protected Interactable currentInteractable;
+    //[HideInInspector] protected Interactable currentInteractable;
+    [SerializeField] public InteractionsColliderController interactionsController;
 
     [SerializeField] public CharacterProperties characterProperties;
 
@@ -67,65 +68,6 @@ public abstract class CharacterManager : MonoBehaviour
     protected void FixedUpdate()
     {
         state.FixedTick(Time.fixedDeltaTime);
-    }
-
-    public void OnInterectableTriggerEnter(Collider2D collision)
-    {
-        // Is an interactable object
-        Interactable interactable = collision.GetComponent<Interactable>();
-        if (interactable != null && collision.isTrigger)
-        {
-            if (interactable.interactAutomatically)
-            {
-                interactable.StartInteract(this);
-                return;
-            }
-
-            //Currently not interacting with any object
-            if (!brain.interact)
-            {
-                currentInteractable = interactable;
-            }
-        }
-    }
-
-    public void OnInterectableTriggerExit(Collider2D collision)
-    {
-        // Is an interactable object
-        Interactable interactable = collision.GetComponent<Interactable>();
-        if (interactable != null && collision.isTrigger)
-        {
-
-            if (interactable.interactAutomatically)
-            {
-                interactable.EndInteract(this);
-                return;
-            }
-
-            //Currently not interacting with any object
-            if (!brain.interact)
-            {
-                // If exiting the current interactable
-                if (currentInteractable == interactable)
-                    currentInteractable = null;
-            }
-        }
-    }
-
-    public void ProcessNewInteractState(bool isInteractionBegining)
-    {
-        if (currentInteractable != null)
-        {
-            if (isInteractionBegining)
-            {
-                currentInteractable.StartInteract(this);
-            }
-            else
-            {
-                currentInteractable.EndInteract(this);
-            }
-
-        }
     }
 
 

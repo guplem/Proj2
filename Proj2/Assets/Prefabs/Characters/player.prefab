@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0b82bc67926e784799e30088b076170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterManager: {fileID: 7729870114131683840}
+  character: {fileID: 0}
 --- !u!61 &1248579903
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -237,14 +237,14 @@ MonoBehaviour:
   groundCollider: {fileID: 405096024255100781}
   standingCollider: {fileID: 9161742863661425577}
   crouchCollider: {fileID: 8311217552249385299}
-  characterProperties: {fileID: 11400000, guid: 8c91f68417c494742814ffeb9abe5c70,
-    type: 2}
   rb2d: {fileID: 0}
   animator: {fileID: 0}
   audioController: {fileID: 0}
+  interactionsController: {fileID: 8757234941393882266}
+  characterProperties: {fileID: 11400000, guid: 8c91f68417c494742814ffeb9abe5c70,
+    type: 2}
   throwPoint: {fileID: 4705788987633123289}
   throwingForce: {x: 5, y: 5}
-  stressThreshold: 10
 --- !u!114 &5604496833189422184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1062b87374799ef47a2d42207165a331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stressPassiveRemovalDelay: 0
+  stressRemovalPerSecond: 0
   stressThreshold: 10
 --- !u!1 &4622873014445708733
 GameObject:
