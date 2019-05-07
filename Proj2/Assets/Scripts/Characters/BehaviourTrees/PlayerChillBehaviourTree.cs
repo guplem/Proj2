@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerChillBehaviourTree : BehaviourTree
 {
-
     public PlayerChillBehaviourTree(IState defaultState, PlayerManager characterManager)
     {
         base.Setup(defaultState, characterManager);
@@ -31,7 +30,14 @@ public class PlayerChillBehaviourTree : BehaviourTree
             // Trigger to enter crouched
             else if (character.brain.crouch)
             {
-                character.SetState(new CrouchedState(character) );
+                character.SetState( new CrouchedState(character) );
+                return;
+            }
+
+            // Trigger to enter throw mode
+            else if (character.brain.action && ((PlayerManager)character).inventory.HasStoredItem())
+            {
+                character.SetState( new ThrowState(character) );
                 return;
             }
 
