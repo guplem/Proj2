@@ -15,12 +15,13 @@ public class StressEmitter : MonoBehaviour
     [HideInInspector] private Vector3 emittingPoint;
 
     private IEnumerator coroutineHolder;
-    private List<StressController> stressing = new List<StressController>();
+    private List<StressController> stressing;
 
     public void Start()
     {
         this.emittingPoint = gameObject.transform.position;
         this.effectRadius = GetComponent<CircleCollider2D>().radius;
+        stressing = new List<StressController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,6 +30,7 @@ public class StressEmitter : MonoBehaviour
         if (stressController != null && emitStress)
         {
             stressing.Add(stressController);
+            //TODO check if there is a stressController duplicated.
             /*if (coroutineHolder != null)
                 StopCoroutine(coroutineHolder);*/
 
@@ -48,6 +50,7 @@ public class StressEmitter : MonoBehaviour
             try
             {
                 stressing.Remove(stressController);
+                Debug.Log("Removing!");
             }
             catch (System.NullReferenceException) { }
 
@@ -55,25 +58,30 @@ public class StressEmitter : MonoBehaviour
             {
                 StopCoroutine(coroutineHolder);
                 coroutineHolder = null;
+                Debug.Log("Stopping Emitting");
             }
         }
     }
 
-    private IEnumerator AddStressOverTime(float timeBetweenEmisions, float stressAmountPerSecond)
+    public IEnumerator AddStressOverTime(float timeBetweenEmisions, float stressAmountPerSecond)
     {
-        while (true)
+        do
         {
+            Debug.Log("Adding Stress Over Time Called");
             yield return new WaitForSeconds(timeBetweenEmisions);
 
             EmitStress(stressAmountPerSecond * timeBetweenEmisions);
         }
+        while (true);
     }
 
     public void EmitStress(float amount)
     {
+        Debug.Log("Called emit stress!");
         foreach (StressController sc in stressing)
         {
             sc.AddStress(amount);
+            Debug.Log("d...");
         }
     }
 
@@ -83,4 +91,6 @@ public class StressEmitter : MonoBehaviour
 
         Gizmos.DrawWireSphere(emittingPoint, effectRadius);
     }
+
+
 }
