@@ -1,0 +1,288 @@
+fileFormatVersion: 2
+guid: 92e4e40b75b15c94489a02227aaef53a
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Player_Pick_0
+    21300002: Player_Pick_1
+    21300004: Player_Pick_2
+    21300006: Player_Pick_3
+    21300008: Player_Pick_4
+    21300010: Player_Pick_5
+    21300012: Player_Pick_6
+    21300014: Player_Pick_7
+    21300016: Player_Pick_8
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player_Pick_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 816
+        width: 313
+        height: 408
+      alignment: 9
+      pivot: {x: 0.486534, y: 0.10399463}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6461ea9760f7d2439e9ec5dd00dedcc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pick_1
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 816
+        width: 313
+        height: 408
+      alignment: 9
+      pivot: {x: 0.48653406, y: 0.09710753}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f85af20aa14ae5b47820dc8448cad453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pick_2
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 816
+        width: 313
+        height: 408
+      alignment: 9
+      pivot: {x: 0.46857956, y: 0.10399463}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06051e1b5b60cab479c103d3b0c2340d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pick_3
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 816
+        width: 313
+        height: 408
+      alignment: 9
+      pivot: {x: 0.46857956, y: 0.12465578}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f0350a29355c941bcb8b6db3f079cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pick_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 408
+        width: 313
+        height: 408
+      alignment: 9
+      pivot: {x: 0.4820453, y: 0.11776883}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c4c0875c4d4f7d4d803854299534042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pick_5
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 408
+        width: 313
+        height: 408
+      alignment: 9
+      pivot: {x: 0.48204532, y: 0.14187352}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd44e8d190122814b96520a6fefb6c4e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pick_6
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 408
+        width: 313
+        height: 408
+      alignment: 9
+      pivot: {x: 0.48653424, y: 0.14876056}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 593f8313e108a3144825f26ff783ff78
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pick_7
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 398
+        width: 313
+        height: 408
+      alignment: 9
+      pivot: {x: 0.49551147, y: 0.14531693}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08d9c8ba92f7f4b44a44a2f051d2dd8a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pick_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 313
+        height: 408
+      alignment: 9
+      pivot: {x: 0.5089774, y: 0.10055107}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f942b1f7d17575346876f4c1cd5b1e23
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 633dc345fdd68904d9a2e1c7e9e91bdd
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
