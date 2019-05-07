@@ -8,6 +8,7 @@ public abstract class State
     public abstract void Tick(float deltaTime);
     public abstract void FixedTick(float fixedDeltaTime);
     public abstract void OnExit();
+    public abstract void StartState();
 
     public static void SetState(State newState, CharacterManager character)
     {
@@ -38,5 +39,7 @@ public abstract class State
             Debug.LogWarning("Setting null state");
 
         character.state = newState;
+        character.state.StartState();
     }
+
 }

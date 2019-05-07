@@ -11,6 +11,11 @@ public class ThrowState : State
         ((PlayerManager)character).rb2d.velocity = Vector3.zero;
     }
 
+    public override void StartState()
+    {
+
+    }
+
     public override void Tick(float deltaTime)
     {
         CheckThrow();

@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class CrouchedState : State
 {
-    public CharacterManager playerManager { get; set; }
 
     public CrouchedState(CharacterManager characterManager)
     {
         this.character = characterManager;
-        this.playerManager = characterManager;
 
         characterManager.standingCollider.enabled = false;
         characterManager.crouchCollider.enabled = true;
 
-        Utils.ChangeGameObjectAndChildsLayerTo(playerManager.gameObject, 100);
+        Utils.ChangeGameObjectAndChildsLayerTo(character.gameObject, 100);
+    }
+
+    public override void StartState()
+    {
+
     }
 
     public override void FixedTick(float fixedDeltaTime)
@@ -33,6 +36,6 @@ public class CrouchedState : State
         character.standingCollider.enabled = true;
         character.crouchCollider.enabled = false;
 
-        Utils.ChangeGameObjectAndChildsLayerTo(playerManager.gameObject, 150);
+        Utils.ChangeGameObjectAndChildsLayerTo(character.gameObject, 150);
     }
 }

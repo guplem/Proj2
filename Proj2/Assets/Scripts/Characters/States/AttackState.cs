@@ -12,6 +12,11 @@ public class AttackState : State
         timeToAttack = loadingTime;
     }
 
+    public override void StartState()
+    {
+
+    }
+
     public override void Tick(float deltaTime)
     {
         timeToAttack -= deltaTime;

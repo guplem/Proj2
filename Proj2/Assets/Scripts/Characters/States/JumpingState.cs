@@ -11,6 +11,11 @@ public class JumpingState : State
         // timeToStopJumping = Time.time + characterManager.characterProperties.jumpTime;
     }
 
+    public override void StartState()
+    {
+
+    }
+
     public override void Tick(float deltaTime)
     {
         /*if (Time.time >= timeToStopJumping || !characterManager.brain.jumping)
