@@ -45,7 +45,7 @@ public class StressController : MonoBehaviour
         //TODO idea is to make the player random movements, thingys or fuck-ups.
         //playerManager.behaviourTree.SetStressed();
 
-        SetStress(stressThreshold);
+        // SetStress(stressThreshold);
     }
 
     public IEnumerator RemoveStressAfterTime(float timeToStart, float timeBetweenDecrease)
@@ -73,9 +73,7 @@ public class StressController : MonoBehaviour
         }
 
         if (currentStress < 0)
-        {
             currentStress = 0;
-        }
 
         Debug.Log("Current stress: " + currentStress);
         if (isPlayer)
