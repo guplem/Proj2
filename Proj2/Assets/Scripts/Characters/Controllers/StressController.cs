@@ -64,18 +64,13 @@ public class StressController : MonoBehaviour
     private void SetStress(float qty)
     {
         if (qty > stressThreshold)
-        {
             currentStress = stressThreshold;
-        }
         else
-        {
             currentStress = qty;
-        }
 
         if (currentStress < 0)
             currentStress = 0;
 
-        Debug.Log("Current stress: " + currentStress);
         if (isPlayer)
             GUIManager.Instance.BackgroundVignette.SetOpacitySmooth(currentStress / stressThreshold);
     }
