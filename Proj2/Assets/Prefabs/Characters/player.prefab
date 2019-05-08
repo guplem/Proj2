@@ -241,6 +241,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   audioController: {fileID: 0}
   interactionsController: {fileID: 8757234941393882266}
+  visualsAnimator: {fileID: 8882376206053353117}
   characterProperties: {fileID: 11400000, guid: 8c91f68417c494742814ffeb9abe5c70,
     type: 2}
   throwPoint: {fileID: 4705788987633123289}
@@ -271,6 +272,7 @@ GameObject:
   - component: {fileID: 2325142171918222430}
   - component: {fileID: 313350187286083614}
   - component: {fileID: 6077845065378858406}
+  - component: {fileID: 8882376206053353117}
   m_Layer: 10
   m_Name: PlayerVisuals
   m_TagString: Untagged
@@ -356,6 +358,25 @@ MonoBehaviour:
   AdditiveColor: {r: 0, g: 0, b: 0, a: 0}
   Material: {fileID: 2100000, guid: 0a8c132f813f5514b9f5b48ff3956482, type: 2}
   LightObstacleScale: 1
+--- !u!95 &8882376206053353117
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622873014445708733}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13e3ce362ef5917469ccccd3c9d49322, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5710166843527298672
 GameObject:
   m_ObjectHideFlags: 0

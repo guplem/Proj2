@@ -12,7 +12,7 @@ public class OnAirState : State
 
     public override void StartState()
     {
-
+        character.visualsAnimator.SetTrigger("OnAir");
     }
 
     public override void Tick(float deltaTime)

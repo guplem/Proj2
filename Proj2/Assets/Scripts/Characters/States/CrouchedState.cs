@@ -17,7 +17,7 @@ public class CrouchedState : State
 
     public override void StartState()
     {
-
+        character.visualsAnimator.SetTrigger("Crouch");
     }
 
     public override void FixedTick(float fixedDeltaTime)

@@ -11,7 +11,7 @@ public class WalkingState : State
 
     public override void StartState()
     {
-
+        character.visualsAnimator.SetTrigger("Walk");
     }
 
     public override void Tick(float deltaTime)

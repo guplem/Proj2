@@ -13,7 +13,7 @@ public class ThrowState : State
 
     public override void StartState()
     {
-
+        character.visualsAnimator.SetTrigger("Throw");
     }
 
     public override void Tick(float deltaTime)

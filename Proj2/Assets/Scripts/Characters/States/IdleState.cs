@@ -12,7 +12,7 @@ public class IdleState : State
 
     public override void StartState()
     {
-
+        character.visualsAnimator.SetTrigger("Idle");
     }
 
     public override void Tick(float deltaTime)

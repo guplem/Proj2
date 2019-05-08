@@ -12,7 +12,7 @@ public class PushPullState : State
 
     public override void StartState()
     {
-
+        character.visualsAnimator.SetTrigger("PushPull");
     }
 
     public override void FixedTick(float fixedDeltaTime)

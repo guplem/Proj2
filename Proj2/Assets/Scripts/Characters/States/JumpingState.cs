@@ -13,7 +13,7 @@ public class JumpingState : State
 
     public override void StartState()
     {
-
+        character.visualsAnimator.SetTrigger("JumpingState");
     }
 
     public override void Tick(float deltaTime)

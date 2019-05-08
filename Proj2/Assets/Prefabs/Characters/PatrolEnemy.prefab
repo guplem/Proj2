@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6196863622840744243}
   - component: {fileID: 8206122056261830003}
+  - component: {fileID: 1352286770111948420}
   m_Layer: 12
   m_Name: Visuals
   m_TagString: Untagged
@@ -79,6 +80,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1352286770111948420
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3863103725657106640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4216962031337161501
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +142,6 @@ GameObject:
   - component: {fileID: 8080599495276284416}
   - component: {fileID: 765104282147184324}
   - component: {fileID: 498877604276849726}
-  - component: {fileID: 1191777366009120311}
   - component: {fileID: 4015461363121908081}
   - component: {fileID: 2120483584756003289}
   - component: {fileID: 3474346166415430201}
@@ -232,25 +251,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.3}
   m_Size: {x: 1.58, y: 0.8}
   m_Direction: 1
---- !u!95 &1191777366009120311
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5832658125214306846}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &4015461363121908081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +325,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   audioController: {fileID: 0}
   interactionsController: {fileID: 0}
+  visualsAnimator: {fileID: 1352286770111948420}
   characterProperties: {fileID: 11400000, guid: d34568373ab42524a8361ef91c2871bc,
     type: 2}
   lookingStartPoint: {x: 0.8, y: 1.7}

@@ -5,7 +5,6 @@ using UnityEngine;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(AudioController))]
 public abstract class CharacterManager : MonoBehaviour
 {
@@ -23,6 +22,7 @@ public abstract class CharacterManager : MonoBehaviour
 
     //[HideInInspector] protected Interactable currentInteractable;
     [SerializeField] public InteractionsColliderController interactionsController;
+    [SerializeField] public Animator visualsAnimator;
 
     [SerializeField] public CharacterProperties characterProperties;
 

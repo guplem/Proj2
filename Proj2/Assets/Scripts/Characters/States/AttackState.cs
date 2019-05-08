@@ -14,7 +14,7 @@ public class AttackState : State
 
     public override void StartState()
     {
-
+        character.visualsAnimator.SetTrigger("Attack");
     }
 
     public override void Tick(float deltaTime)
