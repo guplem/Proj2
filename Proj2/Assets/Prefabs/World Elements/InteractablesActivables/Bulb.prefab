@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 959301653156932078}
   - component: {fileID: 337819531930619581}
   m_Layer: 0
-  m_Name: light
+  m_Name: Bulb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   singleActivation: 0
   alreadyActivated: 0
   lightEmmiter: {fileID: 4164832842574459292}
-  alertRadius: 10
+  alertRadius: 15
   alertPoint: {x: 0, y: -5}
 --- !u!114 &337819531930619581
 MonoBehaviour:
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 7502471862969176158}
   - component: {fileID: 6568992533114356972}
   m_Layer: 16
-  m_Name: Emmiter
+  m_Name: Light Emmiter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

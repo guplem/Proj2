@@ -97,14 +97,13 @@ public abstract class EnemyManager : CharacterManager
     {
         if (CanSeePlayer())
         {
-            if (brain.GetType() != typeof(ChasingBrain)
-                ||
+            if (brain.GetType() != typeof(ChasingBrain) ||
                 ((ChasingBrain)brain).target != GameManager.Instance.playerManager.gameObject)
             {
                 brain = new ChasingBrain(this, GameManager.Instance.playerManager.gameObject);
             }
         }
-        else
+        else if (brain is ChasingBrain)
         {
             brain = defaultBrain;
         }

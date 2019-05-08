@@ -11,6 +11,7 @@
  #### # Sorting layers
   - [-100] --> Ambient Light
   - [0, 99] --> Background world elements
+  - [50, 60] --> Floor
   - [100] --> Player crouched
   - [101, 149] --> Hiding objects
   - [150] --> Player (standard)
