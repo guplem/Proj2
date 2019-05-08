@@ -9,7 +9,7 @@ public class ActivableDoor : Activable
     [SerializeField] private Collider2D doorCollider;
 
 
-    protected override void SetState(bool state, CharacterManager characterActivating)
+    protected override void SetState(bool state, CharacterManager characterActivating, bool alertAtActivate)
     {
         doorCollider.enabled = state;
 

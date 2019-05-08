@@ -15,7 +15,7 @@ public abstract class Activable : MonoBehaviour
     {
         currentState = defaultState;
 
-        SetState(currentState, null);
+        SetState(currentState, null, false);
 
         alreadyActivated = false;
     }
@@ -25,11 +25,11 @@ public abstract class Activable : MonoBehaviour
         if (RegisterAndAskForActivation())
         {
             currentState = !currentState;
-            SetState(currentState, characterActivating);
+            SetState(currentState, characterActivating, true);
         }
     }
 
-    protected abstract void SetState(bool state, CharacterManager characterActivating);
+    protected abstract void SetState(bool state, CharacterManager characterActivating, bool alertAtActivate);
 
     //Returns true if the action can be done and registers the action
     private bool RegisterAndAskForActivation()

@@ -13,7 +13,7 @@ public class Item : Activable
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    protected override void SetState(bool state, CharacterManager characterActivating)
+    protected override void SetState(bool state, CharacterManager characterActivating, bool alertAtActivate)
     {
         if (characterActivating is PlayerManager)
             ((PlayerManager)characterActivating).inventory.StoreItem(this);

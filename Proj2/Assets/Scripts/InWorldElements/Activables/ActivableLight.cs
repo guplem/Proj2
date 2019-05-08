@@ -8,11 +8,11 @@ public class ActivableLight : Activable
     [SerializeField] private GameObject lightEmmiter;
     [SerializeField] private float alertRadius;
     [SerializeField] private Vector2 alertPoint;
-    protected override void SetState(bool state, CharacterManager characterActivating)
+    protected override void SetState(bool state, CharacterManager characterActivating, bool alertAtActivate)
     {
         lightEmmiter.SetActive(state);
 
-        if (state)
+        if (state && alertAtActivate)
         {
             Alertable.AlertAllInRadius(new Vector2(transform.position.x, transform.position.y) + alertPoint, alertRadius);
         }
