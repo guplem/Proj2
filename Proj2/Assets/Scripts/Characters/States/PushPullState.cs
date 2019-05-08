@@ -5,7 +5,7 @@ using UnityEngine;
 public class PushPullState : State
 {
 
-    public PushPullState(CharacterManager characterManager)
+    public PushPullState(CharacterManager characterManager, Interactable interactable)
     {
         this.character = characterManager;
     }

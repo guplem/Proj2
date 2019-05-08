@@ -10,15 +10,43 @@ public class InteractionsColliderController : MonoBehaviour
 {
 
     [SerializeField] private CharacterManager character;
-    private Interactable currentInteractable;
+    [HideInInspector] private Collider2D col;
+    //private Interactable currentInteractable;
+
+
 
     private void Start()
     {
         if (character == null)
             Debug.LogError("'CharacterManager' is not setted up in the 'InteractionsColliderController' of the object '" + gameObject.name + "'", gameObject) ;
+
+        col = GetComponent<Collider2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public Interactable CanInteractWith(Activable.ActivationType activationType)
+    {
+
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(GameManager.Instance.interactablesLayer);
+        Collider2D[] results = new Collider2D[1];
+        col.OverlapCollider(filter, results);
+
+        foreach (Collider2D col in results)
+        {
+            Interactable interactable = col.GetComponent<Interactable>();
+
+            foreach (Activable activable in interactable.connectedActivables)
+            {
+                if (activable.GetActivationType() == activationType)
+                    return interactable;
+            }
+        }
+        return null;
+    }
+
+
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         Interactable interactable = collision.GetComponent<Interactable>();
         if (interactable == null || !collision.isTrigger)
@@ -74,6 +102,6 @@ public class InteractionsColliderController : MonoBehaviour
             }
 
         }
-    }
+    }*/
 
 }

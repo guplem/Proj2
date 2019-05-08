@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private GameObject interactingVisuals;
 
     [Header("Activable elements")]
-    [SerializeField] private Activable[] connectedActivables;
+    [SerializeField] public Activable[] connectedActivables;
 
     public enum InteractType
     {

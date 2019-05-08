@@ -17,7 +17,7 @@ public class ChasingBrain : Brain
     protected override void GetActions()
     {
         jumping = false;
-        SetInteractingTo(false);
+        interact = false;
         action = (Vector2.Distance(character.transform.position, target.transform.position) <= 1.5f);
         crouch = false;
         direction = ((Vector2)target.transform.position - ((Vector2)character.transform.position)).normalized * 1.2f;

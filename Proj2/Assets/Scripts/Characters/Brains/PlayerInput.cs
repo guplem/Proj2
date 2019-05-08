@@ -13,7 +13,7 @@ public class PlayerInput : Brain
     protected override void GetActions()
     {
         jumping = Input.GetButton("Jump");
-        SetInteractingTo(Input.GetButton("Interact"));
+        interact = Input.GetButton("Interact");
         action = Input.GetButton("Action");
         actionRelease = Input.GetButtonUp("Action");
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));

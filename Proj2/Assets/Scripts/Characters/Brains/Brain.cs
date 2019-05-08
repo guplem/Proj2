@@ -27,7 +27,7 @@ public abstract class Brain
         this.character = characterManager;
     }
 
-    public void SetInteractingTo(bool state)
+    /*public void SetInteractingTo(bool state)
     {
         if (character == null)
         {
@@ -39,7 +39,7 @@ public abstract class Brain
             character.interactionsController.ProcessNewInteractState(state);
             interact = state;
         }
-    }
+    }*/
 
     private void CheckAndFlip()
     {

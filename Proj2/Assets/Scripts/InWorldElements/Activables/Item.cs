@@ -19,4 +19,8 @@ public class Item : Activable
             ((PlayerManager)characterActivating).inventory.StoreItem(this);
     }
 
+    public override ActivationType GetActivationType()
+    {
+        return ActivationType.Pickable;
+    }
 }

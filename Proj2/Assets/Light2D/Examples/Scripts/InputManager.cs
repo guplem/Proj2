@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
+#pragma warning disable 0618
 namespace Light2D.Examples
 {
     public class InputManager : MonoBehaviour

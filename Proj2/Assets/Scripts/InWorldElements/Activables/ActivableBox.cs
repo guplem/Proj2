@@ -10,20 +10,25 @@ public class ActivableBox : Activable
 
     Rigidbody2D rb2d;
 
+    public override ActivationType GetActivationType()
+    {
+        return ActivationType.Movable;
+    }
+
     protected override void SetState(bool state, CharacterManager characterActivating, bool alertAtActivate)
     {
         if (characterActivating != null)
             if (state == true)
             {
-                transform.SetParent(characterActivating.transform);
+                /*transform.SetParent(characterActivating.transform);
                 State.SetState(new PushPullState(characterActivating), characterActivating);
-                rb2d.bodyType = RigidbodyType2D.Kinematic;
+                rb2d.bodyType = RigidbodyType2D.Kinematic;*/
             }
             else
             {
-                transform.SetParent(null);
+                /*transform.SetParent(null);
                 characterActivating.behaviourTree.CalculateAndSetNextState(true);
-                rb2d.bodyType = RigidbodyType2D.Dynamic;
+                rb2d.bodyType = RigidbodyType2D.Dynamic;*/
             }
     }
 
