@@ -12,6 +12,16 @@ TextureImporter:
     21300014: spritesheetiDDLE_7
     21300016: spritesheetiDDLE_8
     21300018: spritesheetiDDLE_9
+    21300020: Player_Iddle_0
+    21300022: Player_Iddle_1
+    21300024: Player_Iddle_2
+    21300026: Player_Iddle_3
+    21300028: Player_Iddle_4
+    21300030: Player_Iddle_5
+    21300032: Player_Iddle_6
+    21300034: Player_Iddle_7
+    21300036: Player_Iddle_8
+    21300038: Player_Iddle_9
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -94,201 +104,201 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spritesheetiDDLE_0
+      name: Player_Iddle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 313
         height: 408
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e19c22d4efed9514690f73c3a9b6c985
+      spriteID: d4774b48c1edf2a4dad911d0fdb24998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetiDDLE_1
+      name: Player_Iddle_1
       rect:
         serializedVersion: 2
         x: 313
         y: 0
         width: 313
         height: 408
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 014e7922a9b7535449a6a7492c4a9bf7
+      spriteID: 814db19ac9cc7d340926f4fdfbde3d75
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetiDDLE_2
+      name: Player_Iddle_2
       rect:
         serializedVersion: 2
         x: 626
         y: 0
         width: 313
         height: 408
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 709b4bf383fd1be4cb01cc6b8a520829
+      spriteID: 5419e4e3e6062f74cb3a889ba6b5cf9a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetiDDLE_3
+      name: Player_Iddle_3
       rect:
         serializedVersion: 2
         x: 939
         y: 0
         width: 313
         height: 408
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f225311daaa0dbc45a9faf0301f1bb77
+      spriteID: 07a434c99165fce41b06315b4b5f9e41
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetiDDLE_4
+      name: Player_Iddle_4
       rect:
         serializedVersion: 2
         x: 1252
         y: 0
         width: 313
         height: 408
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 656851d2b3d8bf54d8cf6e0bdeab0fc3
+      spriteID: 1d583f86bf79caf458a0a8d9ae2da790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetiDDLE_5
+      name: Player_Iddle_5
       rect:
         serializedVersion: 2
         x: 1565
         y: 0
         width: 313
         height: 408
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 141eaf15b4be861408f0dc022a4fd84a
+      spriteID: c36f21b9dd1e1814eb2eb9c46cbe52b6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetiDDLE_6
+      name: Player_Iddle_6
       rect:
         serializedVersion: 2
         x: 1878
         y: 0
         width: 313
         height: 408
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 290ec594bdeb3c54daa05ab7882650f3
+      spriteID: eb4d0e27a3b3a314a930604e2083a815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetiDDLE_7
+      name: Player_Iddle_7
       rect:
         serializedVersion: 2
         x: 2191
         y: 0
         width: 313
         height: 408
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4562d26952d764428e9fa9a3e220a6b
+      spriteID: c0feddb293b0c50459efd031dfdf7bdc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetiDDLE_8
+      name: Player_Iddle_8
       rect:
         serializedVersion: 2
         x: 2504
         y: 0
         width: 313
         height: 408
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2734ef8976271fc4993ba9bbb1a5e51d
+      spriteID: 0e9f7bca07a9dd14f88cab6c9319c3cc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetiDDLE_9
+      name: Player_Iddle_9
       rect:
         serializedVersion: 2
         x: 2817
         y: 0
         width: 313
         height: 408
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1f31016de667b34ea98937d3ff422d0
+      spriteID: fc69c28734c2e59458725e732800cd56
       vertices: []
       indices: 
       edges: []
