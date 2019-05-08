@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 959301653156932078}
   - component: {fileID: 337819531930619581}
   m_Layer: 0
-  m_Name: light
+  m_Name: Bulb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 43cd13651e11a9446a11a0d0f0ba9b1a, type: 3}
+  m_SortingOrder: 65
+  m_Sprite: {fileID: 21300000, guid: 0933c60627e96c346bf5049ea36143a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   singleActivation: 0
   alreadyActivated: 0
   lightEmmiter: {fileID: 4164832842574459292}
-  alertRadius: 10
+  alertRadius: 15
   alertPoint: {x: 0, y: -5}
 --- !u!114 &337819531930619581
 MonoBehaviour:
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 7502471862969176158}
   - component: {fileID: 6568992533114356972}
   m_Layer: 16
-  m_Name: Emmiter
+  m_Name: Light Emmiter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4164832842574459292}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: -0, y: -1.61, z: 0}
+  m_LocalPosition: {x: -0, y: -2.277, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 959301653156932072}

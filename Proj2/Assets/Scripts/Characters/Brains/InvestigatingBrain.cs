@@ -30,6 +30,7 @@ public class InvestigatingBrain : Brain
     {
         if (Vector2.Distance( character.transform.position, investigatingPosition) <= 1.5f)
         {
+            Debug.Log("Exiting Investigating brain");
             character.brain = character.defaultBrain;
         }
 

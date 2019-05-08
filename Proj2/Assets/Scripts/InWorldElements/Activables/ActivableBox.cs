@@ -10,7 +10,7 @@ public class ActivableBox : Activable
 
     Rigidbody2D rb2d;
 
-    protected override void SetState(bool state, CharacterManager characterActivating)
+    protected override void SetState(bool state, CharacterManager characterActivating, bool alertAtActivate)
     {
         if (characterActivating != null)
             if (state == true)

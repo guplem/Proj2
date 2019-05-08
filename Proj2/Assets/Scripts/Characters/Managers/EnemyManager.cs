@@ -34,6 +34,22 @@ public abstract class EnemyManager : CharacterManager
 
     }
 
+    public void LookForPlayer()
+    {
+        if (CanSeePlayer())
+        {
+            if (brain.GetType() != typeof(ChasingBrain) ||
+                ((ChasingBrain)brain).target != GameManager.Instance.playerManager.gameObject)
+            {
+                brain = new ChasingBrain(this, GameManager.Instance.playerManager.gameObject);
+            }
+        }
+        else if (brain is ChasingBrain)
+        {
+            brain = defaultBrain;
+        }
+    }
+
     public bool CanSeePlayer()
     {
         RaycastHit2D hit;
@@ -93,21 +109,6 @@ public abstract class EnemyManager : CharacterManager
         return returnVectors;
     }
 
-    public void LookForPlayer()
-    {
-        if (CanSeePlayer())
-        {
-            if (brain.GetType() != typeof(ChasingBrain)
-                ||
-                ((ChasingBrain)brain).target != GameManager.Instance.playerManager.gameObject)
-            {
-                brain = new ChasingBrain(this, GameManager.Instance.playerManager.gameObject);
-            }
-        }
-        else
-        {
-            brain = defaultBrain;
-        }
-    }
+
 
 }

@@ -9,7 +9,12 @@ public class PatrolEnemyManager : EnemyManager
 
     [SerializeField] public Vector2[] patrolPoints;
 
-    private void Start()
+    public void Start()
+    {
+        Configure();
+    }
+
+    public override void Configure()
     {
         BehaviourTree bt = new PatrolEnemyBehaviourTree(this, new WalkingState(this));
         base.Setup(new CharacterMovementController(this), new EnemyPatrolBrain(this, patrolPoints), bt);

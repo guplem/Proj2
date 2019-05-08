@@ -21,6 +21,9 @@ public class PatrolEnemyBehaviourTree : BehaviourTree
             if (character.brain.action)
             {
                 State.SetState(new AttackState(character, character.characterProperties.attackLoadingTime), character);
+            } else
+            {
+                State.SetState(new WalkingState(character), character);
             }
             //TODO: Running if is chasing
             /*else if (character.state is WalkingState)
@@ -28,6 +31,9 @@ public class PatrolEnemyBehaviourTree : BehaviourTree
                 character.SetState(new RunningState(character));
             }*/
 
+        } else
+        {
+            State.SetState(new WalkingState(character), character);
         }
     }
 

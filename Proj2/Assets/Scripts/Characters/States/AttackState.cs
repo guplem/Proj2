@@ -26,6 +26,9 @@ public class AttackState : State
             if (character.brain.action) // If the player still in range
             {
                 GameManager.Instance.HitPlayer();
+                //character.behaviourTree = character.defaultBehaviourTree;
+                //character.brain = character.defaultBrain;
+                //SetState(null, character);
             }
         }
     }
