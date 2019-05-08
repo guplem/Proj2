@@ -258,8 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1062b87374799ef47a2d42207165a331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stressPassiveRemovalDelay: 3
-  stressRemovalPerSecond: 1
+  stressPassiveRemovalDelay: 0
+  stressRemovalPerSecond: 5
   stressThreshold: 10
 --- !u!1 &4622873014445708733
 GameObject:
