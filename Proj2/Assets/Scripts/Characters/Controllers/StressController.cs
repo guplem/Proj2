@@ -5,8 +5,9 @@ using UnityEngine;
 #pragma warning disable 0649
 public class StressController : MonoBehaviour
 {
-    public float stressPassiveRemovalDelay;
+    public float stressRemovalDelay;
     public float stressRemovalPerSecond;
+    public float removeStressEveryXTime;
 
     private float currentStress;
     [SerializeField] private float stressThreshold;
@@ -30,7 +31,7 @@ public class StressController : MonoBehaviour
             StopCoroutine(stressRemoval);
             stressRemoval = null;
         }
-        stressRemoval = RemoveStressAfterTime(stressPassiveRemovalDelay, 0.1f);
+        stressRemoval = RemoveStressAfterTime(stressRemovalDelay, removeStressEveryXTime);
         StartCoroutine(stressRemoval);
 
         if (currentStress >= stressThreshold)
@@ -54,8 +55,6 @@ public class StressController : MonoBehaviour
         while (currentStress > 0)
         {
             yield return new WaitForSeconds(timeBetweenDecrease);
-            currentStress -= stressRemovalPerSecond * Time.deltaTime;
-
             SetStress(currentStress - (stressRemovalPerSecond * timeBetweenDecrease));
         }
         StopCoroutine(stressRemoval);
@@ -64,8 +63,21 @@ public class StressController : MonoBehaviour
 
     private void SetStress(float qty)
     {
-        currentStress = qty;
+        if (qty > stressThreshold)
+        {
+            currentStress = stressThreshold;
+        }
+        else
+        {
+            currentStress = qty;
+        }
 
+        if (currentStress < 0)
+        {
+            currentStress = 0;
+        }
+
+        Debug.Log("Current stress: " + currentStress);
         if (isPlayer)
             GUIManager.Instance.BackgroundVignette.SetOpacitySmooth(currentStress / stressThreshold);
     }
