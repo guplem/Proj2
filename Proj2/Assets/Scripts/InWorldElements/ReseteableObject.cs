@@ -36,8 +36,7 @@ public class ReseteableObject : MonoBehaviour
             CharacterManager character = GetComponent<CharacterManager>();
             if (character != null)
             {
-                character.brain = character.defaultBrain;
-                character.behaviourTree = character.defaultBehaviourTree;
+                character.Configure();
             }
         }
     }

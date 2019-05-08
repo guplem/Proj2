@@ -37,6 +37,7 @@ public abstract class CharacterManager : MonoBehaviour
     // Note: the default state is given by the current behaviour tree
     public State state;
 
+    public abstract void Configure();
     protected void Setup(MovementController movementController, Brain defaultBrain, BehaviourTree defaultBehaviourTree)
     {
         this.movementController = movementController;

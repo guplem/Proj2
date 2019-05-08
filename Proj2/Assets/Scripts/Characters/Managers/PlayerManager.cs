@@ -16,7 +16,11 @@ public class PlayerManager : CharacterManager
 
     private void Start()
     {
+        Configure();
+    }
 
+    public override void Configure()
+    {
         base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new WalkingState(this), this));
 
 
@@ -24,7 +28,6 @@ public class PlayerManager : CharacterManager
         inventory = new InventoryController(this);
 
         stressController = GetComponent<StressController>();//new StressController(this, stressThreshold);
-
     }
 
     protected new void Update()
