@@ -5,12 +5,13 @@ using UnityEngine;
 
 public abstract class Brain
 {
-    public bool jumping;
-    public bool interact;
-    public bool action;
-    public bool actionRelease;
-    public bool crouch;
-    public Vector2 direction;
+    public bool jumping { get; protected set; }
+    public bool interact  { get; protected set; }
+    public bool action { get; protected set; }
+    public bool actionRelease  { get; protected set; }
+    public bool crouch  { get; protected set; }
+    public Vector2 direction  { get; protected set; }
+
     protected CharacterManager character;
 
     public void Act()
@@ -35,12 +36,12 @@ public abstract class Brain
 
         if (interact != state)
         {
-            character.ProcessNewInteractState(state);
+            character.interactionsController.ProcessNewInteractState(state);
             interact = state;
         }
     }
 
-    protected void CheckAndFlip()
+    private void CheckAndFlip()
     {
         if (direction.x >= 0.1f)
         {

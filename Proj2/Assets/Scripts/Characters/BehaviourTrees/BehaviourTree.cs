@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class BehaviourTree
 {
     protected CharacterManager character;
-    public IState defaultState;
+    public State defaultState;
 
-    public void Setup(IState defaultState, CharacterManager character)
+    public void Setup(State defaultState, CharacterManager character)
     {
         this.defaultState = defaultState;
         this.character = character;
@@ -17,7 +17,7 @@ public abstract class BehaviourTree
 
     protected void ForceExitState(CharacterManager character)
     {
-        character.SetState(null);
+        State.SetState(null, character);
     }
 
 }

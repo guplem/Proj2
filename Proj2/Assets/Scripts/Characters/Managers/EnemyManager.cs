@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable 0649
 public abstract class EnemyManager : CharacterManager
 {
     [SerializeField] private Vector2 lookingStartPoint;

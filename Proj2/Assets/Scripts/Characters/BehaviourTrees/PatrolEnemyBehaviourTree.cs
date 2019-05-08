@@ -6,7 +6,7 @@ public class PatrolEnemyBehaviourTree : BehaviourTree
 {
 
 
-    public PatrolEnemyBehaviourTree(CharacterManager characterManager, IState defaultState)
+    public PatrolEnemyBehaviourTree(CharacterManager characterManager, State defaultState)
     {
         base.Setup(defaultState, characterManager);
     }
@@ -20,7 +20,7 @@ public class PatrolEnemyBehaviourTree : BehaviourTree
         {
             if (character.brain.action)
             {
-                character.SetState(new AttackState(character, character.characterProperties.attackLoadingTime));
+                State.SetState(new AttackState(character, character.characterProperties.attackLoadingTime), character);
             }
             //TODO: Running if is chasing
             /*else if (character.state is WalkingState)

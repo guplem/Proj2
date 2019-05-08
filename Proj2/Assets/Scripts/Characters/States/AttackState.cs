@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackState : IState
+public class AttackState : State
 {
-    public CharacterManager character { get; set; }
     private float timeToAttack;
 
     public AttackState(CharacterManager characterManager, float loadingTime)
@@ -13,7 +12,12 @@ public class AttackState : IState
         timeToAttack = loadingTime;
     }
 
-    public void Tick(float deltaTime)
+    public override void StartState()
+    {
+        character.visualsAnimator.SetTrigger("Attack");
+    }
+
+    public override void Tick(float deltaTime)
     {
         timeToAttack -= deltaTime;
 
@@ -26,12 +30,12 @@ public class AttackState : IState
         }
     }
 
-    public void FixedTick(float fixedDeltaTime)
+    public override void FixedTick(float fixedDeltaTime)
     {
         character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, character.characterProperties.acceleration.y), character.characterProperties.maxWalkVelocity);
     }
 
-    public void OnExit()
+    public override void OnExit()
     {
         
     }

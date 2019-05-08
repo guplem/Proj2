@@ -5,7 +5,6 @@ using UnityEngine;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(AudioController))]
 public abstract class CharacterManager : MonoBehaviour
 {
@@ -15,6 +14,15 @@ public abstract class CharacterManager : MonoBehaviour
     [SerializeField] public Collider2D standingCollider;
     [SerializeField] public Collider2D crouchCollider;
     //[SerializeField] public Collider2D interactionsCollider;
+
+
+    [HideInInspector] public Rigidbody2D rb2d;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public AudioController audioController;
+
+    //[HideInInspector] protected Interactable currentInteractable;
+    [SerializeField] public InteractionsColliderController interactionsController;
+    [SerializeField] public Animator visualsAnimator;
 
     [SerializeField] public CharacterProperties characterProperties;
 
@@ -26,13 +34,8 @@ public abstract class CharacterManager : MonoBehaviour
     public BehaviourTree defaultBehaviourTree;
     public BehaviourTree behaviourTree;
 
-    [HideInInspector] public Rigidbody2D rb2d;
-    [HideInInspector] public Animator animator;
-    [HideInInspector] public AudioController audioController;
-
-    [HideInInspector] protected Interactable currentInteractable;
-
-    public IState state { get; private set; }
+    // Note: the default state is given by the current behaviour tree
+    public State state;
 
     protected void Setup(MovementController movementController, Brain defaultBrain, BehaviourTree defaultBehaviourTree)
     {
@@ -48,9 +51,9 @@ public abstract class CharacterManager : MonoBehaviour
         animator = GetComponent<Animator>();
         audioController = GetComponent<AudioController>();
 
-        this.state = this.behaviourTree.defaultState;
+        State.SetState(this.behaviourTree.defaultState, this);
 
-        // characterProperties = Instantiate(characterProperties); //To create a copy
+        // characterProperties = Instantiate(characterProperties); //To create a copy to debug
     }
 
     protected void Update()
@@ -65,95 +68,6 @@ public abstract class CharacterManager : MonoBehaviour
     protected void FixedUpdate()
     {
         state.FixedTick(Time.fixedDeltaTime);
-    }
-
-    public void SetState(IState newState)
-    {
-        // If only one of both is null or neither any of both is
-        if ((state == null ^ newState == null) || (state != null && newState != null))
-        {
-            try // To ensue that a null state gives no problems. If one of both is null an exception will be catched.
-            {
-                // If both are the same state do not conitnue
-                if (state.GetType() == newState.GetType())
-                    return;
-            }
-            catch (NullReferenceException) { }
-
-            // If one of both is null (jumped trugh carching exception)
-            // ...or...
-            // Old state is not null and neither is newState but both are different
-            ForceSetState(newState);
-        }
-    }
-
-   
-
-    private void ForceSetState(IState newState)
-    {
-        if (state != null)
-            state.OnExit();
-
-        state = newState;
-    }
-
-    public void OnInterectableTriggerEnter(Collider2D collision)
-    {
-        // Is an interactable object
-        Interactable interactable = collision.GetComponent<Interactable>();
-        if (interactable != null && collision.isTrigger)
-        {
-            if (interactable.interactAutomatically)
-            {
-                interactable.StartInteract(this);
-                return;
-            }
-
-            //Currently not interacting with any object
-            if (!brain.interact)
-            {
-                currentInteractable = interactable;
-            }
-        }
-    }
-
-    public void OnInterectableTriggerExit(Collider2D collision)
-    {
-        // Is an interactable object
-        Interactable interactable = collision.GetComponent<Interactable>();
-        if (interactable != null && collision.isTrigger)
-        {
-
-            if (interactable.interactAutomatically)
-            {
-                interactable.EndInteract(this);
-                return;
-            }
-
-            //Currently not interacting with any object
-            if (!brain.interact)
-            {
-                // If exiting the current interactable
-                if (currentInteractable == interactable)
-                    currentInteractable = null;
-            }
-        }
-    }
-
-    public void ProcessNewInteractState(bool isInteractionBegining)
-    {
-        if (currentInteractable != null)
-        {
-            if (isInteractionBegining)
-            {
-                currentInteractable.StartInteract(this);
-            }
-            else
-            {
-                currentInteractable.EndInteract(this);
-            }
-
-        }
     }
 
 

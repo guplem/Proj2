@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrowState : IState
+public class ThrowState : State
 {
-    public CharacterManager character { get; set; }
 
     public ThrowState(CharacterManager characterManager)
     {
@@ -12,12 +11,17 @@ public class ThrowState : IState
         ((PlayerManager)character).rb2d.velocity = Vector3.zero;
     }
 
-    public void Tick(float deltaTime)
+    public override void StartState()
+    {
+        character.visualsAnimator.SetTrigger("Throw");
+    }
+
+    public override void Tick(float deltaTime)
     {
         CheckThrow();
     }
 
-    public void FixedTick(float fixedDeltaTime)
+    public override void FixedTick(float fixedDeltaTime)
     {
 
     }
@@ -66,7 +70,7 @@ public class ThrowState : IState
         }
     }
 
-    public void OnExit()
+    public override void OnExit()
     {
 
     }
