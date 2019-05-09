@@ -4,28 +4,36 @@ using UnityEngine;
 
 public class InteractState : State
 {
-    public InteractState(CharacterManager character, Interactable interactable)
+    Interactable interactable;
+    float actionDelay;
+
+    public InteractState(CharacterManager character, Interactable interactable, float actionDelay)
     {
         this.character = character;
-    }
-
-    public override void FixedTick(float fixedDeltaTime)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void OnExit()
-    {
-        throw new System.NotImplementedException();
+        this.interactable = interactable;
+        this.actionDelay = actionDelay;
     }
 
     public override void StartState()
     {
-        throw new System.NotImplementedException();
+        character.visualsAnimator.SetTrigger("Interact");
+        Wait(actionDelay);
+        interactable.StartInteract(character);
+        character.behaviourTree.CalculateAndSetNextState(true);
     }
 
     public override void Tick(float deltaTime)
     {
-        throw new System.NotImplementedException();
+
+    }
+
+    public override void FixedTick(float fixedDeltaTime)
+    {
+
+    }
+
+    public override void OnExit()
+    {
+        interactable.EndInteract(character);
     }
 }

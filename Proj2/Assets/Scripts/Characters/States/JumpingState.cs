@@ -13,7 +13,9 @@ public class JumpingState : State
 
     public override void StartState()
     {
-        character.visualsAnimator.SetTrigger("JumpingState");
+        character.visualsAnimator.SetTrigger("Jump");
+
+        character.movementController.Jump(character.characterProperties.jumpForce, ForceMode2D.Impulse);
     }
 
     public override void Tick(float deltaTime)
@@ -27,9 +29,8 @@ public class JumpingState : State
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        character.movementController.Jump(character.characterProperties.jumpForce, ForceMode2D.Impulse);
         //characterManager.movementController.MoveTowards(new Vector2(characterManager.brain.direction.x, 0), new Vector2(characterManager.characterProperties.acceleration.x * 0.5f, characterManager.characterProperties.acceleration.y*0.5f));
-        character.behaviourTree.CalculateAndSetNextState(true);
+        //character.behaviourTree.CalculateAndSetNextState(true);
     }
 
     public override void OnExit()

@@ -9,7 +9,7 @@ using UnityEngine;
 public class InteractionsColliderController : MonoBehaviour
 {
 
-    [SerializeField] private CharacterManager character;
+    [SerializeField] public CharacterManager character;
     [HideInInspector] private Collider2D col;
     //private Interactable currentInteractable;
 

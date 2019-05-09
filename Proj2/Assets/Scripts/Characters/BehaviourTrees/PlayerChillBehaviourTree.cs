@@ -17,15 +17,17 @@ public class PlayerChillBehaviourTree : BehaviourTree
             ForceExitState(character);
 
         //if (EnterAttack()) return;
+        if (EnterPushPull()) return;
         if (EnterJump()) return;
         if (EnterOnAir()) return;
         if (EnterWalking()) return;
         if (EnterCrouched()) return;
         if (EnterPick()) return;
         if (EnterInteract()) return;
-        if (EnterPushPull()) return;
         if (EnterThrow()) return;
         if (EnterIdle()) return;
+
+        State.SetState(defaultState, character);
 
         /*
                 // Walking state transitions
@@ -138,7 +140,10 @@ public class PlayerChillBehaviourTree : BehaviourTree
 
     private bool EnterThrow()
     {
-        if (!(character.brain.action && ((PlayerManager)character).inventory.HasStoredItem()))
+        if (!(character.brain.action))
+            return false;
+
+        if (((PlayerManager)character).inventory.HasStoredItem())
             return false;
 
         if (!isTouchingGround())
@@ -151,6 +156,9 @@ public class PlayerChillBehaviourTree : BehaviourTree
 
     private bool EnterPushPull()
     {
+        if (!character.brain.interact)
+            return false;
+
         Interactable interactable = character.interactionsCollider.CanInteractWith(Activable.ActivationType.Movable);
         if (interactable != null)
             return false;
@@ -161,21 +169,27 @@ public class PlayerChillBehaviourTree : BehaviourTree
 
     private bool EnterInteract()
     {
+        if (!character.brain.interact)
+            return false;
+
         Interactable interactable = character.interactionsCollider.CanInteractWith(Activable.ActivationType.Activable);
         if (interactable != null)
             return false;
 
-        State.SetState(new InteractState(character, interactable), character);
+        State.SetState(new InteractState(character, interactable, 2f), character);
         return true;
     }
 
     private bool EnterPick()
     {
+        if (!character.brain.interact)
+            return false;
+
         Interactable interactable = character.interactionsCollider.CanInteractWith(Activable.ActivationType.Pickable);
         if (interactable != null)
             return false;
 
-        State.SetState(new PushPullState(character, interactable), character);
+        State.SetState(new PickState(character, interactable, 2f), character);
         return true;
     }
 
@@ -218,6 +232,9 @@ public class PlayerChillBehaviourTree : BehaviourTree
     private bool EnterJump()
     {
         if (!character.brain.jumping)
+            return false;
+
+        if (!isTouchingGround())
             return false;
         /*if (character.GetComponent<Rigidbody2D>().velocity.y <= 0.1f)
             return false;*/

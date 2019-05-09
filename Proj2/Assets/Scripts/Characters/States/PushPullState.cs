@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PushPullState : State
 {
+    Interactable interactable;
 
     public PushPullState(CharacterManager characterManager, Interactable interactable)
     {
         this.character = characterManager;
+        this.interactable = interactable;
     }
 
     public override void StartState()
     {
         character.visualsAnimator.SetTrigger("PushPull");
+        interactable.StartInteract(character);
     }
 
     public override void FixedTick(float fixedDeltaTime)
@@ -27,6 +30,6 @@ public class PushPullState : State
 
     public override void OnExit()
     {
-        
+        interactable.EndInteract(character);
     }
 }

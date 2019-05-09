@@ -46,4 +46,14 @@ public abstract class State
         character.state.StartState();
     }
 
+    protected IEnumerator Wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
+
+    /*private IEnumerator WaitCoroutine(float seconds)
+    {
+        
+    }*/
+
 }
