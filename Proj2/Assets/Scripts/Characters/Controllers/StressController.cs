@@ -23,7 +23,7 @@ public class StressController : MonoBehaviour
 
     public bool AddStress(float amount)
     {
-        currentStress += amount;
+        SetStress(currentStress + amount);
 
         if (stressRemoval != null)
         {
@@ -32,9 +32,6 @@ public class StressController : MonoBehaviour
         }
         stressRemoval = RemoveStressAfterTime(stressPassiveRemovalDelay, 0.1f);
         StartCoroutine(stressRemoval);
-
-        if (isPlayer)
-            GUIManager.Instance.BackgroundVignette.SetOpacitySmooth(currentStress / stressThreshold);
 
         if (currentStress >= stressThreshold)
             ActionOnStressThreshold();
@@ -46,6 +43,8 @@ public class StressController : MonoBehaviour
     {
         //TODO idea is to make the player random movements, thingys or fuck-ups.
         //playerManager.behaviourTree.SetStressed();
+
+        SetStress(stressThreshold);
     }
 
     public IEnumerator RemoveStressAfterTime(float timeToStart, float timeBetweenDecrease)
@@ -56,8 +55,18 @@ public class StressController : MonoBehaviour
         {
             yield return new WaitForSeconds(timeBetweenDecrease);
             currentStress -= stressRemovalPerSecond * Time.deltaTime;
+
+            SetStress(currentStress - (stressRemovalPerSecond * timeBetweenDecrease));
         }
         StopCoroutine(stressRemoval);
         stressRemoval = null;
+    }
+
+    private void SetStress(float qty)
+    {
+        currentStress = qty;
+
+        if (isPlayer)
+            GUIManager.Instance.BackgroundVignette.SetOpacitySmooth(currentStress / stressThreshold);
     }
 }

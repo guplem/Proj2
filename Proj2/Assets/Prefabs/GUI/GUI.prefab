@@ -1367,7 +1367,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  fadeTimeDuration: 0.2
+  fadeTimeDuration: 3
   opacityAtEnabled: 1
   opacityAtDisabled: 0
   targetOpacityAtStart: 0.1
