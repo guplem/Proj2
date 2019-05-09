@@ -23,16 +23,23 @@ public class InteractionsColliderController : MonoBehaviour
         col = GetComponent<Collider2D>();
     }
 
-    public Interactable CanInteractWith(Activable.ActivationType activationType)
+    public Interactable GetAvaliableInterectable(Activable.ActivationType activationType)
     {
-
         ContactFilter2D filter = new ContactFilter2D();
         filter.SetLayerMask(GameManager.Instance.interactablesLayer);
-        Collider2D[] results = new Collider2D[1];
-        col.OverlapCollider(filter, results);
+        Collider2D[] results = new Collider2D[10];
+        int collidersDetected = col.OverlapCollider(filter, results);
+
+        if (collidersDetected >= results.Length)
+            Debug.LogWarning("The number of colliders being checked while trying to interact can be more than " + results.Length + ". Consider increasing the 'results' array length or decreasing the colliders at the area.");
+
+        Debug.Log("Colliders detected: " + collidersDetected + " with " + col.ToString() + " of " + character.gameObject.name);
 
         foreach (Collider2D col in results)
         {
+            if (col == null)
+                continue;
+
             Interactable interactable = col.GetComponent<Interactable>();
 
             foreach (Activable activable in interactable.connectedActivables)

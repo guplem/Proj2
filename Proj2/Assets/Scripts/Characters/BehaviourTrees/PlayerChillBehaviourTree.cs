@@ -140,10 +140,10 @@ public class PlayerChillBehaviourTree : BehaviourTree
 
     private bool EnterThrow()
     {
-        if (!(character.brain.action))
+        if (!character.brain.action)
             return false;
 
-        if (((PlayerManager)character).inventory.HasStoredItem())
+        if (!((PlayerManager)character).inventory.HasStoredItem())
             return false;
 
         if (!isTouchingGround())
@@ -159,10 +159,11 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (!character.brain.interact)
             return false;
 
-        Interactable interactable = character.interactionsCollider.CanInteractWith(Activable.ActivationType.Movable);
-        if (interactable != null)
+        Interactable interactable = character.interactionsCollider.GetAvaliableInterectable(Activable.ActivationType.Movable);
+        if (interactable == null)
             return false;
 
+        Debug.Log("PushPull --------------------- ");
         State.SetState(new PushPullState(character, interactable), character);
         return true;
     }
@@ -172,8 +173,8 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (!character.brain.interact)
             return false;
 
-        Interactable interactable = character.interactionsCollider.CanInteractWith(Activable.ActivationType.Activable);
-        if (interactable != null)
+        Interactable interactable = character.interactionsCollider.GetAvaliableInterectable(Activable.ActivationType.Activable);
+        if (interactable == null)
             return false;
 
         State.SetState(new InteractState(character, interactable, 2f), character);
@@ -185,8 +186,8 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (!character.brain.interact)
             return false;
 
-        Interactable interactable = character.interactionsCollider.CanInteractWith(Activable.ActivationType.Pickable);
-        if (interactable != null)
+        Interactable interactable = character.interactionsCollider.GetAvaliableInterectable(Activable.ActivationType.Pickable);
+        if (interactable == null)
             return false;
 
         State.SetState(new PickState(character, interactable, 2f), character);

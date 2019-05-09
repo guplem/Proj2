@@ -39,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2661336275245268420}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0b82bc67926e784799e30088b076170, type: 3}
   m_Name: 
@@ -240,7 +240,7 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   animator: {fileID: 0}
   audioController: {fileID: 0}
-  interactionsCollider: {fileID: 1248579903}
+  interactionsCollider: {fileID: 8757234941393882266}
   visualsAnimator: {fileID: 8882376206053353117}
   characterProperties: {fileID: 11400000, guid: 8c91f68417c494742814ffeb9abe5c70,
     type: 2}
