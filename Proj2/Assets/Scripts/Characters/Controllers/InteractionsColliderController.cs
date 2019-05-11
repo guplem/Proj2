@@ -26,7 +26,7 @@ public class InteractionsColliderController : MonoBehaviour
     public Interactable GetAvaliableInterectable(Activable.ActivationType activationType)
     {
         ContactFilter2D filter = new ContactFilter2D();
-        filter.SetLayerMask(GameManager.Instance.interactablesLayer);
+        filter.SetLayerMask(GameManager.Instance.interactableLayers);
         Collider2D[] results = new Collider2D[10];
         int collidersDetected = col.OverlapCollider(filter, results);
 

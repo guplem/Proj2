@@ -166,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2662118724715226198}
   - component: {fileID: 2369655078088133813}
-  m_Layer: 18
+  m_Layer: 13
   m_Name: SafeZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8751495294833804918}
   - component: {fileID: 8751495294833804917}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: World Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
