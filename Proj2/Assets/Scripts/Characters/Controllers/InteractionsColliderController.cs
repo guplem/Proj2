@@ -12,7 +12,7 @@ public class InteractionsColliderController : MonoBehaviour
     [SerializeField] public CharacterManager character;
     [HideInInspector] private Collider2D col;
     //private Interactable currentInteractable;
-
+    [SerializeField] ContactFilter2D filter;
 
 
     private void Start()
@@ -25,25 +25,36 @@ public class InteractionsColliderController : MonoBehaviour
 
     public Interactable GetAvaliableInterectable(Activable.ActivationType activationType)
     {
-        ContactFilter2D filter = new ContactFilter2D();
+        /*ContactFilter2D filter = new ContactFilter2D();
         filter.SetLayerMask(GameManager.Instance.interactableLayers);
+        filter.useTriggers = true;*/
         Collider2D[] results = new Collider2D[10];
         int collidersDetected = col.OverlapCollider(filter, results);
 
         if (collidersDetected >= results.Length)
             Debug.LogWarning("The number of colliders being checked while trying to interact can be more than " + results.Length + ". Consider increasing the 'results' array length or decreasing the colliders at the area.");
 
-        Debug.Log("Colliders detected: " + collidersDetected + " with " + col.ToString() + " of " + character.gameObject.name);
+        Debug.Log("Colliders detected: " + collidersDetected + "\n with " + col.ToString() + " of " + character.gameObject.name, gameObject);
 
-        foreach (Collider2D col in results)
+        foreach (Collider2D result in results)
         {
-            if (col == null)
+            if (result == null) // Not used empty space
+
                 continue;
 
-            Interactable interactable = col.GetComponent<Interactable>();
+            Debug.Log("Examining " + result.ToString() + " of " + result.gameObject.name, result.gameObject);
+
+            Interactable interactable = result.GetComponent<Interactable>();
+
+            if (interactable == null)
+            {
+                Debug.LogWarning(interactable.gameObject + " has the 'interactable' layer setted but no 'Interactable' script in it.", interactable.gameObject);
+                continue;
+            }
 
             foreach (Activable activable in interactable.connectedActivables)
             {
+                Debug.Log("Activation " + activable.gameObject.name);
                 if (activable.GetActivationType() == activationType)
                     return interactable;
             }
