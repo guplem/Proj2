@@ -11,11 +11,13 @@ public class JumpingState : State
         // timeToStopJumping = Time.time + characterManager.characterProperties.jumpTime;
     }
 
-    public override void StartState()
+    protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Jump");
 
         character.movementController.Jump(character.characterProperties.jumpForce, ForceMode2D.Impulse);
+
+        yield return "success";
     }
 
     public override void Tick(float deltaTime)

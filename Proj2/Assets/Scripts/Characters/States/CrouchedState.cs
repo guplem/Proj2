@@ -15,9 +15,10 @@ public class CrouchedState : State
         Utils.ChangeGameObjectAndChildsLayerTo(character.gameObject, 100);
     }
 
-    public override void StartState()
+    protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Crouch");
+        yield return "success";
     }
 
     public override void FixedTick(float fixedDeltaTime)

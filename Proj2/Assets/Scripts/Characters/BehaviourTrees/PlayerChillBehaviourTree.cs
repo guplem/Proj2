@@ -163,7 +163,6 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (interactable == null)
             return false;
 
-        Debug.Log("PushPull --------------------- ");
         State.SetState(new PushPullState(character, interactable), character);
         return true;
     }
@@ -173,7 +172,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (!character.brain.interact)
             return false;
 
-        Interactable interactable = character.interactionsCollider.GetAvaliableInterectable(Activable.ActivationType.Activable);
+        Interactable interactable = character.interactionsCollider.GetAvaliableInterectable(Activable.ActivationType.Other);
         if (interactable == null)
             return false;
 

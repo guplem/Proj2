@@ -14,12 +14,15 @@ public class PickState : State
         this.actionDelay = actionDelay;
     }
 
-    public override void StartState()
+    protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Pick");
-        Wait(actionDelay);
+
+        yield return new WaitForSeconds(actionDelay);
+
         interactable.StartInteract(character);
         character.behaviourTree.CalculateAndSetNextState(true);
+        yield return "success";
     }
 
     public override void Tick(float deltaTime)

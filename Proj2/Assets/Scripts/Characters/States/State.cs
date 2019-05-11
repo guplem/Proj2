@@ -8,7 +8,7 @@ public abstract class State
     public abstract void Tick(float deltaTime);
     public abstract void FixedTick(float fixedDeltaTime);
     public abstract void OnExit();
-    public abstract void StartState();
+    protected abstract IEnumerator StartState();
 
     public static void SetState(State newState, CharacterManager character)
     {
@@ -43,13 +43,14 @@ public abstract class State
             return;
         }
 
-        character.state.StartState();
+        character.StartCoroutine(character.state.StartState());
+        
     }
 
-    protected IEnumerator Wait(float seconds)
+    /*protected IEnumerator Wait(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-    }
+    }*/
 
     /*private IEnumerator WaitCoroutine(float seconds)
     {

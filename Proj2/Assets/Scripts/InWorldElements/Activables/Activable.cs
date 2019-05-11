@@ -15,7 +15,7 @@ public abstract class Activable : MonoBehaviour
     {
         Pickable,
         Movable,
-        Activable
+        Other
     }
 
     public abstract ActivationType GetActivationType();

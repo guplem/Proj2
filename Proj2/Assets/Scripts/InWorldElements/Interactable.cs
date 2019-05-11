@@ -87,7 +87,6 @@ public class Interactable : MonoBehaviour
 
     private void Interact(CharacterManager interactingCharacter)
     {
-
         foreach (Activable activable in connectedActivables)
         {
             activable.SwitchState(interactingCharacter);

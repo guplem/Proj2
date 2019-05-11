@@ -12,10 +12,11 @@ public class PushPullState : State
         this.interactable = interactable;
     }
 
-    public override void StartState()
+    protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("PushPull");
         interactable.StartInteract(character);
+        yield return "success";
     }
 
     public override void FixedTick(float fixedDeltaTime)

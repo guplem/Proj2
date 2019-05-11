@@ -14,12 +14,15 @@ public class InteractState : State
         this.actionDelay = actionDelay;
     }
 
-    public override void StartState()
+    protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Interact");
-        Wait(actionDelay);
+
+        Debug.Log("Begining delay - StartState");
+        yield return new WaitForSeconds(actionDelay);
+        Debug.Log("Ending delay - StartState");
+
         interactable.StartInteract(character);
-        character.behaviourTree.CalculateAndSetNextState(true);
     }
 
     public override void Tick(float deltaTime)
@@ -36,4 +39,5 @@ public class InteractState : State
     {
         interactable.EndInteract(character);
     }
+
 }

@@ -9,9 +9,10 @@ public class WalkingState : State
         this.character = characterManager;
     }
 
-    public override void StartState()
+    protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Walk");
+        yield return "success";
     }
 
     public override void Tick(float deltaTime)

@@ -11,9 +11,10 @@ public class ThrowState : State
         ((PlayerManager)character).rb2d.velocity = Vector3.zero;
     }
 
-    public override void StartState()
+    protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Throw");
+        yield return "success";
     }
 
     public override void Tick(float deltaTime)

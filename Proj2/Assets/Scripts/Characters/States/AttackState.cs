@@ -12,9 +12,10 @@ public class AttackState : State
         timeToAttack = loadingTime;
     }
 
-    public override void StartState()
+    protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Attack");
+        yield return "success";
     }
 
     public override void Tick(float deltaTime)

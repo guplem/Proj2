@@ -10,7 +10,7 @@ public class ActivableDoor : Activable
 
     public override ActivationType GetActivationType()
     {
-        return ActivationType.Activable;
+        return ActivationType.Other;
     }
 
     protected override void SetState(bool state, CharacterManager characterActivating, bool alertAtActivate)
