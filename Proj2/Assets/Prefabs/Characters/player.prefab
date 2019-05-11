@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3537101930125839454}
   - component: {fileID: 8757234941393882266}
   - component: {fileID: 1248579903}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: InteractionsCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 313350187286083614}
   - component: {fileID: 6077845065378858406}
   - component: {fileID: 8882376206053353117}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: PlayerVisuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4705788987633123289}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: ThrowPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

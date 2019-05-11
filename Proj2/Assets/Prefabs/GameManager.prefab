@@ -78,24 +78,18 @@ MonoBehaviour:
   camera: {fileID: 0}
   playerManager: {fileID: 0}
   startPoint: {fileID: 1278259362965816640}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  interactablesLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  worldLayer:
-    serializedVersion: 2
-    m_Bits: 2048
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 4096
   walkableLayers:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 256
+  interactableLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  playerLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 2048
   audioController: {fileID: 0}
   lineRenderer: {fileID: 0}
 --- !u!120 &656853021
