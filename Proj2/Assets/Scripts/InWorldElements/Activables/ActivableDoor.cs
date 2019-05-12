@@ -8,6 +8,10 @@ public class ActivableDoor : Activable
 
     [SerializeField] private Collider2D doorCollider;
 
+    public override ActivationType GetActivationType()
+    {
+        return ActivationType.Other;
+    }
 
     protected override void SetState(bool state, CharacterManager characterActivating, bool alertAtActivate)
     {

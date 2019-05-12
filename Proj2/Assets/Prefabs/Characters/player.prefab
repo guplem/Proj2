@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3537101930125839454}
   - component: {fileID: 8757234941393882266}
   - component: {fileID: 1248579903}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: InteractionsCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +45,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 7729870114131683840}
+  filter:
+    useTriggers: 1
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 512
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!61 &1248579903
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -240,7 +254,7 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   animator: {fileID: 0}
   audioController: {fileID: 0}
-  interactionsController: {fileID: 8757234941393882266}
+  interactionsCollider: {fileID: 8757234941393882266}
   visualsAnimator: {fileID: 8882376206053353117}
   characterProperties: {fileID: 11400000, guid: 8c91f68417c494742814ffeb9abe5c70,
     type: 2}
@@ -273,7 +287,7 @@ GameObject:
   - component: {fileID: 313350187286083614}
   - component: {fileID: 6077845065378858406}
   - component: {fileID: 8882376206053353117}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: PlayerVisuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +400,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4705788987633123289}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: ThrowPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

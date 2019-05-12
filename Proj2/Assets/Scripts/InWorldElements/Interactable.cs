@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #pragma warning disable CS0649
+[RequireComponent(typeof(Collider2D))]
 public class Interactable : MonoBehaviour
 {
     [Header("Interaction configuration")]
@@ -18,7 +19,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private GameObject interactingVisuals;
 
     [Header("Activable elements")]
-    [SerializeField] private Activable[] connectedActivables;
+    [SerializeField] public Activable[] connectedActivables;
 
     public enum InteractType
     {
@@ -84,9 +85,8 @@ public class Interactable : MonoBehaviour
     }
 
 
-    protected void Interact(CharacterManager interactingCharacter)
+    private void Interact(CharacterManager interactingCharacter)
     {
-
         foreach (Activable activable in connectedActivables)
         {
             activable.SwitchState(interactingCharacter);
@@ -99,4 +99,27 @@ public class Interactable : MonoBehaviour
             interactingVisuals.SetActive(!interactingVisuals.activeSelf);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!interactAutomatically)
+            return;
+
+        InteractionsColliderController interactionController = collision.GetComponent<InteractionsColliderController>();
+        if (interactionController != null)
+        {
+            StartInteract(interactionController.character);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!interactAutomatically)
+            return;
+
+        InteractionsColliderController interactionController = collision.GetComponent<InteractionsColliderController>();
+        if (interactionController != null)
+        {
+            EndInteract(interactionController.character);
+        }
+    }
 }

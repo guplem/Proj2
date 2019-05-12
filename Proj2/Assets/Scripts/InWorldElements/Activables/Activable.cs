@@ -11,6 +11,15 @@ public abstract class Activable : MonoBehaviour
     [SerializeField] public bool singleActivation;
     [HideInInspector] public bool alreadyActivated;
 
+    public enum ActivationType
+    {
+        Pickable,
+        Movable,
+        Other
+    }
+
+    public abstract ActivationType GetActivationType();
+
     private void Awake()
     {
         currentState = defaultState;

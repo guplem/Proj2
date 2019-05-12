@@ -8,6 +8,12 @@ public class ActivableLight : Activable
     [SerializeField] private GameObject lightEmmiter;
     [SerializeField] private float alertRadius;
     [SerializeField] private Vector2 alertPoint;
+
+    public override ActivationType GetActivationType()
+    {
+        return ActivationType.Other;
+    }
+
     protected override void SetState(bool state, CharacterManager characterActivating, bool alertAtActivate)
     {
         lightEmmiter.SetActive(state);

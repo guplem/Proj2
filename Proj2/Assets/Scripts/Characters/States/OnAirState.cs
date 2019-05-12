@@ -10,9 +10,10 @@ public class OnAirState : State
         this.character = characterManager;
     }
 
-    public override void StartState()
+    protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("OnAir");
+        yield return "success";
     }
 
     public override void Tick(float deltaTime)

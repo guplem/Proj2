@@ -13,12 +13,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Transform startPoint;
 
     [Header("Layers")]
-    [SerializeField] public LayerMask groundLayer;
-    [SerializeField] public LayerMask interactablesLayer;
-    [SerializeField] public LayerMask playerLayer;
-    [SerializeField] public LayerMask worldLayer;
-    [SerializeField] public LayerMask enemyLayer;
     [SerializeField] public LayerMask walkableLayers;
+    [SerializeField] public LayerMask interactableLayers;
+    [SerializeField] public LayerMask playerLayers;
+    [SerializeField] public LayerMask enemyLayers;
 
     [HideInInspector] public AudioController audioController;
     [HideInInspector] public LineManager lineManager;

@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: e28a3ff2e97baea46ba27693f8a4ead9
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Player_Throw_0
+    21300002: Player_Throw_1
+    21300004: Player_Throw_2
+    21300006: Player_Throw_3
+    21300008: Player_Throw_4
+    21300010: Player_Throw_5
+    21300012: Player_Throw_6
+    21300014: Player_Throw_7
+    21300016: Player_Throw_8
+    21300018: Player_Throw_9
+    21300020: Player_Throw_10
+    21300022: Player_Throw_11
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -82,7 +94,247 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Player_Throw_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 816
+        width: 313
+        height: 408
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130196f48b81bb24f8fe45acb229f67e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Throw_1
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 816
+        width: 313
+        height: 408
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e114a5a928bebc64cb35fc52a6426b42
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Throw_2
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 816
+        width: 313
+        height: 408
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a4365b4c2cfe2245b4b0031c4a3e3cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Throw_3
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 816
+        width: 313
+        height: 408
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66eab5299c9ad4a44a0969cd65c3cb24
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Throw_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 408
+        width: 313
+        height: 408
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb7e9f8229e8fc243b98b8a08508f1fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Throw_5
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 408
+        width: 313
+        height: 408
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c10274e431df434d8e455746df0f85d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Throw_6
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 408
+        width: 313
+        height: 408
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2914ba1852c087c45874c069ffe4bfa2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Throw_7
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 408
+        width: 313
+        height: 408
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396c55b45a259c64a86955d84a1f6051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Throw_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 313
+        height: 408
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99903c0e220537449bce31f8884c4d7c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Throw_9
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 0
+        width: 313
+        height: 408
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92477c188f2ec9f49831ad55714bf57c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Throw_10
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 0
+        width: 313
+        height: 408
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef5d6a89a66b8249b62371314ef5737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Throw_11
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 0
+        width: 313
+        height: 408
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a676a658ea1c6ad4a8bdd5c18b6abf16
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

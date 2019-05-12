@@ -25,7 +25,7 @@ public class EnemyPatrolBrain : Brain
     protected override void GetActions()
     {
         jumping = false;
-        SetInteractingTo(false);
+        interact = false;
         action = false;
         crouch = false;
 

@@ -9,16 +9,56 @@ using UnityEngine;
 public class InteractionsColliderController : MonoBehaviour
 {
 
-    [SerializeField] private CharacterManager character;
-    private Interactable currentInteractable;
+    [SerializeField] public CharacterManager character;
+    [HideInInspector] private Collider2D col;
+    //private Interactable currentInteractable;
+    [SerializeField] ContactFilter2D filter;
+
 
     private void Start()
     {
         if (character == null)
             Debug.LogError("'CharacterManager' is not setted up in the 'InteractionsColliderController' of the object '" + gameObject.name + "'", gameObject) ;
+
+        col = GetComponent<Collider2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public Interactable GetAvaliableInterectable(Activable.ActivationType activationType)
+    {
+        /*ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(GameManager.Instance.interactableLayers);
+        filter.useTriggers = true;*/
+        Collider2D[] results = new Collider2D[10];
+        int collidersDetected = col.OverlapCollider(filter, results);
+
+        if (collidersDetected >= results.Length)
+            Debug.LogWarning("The number of colliders being checked while trying to interact can be more than " + results.Length + ". Consider increasing the 'results' array length or decreasing the colliders at the area.");
+
+        foreach (Collider2D result in results)
+        {
+            if (result == null) // Not used empty space
+                continue;
+
+            Interactable interactable = result.GetComponent<Interactable>();
+
+            if (interactable == null)
+            {
+                Debug.LogWarning(interactable.gameObject + " has the 'interactable' layer setted but no 'Interactable' script in it.", interactable.gameObject);
+                continue;
+            }
+
+            foreach (Activable activable in interactable.connectedActivables)
+            {
+                if (activable.GetActivationType() == activationType)
+                    return interactable;
+            }
+        }
+        return null;
+    }
+
+
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         Interactable interactable = collision.GetComponent<Interactable>();
         if (interactable == null || !collision.isTrigger)
@@ -74,6 +114,6 @@ public class InteractionsColliderController : MonoBehaviour
             }
 
         }
-    }
+    }*/
 
 }
