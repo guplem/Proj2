@@ -27,111 +27,15 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (EnterThrow()) return;
         if (EnterIdle()) return;
 
-        State.SetState(defaultState, character);
+        //State.SetState(defaultState, character);
 
-        /*
-                // Walking state transitions
-                if (character.state is WalkingState)
-                {
-                    // Trigger to enter jumping 
-                    if (character.brain.jumping && character.GetComponent<Rigidbody2D>().velocity.y <= 0.1f)
-                    {
-                        State.SetState( new JumpingState(character) , character);
-                        return;
-                    }
-
-                    // Trigger to enter crouched
-                    else if (character.brain.crouch)
-                    {
-                        State.SetState( new CrouchedState(character) , character);
-                        return;
-                    }
-
-                    // Trigger to enter throw mode
-                    else if (character.brain.action && ((PlayerManager)character).inventory.HasStoredItem())
-                    {
-                        State.SetState( new ThrowState(character), character);
-                        return;
-                    }
-
-                    // Force exit state
-                    else if (! Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
-                    {
-                        CalculateAndSetNextState(true);
-                        return;
-                    }
-                }
-
-
-
-                // CrouchedState state transitions
-                else if (character.state is CrouchedState)
-                {
-                    // Force exit state
-                    if (!character.brain.crouch)
-                    {
-                        CalculateAndSetNextState(true);
-                        return;
-                    }
-
-                    // Force exit state
-                    else if (!Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
-                    {
-                        CalculateAndSetNextState(true);
-                        return;
-                    }
-                }
-
-
-
-                // OnAirState state transitions
-                else if (character.state is OnAirState)
-                {
-                    // Force exit state
-                    if (Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
-                    {
-                        CalculateAndSetNextState(true);
-                        return;
-                    }
-                }
-
-
-
-
-                // Default state transitions (if there is no state)
-                if (character.state == null)
-                {
-                    if (Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
-                    {
-                        State.SetState(new WalkingState(character), character);
-                        return;
-                    }
-                    else
-                    {
-                        State.SetState(new OnAirState(character), character);
-                        return;
-                    }
-                }
-
-            */
     }
 
     /////////////////////////////////////////////////////
-
-    private bool isTouchingGround()
-    {
-        return Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers);
-    }
-
-    /////////////////////////////////////////////////////
-
-
-
-
 
     private bool EnterIdle()
     {
-        if (!isTouchingGround())
+        if (!character.isTouchingGround())
             return false;
 
         State.SetState(new IdleState(character), character);
@@ -146,7 +50,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (!((PlayerManager)character).inventory.HasStoredItem())
             return false;
 
-        if (!isTouchingGround())
+        if (!character.isTouchingGround())
             return false;
 
         State.SetState(new ThrowState(character), character);
@@ -195,7 +99,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
 
     private bool EnterCrouched()
     {
-        if (!isTouchingGround())
+        if (!character.isTouchingGround())
             return false;
 
         if (!character.brain.crouch)
@@ -213,16 +117,19 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (character.brain.direction.x == 0)
             return false;
 
+        if ( (character.rb2d.velocity.y > 0.1f) || (character.rb2d.velocity.y < -0.1f) )
+            return false;
+
         State.SetState(new WalkingState(character), character);
         return true;
     }
 
     private bool EnterOnAir()
     {
-        if (isTouchingGround())
+        if (character.isTouchingGround())
             return false;
 
-        if (! (character.GetComponent<Rigidbody2D>().velocity.y <= 0.1f))
+        if (!(character.rb2d.velocity.y <= 0.1f))
             return false;
 
         State.SetState(new OnAirState(character), character);
@@ -234,7 +141,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (!character.brain.jumping)
             return false;
 
-        if (!isTouchingGround())
+        if (!character.isTouchingGround())
             return false;
         /*if (character.GetComponent<Rigidbody2D>().velocity.y <= 0.1f)
             return false;*/

@@ -52,7 +52,7 @@ public abstract class CharacterManager : MonoBehaviour
         animator = GetComponent<Animator>();
         audioController = GetComponent<AudioController>();
 
-        State.SetState(this.behaviourTree.defaultState, this);
+        State.SetState(behaviourTree.defaultState, this);
 
         // characterProperties = Instantiate(characterProperties); //To create a copy to debug
     }
@@ -69,6 +69,11 @@ public abstract class CharacterManager : MonoBehaviour
     protected void FixedUpdate()
     {
         state.FixedTick(Time.fixedDeltaTime);
+    }
+
+    public bool isTouchingGround()
+    {
+        return Utils.IsColliderTouchingLayer(groundCollider, GameManager.Instance.walkableLayers);
     }
 
 

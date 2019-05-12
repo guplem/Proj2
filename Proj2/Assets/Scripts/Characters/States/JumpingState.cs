@@ -37,6 +37,6 @@ public class JumpingState : State
 
     public override void OnExit()
     {
-        
+        Debug.Log("Exiting jump. Vel: " + character.rb2d.velocity.y);
     }
 }
