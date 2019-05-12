@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,15 @@ public static class Utils
         SpriteRenderer sprnd = gameObject.GetComponent<SpriteRenderer>();
         if (sprnd != null)
             sprnd.sortingOrder = layer;
+    }
+
+    internal static Vector3 GetClosestPointToCircle(Vector3 center, float areaRadius, Vector3 point)
+    {
+        if (Vector3.Distance(point, center) < areaRadius)
+            return point;
+
+        Vector3 V = (point - center);
+        return center + V / V.magnitude * areaRadius;
     }
 
     public static void SaveAllChilds(GameObject gameObject, List<GameObject> childsList)

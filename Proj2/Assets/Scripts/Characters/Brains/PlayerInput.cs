@@ -12,7 +12,10 @@ public class PlayerInput : Brain
 
     protected override void GetActions()
     {
-        jumping = Input.GetButton("Jump");
+        if (GameManager.Instance.gamePaused)
+            return;
+
+        jumping = Input.GetButtonDown("Jump");
         interact = Input.GetButton("Interact");
         action = Input.GetButton("Action");
         actionRelease = Input.GetButtonUp("Action");
