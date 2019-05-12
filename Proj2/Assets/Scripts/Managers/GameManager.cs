@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 #pragma warning disable CS0168 // Variable is declared but never used
 [RequireComponent(typeof(AudioController))]
@@ -47,11 +48,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    internal void SetPause(bool state)
+    internal IEnumerator SetPause(bool state)
     {
-        gamePaused = state;
         GUIManager.Instance.PausePanel.SetObjectActive(state);
         GUIManager.Instance.ControlsPanel.SetObjectActive(state);
+
+        // Select the proper element on the menu
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(GUIManager.Instance.defaultPauseSelectedItem);
+
+        yield return 0; //Aviud wrong actions by delaying one frame
+
+        gamePaused = state;
     }
 
     internal void ExitGame()
@@ -124,7 +132,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown("escape"))
         {
-            SetPause(!gamePaused);
+            StartCoroutine(SetPause(!gamePaused));
         }
     }
 

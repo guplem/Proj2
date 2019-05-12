@@ -19,6 +19,10 @@ public class GUIManager : MonoBehaviour
     public Fading ControlsPanel { get => controlsPanel; private set => controlsPanel = value; }
     [SerializeField] private Fading controlsPanel;
 
+    [Header("Pause configuration")]
+    [SerializeField] public GameObject defaultPauseSelectedItem;
+
+
     [HideInInspector] public static GUIManager Instance;
     private void Awake()
     {
@@ -30,7 +34,7 @@ public class GUIManager : MonoBehaviour
 
     public void ResumeGameButton()
     {
-        GameManager.Instance.SetPause(false);
+        StartCoroutine(GameManager.Instance.SetPause(false));
     }
 
     public void ExitGameButton()
