@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 8299475978780748960}
   - component: {fileID: 8299475978780748961}
   - component: {fileID: 656853021}
+  - component: {fileID: 5281320920568571807}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -91,6 +92,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   audioController: {fileID: 0}
+  cursor: {fileID: 0}
   lineRenderer: {fileID: 0}
 --- !u!120 &656853021
 LineRenderer:
@@ -196,3 +198,16 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &5281320920568571807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8299475978780748962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c03d3e56d4f3e48ab273a9e2441165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorRadius: 2

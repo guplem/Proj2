@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [Header("Game's Configuration")]
     [SerializeField] public new CameraManager camera;
     [SerializeField] public PlayerManager playerManager;
-    [SerializeField] public Transform startPoint;
+    [HideInInspector] public Transform startPoint;
 
     [Header("Layers")]
     [SerializeField] public LayerMask walkableLayers;
@@ -19,8 +19,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] public LayerMask enemyLayers;
 
     [HideInInspector] public AudioController audioController;
-    [HideInInspector] public LineManager lineManager;
+    [HideInInspector] public Cursor cursor;
 
+
+    [HideInInspector] public LineManager lineManager;
     [HideInInspector] public LineRenderer lineRenderer;
 
     //[HideInInspector] public PlayerManager playerManager;
@@ -65,6 +67,8 @@ public class GameManager : MonoBehaviour
         lineManager = new LineManager();
         camera.Setup(playerManager.gameObject, 0.05f);
         lastCheckPoint = null;
+        cursor = GetComponent<Cursor>();
+        startPoint = playerManager.transform;
     }
 
     public void HitPlayer()
