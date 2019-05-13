@@ -12,6 +12,7 @@ public class PatrolEnemyManager : EnemyManager
     public void Start()
     {
         Configure();
+        LookForPlayer(true);
     }
 
     public override void Configure()

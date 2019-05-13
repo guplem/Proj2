@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6196863622840744243}
   - component: {fileID: 8206122056261830003}
   - component: {fileID: 1352286770111948420}
-  m_Layer: 12
+  m_Layer: 18
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3816076086342582964}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: ThrowPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 3474346166415430201}
   - component: {fileID: 8483443444918278841}
   - component: {fileID: 9176526076712924883}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: PatrolEnemy
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -324,12 +324,12 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   animator: {fileID: 0}
   audioController: {fileID: 0}
-  interactionsController: {fileID: 0}
+  interactionsCollider: {fileID: 0}
   visualsAnimator: {fileID: 1352286770111948420}
   characterProperties: {fileID: 11400000, guid: d34568373ab42524a8361ef91c2871bc,
     type: 2}
   lookingStartPoint: {x: 0.8, y: 1.7}
-  lookingDirection: 6.06
+  lookingDirection: 6.28
   lookingRaysQty: 5
   lookingConeSize: 1.7
   lookingDistance: 4.9
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 4948736542773276979}
   - component: {fileID: 881804019803812343}
   - component: {fileID: 8483443445278108754}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: InteractionsCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,6 +381,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 9176526076712924883}
+  filter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!61 &8483443445278108754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -418,6 +432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stress Emitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505883074891551292, guid: 8a2f06dc9e880c7458be68422fdbdcea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3505883074891551293, guid: 8a2f06dc9e880c7458be68422fdbdcea,
         type: 3}
@@ -478,6 +497,11 @@ PrefabInstance:
         type: 3}
       propertyPath: stressAmountPerSecond
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505883074891551291, guid: 8a2f06dc9e880c7458be68422fdbdcea,
+        type: 3}
+      propertyPath: emitStress
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a2f06dc9e880c7458be68422fdbdcea, type: 3}

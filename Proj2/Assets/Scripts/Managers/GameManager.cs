@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [Header("Game's Configuration")]
     [SerializeField] public new CameraManager camera;
     [SerializeField] public PlayerManager playerManager;
-    [HideInInspector] public Transform startPoint;
+    [HideInInspector] public Vector3 startPoint;
 
     [Header("Layers")]
     [SerializeField] public LayerMask walkableLayers;
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    internal IEnumerator SetPause(bool state)
+    public IEnumerator SetPause(bool state)
     {
         GUIManager.Instance.PausePanel.SetObjectActive(state);
         GUIManager.Instance.ControlsPanel.SetObjectActive(state);
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         gamePaused = state;
     }
 
-    internal void ExitGame()
+    public void ExitGame()
     {
         Application.Quit();
     }
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         camera.Setup(playerManager.gameObject, 0.05f);
         lastCheckPoint = null;
         cursor = GetComponent<Cursor>();
-        startPoint = playerManager.transform;
+        startPoint = playerManager.transform.position;
     }
 
     public void HitPlayer()
@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
         }
         catch (NullReferenceException)
         {
-            SpawnPlayer(startPoint.position);
+            SpawnPlayer(startPoint);
 
             if (ResetElementsUntilLastCheckPoint != null)
                 ResetElementsUntilLastCheckPoint(-1);

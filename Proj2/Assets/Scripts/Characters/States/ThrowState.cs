@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThrowState : State
 {
 
-    public ThrowState(CharacterManager characterManager)
+    public ThrowState(PlayerManager characterManager)
     {
         this.character = characterManager;
         ((PlayerManager)character).rb2d.velocity = Vector3.zero;

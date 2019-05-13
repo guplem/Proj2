@@ -2,25 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(Collider2D))]
 [DisallowMultipleComponent]
 public class StressEmitter : MonoBehaviour
 {
     [Header("Stress Config")]
-    public bool emitStress;
-    public float stressAmountPerSecond;
-    public float timeBetweenEmisions;
-
-    [HideInInspector] private float effectRadius;
-    [HideInInspector] private Vector3 emittingPoint;
+    [SerializeField] private bool emitStress;
+    [SerializeField] private float stressAmountPerSecond;
+    [SerializeField] private float timeBetweenEmisions;
 
     private IEnumerator coroutineHolder;
     private List<StressController> stressing;
 
     public void Start()
     {
-        this.emittingPoint = gameObject.transform.position;
-        this.effectRadius = GetComponent<CircleCollider2D>().radius;
         stressing = new List<StressController>();
     }
 
@@ -29,10 +24,8 @@ public class StressEmitter : MonoBehaviour
         StressController stressController = collision.GetComponent<StressController>();
         if (stressController != null && emitStress)
         {
-            stressing.Add(stressController);
-            //TODO check if there is a stressController duplicated.
-            /*if (coroutineHolder != null)
-                StopCoroutine(coroutineHolder);*/
+            if (!stressing.Contains(stressController))
+                stressing.Add(stressController);
 
             if (coroutineHolder == null)
             {
@@ -80,11 +73,5 @@ public class StressEmitter : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        this.emittingPoint = gameObject.transform.position;
-
-        Gizmos.DrawWireSphere(emittingPoint, effectRadius);
-    }
 
 }

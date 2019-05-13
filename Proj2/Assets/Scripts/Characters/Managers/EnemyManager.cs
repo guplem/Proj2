@@ -6,6 +6,7 @@ using UnityEngine;
 #pragma warning disable 0649
 public abstract class EnemyManager : CharacterManager
 {
+    [Header("Player's detection configuration")]
     [SerializeField] private Vector2 lookingStartPoint;
     [Range(0f, 3.14159265359f * 2)]
     [SerializeField] private float lookingDirection;
@@ -19,8 +20,6 @@ public abstract class EnemyManager : CharacterManager
     protected new void Setup(MovementController movementController, Brain defaultBrain, BehaviourTree defaultBehaviourTree)
     {
         base.Setup(movementController, defaultBrain, defaultBehaviourTree);
-
-        InvokeRepeating("LookForPlayer", UnityEngine.Random.Range(0.5f, 1.5f), UnityEngine.Random.Range(0.5f, 1f));
     }
 
     protected void OnDrawGizmosSelected()
@@ -34,19 +33,28 @@ public abstract class EnemyManager : CharacterManager
 
     }
 
-    public void LookForPlayer()
+    public void LookForPlayer(bool state)
+    {
+        if (state)
+            InvokeRepeating("SearchPlayer", UnityEngine.Random.Range(0.5f, 1.5f), UnityEngine.Random.Range(0.5f, 1f));
+        else
+            CancelInvoke("SearchPlayer");
+    }
+
+    private void SearchPlayer()
     {
         if (CanSeePlayer())
         {
             if (brain.GetType() != typeof(ChasingBrain) ||
                 ((ChasingBrain)brain).target != GameManager.Instance.playerManager.gameObject)
             {
-                brain = new ChasingBrain(this, GameManager.Instance.playerManager.gameObject);
+                Brain nBrain = new ChasingBrain(this, GameManager.Instance.playerManager.gameObject);
+                Brain.SetBrain(nBrain, 0, this);
             }
         }
         else if (brain is ChasingBrain)
         {
-            brain = defaultBrain;
+            Brain.SetBrain(defaultBrain, 2f, this);
         }
     }
 

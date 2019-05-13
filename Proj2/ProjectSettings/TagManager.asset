@@ -19,11 +19,11 @@ TagManager:
   - Enemy
   - World Elements
   - HidingZone
-  - Checkpoint
+  - Player Zone Trigger
   - Ambient Light
   - Light Source
   - Light Obstacle
-  - Background
+  - Aesthetic Element
   - 
   - 
   - 

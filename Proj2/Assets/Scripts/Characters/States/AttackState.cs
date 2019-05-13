@@ -15,23 +15,16 @@ public class AttackState : State
     protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Attack");
-        yield return "success";
+
+        yield return new WaitForSeconds(timeToAttack);
+
+        if (character.brain.action) // If the player still in range
+            GameManager.Instance.HitPlayer();
     }
 
     public override void Tick(float deltaTime)
     {
-        timeToAttack -= deltaTime;
 
-        if (timeToAttack <= 0)
-        {
-            if (character.brain.action) // If the player still in range
-            {
-                GameManager.Instance.HitPlayer();
-                //character.behaviourTree = character.defaultBehaviourTree;
-                //character.brain = character.defaultBrain;
-                //SetState(null, character);
-            }
-        }
     }
 
     public override void FixedTick(float fixedDeltaTime)

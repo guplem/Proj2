@@ -35,8 +35,6 @@ public abstract class State
         if (character.state != null)
             character.state.OnExit();
 
-        Debug.Log("Entering " + newState.ToString());
-
         character.state = newState;
 
         if (newState == null)

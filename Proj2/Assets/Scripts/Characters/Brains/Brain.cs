@@ -16,6 +16,8 @@ public abstract class Brain
 
     public void Act()
     {
+        /*Pause could work by doing: if (gamemanager.instance.pause) --> Set all variables to false*/ //If doing so, remember removing the pause controller from PlayerInput
+
         GetActions();
         CheckAndFlip();
     }
@@ -27,20 +29,6 @@ public abstract class Brain
         this.character = characterManager;
     }
 
-    /*public void SetInteractingTo(bool state)
-    {
-        if (character == null)
-        {
-            Debug.LogError("characterManager not set in " + this + " (inherence of Brain class)");
-        }
-
-        if (interact != state)
-        {
-            character.interactionsController.ProcessNewInteractState(state);
-            interact = state;
-        }
-    }*/
-
     private void CheckAndFlip()
     {
         if (direction.x >= 0.1f)
@@ -51,6 +39,25 @@ public abstract class Brain
         {
             character.transform.eulerAngles = new Vector3(0, 180, 0);
         }
+    }
+
+    private IEnumerator SetBrainDelayedCoroutine;
+    public static void SetBrain(Brain newBrain, float delay, CharacterManager character)
+    {
+        if (character.brain.SetBrainDelayedCoroutine != null)
+            character.StopCoroutine(character.brain.SetBrainDelayedCoroutine);
+
+        character.brain.SetBrainDelayedCoroutine = character.brain.SetBrainDelayed(newBrain, delay);
+        character.StartCoroutine(character.brain.SetBrainDelayedCoroutine);
+    }
+
+    private IEnumerator SetBrainDelayed(Brain newBrain, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        character.brain = newBrain;
+
+        SetBrainDelayedCoroutine = null;
     }
 
 }
