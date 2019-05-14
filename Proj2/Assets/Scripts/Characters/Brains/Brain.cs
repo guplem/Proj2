@@ -7,8 +7,8 @@ public abstract class Brain
 {
     public bool jumping { get; protected set; }
     public bool interact  { get; protected set; }
-    public bool action { get; protected set; }
-    public bool actionRelease  { get; protected set; }
+    public bool actionHold { get; protected set; }
+    public bool actionDown  { get; protected set; }
     public bool crouch  { get; protected set; }
     public Vector2 direction  { get; protected set; }
 

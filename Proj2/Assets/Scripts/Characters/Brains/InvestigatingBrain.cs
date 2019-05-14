@@ -18,7 +18,7 @@ public class InvestigatingBrain : Brain
     {
         jumping = false;
         interact = false;
-        action = false;
+        actionHold = false;
         crouch = false;
 
         if (!character.IsNextToPosition(investigatingPosition, deltaTime))
