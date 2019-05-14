@@ -6,7 +6,7 @@ using UnityEngine;
 #pragma warning disable CS0168 // Variable is declared but never used
 public class PatrolEnemyManager : EnemyManager
 {
-
+    [Header("Patrol configuration")]
     [SerializeField] public Vector2[] patrolPoints;
 
     public void Start()

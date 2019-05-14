@@ -333,6 +333,9 @@ MonoBehaviour:
   lookingRaysQty: 5
   lookingConeSize: 1.7
   lookingDistance: 4.9
+  visualLayers:
+    serializedVersion: 2
+    m_Bits: 1280
   patrolPoints:
   - {x: 15.14, y: -0.3}
   - {x: 24.15, y: -0.3}
