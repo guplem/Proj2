@@ -14,24 +14,17 @@ public class InvestigatingBrain : Brain
         this.investigatingPosition = investigatingPosition;
     }
 
-    protected override void GetActions()
+    protected override void GetActions(float deltaTime)
     {
         jumping = false;
         interact = false;
         action = false;
         crouch = false;
 
-        UpdateCurrentInvestigatingPoint();
-
-        direction = (investigatingPosition - ((Vector2)character.transform.position)).normalized * 0.7f;
-    }
-
-    private void UpdateCurrentInvestigatingPoint()
-    {
-        if (Vector2.Distance( character.transform.position, investigatingPosition) <= 1.5f)
-        {
+        if (!character.IsNextToPosition(investigatingPosition, deltaTime))
+            direction = (investigatingPosition - ((Vector2)character.transform.position)).normalized * 0.7f;
+        else
             SetBrain(character.defaultBrain, 2f, character);
-        }
-
     }
+
 }

@@ -17,7 +17,7 @@ public class PatrolEnemyManager : EnemyManager
 
     public override void Configure()
     {
-        BehaviourTree bt = new PatrolEnemyBehaviourTree(this, new WalkingState(this));
+        BehaviourTree bt = new PatrolEnemyBehaviourTree(this, new IdleState(this));
         base.Setup(new CharacterMovementController(this), new EnemyPatrolBrain(this, patrolPoints), bt);
     }
 
@@ -31,10 +31,8 @@ public class PatrolEnemyManager : EnemyManager
         base.FixedUpdate();
     }
 
-    protected new void OnDrawGizmosSelected()
+    protected void OnDrawGizmos()
     {
-        base.OnDrawGizmosSelected();
-
         foreach (Vector2 point in patrolPoints)
         {
             Gizmos.color = Color.red;
@@ -51,7 +49,21 @@ public class PatrolEnemyManager : EnemyManager
             { }
         }
 
+        if (brain != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, (Vector2)transform.position+brain.direction);
+        }
+
+        if (brain is EnemyPatrolBrain)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(((EnemyPatrolBrain)brain).currentPatrolPoint, 5f);
+        }
     }
 
-
+    public override void Alert(Vector2 position)
+    {
+        Brain.SetBrain(new InvestigatingBrain(this, position), 0f, this);
+    }
 }

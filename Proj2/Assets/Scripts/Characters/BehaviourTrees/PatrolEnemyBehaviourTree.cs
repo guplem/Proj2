@@ -18,9 +18,9 @@ public class PatrolEnemyBehaviourTree : BehaviourTree
         if (forceExitState)
             ForceExitState(character);
 
+        if (EnterOnAir()) return;
         if (EnterAttack()) return;
         if (EnterJump()) return;
-        if (EnterOnAir()) return;
         if (EnterWalking()) return;
         if (EnterCrouched()) return;
         if (EnterIdle()) return;

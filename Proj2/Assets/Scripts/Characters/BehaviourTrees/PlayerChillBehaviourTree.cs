@@ -16,14 +16,14 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (forceExitState)
             ForceExitState(character);
 
-        if (EnterPushPull()) return;
-        if (EnterJump()) return;
         if (EnterOnAir()) return;
-        if (EnterWalking()) return;
-        if (EnterCrouched()) return;
+        if (EnterPushPull()) return;
         if (EnterPick()) return;
         if (EnterInteract()) return;
         if (EnterThrow()) return;
+        if (EnterJump()) return;
+        if (EnterWalking()) return;
+        if (EnterCrouched()) return;
         if (EnterIdle()) return;
 
     }
@@ -38,7 +38,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (!((PlayerManager)character).inventory.HasStoredItem())
             return false;
 
-        if (!character.isTouchingGround())
+        if (!character.IsTouchingGround())
             return false;
 
         State.SetState(new ThrowState((PlayerManager)character), character);

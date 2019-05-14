@@ -10,7 +10,7 @@ public class PlayerInput : Brain
         base.Setup(characterManager);
     }
 
-    protected override void GetActions()
+    protected override void GetActions(float deltaTime)
     {
         if (GameManager.Instance.gamePaused)
             return;

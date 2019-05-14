@@ -14,15 +14,15 @@ public abstract class Brain
 
     protected CharacterManager character;
 
-    public void Act()
+    public void Act(float deltaTime)
     {
         /*Pause could work by doing: if (gamemanager.instance.pause) --> Set all variables to false*/ //If doing so, remember removing the pause controller from PlayerInput
 
-        GetActions();
+        GetActions(deltaTime);
         CheckAndFlip();
     }
 
-    protected abstract void GetActions();
+    protected abstract void GetActions(float deltaTime);
 
     protected void Setup(CharacterManager characterManager)
     {
@@ -33,21 +33,23 @@ public abstract class Brain
     {
         if (direction.x >= 0.1f)
         {
-            character.transform.eulerAngles = new Vector3(0, 0, 0);
+            Utils.SetObjectLookingDirection(1, character.gameObject);
         }
         else if (direction.x < -0.1f)
         {
-            character.transform.eulerAngles = new Vector3(0, 180, 0);
+            Utils.SetObjectLookingDirection(-1, character.gameObject);
         }
     }
 
+
+
     private IEnumerator SetBrainDelayedCoroutine;
-    public static void SetBrain(Brain newBrain, float delay, CharacterManager character)
+    public static void SetBrain(Brain newBrain, float delayOnSetBrain, CharacterManager character)
     {
-        if (character.brain.SetBrainDelayedCoroutine != null)
+        if (delayOnSetBrain != 0 && character.brain.SetBrainDelayedCoroutine != null)
             character.StopCoroutine(character.brain.SetBrainDelayedCoroutine);
 
-        character.brain.SetBrainDelayedCoroutine = character.brain.SetBrainDelayed(newBrain, delay);
+        character.brain.SetBrainDelayedCoroutine = character.brain.SetBrainDelayed(newBrain, delayOnSetBrain);
         character.StartCoroutine(character.brain.SetBrainDelayedCoroutine);
     }
 

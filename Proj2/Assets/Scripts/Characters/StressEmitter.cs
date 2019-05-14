@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable 0649
 [RequireComponent(typeof(Collider2D))]
 [DisallowMultipleComponent]
 public class StressEmitter : MonoBehaviour

@@ -27,7 +27,7 @@ public abstract class BehaviourTree
 
     protected bool EnterIdle()
     {
-        if (!character.isTouchingGround())
+        if (!character.IsTouchingGround())
             return false;
 
         if (character.brain.direction != Vector2.zero)
@@ -39,7 +39,7 @@ public abstract class BehaviourTree
 
     protected bool EnterCrouched()
     {
-        if (!character.isTouchingGround())
+        if (!character.IsTouchingGround())
             return false;
 
         if (!character.brain.crouch)
@@ -66,7 +66,7 @@ public abstract class BehaviourTree
 
     protected bool EnterOnAir()
     {
-        if (character.isTouchingGround())
+        if (character.IsTouchingGround())
             return false;
 
         if (!(character.rb2d.velocity.y <= 0.1f))
@@ -81,7 +81,7 @@ public abstract class BehaviourTree
         if (!character.brain.jumping)
             return false;
 
-        if (!character.isTouchingGround())
+        if (!character.IsTouchingGround())
             return false;
 
         State.SetState(new JumpingState(character), character);

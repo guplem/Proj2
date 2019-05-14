@@ -55,7 +55,7 @@ public class ThrowState : State
                 Debug.Log("I do not have an item stored!");
             }
         }
-        else if (character.brain.actionRelease)
+        else if (character.brain.actionRelease) // Nota: és necessari controla actionRelease? no serveix !brain.action?
         {
             if (storedItem)
             {

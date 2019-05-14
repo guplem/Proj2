@@ -25,7 +25,7 @@ public abstract class EnemyManager : CharacterManager
     protected void OnDrawGizmosSelected()
     {
         Vector2 pos = GetPosForStartSearching();
-        Gizmos.DrawSphere(pos, 0.2f);
+        //Gizmos.DrawSphere(pos, 0.2f);
 
         Vector2[] pointsToLookAt = GetPointsToLookAt(pos);
         for (int i = 0; i < pointsToLookAt.Length; i++)
@@ -54,7 +54,7 @@ public abstract class EnemyManager : CharacterManager
         }
         else if (brain is ChasingBrain)
         {
-            Brain.SetBrain(defaultBrain, 2f, this);
+            ((ChasingBrain)brain).LostTrackOfTarget();
         }
     }
 

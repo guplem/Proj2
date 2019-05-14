@@ -8,6 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioController))]
 public abstract class CharacterManager : MonoBehaviour
 {
+    [Header("Character configuration")]
     [SerializeField] public Collider2D groundCollider;
     //[SerializeField] public Collider2D topCollider;
     //[SerializeField] public Collider2D lateralCollider;
@@ -59,7 +60,7 @@ public abstract class CharacterManager : MonoBehaviour
 
     protected void Update()
     {
-        brain.Act();
+        brain.Act(Time.deltaTime);
 
         behaviourTree.CalculateAndSetNextState(false);
 
@@ -71,10 +72,15 @@ public abstract class CharacterManager : MonoBehaviour
         state.FixedTick(Time.fixedDeltaTime);
     }
 
-    public bool isTouchingGround()
+    public bool IsTouchingGround()
     {
         return Utils.IsColliderTouchingLayer(groundCollider, GameManager.Instance.walkableLayers);
     }
 
+    public abstract void Alert(Vector2 position);
 
+    public bool IsNextToPosition(Vector2 position, float deltaTime)
+    {
+        return (Vector2.Distance(transform.position, position) <= characterProperties.maxWalkVelocity.x * deltaTime);
+    }
 }
