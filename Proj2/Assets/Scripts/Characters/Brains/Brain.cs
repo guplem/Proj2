@@ -14,43 +14,52 @@ public abstract class Brain
 
     protected CharacterManager character;
 
-    public void Act()
+    public void Act(float deltaTime)
     {
-        GetActions();
+        /*Pause could work by doing: if (gamemanager.instance.pause) --> Set all variables to false*/ //If doing so, remember removing the pause controller from PlayerInput
+
+        GetActions(deltaTime);
         CheckAndFlip();
     }
 
-    protected abstract void GetActions();
+    protected abstract void GetActions(float deltaTime);
 
     protected void Setup(CharacterManager characterManager)
     {
         this.character = characterManager;
     }
 
-    /*public void SetInteractingTo(bool state)
-    {
-        if (character == null)
-        {
-            Debug.LogError("characterManager not set in " + this + " (inherence of Brain class)");
-        }
-
-        if (interact != state)
-        {
-            character.interactionsController.ProcessNewInteractState(state);
-            interact = state;
-        }
-    }*/
-
     private void CheckAndFlip()
     {
         if (direction.x >= 0.1f)
         {
-            character.transform.eulerAngles = new Vector3(0, 0, 0);
+            Utils.SetObjectLookingDirection(1, character.gameObject);
         }
         else if (direction.x < -0.1f)
         {
-            character.transform.eulerAngles = new Vector3(0, 180, 0);
+            Utils.SetObjectLookingDirection(-1, character.gameObject);
         }
+    }
+
+
+
+    private IEnumerator SetBrainDelayedCoroutine;
+    public static void SetBrain(Brain newBrain, float delayOnSetBrain, CharacterManager character)
+    {
+        if (delayOnSetBrain != 0 && character.brain.SetBrainDelayedCoroutine != null)
+            character.StopCoroutine(character.brain.SetBrainDelayedCoroutine);
+
+        character.brain.SetBrainDelayedCoroutine = character.brain.SetBrainDelayed(newBrain, delayOnSetBrain);
+        character.StartCoroutine(character.brain.SetBrainDelayedCoroutine);
+    }
+
+    private IEnumerator SetBrainDelayed(Brain newBrain, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        character.brain = newBrain;
+
+        SetBrainDelayedCoroutine = null;
     }
 
 }

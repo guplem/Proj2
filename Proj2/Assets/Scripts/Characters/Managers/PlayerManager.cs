@@ -9,7 +9,7 @@ public class PlayerManager : CharacterManager
     [HideInInspector] public InventoryController inventory { get; private set; }
     [HideInInspector] public StressController stressController { get; private set; }
 
-    [Header("Player Only")]
+    [Header("Player Configuration")]
     [SerializeField] private Transform throwPoint;
     [SerializeField] public Vector2 throwingForce;
     //[SerializeField] public float stressThreshold;
@@ -21,7 +21,7 @@ public class PlayerManager : CharacterManager
 
     public override void Configure()
     {
-        base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new WalkingState(this), this));
+        base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new IdleState(this), this));
 
 
         //Particular of the player
@@ -44,5 +44,10 @@ public class PlayerManager : CharacterManager
     public Transform getThrowPoint()
     {
         return throwPoint;
+    }
+
+    public override void Alert(Vector2 position)
+    {
+        // Does nothing
     }
 }

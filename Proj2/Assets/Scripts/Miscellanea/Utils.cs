@@ -57,4 +57,19 @@ public static class Utils
         }
     }
 
+    public static void SetObjectLookingDirection(int dir, GameObject gameObject)
+    {
+        if (dir == 1)
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+
+            if (dir != -1)
+                Debug.LogWarning("The direction given to the 'SetObjectLookingDirection' method should be '1' (right) or '-1' (legt) and you are tying to set it as '" + dir + "'.", gameObject);
+        }
+    }
+
 }

@@ -16,31 +16,19 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (forceExitState)
             ForceExitState(character);
 
-        //if (EnterAttack()) return;
-        if (EnterPushPull()) return;
-        if (EnterJump()) return;
         if (EnterOnAir()) return;
-        if (EnterWalking()) return;
-        if (EnterCrouched()) return;
+        if (EnterPushPull()) return;
         if (EnterPick()) return;
         if (EnterInteract()) return;
         if (EnterThrow()) return;
+        if (EnterJump()) return;
+        if (EnterWalking()) return;
+        if (EnterCrouched()) return;
         if (EnterIdle()) return;
-
-        //State.SetState(defaultState, character);
 
     }
 
     /////////////////////////////////////////////////////
-
-    private bool EnterIdle()
-    {
-        if (!character.isTouchingGround())
-            return false;
-
-        State.SetState(new IdleState(character), character);
-        return true;
-    }
 
     private bool EnterThrow()
     {
@@ -50,10 +38,10 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (!((PlayerManager)character).inventory.HasStoredItem())
             return false;
 
-        if (!character.isTouchingGround())
+        if (!character.IsTouchingGround())
             return false;
 
-        State.SetState(new ThrowState(character), character);
+        State.SetState(new ThrowState((PlayerManager)character), character);
         return true;
 
     }
@@ -97,56 +85,4 @@ public class PlayerChillBehaviourTree : BehaviourTree
         return true;
     }
 
-    private bool EnterCrouched()
-    {
-        if (!character.isTouchingGround())
-            return false;
-
-        if (!character.brain.crouch)
-            return false;
-
-        State.SetState(new CrouchedState(character), character);
-        return true;
-    }
-
-    private bool EnterWalking()
-    {
-        if (!Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
-            return false;
-
-        if (character.brain.direction.x == 0)
-            return false;
-
-        if ( (character.rb2d.velocity.y > 0.1f) || (character.rb2d.velocity.y < -0.1f) )
-            return false;
-
-        State.SetState(new WalkingState(character), character);
-        return true;
-    }
-
-    private bool EnterOnAir()
-    {
-        if (character.isTouchingGround())
-            return false;
-
-        if (!(character.rb2d.velocity.y <= 0.1f))
-            return false;
-
-        State.SetState(new OnAirState(character), character);
-        return true;
-    }
-
-    private bool EnterJump()
-    {
-        if (!character.brain.jumping)
-            return false;
-
-        if (!character.isTouchingGround())
-            return false;
-        /*if (character.GetComponent<Rigidbody2D>().velocity.y <= 0.1f)
-            return false;*/
-
-        State.SetState(new JumpingState(character), character);
-        return true;
-    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThrowState : State
 {
 
-    public ThrowState(CharacterManager characterManager)
+    public ThrowState(PlayerManager characterManager)
     {
         this.character = characterManager;
         ((PlayerManager)character).rb2d.velocity = Vector3.zero;
@@ -55,7 +55,7 @@ public class ThrowState : State
                 Debug.Log("I do not have an item stored!");
             }
         }
-        else if (character.brain.actionRelease)
+        else if (character.brain.actionRelease) // Nota: és necessari controla actionRelease? no serveix !brain.action?
         {
             if (storedItem)
             {
