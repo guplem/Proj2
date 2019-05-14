@@ -26,9 +26,8 @@ public class StressEmitter : MonoBehaviour
 
         if (stressController != null && emitStress)
         {
-            if (!stressing.Contains(stressController))
+            if (!stressing.Contains(stressController)) {
                 stressing.Add(stressController);
-
 
                 if (coroutineHolder == null)
                 {
