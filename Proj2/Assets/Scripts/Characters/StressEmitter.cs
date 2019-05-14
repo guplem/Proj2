@@ -23,15 +23,18 @@ public class StressEmitter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         StressController stressController = collision.GetComponent<StressController>();
+
         if (stressController != null && emitStress)
         {
             if (!stressing.Contains(stressController))
                 stressing.Add(stressController);
 
-            if (coroutineHolder == null)
-            {
-                coroutineHolder = AddStressOverTime(timeBetweenEmisions, stressAmountPerSecond);
-                StartCoroutine(coroutineHolder);
+
+                if (coroutineHolder == null)
+                {
+                    coroutineHolder = AddStressOverTime(timeBetweenEmisions, stressAmountPerSecond);
+                    StartCoroutine(coroutineHolder);
+                }
             }
         }
     }
@@ -57,13 +60,12 @@ public class StressEmitter : MonoBehaviour
 
     public IEnumerator AddStressOverTime(float timeBetweenEmisions, float stressAmountPerSecond)
     {
-        do
+        while (true)
         {
             yield return new WaitForSeconds(timeBetweenEmisions);
 
             EmitStress(stressAmountPerSecond * timeBetweenEmisions);
         }
-        while (true);
     }
 
     public void EmitStress(float amount)
