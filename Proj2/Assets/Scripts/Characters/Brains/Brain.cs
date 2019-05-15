@@ -6,11 +6,11 @@ using UnityEngine;
 public abstract class Brain
 {
     public bool jumping { get; protected set; }
-    public bool interact  { get; protected set; }
+    public bool interact { get; protected set; }
     public bool action { get; protected set; }
-    public bool actionRelease  { get; protected set; }
-    public bool crouch  { get; protected set; }
-    public Vector2 direction  { get; protected set; }
+    public bool actionRelease { get; protected set; }
+    public bool crouch { get; protected set; }
+    public Vector2 direction { get; protected set; }
 
     protected CharacterManager character;
 
@@ -43,6 +43,7 @@ public abstract class Brain
 
 
 
+
     private IEnumerator SetBrainDelayedCoroutine;
     public static void SetBrain(Brain newBrain, float delayOnSetBrain, CharacterManager character)
     {
@@ -55,7 +56,8 @@ public abstract class Brain
 
     private IEnumerator SetBrainDelayed(Brain newBrain, float delay)
     {
-        yield return new WaitForSeconds(delay);
+        if (delay > 0)
+            yield return new WaitForSeconds(delay);
 
         character.brain = newBrain;
 

@@ -328,14 +328,14 @@ MonoBehaviour:
   visualsAnimator: {fileID: 1352286770111948420}
   characterProperties: {fileID: 11400000, guid: d34568373ab42524a8361ef91c2871bc,
     type: 2}
-  lookingStartPoint: {x: 0.8, y: 1.7}
-  lookingDirection: 6.28
-  lookingRaysQty: 5
-  lookingConeSize: 1.7
-  lookingDistance: 4.9
+  lookingStartPoint: {x: -0.31, y: 1.66}
+  lookingDirection: 0.4
+  lookingRaysQty: 10
+  lookingConeSize: 2
+  lookingDistance: 6
   visualLayers:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 9472
   patrolPoints:
   - {x: 15.14, y: -0.3}
   - {x: 24.15, y: -0.3}
@@ -431,16 +431,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3288080737175248161}
     m_Modifications:
-    - target: {fileID: 3505883074891551292, guid: 8a2f06dc9e880c7458be68422fdbdcea,
-        type: 3}
-      propertyPath: m_Name
-      value: Stress Emitter
-      objectReference: {fileID: 0}
-    - target: {fileID: 3505883074891551292, guid: 8a2f06dc9e880c7458be68422fdbdcea,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     - target: {fileID: 3505883074891551293, guid: 8a2f06dc9e880c7458be68422fdbdcea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -495,6 +485,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505883074891551292, guid: 8a2f06dc9e880c7458be68422fdbdcea,
+        type: 3}
+      propertyPath: m_Name
+      value: Stress Emitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505883074891551292, guid: 8a2f06dc9e880c7458be68422fdbdcea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3505883074891551291, guid: 8a2f06dc9e880c7458be68422fdbdcea,
         type: 3}

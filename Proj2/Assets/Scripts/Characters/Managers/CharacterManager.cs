@@ -79,8 +79,8 @@ public abstract class CharacterManager : MonoBehaviour
 
     public abstract void Alert(Vector2 position);
 
-    public bool IsNextToPosition(Vector2 position, float deltaTime)
+    public bool IsNextToPosition(Vector2 position, float deltaTime, float maxDistance)
     {
-        return (Vector2.Distance(transform.position, position) <= characterProperties.maxWalkVelocity.x * deltaTime);
+        return (Vector2.Distance(transform.position, position) <= characterProperties.maxWalkVelocity.x * deltaTime + maxDistance);
     }
 }

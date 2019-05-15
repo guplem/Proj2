@@ -21,7 +21,7 @@ public class InvestigatingBrain : Brain
         action = false;
         crouch = false;
 
-        if (!character.IsNextToPosition(investigatingPosition, deltaTime))
+        if (!character.IsNextToPosition(investigatingPosition, deltaTime, 0.3f))
             direction = (investigatingPosition - ((Vector2)character.transform.position)).normalized * 0.7f;
         else
             SetBrain(character.defaultBrain, 2f, character);
