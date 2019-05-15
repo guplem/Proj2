@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ThrowState : State
 {
-
+    bool lookingRight;
     public ThrowState(PlayerManager characterManager)
     {
         this.character = characterManager;
         ((PlayerManager)character).rb2d.velocity = Vector3.zero;
+        lookingRight = character.transform.eulerAngles == new Vector3(0, 0, 0);
     }
 
     protected override IEnumerator StartState()
@@ -29,51 +30,60 @@ public class ThrowState : State
 
     private void CheckThrow()
     {
-        Vector3 throwPosition = ((PlayerManager)character).getThrowPoint().position;
-        bool storedItem = ((PlayerManager)character).inventory.HasStoredItem();
+        lookingRight = character.transform.eulerAngles == new Vector3(0, 0, 0);
 
-        if (character.brain.action)
+        Vector3 mousePosition = GameManager.Instance.cursor.GetCursorPositionOnWorld();
+        Vector3 throwPosition = ((PlayerManager)character).getThrowPoint().position;
+
+        float mousePositionCorrected = mousePosition.x;
+
+        if (character.brain.actionHold)
         {
             if (character.brain.interact)  //Use this button to cancel while holding the throwing button.
             {
-                GameManager.Instance.lineManager.SetDrawing(false);
                 // return to default
                 ((PlayerManager)character).behaviourTree.CalculateAndSetNextState(true);
                 return;
             }
-            if (storedItem)
+
+            if (lookingRight)
             {
-                Vector3 mousePosition = GameManager.Instance.camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+                if (mousePosition.x < throwPosition.x)
+                    mousePositionCorrected = throwPosition.x;
 
-                Vector3[] points = { throwPosition, mousePosition };
-
-                GameManager.Instance.lineManager.SetupLinePoints(points);
-                GameManager.Instance.lineManager.SetDrawing(true);
+                if (mousePosition.x < character.transform.position.x)
+                    Utils.SetObjectLookingDirection(0, character.gameObject);
             }
             else
             {
-                Debug.Log("I do not have an item stored!");
+                if (mousePosition.x > throwPosition.x)
+                    mousePositionCorrected = throwPosition.x;
+
+                if (mousePosition.x > character.transform.position.x)
+                {
+                    Utils.SetObjectLookingDirection(1, character.gameObject);
+                }
             }
+            Vector3[] points = { throwPosition, new Vector3(mousePositionCorrected, mousePosition.y, mousePosition.z) };
+
+            GameManager.Instance.lineManager.SetupLinePoints(points);
+            GameManager.Instance.lineManager.SetDrawing(true);
         }
-        else if (character.brain.actionRelease) // Nota: és necessari controla actionRelease? no serveix !brain.action?
+        else
         {
-            if (storedItem)
-            {
-                Vector3 direction;
-                Vector3 mousePosition = GameManager.Instance.camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+            // Play animation!
+            //character.visualsAnimator.SetTrigger("Throw");
 
-                direction = mousePosition - throwPosition;
+            Vector3 direction = (new Vector3(mousePositionCorrected, mousePosition.y, mousePosition.z) - throwPosition);
+            ((PlayerManager)character).inventory.ThrowStoredItem(((PlayerManager)character).throwingForce * direction, throwPosition);
 
-                ((PlayerManager)character).inventory.ThrowStoredItem(new Vector2(((PlayerManager)character).throwingForce.x, ((PlayerManager)character).throwingForce.y) * direction, throwPosition);
-                GameManager.Instance.lineManager.SetDrawing(false);
-            }
             ((PlayerManager)character).behaviourTree.CalculateAndSetNextState(true);
         }
     }
 
     public override void OnExit()
     {
-
+        GameManager.Instance.lineManager.SetDrawing(false);
     }
 
 }

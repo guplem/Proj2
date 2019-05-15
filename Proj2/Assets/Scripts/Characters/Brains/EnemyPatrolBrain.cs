@@ -26,7 +26,7 @@ public class EnemyPatrolBrain : Brain
     {
         jumping = false;
         interact = false;
-        action = false;
+        actionHold = false;
         crouch = false;
 
         UpdateCurrentPatrolPoint(deltaTime);

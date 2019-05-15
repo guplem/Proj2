@@ -32,7 +32,8 @@ public class PlayerChillBehaviourTree : BehaviourTree
 
     private bool EnterThrow()
     {
-        if (!character.brain.action)
+
+        if (!character.brain.actionDown && !(character.state is ThrowState))
             return false;
 
         if (!((PlayerManager)character).inventory.HasStoredItem())

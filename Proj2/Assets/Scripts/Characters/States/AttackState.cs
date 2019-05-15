@@ -18,7 +18,7 @@ public class AttackState : State
 
         yield return new WaitForSeconds(timeToAttack);
 
-        if (character.brain.action) // If the player still in range
+        if (character.brain.actionHold) // If the player still in range
             GameManager.Instance.HitPlayer();
     }
 

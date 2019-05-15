@@ -18,7 +18,7 @@ public class Cursor : MonoBehaviour
 
     private void Update()
     {
-        transform.position = GameManager.Instance.playerManager.transform.position;
+        transform.position = GameManager.Instance.playerManager.getThrowPoint().position;
     }
 
     private void OnDrawGizmosSelected()

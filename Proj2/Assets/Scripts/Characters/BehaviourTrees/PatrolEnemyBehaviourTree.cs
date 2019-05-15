@@ -29,7 +29,7 @@ public class PatrolEnemyBehaviourTree : BehaviourTree
 
     private bool EnterAttack()
     {
-        if (!character.brain.action)
+        if (!character.brain.actionHold)
             return false;
 
         State.SetState(new AttackState(character, 1f), character);
