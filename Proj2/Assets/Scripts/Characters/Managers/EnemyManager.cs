@@ -16,6 +16,7 @@ public abstract class EnemyManager : CharacterManager
     [SerializeField] private float lookingConeSize;
     [Range(2f, 50f)]
     [SerializeField] private float lookingDistance;
+    [SerializeField] private LayerMask visualLayers;
 
     protected new void Setup(MovementController movementController, Brain defaultBrain, BehaviourTree defaultBehaviourTree)
     {
@@ -60,29 +61,34 @@ public abstract class EnemyManager : CharacterManager
 
     public bool CanSeePlayer()
     {
-        RaycastHit2D hit;
+        RaycastHit2D[] hit;
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(visualLayers);
 
         Vector2 pos = GetPosForStartSearching();
         Vector2[] pointsToLookAt = GetPointsToLookAt(pos);
 
         for (var i = 0; i < pointsToLookAt.Length; i++)
         {
+            hit = new RaycastHit2D[1];
+
             Vector2 direction = ((pointsToLookAt[i] - pos).normalized);
 
-            hit = Physics2D.Raycast(pos, direction, lookingDistance);
-            if (hit.collider != null)
+            Physics2D.Raycast(pos, direction, filter, hit, lookingDistance);
+            //Raycast(Vector2 origin, Vector2 direction, ContactFilter2D contactFilter, RaycastHit2D[] results, float distance = Mathf.Infinity);
+            if (hit[0].collider != null)
             {
-                var player = hit.collider.GetComponent<PlayerManager>();
+                var player = hit[0].collider.GetComponent<PlayerManager>();
                 if (player != null)
                 { 
                     //Hitted the player
-                    Debug.DrawRay(pos, direction * hit.distance, Color.red, 0.5f);
+                    Debug.DrawRay(pos, direction * hit[0].distance, Color.red, 0.5f);
                     return true;
                 }
                 else
                 {
                     //Hitted something that is not the player
-                    Debug.DrawRay(pos, direction * hit.distance, Color.yellow, 0.5f);
+                    Debug.DrawRay(pos, direction * hit[0].distance, Color.yellow, 0.5f);
                 }
             }
             else

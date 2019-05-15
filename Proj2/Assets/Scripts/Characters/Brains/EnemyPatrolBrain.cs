@@ -41,7 +41,7 @@ public class EnemyPatrolBrain : Brain
     {
         //if (Vector2.Distance(character.transform.position, currentPatrolPoint) <= character.characterProperties.maxWalkVelocity.x * deltaTime)
         Vector2 pp = new Vector2(currentPatrolPoint.x, character.transform.position.y);
-        if (character.IsNextToPosition(pp, deltaTime))
+        if (character.IsNextToPosition(pp, deltaTime, 0.3f))
         {
             patrolPointIndex++;
         }
