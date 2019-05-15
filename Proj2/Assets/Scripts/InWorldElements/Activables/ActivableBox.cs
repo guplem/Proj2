@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[SelectionBase]
 public class ActivableBox : Activable
 {
     // [SerializeField] private LayerMask playerLayer;

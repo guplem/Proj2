@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[SelectionBase]
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(AudioController))]
@@ -81,6 +82,6 @@ public abstract class CharacterManager : MonoBehaviour
 
     public bool IsNextToPosition(Vector2 position, float deltaTime, float maxDistance)
     {
-        return (Vector2.Distance(transform.position, position) <= characterProperties.maxWalkVelocity.x * deltaTime + maxDistance);
+        return (Vector2.Distance(transform.position, new Vector2(position.x, transform.position.y)) <= characterProperties.maxWalkVelocity.x * deltaTime + maxDistance);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #pragma warning disable CS0649
+[SelectionBase]
 [RequireComponent(typeof(Collider2D))]
 public class Interactable : MonoBehaviour
 {

@@ -58,7 +58,7 @@ public class PatrolEnemyManager : EnemyManager
         if (brain is EnemyPatrolBrain)
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(((EnemyPatrolBrain)brain).currentPatrolPoint, 5f);
+            Gizmos.DrawWireSphere(((EnemyPatrolBrain)brain).currentPatrolPoint, 0.3f);
         }
     }
 
