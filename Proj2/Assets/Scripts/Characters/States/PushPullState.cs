@@ -11,7 +11,6 @@ public class PushPullState : State
     {
         this.character = characterManager;
         this.interactable = interactable;
-        Debug.Log(this.interactable.ToString());
         this.interactableRb2d = interactable.GetComponent<Rigidbody2D>();
     }
 
@@ -25,8 +24,8 @@ public class PushPullState : State
     public override void FixedTick(float fixedDeltaTime)
     {
         character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, 0) * 0.5f, character.characterProperties.maxWalkVelocity);
-        interactableRb2d.AddForce
-            (new Vector2(character.brain.direction.x * character.characterProperties.acceleration.x, 0), ForceMode2D.Impulse);
+        //Debug.Log(character.brain.direction.x * character.characterProperties.acceleration.x);
+        interactableRb2d.velocity = new Vector2(Mathf.Min(character.brain.direction.x * character.characterProperties.acceleration.x, character.rb2d.velocity.x), 0);
 
     }
 
