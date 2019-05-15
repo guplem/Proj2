@@ -50,7 +50,7 @@ public abstract class EnemyManager : CharacterManager
                 ((ChasingBrain)brain).target != GameManager.Instance.playerManager.gameObject)
             {
                 Brain nBrain = new ChasingBrain(this, GameManager.Instance.playerManager.gameObject);
-                Brain.SetBrain(nBrain, 0, this);
+                Brain.SetBrain(nBrain, 0, this, true);
             }
         }
         else if (brain is ChasingBrain)

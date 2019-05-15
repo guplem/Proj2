@@ -26,8 +26,7 @@ public class InvestigatingBrain : Brain
             direction = (investigatingPosition - ((Vector2)character.transform.position)).normalized;
         else if (!waitingToExitBrain)
         {
-            Debug.Log("Set default brain");
-            SetBrain(character.defaultBrain, 2f, character);
+            SetBrain(character.defaultBrain, 2f, character, false);
             waitingToExitBrain = true;
         }
     }

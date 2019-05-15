@@ -45,9 +45,9 @@ public abstract class Brain
 
 
     private IEnumerator SetBrainDelayedCoroutine;
-    public static void SetBrain(Brain newBrain, float delayOnSetBrain, CharacterManager character)
+    public static void SetBrain(Brain newBrain, float delayOnSetBrain, CharacterManager character, bool overrideBrainChangesInProcess)
     {
-        if (delayOnSetBrain != 0 && character.brain.SetBrainDelayedCoroutine != null)
+        if (overrideBrainChangesInProcess && character.brain.SetBrainDelayedCoroutine != null)
             character.StopCoroutine(character.brain.SetBrainDelayedCoroutine);
 
         character.brain.SetBrainDelayedCoroutine = character.brain.SetBrainDelayed(newBrain, delayOnSetBrain);

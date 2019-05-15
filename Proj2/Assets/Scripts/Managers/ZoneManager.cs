@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 #pragma warning disable 0649
 public class ZoneManager : MonoBehaviour
 {

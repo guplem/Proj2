@@ -33,8 +33,8 @@ public class ChasingBrain : Brain
         Vector2[] pointToCheck = new Vector2[1];
         pointToCheck[0] = target.transform.position + ( (target.transform.position - character.transform.position).normalized * 6f );
 
-        Brain.SetBrain(new EnemyPatrolBrain(character, pointToCheck), 0f, character); // To keep going on the last known player direction for some time
+        Brain.SetBrain(new EnemyPatrolBrain(character, pointToCheck), 0f, character, true); // To keep going on the last known player direction for some time
 
-        Brain.SetBrain(character.defaultBrain, 3.5f, character);
+        Brain.SetBrain(character.defaultBrain, 3.5f, character, false);
     }
 }

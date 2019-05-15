@@ -64,6 +64,6 @@ public class PatrolEnemyManager : EnemyManager
 
     public override void Alert(Vector2 position)
     {
-        Brain.SetBrain(new InvestigatingBrain(this, position), 0f, this);
+        Brain.SetBrain(new InvestigatingBrain(this, position), 0f, this, true);
     }
 }
