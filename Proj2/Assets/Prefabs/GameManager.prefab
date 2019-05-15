@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
   playerManager: {fileID: 0}
-  startPoint: {fileID: 0}
+  startPoint: {x: 0, y: 0, z: 0}
   walkableLayers:
     serializedVersion: 2
     m_Bits: 256
@@ -99,7 +99,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2303
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}

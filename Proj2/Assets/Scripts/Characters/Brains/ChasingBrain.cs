@@ -18,7 +18,7 @@ public class ChasingBrain : Brain
     {
         jumping = false;
         interact = false;
-        actionHold = character.IsNextToPosition(target.transform.position, deltaTime); //(Vector2.Distance(character.transform.position, target.transform.position) <= 1.5f);
+        actionHold = character.IsNextToPosition(target.transform.position, deltaTime, 1.5f); //(Vector2.Distance(character.transform.position, target.transform.position) <= 1.5f);
         crouch = false;
 
         if (character.IsNextToPosition(target.transform.position, deltaTime, 0f))
