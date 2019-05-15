@@ -19,7 +19,10 @@ public abstract class State
             {
                 // If both are the same state do not conitnue
                 if (character.state.GetType() == newState.GetType())
+                {
+                    Debug.Log("Haven't entered state because it's already in it");
                     return;
+                }
             }
             catch (System.NullReferenceException) { }
 
