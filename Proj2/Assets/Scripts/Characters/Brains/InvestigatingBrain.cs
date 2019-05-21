@@ -6,7 +6,7 @@ using UnityEngine;
 public class InvestigatingBrain : Brain
 {
 
-    private Vector2 investigatingPosition;
+    public Vector2 investigatingPosition { get; private set; }
 
     public InvestigatingBrain(CharacterManager characterManager, Vector2 investigatingPosition)
     {

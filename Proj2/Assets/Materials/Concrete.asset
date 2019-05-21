@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Concrete
   m_EditorClassIdentifier: 
   friction: 0.5
-  bounciness: 0.25
+  bounciness: 0
   hardnesh: 1
-  size: 0.5

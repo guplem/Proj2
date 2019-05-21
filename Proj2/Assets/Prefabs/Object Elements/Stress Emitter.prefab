@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emitStress: 1
-  stressAmountPerSecond: 0.5
+  stressAmountPerSecond: 10
   timeBetweenEmisions: 0.5
 --- !u!58 &3505883074891551290
 CircleCollider2D:
