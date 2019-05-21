@@ -52,7 +52,7 @@ public class ThrowState : State
                     mousePositionCorrected = throwPosition.x;
 
                 if (mousePosition.x < character.transform.position.x)
-                    Utils.SetObjectLookingDirection(0, character.gameObject);
+                    Utils.SetObjectLookingDirection(-1, character.gameObject);
             }
             else
             {

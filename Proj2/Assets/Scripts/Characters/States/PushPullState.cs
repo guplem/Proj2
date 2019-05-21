@@ -5,23 +5,28 @@ using UnityEngine;
 public class PushPullState : State
 {
     Interactable interactable;
+    Rigidbody2D interactableRb2d;
 
     public PushPullState(CharacterManager characterManager, Interactable interactable)
     {
         this.character = characterManager;
         this.interactable = interactable;
+        this.interactableRb2d = interactable.GetComponent<Rigidbody2D>();
     }
 
     protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("PushPull");
         interactable.StartInteract(character);
+        character.rb2d.velocity = Vector3.zero;
         yield return "success";
     }
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, 0) * 0.5f, character.characterProperties.maxWalkVelocity);
+        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, 0), character.characterProperties.maxWalkVelocity);
+        interactableRb2d.velocity = new Vector2(character.rb2d.velocity.x, 0);
+
     }
 
     public override void Tick(float deltaTime)
