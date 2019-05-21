@@ -18,14 +18,14 @@ public class PushPullState : State
     {
         character.visualsAnimator.SetTrigger("PushPull");
         interactable.StartInteract(character);
+        character.rb2d.velocity = Vector3.zero;
         yield return "success";
     }
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, 0) * 0.5f, character.characterProperties.maxWalkVelocity);
-        //Debug.Log(character.brain.direction.x * character.characterProperties.acceleration.x);
-        interactableRb2d.velocity = new Vector2(Mathf.Min(character.brain.direction.x * character.characterProperties.acceleration.x, character.rb2d.velocity.x), 0);
+        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, 0), character.characterProperties.maxWalkVelocity);
+        interactableRb2d.velocity = new Vector2(character.rb2d.velocity.x, 0);
 
     }
 
