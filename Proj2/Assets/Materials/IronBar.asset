@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b996db4b0b200e49a3fc494fe853925, type: 3}
   m_Name: IronBar
   m_EditorClassIdentifier: 
-  friction: 0.5
-  bounciness: 0.1
+  friction: 0.25
+  bounciness: 0.3
   hardnesh: 1
-  size: 0.5

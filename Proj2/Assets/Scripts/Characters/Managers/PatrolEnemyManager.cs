@@ -64,6 +64,14 @@ public class PatrolEnemyManager : EnemyManager
 
     public override void Alert(Vector2 position)
     {
-        Brain.SetBrain(new InvestigatingBrain(this, position), 0f, this, true);
+        Vector2 selfPosition = new Vector2(transform.position.x, transform.position.y);
+        if (brain is InvestigatingBrain)
+        {
+            if ((((InvestigatingBrain)brain).investigatingPosition - selfPosition).magnitude < (position - selfPosition).magnitude)
+            {
+                return;
+            }
+        }
+        Brain.SetBrain(new InvestigatingBrain(this, position), 0.2f, this, true);
     }
 }

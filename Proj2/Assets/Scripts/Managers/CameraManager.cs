@@ -8,7 +8,7 @@ public class CameraManager : MonoBehaviour
     public Vector2 cameraOffset;
     public Camera mainCamera;
 
-    public void Setup(GameObject target, float velocity)
+    public void Setup(CharacterManager target, float velocity)
     {
         cameraMovmentController = new CameraMovmentController(this, target, velocity);
         mainCamera = GetComponent<Camera>();
