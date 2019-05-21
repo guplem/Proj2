@@ -8,10 +8,10 @@
 
 
  ### Notes
- #### # Sorting layers
+ #### # Sorting layers (sprite)
   - [-100] --> Ambient Light
   - [0, 50] --> Background world elements
-  - [50, 60] --> Floor
+  - [51, 60] --> Floor
   - [61, 75] --> Between player and bg (like bulbs)
   - [100] --> Player crouched
   - [101, 149] --> Hiding objects

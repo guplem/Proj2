@@ -17,7 +17,10 @@ public class Elevator : Activable
 
     protected override void SetState(bool state, CharacterManager characterActivating, bool alertAtActivate)
     {
-        targetPoint = state ? travelPointOn : travelPointOff;
+        if (state)
+            targetPoint = targetPoint == travelPointOff ? travelPointOn : travelPointOff;
+        else if(targetPoint != travelPointOn && targetPoint != travelPointOff)
+                targetPoint = defaultState ? travelPointOn : travelPointOff;
     }
 
     private void OnDrawGizmos()
