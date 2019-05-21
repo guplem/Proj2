@@ -51,8 +51,6 @@ public class GameManager : MonoBehaviour
     public IEnumerator SetPause(bool state)
     {
         GUIManager.Instance.PausePanel.SetObjectActive(state);
-        GUIManager.Instance.ControlsPanel.SetObjectActive(state);
-
         // Select the proper element on the menu
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(GUIManager.Instance.defaultPauseSelectedItem);
@@ -125,7 +123,6 @@ public class GameManager : MonoBehaviour
     private void HideMainMenu()
     {
         GUIManager.Instance.MainMenuPanel.SetObjectActive(false);
-        GUIManager.Instance.ControlsPanel.SetObjectActive(false);
     }
 
     private void Update()

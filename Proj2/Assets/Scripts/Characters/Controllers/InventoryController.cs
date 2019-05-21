@@ -5,7 +5,24 @@ using UnityEngine;
 
 public class InventoryController
 {
-    public Item storedItem { get; private set; }
+    public Item storedItem
+    {
+        get
+        {
+            return _storedItem;
+        }
+
+        private set
+        {
+            if (value == null)
+                GUIManager.Instance.SetInventoryImage(null);
+            else
+                GUIManager.Instance.SetInventoryImage(value.GetComponent<SpriteRenderer>().sprite);
+
+            _storedItem = value;
+        }
+    }
+    private Item _storedItem; // Must not be used, use "storedItem" instead.
     private PlayerManager characterManager { get; set;}
 
     public InventoryController(PlayerManager characterManager)
