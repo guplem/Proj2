@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OnAirState : State
 {
-
+    float defaultGravityScale;
     public OnAirState(CharacterManager characterManager)
     {
         this.character = characterManager;
@@ -13,6 +13,8 @@ public class OnAirState : State
     protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("OnAir");
+        defaultGravityScale = character.rb2d.gravityScale;
+        character.rb2d.gravityScale = character.characterProperties.OnAirGravityScale;
         yield return "success";
     }
 
@@ -28,6 +30,6 @@ public class OnAirState : State
 
     public override void OnExit()
     {
-        
+        character.rb2d.gravityScale = this.defaultGravityScale;
     }
 }

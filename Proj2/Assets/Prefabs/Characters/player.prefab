@@ -142,7 +142,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a456074f0c9646540a5edd331eb795c7, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -266,7 +266,7 @@ MonoBehaviour:
   audioController: {fileID: 0}
   interactionsCollider: {fileID: 8757234941393882266}
   visualsAnimator: {fileID: 8882376206053353117}
-  characterProperties: {fileID: 11400000, guid: 8c91f68417c494742814ffeb9abe5c70,
+  characterProperties: {fileID: 11400000, guid: b0ac9eb4c99dcda48a7942f20f2a795b,
     type: 2}
   throwPoint: {fileID: 4705788987633123289}
   throwingForce: {x: 5, y: 5}
@@ -282,10 +282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1062b87374799ef47a2d42207165a331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stressRemovalDelay: 0
-  stressRemovalPerSecond: 5
-  removeStressEveryXTime: 0
-  stressThreshold: 10
+  stressRemovalDelay: 3
+  stressRemovalPerSecond: 50
+  removeStressEveryXTime: 0.2
+  stressThreshold: 100
 --- !u!1 &4622873014445708733
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,12 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91badb818a518cb4f983c7f59de293bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2cc6e549d476a784eb2547c3f982be80, type: 3}
   m_Name: PlayerProperties
   m_EditorClassIdentifier: 
-  jumpForce: 10
+  jumpForce: 7
   acceleration: {x: 0.25, y: 0.25}
   maxWalkVelocity: {x: 4, y: 4}
   maxRunVelocity: {x: 5, y: 5}
   maxCrouchVelocity: {x: 5, y: 20}
   maxOnAirVelocity: {x: 5, y: 50}
+  attackLoadingTime: 0
+  OnAirGravityScale: 1.75
+  DefaultMaterial: {fileID: 6200000, guid: a456074f0c9646540a5edd331eb795c7, type: 2}
+  OnAirMaterial: {fileID: 6200000, guid: e10c3730ba4860d468a57826bc8e87a6, type: 2}

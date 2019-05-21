@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Character Properties", menuName = "CharacterProperties")]
+[CreateAssetMenu(fileName = "New Character Properties", menuName = "Models/Properties/CharacterProperties")]
 public class CharacterProperties : ScriptableObject
 {
     public float jumpForce;
@@ -12,6 +10,7 @@ public class CharacterProperties : ScriptableObject
     public Vector2 maxCrouchVelocity;
     public Vector2 maxOnAirVelocity;
     public float attackLoadingTime;
+    public float OnAirGravityScale;
 
     //Default values
     public CharacterProperties()
@@ -22,5 +21,6 @@ public class CharacterProperties : ScriptableObject
         this.maxRunVelocity = new Vector2(5f, 5f);
         this.maxCrouchVelocity = new Vector2(5f, 20f);
         this.maxOnAirVelocity = new Vector2(5f, 50f);
+        this.OnAirGravityScale = 2f;
     }
 }
