@@ -227,16 +227,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4172713697367603136, guid: 59658d771a81960498707e8b0d91ee49,
         type: 3}
-      propertyPath: alertsOnActivation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4172713697367603136, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: alarmSoundDuration
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4172713697367603136, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
       propertyPath: alertRadius
       value: 6
       objectReference: {fileID: 0}
