@@ -42,7 +42,6 @@ public abstract class State
 
         if (newState == null)
         {
-            Debug.LogWarning("Setting null state");
             return;
         }
 
