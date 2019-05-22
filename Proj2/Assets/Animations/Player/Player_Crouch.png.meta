@@ -1,21 +1,17 @@
 fileFormatVersion: 2
-guid: f8dc654a186209c4a9397373864e6c84
+guid: 320bfe52875a2c540b03238b8413c157
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player_Walk_0
-    21300002: Player_Walk_1
-    21300004: Player_Walk_2
-    21300006: Player_Walk_3
-    21300008: Player_Walk_4
-    21300010: Player_Walk_5
-    21300012: Player_Walk_6
-    21300014: Player_Walk_7
-    21300016: Player_Walk_8
-    21300018: Player_Walk_9
-    21300020: Player_Walk_10
-    21300022: Player_Walk_11
-    21300024: Player_Walk_12
-    21300026: Player_Walk_13
+    21300000: Player_Crouch_0
+    21300002: Player_Crouch_1
+    21300004: Player_Crouch_2
+    21300006: Player_Crouch_3
+    21300008: Player_Crouch_4
+    21300010: Player_Crouch_5
+    21300012: Player_Crouch_6
+    21300014: Player_Crouch_7
+    21300016: Player_Crouch_8
+    21300018: Player_Crouch_9
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -120,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Walk_0
+      name: Player_Crouch_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 738
-        width: 295
-        height: 369
+        y: 816
+        width: 328
+        height: 408
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,19 +130,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad362c1b7de2ca342b98939718533bb8
+      spriteID: 6e7310146ef8d6c4fa944d0837108cad
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Walk_1
+      name: Player_Crouch_1
       rect:
         serializedVersion: 2
-        x: 295
-        y: 738
-        width: 295
-        height: 369
+        x: 328
+        y: 816
+        width: 328
+        height: 408
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,19 +150,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fc9801c75d44924bb6e02043e3ec440
+      spriteID: 748c17339fc9c384f9ac34acd92cc9fc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Walk_2
+      name: Player_Crouch_2
       rect:
         serializedVersion: 2
-        x: 590
-        y: 738
-        width: 295
-        height: 369
+        x: 656
+        y: 816
+        width: 328
+        height: 408
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,19 +170,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebf54e45869e21d4cad565e034881809
+      spriteID: ca8310f7562f78b4eb88ec1cac830fe1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Walk_3
+      name: Player_Crouch_3
       rect:
         serializedVersion: 2
-        x: 885
-        y: 738
-        width: 295
-        height: 369
+        x: 984
+        y: 816
+        width: 328
+        height: 408
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,39 +190,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f4652a8fa48d334b9dfe9fe481c0ccd
+      spriteID: 07a3d9d233817a64c8d7da6be109471a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Walk_4
-      rect:
-        serializedVersion: 2
-        x: 1180
-        y: 738
-        width: 295
-        height: 369
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a266ee1e86696a42bb2df092bc0f667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Walk_5
+      name: Player_Crouch_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 369
-        width: 295
-        height: 369
+        y: 408
+        width: 328
+        height: 408
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,19 +210,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 237b7e6956b91be4aac26e17cd8ebce3
+      spriteID: b8b48d8bc5b91b349acaecf25c19a3ee
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Walk_6
+      name: Player_Crouch_5
       rect:
         serializedVersion: 2
-        x: 295
-        y: 369
-        width: 295
-        height: 369
+        x: 328
+        y: 408
+        width: 328
+        height: 408
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,19 +230,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d6d1e6527b8a284a833389b4009709d
+      spriteID: 3ebd756dbbc68354bb07af7ac8d7d3e6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Walk_7
+      name: Player_Crouch_6
       rect:
         serializedVersion: 2
-        x: 590
-        y: 369
-        width: 295
-        height: 369
+        x: 656
+        y: 408
+        width: 328
+        height: 408
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -274,19 +250,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4bba802f931ebb41ba5f217d10ca632
+      spriteID: 8aa057823613126469b0e3ec81014a3e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Walk_8
+      name: Player_Crouch_7
       rect:
         serializedVersion: 2
-        x: 885
-        y: 369
-        width: 295
-        height: 369
+        x: 984
+        y: 408
+        width: 328
+        height: 408
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,39 +270,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d9e4ac89468f244a9735f92a2619a7c
+      spriteID: 987e3f0275196ab438bad426ca8a33ff
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Walk_9
-      rect:
-        serializedVersion: 2
-        x: 1180
-        y: 369
-        width: 295
-        height: 369
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c07fda6f668b4d428b23d02f36ff1ea
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Walk_10
+      name: Player_Crouch_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 295
-        height: 369
+        width: 328
+        height: 408
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,19 +290,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc3c56ab947064446aeb2b7acc852aba
+      spriteID: 99a92609344cb6d4e84d5d96b06cf538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Walk_11
+      name: Player_Crouch_9
       rect:
         serializedVersion: 2
-        x: 295
+        x: 328
         y: 0
-        width: 295
-        height: 369
+        width: 328
+        height: 408
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,47 +310,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f90fccd068a80ac4ba3fbcfc705e8b0c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Walk_12
-      rect:
-        serializedVersion: 2
-        x: 590
-        y: 0
-        width: 295
-        height: 369
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05526365f2c0f9e40bd5990cb1cbdbbf
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Walk_13
-      rect:
-        serializedVersion: 2
-        x: 885
-        y: 0
-        width: 295
-        height: 369
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a043571ff78738b46be04710cd1996bb
+      spriteID: 6b73e7fa5a7a9e44eb7ca778025eb1be
       vertices: []
       indices: 
       edges: []
@@ -402,7 +318,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 337a90ccc15b48f4ca249088f41f7aab
+    spriteID: 1e7d0a42918548049a3dd02c8b1f5d7c
     vertices: []
     indices: 
     edges: []

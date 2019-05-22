@@ -1,19 +1,17 @@
 fileFormatVersion: 2
-guid: d476a1a9d5122d24ca0bdbb13342eab8
+guid: 48014b2a8dd2b4b40b808abaf6175d18
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spritesheetThrow_0
-    21300002: spritesheetThrow_1
-    21300004: spritesheetThrow_2
-    21300006: spritesheetThrow_3
-    21300008: spritesheetThrow_4
-    21300010: spritesheetThrow_5
-    21300012: spritesheetThrow_6
-    21300014: spritesheetThrow_7
-    21300016: spritesheetThrow_8
-    21300018: spritesheetThrow_9
-    21300020: spritesheetThrow_10
-    21300022: spritesheetThrow_11
+    21300000: Player_Charge_idle_0
+    21300002: Player_Charge_idle_1
+    21300004: Player_Charge_idle_2
+    21300006: Player_Charge_idle_3
+    21300008: Player_Charge_idle_4
+    21300010: Player_Charge_idle_5
+    21300012: Player_Charge_idle_6
+    21300014: Player_Charge_idle_7
+    21300016: Player_Charge_idle_8
+    21300018: Player_Charge_idle_9
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -92,17 +90,39 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spritesheetThrow_0
+      name: Player_Charge_idle_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 410
-        width: 313.22223
-        height: 410
+        y: 860
+        width: 329
+        height: 430
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,19 +130,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0c70fe727fe42940b66e707a8ebee4e
+      spriteID: c7409b91bd7fce84b9425dcd0f96efbc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetThrow_1
+      name: Player_Charge_idle_1
       rect:
         serializedVersion: 2
-        x: 313
-        y: 410
-        width: 313.22223
-        height: 410
+        x: 329
+        y: 860
+        width: 329
+        height: 430
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,19 +150,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb1d5991efeb2f346bd696dba602ef13
+      spriteID: ccac27da415fac64b8e2c0ecebc59f7c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetThrow_2
+      name: Player_Charge_idle_2
       rect:
         serializedVersion: 2
-        x: 626
-        y: 410
-        width: 313.22223
-        height: 410
+        x: 658
+        y: 860
+        width: 329
+        height: 430
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,19 +170,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d29ee71aeda2da4ba84309d65edda2a
+      spriteID: 5da6a18cbaece1b4182648b4a6de50ed
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetThrow_3
+      name: Player_Charge_idle_3
       rect:
         serializedVersion: 2
-        x: 939
-        y: 410
-        width: 313.22223
-        height: 410
+        x: 987
+        y: 860
+        width: 329
+        height: 430
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,19 +190,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2eddf6b0a6838de47bde0b527eff94b6
+      spriteID: a78947737ee64b14abf9c8ef9e0ab93e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetThrow_4
+      name: Player_Charge_idle_4
       rect:
         serializedVersion: 2
-        x: 1252
-        y: 410
-        width: 313.22223
-        height: 410
+        x: 0
+        y: 430
+        width: 329
+        height: 430
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,19 +210,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43f342ac0fa66f34aab4931262c66794
+      spriteID: 72ed0ade77d086048a7adbf7c029211b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetThrow_5
+      name: Player_Charge_idle_5
       rect:
         serializedVersion: 2
-        x: 1565
-        y: 410
-        width: 313.22223
-        height: 410
+        x: 329
+        y: 430
+        width: 329
+        height: 430
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,19 +230,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 546d96d7c4fa0be42a1f1baea150351f
+      spriteID: 89e728ecd27d85f44ba6f976ed2b3d67
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetThrow_6
+      name: Player_Charge_idle_6
       rect:
         serializedVersion: 2
-        x: 1878
-        y: 410
-        width: 313.22223
-        height: 410
+        x: 658
+        y: 430
+        width: 329
+        height: 430
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,19 +250,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 362a140e8841b4a49af36f727f72cab2
+      spriteID: 1c484023cc27f4b4f8c88cad919d6783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetThrow_7
+      name: Player_Charge_idle_7
       rect:
         serializedVersion: 2
-        x: 2191
-        y: 410
-        width: 313.22223
-        height: 410
+        x: 987
+        y: 430
+        width: 329
+        height: 430
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,39 +270,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac663e9f54c293c4eae9a6b044f1ce60
+      spriteID: 71928aa0c3686b446aed9ec80f15a1b4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetThrow_8
-      rect:
-        serializedVersion: 2
-        x: 2504
-        y: 410
-        width: 313.22223
-        height: 410
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33f92d662b4a8be47904f155adf1354f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetThrow_9
+      name: Player_Charge_idle_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 313.22223
-        height: 410
+        width: 329
+        height: 430
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,19 +290,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cab30c58e65547949a1f96ab6ebdee0d
+      spriteID: 7717e336af472904d92e39ae3da6173b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetThrow_10
+      name: Player_Charge_idle_9
       rect:
         serializedVersion: 2
-        x: 313
+        x: 329
         y: 0
-        width: 313.22223
-        height: 410
+        width: 329
+        height: 430
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,27 +310,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b47022258f4aae74081a4479ee7d00b0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetThrow_11
-      rect:
-        serializedVersion: 2
-        x: 626
-        y: 0
-        width: 313.22223
-        height: 410
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65be1c9b90452d942bafb3764731ae90
+      spriteID: 629cbc7f3fc3ba3478d5c403c8f34f5a
       vertices: []
       indices: 
       edges: []
@@ -338,7 +318,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 582d8e910ff15ea4585a5c661c56cdbb
+    spriteID: ca0f0b931e023804d8ec97238ceb5dd0
     vertices: []
     indices: 
     edges: []

@@ -1,16 +1,12 @@
 fileFormatVersion: 2
-guid: 92e4e40b75b15c94489a02227aaef53a
+guid: 53aefbd0b65e2b84b9be7fceea3bdb18
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player_Pick_0
-    21300002: Player_Pick_1
-    21300004: Player_Pick_2
-    21300006: Player_Pick_3
-    21300008: Player_Pick_4
-    21300010: Player_Pick_5
-    21300012: Player_Pick_6
-    21300014: Player_Pick_7
-    21300016: Player_Pick_8
+    21300000: Player_Jump_0
+    21300002: Player_Jump_1
+    21300004: Player_Jump_2
+    21300006: Player_Jump_3
+    21300008: Player_Jump_4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -115,13 +111,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Pick_0
+      name: Player_Jump_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 816
-        width: 313
-        height: 408
+        y: 415
+        width: 349
+        height: 415
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,19 +125,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8703ae09e56f1642bb11e6fbc607efd
+      spriteID: 26d2bcfb05417b74f8e5e9ca3754dd87
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Pick_1
+      name: Player_Jump_1
       rect:
         serializedVersion: 2
-        x: 313
-        y: 816
-        width: 313
-        height: 408
+        x: 349
+        y: 415
+        width: 349
+        height: 415
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,19 +145,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef886607a75cb4e479ec820859c176b6
+      spriteID: c4c353cafc1e6d444a45eca1f686f9d6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Pick_2
+      name: Player_Jump_2
       rect:
         serializedVersion: 2
-        x: 626
-        y: 816
-        width: 313
-        height: 408
+        x: 698
+        y: 415
+        width: 349
+        height: 415
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,119 +165,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 322f0bd3e8f3fef47a8b583ebc8ed0ff
+      spriteID: 680920e463211714fa916055ebbf4927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Pick_3
-      rect:
-        serializedVersion: 2
-        x: 939
-        y: 816
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1e1c74d0f6ac7d499bc5e42659f6449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Pick_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 408
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 939e3911f18867b49adebef6477e238f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Pick_5
-      rect:
-        serializedVersion: 2
-        x: 313
-        y: 408
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 682e1e7542483914a820b72ab41cd664
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Pick_6
-      rect:
-        serializedVersion: 2
-        x: 626
-        y: 408
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc26f709f1ee2be42911eee357408fa9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Pick_7
-      rect:
-        serializedVersion: 2
-        x: 939
-        y: 408
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77616fc1d86b78c4d8b07a0744b2f35d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Pick_8
+      name: Player_Jump_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 313
-        height: 408
+        width: 349
+        height: 415
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,7 +185,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79b46edc38b8d864bbcfc2b3693a1e69
+      spriteID: c25f9a48272656c4391eb44bd876bfde
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Jump_4
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 0
+        width: 349
+        height: 415
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9314c3e6bba868e4a97e5d8171b7a35d
       vertices: []
       indices: 
       edges: []
@@ -297,7 +213,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 633dc345fdd68904d9a2e1c7e9e91bdd
+    spriteID: 41b8a13a8eff22f4ca99b3b5f4beefd3
     vertices: []
     indices: 
     edges: []
