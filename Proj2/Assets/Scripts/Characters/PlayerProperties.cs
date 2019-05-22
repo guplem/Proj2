@@ -10,7 +10,6 @@ public class PlayerProperties : CharacterProperties
     public PhysicsMaterial2D OnAirMaterial;
     public PlayerProperties()
     {
-        Debug.Log("Starting player properties!");
 
     }
 }

@@ -93,6 +93,14 @@ public class AudioController : MonoBehaviour
         return audioSource;
     }
 
+    public void StopAllSounds()
+    {
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.Stop();
+        }
+    }
+
 
 
 
