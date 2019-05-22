@@ -51,7 +51,6 @@ public class Interactable : MonoBehaviour
 
     }
 
-
     public void StartInteract(CharacterManager interactingCharacter)
     {
         if (RegisterAndAskForStartInteraction())

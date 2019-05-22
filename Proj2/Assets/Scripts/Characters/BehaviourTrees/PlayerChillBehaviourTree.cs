@@ -73,20 +73,20 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (interactable.interactAutomatically)
             return false;
 
-        State.SetState(new InteractState(character, interactable, 2f), character);
+        State.SetState(new InteractState(character, interactable, 1f), character);
         return true;
     }
 
     private bool EnterPick()
     {
-        if (!character.brain.interact)
+        if (!character.brain.interact && !(character.state is PickState))
             return false;
 
         Interactable interactable = character.interactionsCollider.GetAvaliableInterectable(Activable.ActivationType.Pickable);
         if (interactable == null)
             return false;
 
-        State.SetState(new PickState(character, interactable, 2f), character);
+        State.SetState(new PickState(character, interactable, 1f), character);
         return true;
     }
 

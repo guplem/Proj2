@@ -16,6 +16,7 @@ public class PushPullState : State
 
     protected override IEnumerator StartState()
     {
+        Debug.Log("PushPull");
         character.visualsAnimator.SetTrigger("PushPull");
         interactable.StartInteract(character);
         character.rb2d.velocity = Vector3.zero;

@@ -18,9 +18,7 @@ public class InteractState : State
     {
         character.visualsAnimator.SetTrigger("Interact");
 
-        Debug.Log("Begining delay - StartState");
         yield return new WaitForSeconds(actionDelay);
-        Debug.Log("Ending delay - StartState");
 
         interactable.StartInteract(character);
 

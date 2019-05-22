@@ -15,6 +15,8 @@ public class Item : Activable
 
     protected override void SetState(bool state, CharacterManager characterActivating, bool alertAtActivate)
     {
+        System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace();
+
         if (characterActivating is PlayerManager)
             ((PlayerManager)characterActivating).inventory.StoreItem(this);
     }

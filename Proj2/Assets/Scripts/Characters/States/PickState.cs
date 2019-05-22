@@ -22,6 +22,7 @@ public class PickState : State
 
         interactable.StartInteract(character);
         character.behaviourTree.CalculateAndSetNextState(true);
+
         yield return "success";
     }
 
