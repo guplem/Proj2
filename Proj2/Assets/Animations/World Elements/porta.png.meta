@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: af5580dd5e9e65248b89864e32c12a57
+guid: 9454f15d33bc2974ba4e9a40de8a84f0
 TextureImporter:
   fileIDToRecycleName:
     21300000: porta_0
@@ -85,6 +85,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -104,16 +115,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 590.5
+        width: 211
         height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.39872026, y: 0.051464386}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f2ce9c2f4c9e9f499c0f8220ff1c70f
+      spriteID: e0faa7d2820f9a0459cdf0a68aa5b9d4
       vertices: []
       indices: 
       edges: []
@@ -122,18 +133,18 @@ TextureImporter:
       name: porta_1
       rect:
         serializedVersion: 2
-        x: 590
+        x: 558
         y: 0
-        width: 590.5
+        width: 243
         height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.041026175, y: 0.04660305}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bb331092da79e7419e7867295b42d54
+      spriteID: 7212d221a36a3204bb43e53d2a0bfb6b
       vertices: []
       indices: 
       edges: []
@@ -142,18 +153,18 @@ TextureImporter:
       name: porta_2
       rect:
         serializedVersion: 2
-        x: 1180
+        x: 1163
         y: 0
-        width: 590.5
+        width: 394
         height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.046251018, y: 0.04412562}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c92f912d6d53574ba2c583162d8e721
+      spriteID: 6ddb70e0cadd0b54ea189fb2353ddd94
       vertices: []
       indices: 
       edges: []
@@ -162,18 +173,18 @@ TextureImporter:
       name: porta_3
       rect:
         serializedVersion: 2
-        x: 1770
+        x: 1867
         y: 0
-        width: 590.5
+        width: 415
         height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.033229597, y: 0.04628579}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3daedd3591c31ff4aa100241895e5490
+      spriteID: 211dea12175a4a74dbb463894f2e29a3
       vertices: []
       indices: 
       edges: []
@@ -181,7 +192,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9ae42e1676b694a408ded4d6232b1041
+    spriteID: 38303ed0821dba94f8f13a0ce67aa89a
     vertices: []
     indices: 
     edges: []

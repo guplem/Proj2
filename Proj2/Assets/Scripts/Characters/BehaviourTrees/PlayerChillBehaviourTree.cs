@@ -63,7 +63,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
 
     private bool EnterInteract()
     {
-        if (!character.brain.interact)
+        if (!character.brain.interact && !(character.state is InteractState))
             return false;
 
         Interactable interactable = character.interactionsCollider.GetAvaliableInterectable(Activable.ActivationType.Other);

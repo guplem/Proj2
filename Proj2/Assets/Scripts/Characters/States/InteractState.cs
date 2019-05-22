@@ -23,6 +23,8 @@ public class InteractState : State
         Debug.Log("Ending delay - StartState");
 
         interactable.StartInteract(character);
+
+        character.behaviourTree.CalculateAndSetNextState(true);
     }
 
     public override void Tick(float deltaTime)
