@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialPhysics: {fileID: 11400000, guid: d9d5db673a684bd4f927300802f56bec, type: 2}
-  playSoundsAtColision: 1
+  playSoundsAtColision: 0
   sound: {fileID: 11400000, guid: 5769443826f51b04d9a128fdb0c41784, type: 2}
   minVelocityAtCollisionForMaxSoundVolume: 10
   objectSize: 0.5

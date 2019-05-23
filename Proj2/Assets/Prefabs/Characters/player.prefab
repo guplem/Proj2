@@ -244,7 +244,7 @@ MonoBehaviour:
   playSoundsAtColision: 1
   sound: {fileID: 11400000, guid: c256c6ade87089a42821ecb591018d08, type: 2}
   minVelocityAtCollisionForMaxSoundVolume: 10
-  objectSize: 0.5
+  objectSize: 0.02
   alertAlertablesOnCollision: 0
 --- !u!114 &7729870114131683840
 MonoBehaviour:
