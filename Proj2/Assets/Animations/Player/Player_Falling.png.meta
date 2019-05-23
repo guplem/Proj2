@@ -4,6 +4,10 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: FallingSS_0
     21300002: FallingSS_1
+    21300004: Player_Falling_0
+    21300006: Player_Falling_1
+    21300008: Player_Falling_2
+    21300010: Player_Falling_3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -108,33 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FallingSS_0
+      name: Player_Falling_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 252
-        height: 415
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be4bda43f203e1a4b93f5b21ccd4714d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FallingSS_1
-      rect:
-        serializedVersion: 2
-        x: 349
-        y: 0
-        width: 239
-        height: 415
+        x: 38
+        y: 38
+        width: 186
+        height: 314
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,7 +126,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 324d5e97e8e5d094bb6ec1b0555e0675
+      spriteID: aab9e6e5e71c4b94992037f1212464ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Falling_1
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 35
+        width: 158
+        height: 323
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96f756b3928b4c443be92ae755d59d5d
       vertices: []
       indices: 
       edges: []

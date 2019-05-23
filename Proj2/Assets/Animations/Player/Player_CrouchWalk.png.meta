@@ -15,6 +15,19 @@ TextureImporter:
     21300020: Player_Crouch_Walk_10
     21300022: Player_Crouch_Walk_11
     21300024: Player_Crouch_Walk_12
+    21300026: Player_CrouchWalk_0
+    21300028: Player_CrouchWalk_1
+    21300030: Player_CrouchWalk_2
+    21300032: Player_CrouchWalk_3
+    21300034: Player_CrouchWalk_4
+    21300036: Player_CrouchWalk_5
+    21300038: Player_CrouchWalk_6
+    21300040: Player_CrouchWalk_7
+    21300042: Player_CrouchWalk_8
+    21300044: Player_CrouchWalk_9
+    21300046: Player_CrouchWalk_10
+    21300048: Player_CrouchWalk_11
+    21300050: Player_CrouchWalk_12
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -119,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Crouch_Walk_0
+      name: Player_CrouchWalk_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 816
-        width: 328
-        height: 408
+        x: 80
+        y: 842
+        width: 200
+        height: 266
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,19 +146,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1071d6211441c644c88ac5698d712755
+      spriteID: 23fd2458f0de65646bc58f4f096f8b3f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Crouch_Walk_1
+      name: Player_CrouchWalk_1
       rect:
         serializedVersion: 2
-        x: 328
-        y: 816
-        width: 328
-        height: 408
+        x: 408
+        y: 838
+        width: 200
+        height: 274
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,19 +166,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4301f8eb60adc5242b7c135374f9a383
+      spriteID: ebfb8638f12beeb49aeef67eba5153ac
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Crouch_Walk_2
+      name: Player_CrouchWalk_2
       rect:
         serializedVersion: 2
-        x: 656
-        y: 816
-        width: 328
-        height: 408
+        x: 736
+        y: 840
+        width: 200
+        height: 270
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,19 +186,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b0b03486cfc32c4281dfbc45a795dff
+      spriteID: 1fde7cf7a7f577a4bb55f8374b58873c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Crouch_Walk_3
+      name: Player_CrouchWalk_3
       rect:
         serializedVersion: 2
-        x: 984
-        y: 816
-        width: 328
-        height: 408
+        x: 1064
+        y: 840
+        width: 200
+        height: 269
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,19 +206,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21de5974f28120a45ad0b3b69b15e9d8
+      spriteID: c259e3e21306ce6489bf762fcf35cce3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Crouch_Walk_4
+      name: Player_CrouchWalk_4
       rect:
         serializedVersion: 2
-        x: 1312
-        y: 816
-        width: 328
-        height: 408
+        x: 1392
+        y: 838
+        width: 198
+        height: 274
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,19 +226,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42fa170fe6393b341ba7a8a711baa0ca
+      spriteID: 2d1eae1570cbb32469fec15ba8cfc47d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Crouch_Walk_5
+      name: Player_CrouchWalk_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 408
-        width: 328
-        height: 408
+        x: 80
+        y: 435
+        width: 200
+        height: 265
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,19 +246,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23b30b8f9a80de24798e4df8044e1e0e
+      spriteID: 53b39815105d67f45bef44d5c4064fcd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Crouch_Walk_6
+      name: Player_CrouchWalk_6
       rect:
         serializedVersion: 2
-        x: 328
-        y: 408
-        width: 328
-        height: 408
+        x: 408
+        y: 435
+        width: 200
+        height: 266
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,19 +266,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 899a3bb5b30e4944eb916e18e3f0e1d0
+      spriteID: 331d4a99441fb4949a67c748b2ef8a04
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Crouch_Walk_7
+      name: Player_CrouchWalk_7
       rect:
         serializedVersion: 2
-        x: 656
-        y: 408
-        width: 328
-        height: 408
+        x: 736
+        y: 435
+        width: 200
+        height: 269
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,19 +286,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e0d1eb35382f7547aec377f797e6a00
+      spriteID: f23b3a78571a2534e86f2a8c981653a7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Crouch_Walk_8
+      name: Player_CrouchWalk_8
       rect:
         serializedVersion: 2
-        x: 984
-        y: 408
-        width: 328
-        height: 408
+        x: 1062
+        y: 435
+        width: 202
+        height: 269
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,19 +306,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05e91c6e92280aa49b72f29cb2f5d1bc
+      spriteID: e468e5900a3772e488624d0bc7b33ba6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Crouch_Walk_9
+      name: Player_CrouchWalk_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 328
-        height: 408
+        x: 68
+        y: 27
+        width: 212
+        height: 269
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,19 +326,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f02b910a87157d248a8dba5e77c40305
+      spriteID: d9ab16d8d554e294aad4b573f6bf6a6b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Crouch_Walk_10
+      name: Player_CrouchWalk_10
       rect:
         serializedVersion: 2
-        x: 328
-        y: 0
-        width: 328
-        height: 408
+        x: 390
+        y: 27
+        width: 218
+        height: 269
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -333,19 +346,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f64c516299fc8ee43b052816f0ddc2d8
+      spriteID: d1d88534b6e818546b814a93fdbf5d4e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Crouch_Walk_11
+      name: Player_CrouchWalk_11
       rect:
         serializedVersion: 2
-        x: 656
-        y: 0
-        width: 328
-        height: 408
+        x: 716
+        y: 27
+        width: 220
+        height: 269
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,19 +366,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 875e72f2879fd674b8ed1ffb17b1c77e
+      spriteID: b9dfdcfea59badf44a7b7640268f4a52
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Crouch_Walk_12
+      name: Player_CrouchWalk_12
       rect:
         serializedVersion: 2
-        x: 984
-        y: 0
-        width: 328
-        height: 408
+        x: 1059
+        y: 27
+        width: 205
+        height: 271
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,7 +386,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1656c972c7fc75c4888efeb1c76603b4
+      spriteID: ad2db68b1b3750b469f9b76c7d8a6fa3
       vertices: []
       indices: 
       edges: []

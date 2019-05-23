@@ -12,6 +12,16 @@ TextureImporter:
     21300014: Player_Charge_idle_7
     21300016: Player_Charge_idle_8
     21300018: Player_Charge_idle_9
+    21300020: Player_ChargeIdle_0
+    21300022: Player_ChargeIdle_1
+    21300024: Player_ChargeIdle_2
+    21300026: Player_ChargeIdle_3
+    21300028: Player_ChargeIdle_4
+    21300030: Player_ChargeIdle_5
+    21300032: Player_ChargeIdle_6
+    21300034: Player_ChargeIdle_7
+    21300036: Player_ChargeIdle_8
+    21300038: Player_ChargeIdle_9
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -116,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Charge_idle_0
+      name: Player_ChargeIdle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 860
-        width: 329
-        height: 430
+        x: 32
+        y: 904
+        width: 231
+        height: 297
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,19 +140,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7409b91bd7fce84b9425dcd0f96efbc
+      spriteID: 03936f7ef17bd3e4ebb26b7ce03c9347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Charge_idle_1
+      name: Player_ChargeIdle_1
       rect:
         serializedVersion: 2
-        x: 329
-        y: 860
-        width: 329
-        height: 430
+        x: 361
+        y: 904
+        width: 231
+        height: 297
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,19 +160,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccac27da415fac64b8e2c0ecebc59f7c
+      spriteID: 0be75fb3c499920468881c58b14ac219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Charge_idle_2
+      name: Player_ChargeIdle_2
       rect:
         serializedVersion: 2
-        x: 658
-        y: 860
-        width: 329
-        height: 430
+        x: 690
+        y: 904
+        width: 231
+        height: 297
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,19 +180,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5da6a18cbaece1b4182648b4a6de50ed
+      spriteID: 0b1f1ef179b05224ba309ada00103847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Charge_idle_3
+      name: Player_ChargeIdle_3
       rect:
         serializedVersion: 2
-        x: 987
-        y: 860
-        width: 329
-        height: 430
+        x: 1020
+        y: 904
+        width: 225
+        height: 293
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,19 +200,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a78947737ee64b14abf9c8ef9e0ab93e
+      spriteID: c1dfbe765b02698469e164ef82b6dbd9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Charge_idle_4
+      name: Player_ChargeIdle_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 430
-        width: 329
-        height: 430
+        x: 33
+        y: 474
+        width: 228
+        height: 296
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,19 +220,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72ed0ade77d086048a7adbf7c029211b
+      spriteID: 2cceb9aeaebcae34c9bb0f273060d3d5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Charge_idle_5
+      name: Player_ChargeIdle_5
       rect:
         serializedVersion: 2
-        x: 329
-        y: 430
-        width: 329
-        height: 430
+        x: 362
+        y: 474
+        width: 228
+        height: 296
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,19 +240,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89e728ecd27d85f44ba6f976ed2b3d67
+      spriteID: d32deafc99cf21545aed6cadc1994976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Charge_idle_6
+      name: Player_ChargeIdle_6
       rect:
         serializedVersion: 2
-        x: 658
-        y: 430
-        width: 329
-        height: 430
+        x: 691
+        y: 474
+        width: 225
+        height: 293
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,19 +260,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c484023cc27f4b4f8c88cad919d6783
+      spriteID: 0a8febee12ba95e40a9b45616abf729f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Charge_idle_7
+      name: Player_ChargeIdle_7
       rect:
         serializedVersion: 2
-        x: 987
-        y: 430
-        width: 329
-        height: 430
+        x: 1020
+        y: 474
+        width: 228
+        height: 296
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,19 +280,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71928aa0c3686b446aed9ec80f15a1b4
+      spriteID: b56ee7cc1ea7e93479d121112e44a3e9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Charge_idle_8
+      name: Player_ChargeIdle_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 329
-        height: 430
+        x: 33
+        y: 44
+        width: 228
+        height: 296
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,19 +300,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7717e336af472904d92e39ae3da6173b
+      spriteID: 1771b137f462f6243bf02e23efcb44e8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Charge_idle_9
+      name: Player_ChargeIdle_9
       rect:
         serializedVersion: 2
-        x: 329
-        y: 0
-        width: 329
-        height: 430
+        x: 361
+        y: 44
+        width: 231
+        height: 297
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,7 +320,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 629cbc7f3fc3ba3478d5c403c8f34f5a
+      spriteID: bfd962ca08816e14fb0e18ef9955aecc
       vertices: []
       indices: 
       edges: []

@@ -115,10 +115,10 @@ TextureImporter:
       name: Player_Charge_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 430
-        width: 329
-        height: 430
+        x: 86
+        y: 473
+        width: 155
+        height: 306
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,7 +126,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9302b44b641b13243a94c274ae2d693d
+      spriteID: 5a5d1982fc2ce28458bb07c045b2816a
       vertices: []
       indices: 
       edges: []
@@ -135,10 +135,10 @@ TextureImporter:
       name: Player_Charge_1
       rect:
         serializedVersion: 2
-        x: 329
-        y: 430
-        width: 329
-        height: 430
+        x: 406
+        y: 472
+        width: 209
+        height: 307
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,7 +146,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 337272d0a3bc2294ea88698ba36b89f5
+      spriteID: ff2e1b6d8caca234bb77786a074e0f6b
       vertices: []
       indices: 
       edges: []
@@ -155,10 +155,10 @@ TextureImporter:
       name: Player_Charge_2
       rect:
         serializedVersion: 2
-        x: 658
-        y: 430
-        width: 329
-        height: 430
+        x: 708
+        y: 473
+        width: 197
+        height: 302
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,7 +166,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe035b3ba2725a64182e9b2d07c8882c
+      spriteID: 0c3ba2df0538ac94fbf9f14d5cb34e10
       vertices: []
       indices: 
       edges: []
@@ -175,10 +175,10 @@ TextureImporter:
       name: Player_Charge_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 329
-        height: 430
+        x: 70
+        y: 42
+        width: 209
+        height: 307
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,7 +186,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8db4a8aab43b1ee44a2122d03e5b516f
+      spriteID: 9a7ab134d68e26645ad4f02726810614
       vertices: []
       indices: 
       edges: []
@@ -195,10 +195,10 @@ TextureImporter:
       name: Player_Charge_4
       rect:
         serializedVersion: 2
-        x: 329
-        y: 0
-        width: 329
-        height: 430
+        x: 390
+        y: 42
+        width: 201
+        height: 306
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,7 +206,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d29ce0da0d131b459b0d149b96e5115
+      spriteID: 367e771394350c64e8ff32f588be20d1
       vertices: []
       indices: 
       edges: []
@@ -215,10 +215,10 @@ TextureImporter:
       name: Player_Charge_5
       rect:
         serializedVersion: 2
-        x: 658
-        y: 0
-        width: 329
-        height: 430
+        x: 690
+        y: 44
+        width: 231
+        height: 297
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,7 +226,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d6132418f20c4f4c82395c834c54a39
+      spriteID: b9a0ed8f850e87e469e9a59ba207c0a0
       vertices: []
       indices: 
       edges: []
