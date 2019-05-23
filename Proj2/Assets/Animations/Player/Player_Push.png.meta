@@ -294,26 +294,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Push_8
-      rect:
-        serializedVersion: 2
-        x: 2090
-        y: 911
-        width: 5
-        height: 4
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0994fcf1d6a8f0f4487cc131bf496291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Player_Push_9
       rect:
         serializedVersion: 2
@@ -329,26 +309,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a1c0b18a92e381b4a9f1acde36184817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Push_10
-      rect:
-        serializedVersion: 2
-        x: 2369
-        y: 878
-        width: 11
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2fa9811a942ba14fa4d4f3399888b75
       vertices: []
       indices: 
       edges: []
@@ -594,26 +554,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Push_23
-      rect:
-        serializedVersion: 2
-        x: 582
-        y: 125
-        width: 5
-        height: 6
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb63e20ac5d2a684dbefd476fab78d67
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Player_Push_24
       rect:
         serializedVersion: 2
@@ -669,26 +609,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6467a7747d8b6dd439ec45adf1dc6d2b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Push_27
-      rect:
-        serializedVersion: 2
-        x: 1120
-        y: 75
-        width: 4
-        height: 4
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40edf4d64b7e01246b4b088dc868d89e
       vertices: []
       indices: 
       edges: []
