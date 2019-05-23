@@ -23,8 +23,16 @@ public class CrouchedState : State
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x * 0.5f, character.characterProperties.acceleration.y * 0.5f), character.characterProperties.maxRunVelocity);
+        if (character.brain.direction.x != 0)
+        {
+            character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x , character.characterProperties.acceleration.y ), character.characterProperties.maxRunVelocity);
+            character.visualsAnimator.SetBool("CrouchWalking", true);
+        }
+        else
+        {
+            character.visualsAnimator.SetBool("CrouchWalking", false);
 
+        }
     }
 
     public override void Tick(float deltaTime)
