@@ -7,6 +7,12 @@ TextureImporter:
     21300004: Player_Pull_2
     21300006: Player_Pull_3
     21300008: Player_Pull_4
+    21300010: Player_Pull_5
+    21300012: Player_Pull_6
+    21300014: Player_Pull_7
+    21300016: Player_Pull_8
+    21300018: Player_Pull_9
+    21300020: Player_Pull_10
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -114,10 +120,10 @@ TextureImporter:
       name: Player_Pull_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 415
-        width: 349
-        height: 415
+        x: 204
+        y: 502
+        width: 183
+        height: 312
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,7 +131,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15e38e4d88f190f459713b3548f96ced
+      spriteID: 56b4eb9421de0c94491423b99f29797f
       vertices: []
       indices: 
       edges: []
@@ -134,10 +140,10 @@ TextureImporter:
       name: Player_Pull_1
       rect:
         serializedVersion: 2
-        x: 349
-        y: 415
-        width: 349
-        height: 415
+        x: 737
+        y: 502
+        width: 186
+        height: 310
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,7 +151,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 797d11bea1f37cb448e5ed630bc32eb7
+      spriteID: 0ffdd0a553ada604c8eb7f7134b86a4c
       vertices: []
       indices: 
       edges: []
@@ -154,10 +160,10 @@ TextureImporter:
       name: Player_Pull_2
       rect:
         serializedVersion: 2
-        x: 698
-        y: 415
-        width: 349
-        height: 415
+        x: 1288
+        y: 502
+        width: 160
+        height: 309
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,7 +171,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 995fcbd5e21fd2c47857d7f7d7393b7a
+      spriteID: fc5f7bdee807ca940ace18d2a5d822b8
       vertices: []
       indices: 
       edges: []
@@ -174,10 +180,10 @@ TextureImporter:
       name: Player_Pull_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 349
-        height: 415
+        x: 1816
+        y: 502
+        width: 170
+        height: 312
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,7 +191,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f9ac9e12fb4c844fbd3365e4a08eba9
+      spriteID: c16fdff8e0c0322429464b2c82e053e5
       vertices: []
       indices: 
       edges: []
@@ -194,10 +200,10 @@ TextureImporter:
       name: Player_Pull_4
       rect:
         serializedVersion: 2
-        x: 349
-        y: 0
-        width: 349
-        height: 415
+        x: 2349
+        y: 502
+        width: 174
+        height: 310
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,7 +211,127 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6d7558af849dab45976daeab743e92e
+      spriteID: 7b9dd629847149f4dbac005a5e4c584a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pull_5
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 502
+        width: 183
+        height: 307
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a111d243bfff25f4b8e7d880cf4ef687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pull_6
+      rect:
+        serializedVersion: 2
+        x: 3416
+        y: 502
+        width: 181
+        height: 307
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f52cbcdb21b83a14b92db57d25303936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pull_7
+      rect:
+        serializedVersion: 2
+        x: 3950
+        y: 502
+        width: 183
+        height: 307
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 268854da9cc07bd4cbd2affa993c8826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pull_8
+      rect:
+        serializedVersion: 2
+        x: 4487
+        y: 502
+        width: 181
+        height: 307
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b40ac50f7e55de74f86949823f210a2d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pull_9
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 32
+        width: 181
+        height: 305
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5b7c31d6aa2342479a99574f5f05323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pull_10
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 32
+        width: 183
+        height: 307
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c230280bddbaa249a7cb6043c20220f
       vertices: []
       indices: 
       edges: []

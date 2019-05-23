@@ -6,12 +6,14 @@ public class InteractState : State
 {
     Interactable interactable;
     float actionDelay;
+    float exitDelayAfterAction;
 
-    public InteractState(CharacterManager character, Interactable interactable, float actionDelay)
+    public InteractState(CharacterManager character, Interactable interactable, float actionDelay, float exitDelayAfterAction)
     {
         this.character = character;
         this.interactable = interactable;
         this.actionDelay = actionDelay;
+        this.exitDelayAfterAction = exitDelayAfterAction;
     }
 
     protected override IEnumerator StartState()
@@ -21,6 +23,8 @@ public class InteractState : State
         yield return new WaitForSeconds(actionDelay);
 
         interactable.StartInteract(character);
+
+        yield return new WaitForSeconds(exitDelayAfterAction);
 
         character.behaviourTree.CalculateAndSetNextState(true);
     }
