@@ -89,6 +89,28 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -96,18 +118,18 @@ TextureImporter:
       name: Player_Pick_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 816
-        width: 313
-        height: 408
-      alignment: 9
-      pivot: {x: 0.486534, y: 0.10399463}
+        x: 76
+        y: 848
+        width: 157
+        height: 306
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6461ea9760f7d2439e9ec5dd00dedcc
+      spriteID: 608846e1fa1a5444f9883ac8ceba5043
       vertices: []
       indices: 
       edges: []
@@ -116,18 +138,18 @@ TextureImporter:
       name: Player_Pick_1
       rect:
         serializedVersion: 2
-        x: 313
-        y: 816
-        width: 313
-        height: 408
-      alignment: 9
-      pivot: {x: 0.48653406, y: 0.09710753}
+        x: 387
+        y: 850
+        width: 165
+        height: 298
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f85af20aa14ae5b47820dc8448cad453
+      spriteID: 3a512c92a9ba4bf4b8d25f0e688bf9b3
       vertices: []
       indices: 
       edges: []
@@ -136,18 +158,18 @@ TextureImporter:
       name: Player_Pick_2
       rect:
         serializedVersion: 2
-        x: 626
-        y: 816
-        width: 313
-        height: 408
-      alignment: 9
-      pivot: {x: 0.46857956, y: 0.10399463}
+        x: 704
+        y: 853
+        width: 156
+        height: 291
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06051e1b5b60cab479c103d3b0c2340d
+      spriteID: 53c0b87ee1de81a4497e56e80be1c8c4
       vertices: []
       indices: 
       edges: []
@@ -156,18 +178,18 @@ TextureImporter:
       name: Player_Pick_3
       rect:
         serializedVersion: 2
-        x: 939
-        y: 816
-        width: 313
-        height: 408
-      alignment: 9
-      pivot: {x: 0.46857956, y: 0.12465578}
+        x: 1017
+        y: 852
+        width: 156
+        height: 292
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2f0350a29355c941bcb8b6db3f079cf
+      spriteID: 9b889d4d00c09884a95fdb204bc10226
       vertices: []
       indices: 
       edges: []
@@ -176,18 +198,18 @@ TextureImporter:
       name: Player_Pick_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 408
-        width: 313
-        height: 408
-      alignment: 9
-      pivot: {x: 0.4820453, y: 0.11776883}
+        x: 76
+        y: 449
+        width: 158
+        height: 277
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c4c0875c4d4f7d4d803854299534042
+      spriteID: ee2f3d39fcfc4754b8c482c492f45c89
       vertices: []
       indices: 
       edges: []
@@ -196,18 +218,18 @@ TextureImporter:
       name: Player_Pick_5
       rect:
         serializedVersion: 2
-        x: 313
-        y: 408
-        width: 313
-        height: 408
-      alignment: 9
-      pivot: {x: 0.48204532, y: 0.14187352}
+        x: 391
+        y: 450
+        width: 157
+        height: 274
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd44e8d190122814b96520a6fefb6c4e
+      spriteID: ba06aed50dcf70441a2a8752c67cdd08
       vertices: []
       indices: 
       edges: []
@@ -216,18 +238,18 @@ TextureImporter:
       name: Player_Pick_6
       rect:
         serializedVersion: 2
-        x: 626
-        y: 408
-        width: 313
-        height: 408
-      alignment: 9
-      pivot: {x: 0.48653424, y: 0.14876056}
+        x: 704
+        y: 447
+        width: 156
+        height: 286
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 593f8313e108a3144825f26ff783ff78
+      spriteID: cb2ed400a8f0ae5478716a834c6745f1
       vertices: []
       indices: 
       edges: []
@@ -236,18 +258,18 @@ TextureImporter:
       name: Player_Pick_7
       rect:
         serializedVersion: 2
-        x: 929
-        y: 398
-        width: 313
-        height: 408
-      alignment: 9
-      pivot: {x: 0.49551147, y: 0.14531693}
+        x: 1016
+        y: 440
+        width: 157
+        height: 304
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08d9c8ba92f7f4b44a44a2f051d2dd8a
+      spriteID: ce4e503a4f5474646aa555ec02199aa2
       vertices: []
       indices: 
       edges: []
@@ -256,18 +278,18 @@ TextureImporter:
       name: Player_Pick_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 313
-        height: 408
-      alignment: 9
-      pivot: {x: 0.5089774, y: 0.10055107}
+        x: 76
+        y: 32
+        width: 157
+        height: 306
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f942b1f7d17575346876f4c1cd5b1e23
+      spriteID: 5f7d6955e2cc9b44ab7936af6e82cfc4
       vertices: []
       indices: 
       edges: []

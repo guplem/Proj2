@@ -16,8 +16,9 @@ public class Interactable : MonoBehaviour
     [HideInInspector] public bool alreadyEndedInteraction;
 
     [Header("Visuals")]
-    [SerializeField] private GameObject initialVisuals;
-    [SerializeField] private GameObject interactingVisuals;
+    //[SerializeField] private GameObject initialVisuals;
+    //[SerializeField] private GameObject interactingVisuals;
+    [SerializeField] private Animator animator;
 
     [Header("Activable elements")]
     [SerializeField] public Activable[] connectedActivables;
@@ -37,16 +38,18 @@ public class Interactable : MonoBehaviour
         if (connectedActivables.Length == 0)
             Debug.LogWarning("No activables attatched to an interactable.", gameObject);
 
-        if (initialVisuals == null ^ interactingVisuals == null)
+        /*if (initialVisuals == null ^ interactingVisuals == null)
             Debug.LogWarning("Only one of the visuals is configured in an interactable object.", gameObject);
 
         if (initialVisuals != null)
             initialVisuals.SetActive(true);
         if (interactingVisuals != null)
-            interactingVisuals.SetActive(false);
+            interactingVisuals.SetActive(false);*/
+
+        if (animator != null)
+            animator.SetBool("Active", false);
 
     }
-
 
     public void StartInteract(CharacterManager interactingCharacter)
     {
@@ -94,10 +97,13 @@ public class Interactable : MonoBehaviour
         }
 
 
-        if (initialVisuals != null)
+        /*if (initialVisuals != null)
             initialVisuals.SetActive(!initialVisuals.activeSelf);
         if (interactingVisuals != null)
             interactingVisuals.SetActive(!interactingVisuals.activeSelf);
+        */
+        if (animator != null)
+            animator.SetBool("Active", !animator.GetBool("Active"));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

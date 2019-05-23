@@ -24,7 +24,7 @@ public class AttackState : State
 
     public override void Tick(float deltaTime)
     {
-
+        character.brain.CheckAndFlip();
     }
 
     public override void FixedTick(float fixedDeltaTime)

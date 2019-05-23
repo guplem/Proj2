@@ -12,7 +12,7 @@ public class OnAirState : State
 
     protected override IEnumerator StartState()
     {
-        character.visualsAnimator.SetTrigger("OnAir");
+        character.visualsAnimator.SetTrigger("Falling");
         defaultGravityScale = character.rb2d.gravityScale;
         character.rb2d.gravityScale = character.characterProperties.OnAirGravityScale;
         yield return "success";
@@ -20,7 +20,7 @@ public class OnAirState : State
 
     public override void Tick(float deltaTime)
     {
-
+        character.brain.CheckAndFlip();
     }
 
     public override void FixedTick(float fixedDeltaTime)

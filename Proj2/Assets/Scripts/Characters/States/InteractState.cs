@@ -6,23 +6,27 @@ public class InteractState : State
 {
     Interactable interactable;
     float actionDelay;
+    float exitDelayAfterAction;
 
-    public InteractState(CharacterManager character, Interactable interactable, float actionDelay)
+    public InteractState(CharacterManager character, Interactable interactable, float actionDelay, float exitDelayAfterAction)
     {
         this.character = character;
         this.interactable = interactable;
         this.actionDelay = actionDelay;
+        this.exitDelayAfterAction = exitDelayAfterAction;
     }
 
     protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Interact");
 
-        Debug.Log("Begining delay - StartState");
         yield return new WaitForSeconds(actionDelay);
-        Debug.Log("Ending delay - StartState");
 
         interactable.StartInteract(character);
+
+        yield return new WaitForSeconds(exitDelayAfterAction);
+
+        character.behaviourTree.CalculateAndSetNextState(true);
     }
 
     public override void Tick(float deltaTime)
