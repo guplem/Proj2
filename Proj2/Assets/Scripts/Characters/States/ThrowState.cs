@@ -14,7 +14,7 @@ public class ThrowState : State
 
     protected override IEnumerator StartState()
     {
-        character.visualsAnimator.SetTrigger("Throw");
+        character.visualsAnimator.SetTrigger("Charge");
         yield return "success";
     }
 
@@ -71,19 +71,31 @@ public class ThrowState : State
         }
         else
         {
-            // Play animation!
-            //character.visualsAnimator.SetTrigger("Throw");
-
             Vector3 direction = (new Vector3(mousePositionCorrected, mousePosition.y, mousePosition.z) - throwPosition);
-            ((PlayerManager)character).inventory.ThrowStoredItem(((PlayerManager)character).throwingForce * direction, throwPosition);
 
-            ((PlayerManager)character).behaviourTree.CalculateAndSetNextState(true);
+            if (throwCorroutine == null)
+            {
+                throwCorroutine = Throw(direction, throwPosition);
+                character.StartCoroutine(throwCorroutine);
+            }
         }
+    }
+
+    IEnumerator throwCorroutine;
+    private IEnumerator Throw(Vector3 direction, Vector3 throwPosition)
+    {
+        character.visualsAnimator.SetTrigger("Throw");
+        yield return new WaitForSeconds(1f);
+        ((PlayerManager)character).inventory.ThrowStoredItem(((PlayerManager)character).throwingForce * direction, throwPosition);
+        ((PlayerManager)character).behaviourTree.CalculateAndSetNextState(true);
+
     }
 
     public override void OnExit()
     {
         GameManager.Instance.lineManager.SetDrawing(false);
+        if (throwCorroutine != null)
+            character.StopCoroutine(throwCorroutine);
     }
 
 }

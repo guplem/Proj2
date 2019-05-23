@@ -29,7 +29,7 @@ public class CrouchedState : State
 
     public override void Tick(float deltaTime)
     {
-
+        character.brain.CheckAndFlip();
     }
 
     public override void OnExit()
