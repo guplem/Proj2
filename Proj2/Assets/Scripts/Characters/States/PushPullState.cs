@@ -6,6 +6,8 @@ public class PushPullState : State
 {
     Interactable interactable;
     Rigidbody2D interactableRb2d;
+    private bool isPushing;
+    private bool isPulling;
 
     public PushPullState(CharacterManager characterManager, Interactable interactable)
     {
@@ -16,7 +18,6 @@ public class PushPullState : State
 
     protected override IEnumerator StartState()
     {
-        character.visualsAnimator.SetTrigger("Push");
         interactable.StartInteract(character);
         character.rb2d.velocity = Vector3.zero;
         yield return "success";
@@ -31,7 +32,62 @@ public class PushPullState : State
 
     public override void Tick(float deltaTime)
     {
+        if (interactable.transform.position.x < character.transform.position.x)
+        {
+            if (character.brain.direction.x <= 0)
+            {
+                // Push
+                SetAnim(true);
+            }
+            else
+            {
+                // Pull
+                SetAnim(false);
+            }
 
+        }
+        else
+        {
+            if (character.brain.direction.x >= 0)
+            {
+                // Push
+                SetAnim(true);
+            }
+            else
+            {
+                // Pull
+                SetAnim(false);
+            }
+
+        }
+    }
+
+    public void SetAnim(bool pushAnim)
+    {
+        if (pushAnim)
+        {
+            if (!isPushing)
+            {
+                isPushing = true;
+                character.visualsAnimator.SetTrigger("Push");
+            }
+            isPulling = false;
+        }
+        else
+        {
+            if (!isPulling)
+            {
+                isPulling = true;
+                character.visualsAnimator.SetTrigger("Pull");
+            }
+            isPushing = false;
+        }
+    }
+
+    private bool SetAnimation()
+    {
+        
+        return isPushing;
     }
 
     public override void OnExit()
