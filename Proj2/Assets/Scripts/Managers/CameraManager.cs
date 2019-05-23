@@ -6,7 +6,7 @@ public class CameraManager : MonoBehaviour
 {
     public CameraMovmentController cameraMovmentController;
     public Vector2 cameraOffset;
-    public Camera mainCamera;
+    [HideInInspector] public Camera mainCamera;
 
     public void Setup(CharacterManager target, float velocity)
     {

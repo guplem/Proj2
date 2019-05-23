@@ -19,7 +19,6 @@ public abstract class Brain
         /*Pause could work by doing: if (gamemanager.instance.pause) --> Set all variables to false*/ //If doing so, remember removing the pause controller from PlayerInput
 
         GetActions(deltaTime);
-        CheckAndFlip();
     }
 
     protected abstract void GetActions(float deltaTime);
@@ -29,7 +28,7 @@ public abstract class Brain
         this.character = characterManager;
     }
 
-    private void CheckAndFlip()
+    public void CheckAndFlip()
     {
         if (direction.x >= 0.1f)
         {

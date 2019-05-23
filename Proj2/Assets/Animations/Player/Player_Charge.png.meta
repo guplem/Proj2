@@ -1,11 +1,13 @@
 fileFormatVersion: 2
-guid: af5580dd5e9e65248b89864e32c12a57
+guid: 0ddf09701ac43e14c9cf23b4a393d94e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: porta_0
-    21300002: porta_1
-    21300004: porta_2
-    21300006: porta_3
+    21300000: Player_Charge_0
+    21300002: Player_Charge_1
+    21300004: Player_Charge_2
+    21300006: Player_Charge_3
+    21300008: Player_Charge_4
+    21300010: Player_Charge_5
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -85,6 +87,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -99,81 +112,121 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: porta_0
+      name: Player_Charge_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 430
+        width: 329
+        height: 430
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9302b44b641b13243a94c274ae2d693d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Charge_1
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 430
+        width: 329
+        height: 430
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 337272d0a3bc2294ea88698ba36b89f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Charge_2
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 430
+        width: 329
+        height: 430
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe035b3ba2725a64182e9b2d07c8882c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Charge_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 590.5
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 329
+        height: 430
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f2ce9c2f4c9e9f499c0f8220ff1c70f
+      spriteID: 8db4a8aab43b1ee44a2122d03e5b516f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: porta_1
+      name: Player_Charge_4
       rect:
         serializedVersion: 2
-        x: 590
+        x: 329
         y: 0
-        width: 590.5
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 329
+        height: 430
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bb331092da79e7419e7867295b42d54
+      spriteID: 6d29ce0da0d131b459b0d149b96e5115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: porta_2
+      name: Player_Charge_5
       rect:
         serializedVersion: 2
-        x: 1180
+        x: 658
         y: 0
-        width: 590.5
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 329
+        height: 430
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c92f912d6d53574ba2c583162d8e721
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: porta_3
-      rect:
-        serializedVersion: 2
-        x: 1770
-        y: 0
-        width: 590.5
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3daedd3591c31ff4aa100241895e5490
+      spriteID: 1d6132418f20c4f4c82395c834c54a39
       vertices: []
       indices: 
       edges: []
@@ -181,7 +234,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9ae42e1676b694a408ded4d6232b1041
+    spriteID: ffe86db2131dd3b4f946124e114ca6d1
     vertices: []
     indices: 
     edges: []

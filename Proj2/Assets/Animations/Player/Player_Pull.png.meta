@@ -1,17 +1,12 @@
 fileFormatVersion: 2
-guid: b14f535db77b6e84796356c391b81370
+guid: 685ed660bdec8e34fb353c88e84be8a8
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spritesheetiDDLE_0
-    21300002: spritesheetiDDLE_1
-    21300004: spritesheetiDDLE_2
-    21300006: spritesheetiDDLE_3
-    21300008: spritesheetiDDLE_4
-    21300010: spritesheetiDDLE_5
-    21300012: spritesheetiDDLE_6
-    21300014: spritesheetiDDLE_7
-    21300016: spritesheetiDDLE_8
-    21300018: spritesheetiDDLE_9
+    21300000: Player_Pull_0
+    21300002: Player_Pull_1
+    21300004: Player_Pull_2
+    21300006: Player_Pull_3
+    21300008: Player_Pull_4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -90,17 +85,99 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spritesheetiDDLE_0
+      name: Player_Pull_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 415
+        width: 349
+        height: 415
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e38e4d88f190f459713b3548f96ced
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pull_1
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 415
+        width: 349
+        height: 415
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 797d11bea1f37cb448e5ed630bc32eb7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pull_2
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 415
+        width: 349
+        height: 415
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 995fcbd5e21fd2c47857d7f7d7393b7a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Pull_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 313
-        height: 408
+        width: 349
+        height: 415
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,19 +185,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e45900b7713cca41bf8eb16c07a87fd
+      spriteID: 4f9ac9e12fb4c844fbd3365e4a08eba9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetiDDLE_1
+      name: Player_Pull_4
       rect:
         serializedVersion: 2
-        x: 313
+        x: 349
         y: 0
-        width: 313
-        height: 408
+        width: 349
+        height: 415
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,167 +205,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ac342108c577b14b9aa2f1ab598642f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetiDDLE_2
-      rect:
-        serializedVersion: 2
-        x: 626
-        y: 0
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71219f7af9a29ed47b308f260f3c692b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetiDDLE_3
-      rect:
-        serializedVersion: 2
-        x: 939
-        y: 0
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 503ef4257147aa04a8df56e6cc0a4bc6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetiDDLE_4
-      rect:
-        serializedVersion: 2
-        x: 1252
-        y: 0
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c10e9bc6df09d4d41a794e7dd1c30fdc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetiDDLE_5
-      rect:
-        serializedVersion: 2
-        x: 1565
-        y: 0
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5fddcaa78f031734c893ef373a01fd6c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetiDDLE_6
-      rect:
-        serializedVersion: 2
-        x: 1878
-        y: 0
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3c24d9f7d234274293a04cc8c092676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetiDDLE_7
-      rect:
-        serializedVersion: 2
-        x: 2191
-        y: 0
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 321fe4121678c5a43896ce7e434ef3e5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetiDDLE_8
-      rect:
-        serializedVersion: 2
-        x: 2504
-        y: 0
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 357518a3166b3c24e8ca50c352cc910f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetiDDLE_9
-      rect:
-        serializedVersion: 2
-        x: 2817
-        y: 0
-        width: 313
-        height: 408
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc1a7eea7b8a5264da9e47b5e44385dd
+      spriteID: c6d7558af849dab45976daeab743e92e
       vertices: []
       indices: 
       edges: []
@@ -296,7 +213,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 11600cb7cf9285e4a890a891dd939213
+    spriteID: 1d7ccbc5769c39f4080ac43dc95765e2
     vertices: []
     indices: 
     edges: []
