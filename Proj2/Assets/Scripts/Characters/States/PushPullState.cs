@@ -20,6 +20,9 @@ public class PushPullState : State
     {
         interactable.StartInteract(character);
         character.rb2d.velocity = Vector3.zero;
+
+        character.brain.LookAt(interactable.transform.position);
+
         yield return "success";
     }
 
