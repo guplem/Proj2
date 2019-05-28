@@ -8,6 +8,8 @@ TextureImporter:
     21300006: Player_Falling_1
     21300008: Player_Falling_2
     21300010: Player_Falling_3
+    21300012: Player_Falling_4
+    21300014: Player_Falling_5
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -115,8 +117,68 @@ TextureImporter:
       name: Player_Falling_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 38
+        x: 10
+        y: 347
+        width: 233
+        height: 314
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2dee42bb7297624d9e49decb5d71bac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Falling_1
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 347
+        width: 201
+        height: 314
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33495f699806255479996bb86b038b5e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Falling_2
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 339
+        width: 158
+        height: 317
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5024a6568cac8343aabe1c694b522e7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Falling_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 3
         width: 186
         height: 314
       alignment: 7
@@ -126,27 +188,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aab9e6e5e71c4b94992037f1212464ab
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Falling_1
-      rect:
-        serializedVersion: 2
-        x: 393
-        y: 35
-        width: 158
-        height: 323
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96f756b3928b4c443be92ae755d59d5d
+      spriteID: 996f649825d5b3f46a8b25dfa7a0f5a8
       vertices: []
       indices: 
       edges: []
