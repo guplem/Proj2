@@ -67,7 +67,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10000
+  m_SortingOrder: 250
   m_Sprite: {fileID: 21300000, guid: 062f35f1bb6559243a76f6cb7a608a0e, type: 3}
   m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
   m_FlipX: 0
@@ -281,16 +281,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8145872139028210841, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4772810661004226603, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2842426328997923228, guid: 59658d771a81960498707e8b0d91ee49,
         type: 3}
       propertyPath: m_Sprite
@@ -316,8 +306,12 @@ PrefabInstance:
       propertyPath: Color.a
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2842426328997923228, guid: 59658d771a81960498707e8b0d91ee49, type: 3}
+    - target: {fileID: 3522527520604146454, guid: 59658d771a81960498707e8b0d91ee49,
+        type: 3}
+      propertyPath: defaultAudioSourcesQty
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59658d771a81960498707e8b0d91ee49, type: 3}
 --- !u!4 &4829861232782962726 stripped
 Transform:
