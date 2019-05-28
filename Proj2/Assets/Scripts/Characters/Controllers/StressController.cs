@@ -9,34 +9,64 @@ public class StressController : MonoBehaviour
     public float stressRemovalPerSecond;
     public float removeStressEveryXTime;
 
-    private float currentStress;
+    private bool removingStress;
+
+    private float _currentStress;
+
+    public float currentStress
+    {
+        get
+        {
+            return _currentStress;
+        }
+        private set
+        {
+            if (value > 0 && value >= _currentStress)
+            {
+                StopCoroutine(stressRemovalCoroutine);
+                stressRemovalCoroutine = RemoveStressAfterTime(stressRemovalDelay, removeStressEveryXTime);
+                StartCoroutine(stressRemovalCoroutine);
+            }
+
+            if (value < 0)
+            {
+                value = 0;
+                StopCoroutine(stressRemovalCoroutine);
+            }
+
+            if (value > stressThreshold)
+            {
+                value = stressThreshold;
+            }
+
+            _currentStress = value;
+
+            if (isPlayer)
+            {
+                GUIManager.Instance.BackgroundVignette.SetOpacitySmooth(value / stressThreshold);
+            }
+        }
+    }
+
     [SerializeField] private float stressThreshold;
     private bool isPlayer;
 
-
-    private IEnumerator stressRemoval;
+    private IEnumerator stressRemovalCoroutine;
 
     private void Start()
     {
         isPlayer = GetComponent<PlayerManager>() != null;
+        stressRemovalCoroutine = RemoveStressAfterTime(stressRemovalDelay, removeStressEveryXTime);
+    }
 
+    private void Update()
+    {
+        removingStress = stressRemovalCoroutine == null;
     }
 
     public bool AddStress(float amount)
     {
         SetStress(currentStress + amount);
-
-        if (stressRemoval != null)
-        {
-            StopCoroutine(stressRemoval);
-            stressRemoval = null;
-        }
-        stressRemoval = RemoveStressAfterTime(stressRemovalDelay, removeStressEveryXTime);
-        StartCoroutine(stressRemoval);
-
-        if (currentStress >= stressThreshold)
-            ActionOnStressThreshold();
-
         return true;
     }
 
@@ -57,21 +87,10 @@ public class StressController : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenDecrease);
             SetStress(currentStress - (stressRemovalPerSecond * timeBetweenDecrease));
         }
-        StopCoroutine(stressRemoval);
-        stressRemoval = null;
     }
 
     private void SetStress(float qty)
     {
-        if (qty > stressThreshold)
-            currentStress = stressThreshold;
-        else
-            currentStress = qty;
-
-        if (currentStress < 0)
-            currentStress = 0;
-
-        if (isPlayer)
-            GUIManager.Instance.BackgroundVignette.SetOpacitySmooth(currentStress / stressThreshold);
+        currentStress = qty;
     }
 }
