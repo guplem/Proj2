@@ -5,14 +5,16 @@ using UnityEngine;
 
 #pragma warning disable CS0649
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(AudioSource))]
 [DisallowMultipleComponent]
-public class InteractionsColliderController : MonoBehaviour
+public class InteractionsController : MonoBehaviour
 {
 
     [SerializeField] public CharacterManager character;
     [HideInInspector] private Collider2D col;
     //private Interactable currentInteractable;
     [SerializeField] ContactFilter2D filter;
+    [HideInInspector] public AudioSource audioSource;
 
 
     private void Start()
@@ -21,6 +23,8 @@ public class InteractionsColliderController : MonoBehaviour
             Debug.LogError("'CharacterManager' is not setted up in the 'InteractionsColliderController' of the object '" + gameObject.name + "'", gameObject) ;
 
         col = GetComponent<Collider2D>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public Interactable GetAvaliableInterectable(Activable.ActivationType activationType)

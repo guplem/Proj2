@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 144c603ac537393468758cdaf85c90d6, type: 3}
-  m_Name: ChiniseRadio
+  m_Name: CardboardDrag
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 150742fab1ec23e47a5fb1310304d19f, type: 3}
-  audioMixerGroup: {fileID: 24300002, guid: e1494721da35c18449f6fbae8bbccea5, type: 2}
-  volume: 1
-  pitch: 0.5
-  pitchRandomization: 0.2
+  clip: {fileID: 8300000, guid: a8549a41386c52c479b7b2246bd242a0, type: 3}
+  audioMixerGroup: {fileID: 24300002, guid: 8823c276da32ebf41a1d02a616bf8265, type: 2}
+  volume: 0.227
+  pitch: 0.2
+  pitchRandomization: 0.01

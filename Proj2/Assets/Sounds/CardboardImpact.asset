@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 144c603ac537393468758cdaf85c90d6, type: 3}
-  m_Name: Background
+  m_Name: CardboardImpact
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 1074a77a4a355f347b12da3b8faaf4cc, type: 3}
-  audioMixerGroup: {fileID: 24300002, guid: e1494721da35c18449f6fbae8bbccea5, type: 2}
-  volume: 1
-  pitch: 0.5
-  pitchRandomization: 0.2
+  clip: {fileID: 8300000, guid: faed5bdc278ca094d8974709ace323a1, type: 3}
+  audioMixerGroup: {fileID: 24300002, guid: 8823c276da32ebf41a1d02a616bf8265, type: 2}
+  volume: 0.301
+  pitch: 0.094
+  pitchRandomization: 0.054

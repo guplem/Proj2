@@ -23,7 +23,7 @@ public abstract class CharacterManager : MonoBehaviour
     [HideInInspector] public AudioController audioController;
 
     //[HideInInspector] protected Interactable currentInteractable;
-    [SerializeField] public InteractionsColliderController interactionsCollider;
+    [SerializeField] public InteractionsController interactionsController;
     [SerializeField] public Animator visualsAnimator;
 
     [SerializeField] public CharacterProperties characterProperties;
