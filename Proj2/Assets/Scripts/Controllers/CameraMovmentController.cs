@@ -5,26 +5,14 @@ using UnityEngine;
 
 public class CameraMovmentController
 {
+
     public CameraManager camera;
     public CharacterManager target;
-    public float velocity
-    {
-        get { return vel; }
-        set
-        {
-            if (value >= 0 && value <= 1)
-                vel = value;
-            else
-                Debug.LogError("The camera velocity must be between '0' and '1' and it is trying to be set as '" + value + "'", camera.gameObject);
-        }
-    }
-    private float vel;
 
-    public CameraMovmentController(CameraManager camera, CharacterManager target, float velocity)
+    public CameraMovmentController(CameraManager camera, CharacterManager target)
     {
         this.camera = camera;
         this.target = target;
-        this.velocity = velocity;
     }
 
     public void Tick()
@@ -33,9 +21,10 @@ public class CameraMovmentController
         {
             try
             {
-                float offsetDirection = target.brain.direction.x;
-                Vector3 targetPos = new Vector3(target.transform.position.x + (camera.cameraOffset.x * offsetDirection), target.transform.position.y + camera.cameraOffset.y, camera.transform.position.z);
-                camera.transform.position = Vector3.Lerp(camera.transform.position, targetPos, velocity);
+                float negativePlayerVerticalVelocity = target.rb2d.velocity.y < 0 ? target.rb2d.velocity.y * 0.5f : 0;
+                float offsetDirectionX = target.brain.direction.x;
+                Vector3 targetPos = new Vector3(target.transform.position.x + (camera.cameraOffset.x * offsetDirectionX), target.transform.position.y + camera.cameraOffset.y + negativePlayerVerticalVelocity, camera.transform.position.z);
+                camera.transform.position = new Vector3(Mathf.Lerp(camera.transform.position.x, targetPos.x, camera.cameraSpeed.x), Mathf.Lerp(camera.transform.position.y, targetPos.y, camera.cameraSpeed.y), targetPos.z);
             }
             catch (Exception e) { Debug.LogWarning(e.ToString()); }
 
