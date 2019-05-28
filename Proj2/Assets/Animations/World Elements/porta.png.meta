@@ -6,6 +6,7 @@ TextureImporter:
     21300002: porta_1
     21300004: porta_2
     21300006: porta_3
+    21300008: porta_4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -113,18 +114,18 @@ TextureImporter:
       name: porta_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 211
-        height: 662
+        x: 58
+        y: 28
+        width: 82
+        height: 599
       alignment: 9
-      pivot: {x: 0.39872026, y: 0.051464386}
+      pivot: {x: 0.28479096, y: 0.0025228078}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0faa7d2820f9a0459cdf0a68aa5b9d4
+      spriteID: e7d6111e5ff578547be764e2e5ae8abf
       vertices: []
       indices: 
       edges: []
@@ -133,18 +134,18 @@ TextureImporter:
       name: porta_1
       rect:
         serializedVersion: 2
-        x: 558
-        y: 0
-        width: 243
-        height: 662
-      alignment: 9
-      pivot: {x: 0.041026175, y: 0.04660305}
+        x: 563
+        y: 27
+        width: 232
+        height: 598
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7212d221a36a3204bb43e53d2a0bfb6b
+      spriteID: 9e66bba1f169fcf41a7b2d6953a0ed01
       vertices: []
       indices: 
       edges: []
@@ -153,18 +154,18 @@ TextureImporter:
       name: porta_2
       rect:
         serializedVersion: 2
-        x: 1163
-        y: 0
-        width: 394
-        height: 662
-      alignment: 9
-      pivot: {x: 0.046251018, y: 0.04412562}
+        x: 1176
+        y: 27
+        width: 374
+        height: 599
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ddb70e0cadd0b54ea189fb2353ddd94
+      spriteID: b03d40c91f6ee0241add40c5008b047a
       vertices: []
       indices: 
       edges: []
@@ -173,18 +174,38 @@ TextureImporter:
       name: porta_3
       rect:
         serializedVersion: 2
-        x: 1867
-        y: 0
-        width: 415
-        height: 662
-      alignment: 9
-      pivot: {x: 0.033229597, y: 0.04628579}
+        x: 1879
+        y: 27
+        width: 406
+        height: 600
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 211dea12175a4a74dbb463894f2e29a3
+      spriteID: f9cd9b1cd5aa21f49915539aab79bbf0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: porta_4
+      rect:
+        serializedVersion: 2
+        x: 2302
+        y: 469
+        width: 15
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a44d93a9dc9eb9446b1c37193debd168
       vertices: []
       indices: 
       edges: []
