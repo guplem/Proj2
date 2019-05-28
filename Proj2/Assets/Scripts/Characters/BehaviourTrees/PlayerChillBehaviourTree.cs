@@ -57,7 +57,6 @@ public class PlayerChillBehaviourTree : BehaviourTree
             return false;
 
         State.SetState(new PushPullState(character, interactable), character);
-        Debug.Log("Entered PushPull");
         return true;
     }
 

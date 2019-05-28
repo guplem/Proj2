@@ -7,6 +7,7 @@ public class CameraManager : MonoBehaviour
     public CameraMovmentController cameraMovementController;
     public Vector2 cameraOffset;
     public Vector2 cameraSpeed;
+    public float verticalLimit;
     [HideInInspector] public Camera mainCamera;
 
     public void Setup(CharacterManager target)
