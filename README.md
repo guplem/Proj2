@@ -18,3 +18,9 @@
   - [150] --> Player (standard)
   - [151-200] --> Enemies/NPC
   - [201-300] --> Decorative elements
+
+
+ #### # Sound (sprite)
+  - With some .mp3 encoders (like the one recommended for mp3 by Audacity) a "white space" will be added at the beginning of each audio exporting in mp3 format.
+  - SFX: .wav
+  - Music, ambient, ... : .mp3
