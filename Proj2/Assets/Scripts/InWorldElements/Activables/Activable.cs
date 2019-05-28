@@ -4,6 +4,7 @@ using UnityEngine;
 
 [SelectionBase]
 [RequireComponent(typeof(AudioController))]
+#pragma warning disable 0649
 public abstract class Activable : MonoBehaviour
 {
 
@@ -33,7 +34,7 @@ public abstract class Activable : MonoBehaviour
         alreadyActivated = false;
 
         audioController = GetComponent<AudioController>();
-        if (audioController == null)
+        if (audioController == null && (onSound != null || offSound != null))
             Debug.LogWarning("No audio controller found for " + gameObject.name, gameObject);
     }
 
@@ -44,9 +45,15 @@ public abstract class Activable : MonoBehaviour
             currentState = !currentState;
 
             if (currentState)
-                audioController.PlaySound(onSound, false, false);
+            {
+                if (audioController != null)
+                    audioController.PlaySound(onSound, false, false);
+            }
             else
-                audioController.PlaySound(offSound, false, false);
+            {
+                if (audioController != null)
+                    audioController.PlaySound(offSound, false, false);
+            }
 
             SetState(currentState, characterActivating, true);
         }

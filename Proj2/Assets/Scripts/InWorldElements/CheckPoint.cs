@@ -9,6 +9,12 @@ public class CheckPoint : MonoBehaviour
 {
     [SerializeField] public int zone;
     [SerializeField] public Transform respawnPoint;
+    [HideInInspector] public static int checkPointsNumber { get; private set; }
+
+    private void Awake()
+    {
+        checkPointsNumber++;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

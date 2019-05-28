@@ -121,6 +121,12 @@ public class GameManager : MonoBehaviour
         {
             lastCheckPoint = checkPoint;
 
+            if (checkPoint.zone+1 >= CheckPoint.checkPointsNumber)
+            {
+                Application.Quit();
+                Debug.Log("GAME FINISHED");
+            }
+
             HideMainMenu();
         }
     }

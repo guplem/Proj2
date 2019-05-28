@@ -55,7 +55,7 @@ public class Interactable : MonoBehaviour
             animator.SetBool("Active", false);
 
         audioController = GetComponent<AudioController>();
-        if (audioController == null)
+        if (audioController == null && (startInteractSound != null || endInteractSound != null) )
             Debug.LogWarning("No audio controller found for " + gameObject.name, gameObject);
 
     }
@@ -65,7 +65,8 @@ public class Interactable : MonoBehaviour
         if (RegisterAndAskForStartInteraction())
         {
             Interact(interactingCharacter);
-            audioController.PlaySound(startInteractSound, false, false);
+            if (audioController != null)
+                audioController.PlaySound(startInteractSound, false, false);
         }
     }
 
@@ -86,7 +87,8 @@ public class Interactable : MonoBehaviour
             if (interactType == InteractType.Button)
             {
                 Interact(interactingCharacter);
-                audioController.PlaySound(endInteractSound, false, false);
+                if (audioController != null)
+                    audioController.PlaySound(endInteractSound, false, false);
             }
         }
     }

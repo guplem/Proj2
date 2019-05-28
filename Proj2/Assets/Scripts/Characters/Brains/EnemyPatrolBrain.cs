@@ -7,7 +7,8 @@ public class EnemyPatrolBrain : Brain
 {
 
     private Vector2[] patrolPoints;
-    private int patrolPointIndex;
+    private int patrolPointIndex = 0;
+    private float acceptedDistanceToPoint = 0.3f;
     public Vector2 currentPatrolPoint { get; private set; }
 
     public EnemyPatrolBrain(CharacterManager characterManager, Vector2[] patrolPoints)
@@ -35,15 +36,23 @@ public class EnemyPatrolBrain : Brain
         direction = (pp - ((Vector2)character.transform.position)).normalized;*/
 
         direction = (currentPatrolPoint - ((Vector2)character.transform.position)).normalized;
+
+        if (character.IsNextToPosition(currentPatrolPoint, deltaTime, acceptedDistanceToPoint))
+        {
+            direction = Vector2.zero;
+        }
     }
 
     private void UpdateCurrentPatrolPoint(float deltaTime)
     {
         //if (Vector2.Distance(character.transform.position, currentPatrolPoint) <= character.characterProperties.maxWalkVelocity.x * deltaTime)
         //Vector2 pp = new Vector2(currentPatrolPoint.x, character.transform.position.y);
-        if (character.IsNextToPosition(currentPatrolPoint, deltaTime, 0.3f))
+        if (character.IsNextToPosition(currentPatrolPoint, deltaTime, acceptedDistanceToPoint))
         {
-            patrolPointIndex++;
+            if (patrolPoints.Length > 1)
+                patrolPointIndex++;
+            else
+                patrolPointIndex = 0;
         }
 
         if (patrolPointIndex >= patrolPoints.Length)
