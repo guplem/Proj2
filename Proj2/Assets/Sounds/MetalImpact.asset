@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144c603ac537393468758cdaf85c90d6, type: 3}
   m_Name: MetalImpact
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 0fc87b089ef4d534eb127b382557933c, type: 3}
-  audioMixerGroup: {fileID: 0}
+  clip: {fileID: 8300000, guid: dee9dc9402c79b64b913ddfab1181b07, type: 3}
+  audioMixerGroup: {fileID: 24300002, guid: 8823c276da32ebf41a1d02a616bf8265, type: 2}
   volume: 1
-  pitch: 0.5
-  pitchRandomization: 0.2
+  pitch: 0.1
+  pitchRandomization: 0.075
