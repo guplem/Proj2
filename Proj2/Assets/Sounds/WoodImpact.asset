@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WoodImpact
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 5f209184e376ddb4ca4d817aca4cc6df, type: 3}
-  audioMixerGroup: {fileID: 0}
+  audioMixerGroup: {fileID: 24300002, guid: 8823c276da32ebf41a1d02a616bf8265, type: 2}
   volume: 0.28
   pitch: 0.1
   pitchRandomization: 0.075

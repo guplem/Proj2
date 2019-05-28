@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CharacterImpact
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 112aba7c68c5eda41bca81d0070a4e04, type: 3}
-  audioMixerGroup: {fileID: 0}
+  audioMixerGroup: {fileID: 24300002, guid: 8823c276da32ebf41a1d02a616bf8265, type: 2}
   volume: 1
   pitch: 0.5
   pitchRandomization: 0.2

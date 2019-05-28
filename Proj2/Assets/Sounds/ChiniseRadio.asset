@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ChiniseRadio
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 150742fab1ec23e47a5fb1310304d19f, type: 3}
-  audioMixerGroup: {fileID: 0}
+  audioMixerGroup: {fileID: 24300002, guid: e1494721da35c18449f6fbae8bbccea5, type: 2}
   volume: 1
   pitch: 0.5
   pitchRandomization: 0.2
