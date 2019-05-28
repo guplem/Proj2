@@ -36,7 +36,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (!character.brain.actionDown && !(character.state is ThrowState))
             return false;
 
-        if (!((PlayerManager)character).inventory.HasStoredItem())
+        if (!((PlayerManager)character).inventory.HasStoredItem() && !(character.state is ThrowState))
             return false;
 
         if (!character.IsTouchingGround())

@@ -84,9 +84,11 @@ public class ThrowState : State
     IEnumerator throwCorroutine;
     private IEnumerator Throw(Vector3 direction, Vector3 throwPosition)
     {
+        GameManager.Instance.lineManager.SetDrawing(false);
         character.visualsAnimator.SetTrigger("Throw");
-        yield return new WaitForSeconds(0f);
+        yield return new WaitForSeconds(0.1f);
         ((PlayerManager)character).inventory.ThrowStoredItem(((PlayerManager)character).throwingForce * direction, throwPosition);
+        yield return new WaitForSeconds(0.4f);
         ((PlayerManager)character).behaviourTree.CalculateAndSetNextState(true);
 
     }
