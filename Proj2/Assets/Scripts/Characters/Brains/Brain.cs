@@ -21,6 +21,12 @@ public abstract class Brain
         GetActions(deltaTime);
     }
 
+    internal void LookAt(Vector2 targetPosition)
+    {
+        direction = (targetPosition - (Vector2)character.transform.position).normalized;
+        CheckAndFlip();
+    }
+
     protected abstract void GetActions(float deltaTime);
 
     protected void Setup(CharacterManager characterManager)
