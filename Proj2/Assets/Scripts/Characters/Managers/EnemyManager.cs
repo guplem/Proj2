@@ -46,6 +46,8 @@ public abstract class EnemyManager : CharacterManager
     {
         if (CanSeePlayer())
         {
+            GameManager.Instance.playerManager.GetComponent<StressController>().IsBeinChased();
+
             if (brain.GetType() != typeof(ChasingBrain) ||
                 ((ChasingBrain)brain).target != GameManager.Instance.playerManager.gameObject)
             {

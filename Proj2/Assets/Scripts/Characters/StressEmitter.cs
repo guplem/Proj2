@@ -23,10 +23,13 @@ public class StressEmitter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         StressController stressController = collision.GetComponent<StressController>();
-
+        if (collision.isTrigger)
+            return;
+        
         if (stressController != null && emitStress)
         {
-            if (!stressing.Contains(stressController)) {
+            if (!stressing.Contains(stressController))
+            {
                 stressing.Add(stressController);
 
                 if (coroutineHolder == null)

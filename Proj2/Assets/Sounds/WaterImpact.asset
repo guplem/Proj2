@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WaterImpact
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 6567961d55992bc419b4c4ccb6f35402, type: 3}
-  audioMixerGroup: {fileID: 0}
+  audioMixerGroup: {fileID: 24300002, guid: 8823c276da32ebf41a1d02a616bf8265, type: 2}
   volume: 1
   pitch: 0.5
   pitchRandomization: 0.2

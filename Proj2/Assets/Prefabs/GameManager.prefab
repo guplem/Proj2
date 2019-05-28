@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8299475978780748961}
   - component: {fileID: 656853021}
   - component: {fileID: 5281320920568571807}
+  - component: {fileID: 9102068014746930507}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -180,3 +181,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorRadius: 2
+--- !u!114 &9102068014746930507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8299475978780748962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bda7bbd0e77294a87ac8a38fae58b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAudioSourcesQty: 2

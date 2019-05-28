@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public LineManager lineManager;
     [HideInInspector] public LineRenderer lineRenderer;
 
+    [Header("Sounds")]
+    public Sound backgroundSound;
+
     //[HideInInspector] public PlayerManager playerManager;
 
     public CheckPoint lastCheckPoint { get; private set; }
@@ -75,6 +78,8 @@ public class GameManager : MonoBehaviour
         lastCheckPoint = null;
         cursor = GetComponent<Cursor>();
         startPoint = playerManager.transform.position;
+
+        audioController.PlaySound(backgroundSound, true, false);
     }
 
     public void HitPlayer()

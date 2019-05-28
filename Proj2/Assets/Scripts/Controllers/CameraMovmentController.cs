@@ -31,9 +31,14 @@ public class CameraMovmentController
     {
         if (target != null)
         {
-            float offsetDirection = target.brain.direction.x;
-            Vector3 targetPos = new Vector3(target.transform.position.x + (camera.cameraOffset.x * offsetDirection), target.transform.position.y + camera.cameraOffset.y, camera.transform.position.z);
-            camera.transform.position = Vector3.Lerp(camera.transform.position, targetPos, velocity);
+            try
+            {
+                float offsetDirection = target.brain.direction.x;
+                Vector3 targetPos = new Vector3(target.transform.position.x + (camera.cameraOffset.x * offsetDirection), target.transform.position.y + camera.cameraOffset.y, camera.transform.position.z);
+                camera.transform.position = Vector3.Lerp(camera.transform.position, targetPos, velocity);
+            }
+            catch (Exception e) { Debug.LogWarning(e.ToString()); }
+
         }
         else
         {
