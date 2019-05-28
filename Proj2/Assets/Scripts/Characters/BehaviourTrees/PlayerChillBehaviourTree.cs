@@ -52,12 +52,11 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (!character.brain.interact)
             return false;
 
-        Interactable interactable = character.interactionsCollider.GetAvaliableInterectable(Activable.ActivationType.Movable);
+        Interactable interactable = character.interactionsController.GetAvaliableInterectable(Activable.ActivationType.Movable);
         if (interactable == null)
             return false;
 
         State.SetState(new PushPullState(character, interactable), character);
-        Debug.Log("Entered PushPull");
         return true;
     }
 
@@ -66,7 +65,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (!character.brain.interact && !(character.state is InteractState))
             return false;
 
-        Interactable interactable = character.interactionsCollider.GetAvaliableInterectable(Activable.ActivationType.Other);
+        Interactable interactable = character.interactionsController.GetAvaliableInterectable(Activable.ActivationType.Other);
         if (interactable == null)
             return false;
 
@@ -82,7 +81,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (!character.brain.interact && !(character.state is PickState))
             return false;
 
-        Interactable interactable = character.interactionsCollider.GetAvaliableInterectable(Activable.ActivationType.Pickable);
+        Interactable interactable = character.interactionsController.GetAvaliableInterectable(Activable.ActivationType.Pickable);
         if (interactable == null)
             return false;
 

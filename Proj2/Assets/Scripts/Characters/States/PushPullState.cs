@@ -29,9 +29,29 @@ public class PushPullState : State
     public override void FixedTick(float fixedDeltaTime)
     {
         character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, 0), character.characterProperties.maxWalkVelocity);
+
         interactableRb2d.velocity = new Vector2(character.rb2d.velocity.x, 0);
 
+        if (Mathf.Abs(interactableRb2d.velocity.x) > 0.5f)
+        {
+            Debug.Log(interactableRb2d.velocity);
+            if (!character.interactionsController.audioSource.isPlaying || character.interactionsController.audioSource.clip != character.interactionsController.audioSource.clip)
+            {
+                character.interactionsController.audioSource.clip = interactable.usingSound.clip;
+                character.interactionsController.audioSource.volume = interactable.usingSound.volume;
+                character.interactionsController.audioSource.pitch = interactable.usingSound.randomizedPitch;
+                character.interactionsController.audioSource.Play();
+            }
+        }
+        else
+        {
+            character.interactionsController.audioSource.Stop();
+        }
+
+
     }
+
+    
 
     public override void Tick(float deltaTime)
     {
@@ -96,5 +116,6 @@ public class PushPullState : State
     public override void OnExit()
     {
         interactable.EndInteract(character);
+        character.interactionsController.audioSource.Stop();
     }
 }

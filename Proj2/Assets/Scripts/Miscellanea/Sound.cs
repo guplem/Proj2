@@ -40,8 +40,8 @@ public class Sound : ScriptableObject, ICloneable
         this.clip = null;
         this.audioMixerGroup = null;
         this.volume = 1;
-        this.pitch = 0.5f;
-        this.pitchRandomization = 0.2f;
+        this.pitch = 0.2f;
+        this.pitchRandomization = 0.1f;
     }
 
     public object Clone()

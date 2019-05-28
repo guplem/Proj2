@@ -5,6 +5,7 @@ using UnityEngine;
 #pragma warning disable CS0649
 [SelectionBase]
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(AudioController))]
 public class Interactable : MonoBehaviour
 {
     [Header("Interaction configuration")]
@@ -22,6 +23,10 @@ public class Interactable : MonoBehaviour
 
     [Header("Activable elements")]
     [SerializeField] public Activable[] connectedActivables;
+
+    [SerializeField] private Sound startInteractSound, endInteractSound;
+    [SerializeField] public Sound usingSound; //Using sound does not play automatically, it is meant to be reproduced by other objects that are using the activable
+    private AudioController audioController;
 
     public enum InteractType
     {
@@ -49,6 +54,10 @@ public class Interactable : MonoBehaviour
         if (animator != null)
             animator.SetBool("Active", false);
 
+        audioController = GetComponent<AudioController>();
+        if (audioController == null)
+            Debug.LogWarning("No audio controller found for " + gameObject.name, gameObject);
+
     }
 
     public void StartInteract(CharacterManager interactingCharacter)
@@ -56,6 +65,7 @@ public class Interactable : MonoBehaviour
         if (RegisterAndAskForStartInteraction())
         {
             Interact(interactingCharacter);
+            audioController.PlaySound(startInteractSound, false, false);
         }
     }
 
@@ -74,7 +84,10 @@ public class Interactable : MonoBehaviour
         if (RegisterAndAskForEndInteraction())
         {
             if (interactType == InteractType.Button)
+            {
                 Interact(interactingCharacter);
+                audioController.PlaySound(endInteractSound, false, false);
+            }
         }
     }
 
@@ -111,7 +124,7 @@ public class Interactable : MonoBehaviour
         if (!interactAutomatically)
             return;
 
-        InteractionsColliderController interactionController = collision.GetComponent<InteractionsColliderController>();
+        InteractionsController interactionController = collision.GetComponent<InteractionsController>();
         if (interactionController != null)
         {
             StartInteract(interactionController.character);
@@ -123,7 +136,7 @@ public class Interactable : MonoBehaviour
         if (!interactAutomatically)
             return;
 
-        InteractionsColliderController interactionController = collision.GetComponent<InteractionsColliderController>();
+        InteractionsController interactionController = collision.GetComponent<InteractionsController>();
         if (interactionController != null)
         {
             EndInteract(interactionController.character);

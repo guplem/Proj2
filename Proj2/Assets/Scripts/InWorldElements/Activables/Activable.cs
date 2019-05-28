@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [SelectionBase]
+[RequireComponent(typeof(AudioController))]
 public abstract class Activable : MonoBehaviour
 {
 
@@ -11,6 +12,8 @@ public abstract class Activable : MonoBehaviour
 
     [SerializeField] public bool singleActivation;
     [HideInInspector] public bool alreadyActivated;
+    [SerializeField] private Sound onSound, offSound;
+    private AudioController audioController;
 
     public enum ActivationType
     {
@@ -28,6 +31,10 @@ public abstract class Activable : MonoBehaviour
         SetState(currentState, null, false);
 
         alreadyActivated = false;
+
+        audioController = GetComponent<AudioController>();
+        if (audioController == null)
+            Debug.LogWarning("No audio controller found for " + gameObject.name, gameObject);
     }
 
     public void SwitchState(CharacterManager characterActivating)
@@ -35,6 +42,12 @@ public abstract class Activable : MonoBehaviour
         if (RegisterAndAskForActivation())
         {
             currentState = !currentState;
+
+            if (currentState)
+                audioController.PlaySound(onSound, false, false);
+            else
+                audioController.PlaySound(offSound, false, false);
+
             SetState(currentState, characterActivating, true);
         }
     }
