@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8324473268950946671}
   - component: {fileID: 8024989292537650061}
   m_Layer: 12
-  m_Name: Item
+  m_Name: ItemBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,15 +74,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 967
-  m_Sprite: {fileID: 21300000, guid: 025944006833f0145884eafa28fb4e56, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.84, y: 3.97}
+  m_Size: {x: 1.4566667, y: 0.17166667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &48236622705299597
@@ -101,15 +101,15 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.4566667, y: 0.17166667}
-    newSize: {x: 4.84, y: 3.97}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 0.18}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &48236622705299598
 Rigidbody2D:
@@ -172,11 +172,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cca5dd62087974892a529596997360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialPhysics: {fileID: 11400000, guid: 3a112dee1d4dd4a4283a668d19b4cb97, type: 2}
+  materialPhysics: {fileID: 0}
   playSoundsAtColision: 1
-  sound: {fileID: 11400000, guid: 707baf420be87ee4596d15ca5dd5ce38, type: 2}
+  sound: {fileID: 0}
   minVelocityAtCollisionForMaxSoundVolume: 10
-  objectSize: 0.5
+  minVelocityAtCollisionForCollisionSound: 0.4
+  objectSize: 0.25
   alertAlertablesOnCollision: 1
 --- !u!1 &7453960573528057067
 GameObject:
@@ -243,7 +244,6 @@ MonoBehaviour:
   singleInteraction: 0
   alreadyStartedInteraction: 0
   alreadyEndedInteraction: 0
-  initialVisuals: {fileID: 0}
-  interactingVisuals: {fileID: 0}
+  animator: {fileID: 0}
   connectedActivables:
   - {fileID: 48236622705299599}

@@ -15,5 +15,5 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: dee9dc9402c79b64b913ddfab1181b07, type: 3}
   audioMixerGroup: {fileID: 0}
   volume: 1
-  pitch: 0.5
-  pitchRandomization: 0.2
+  pitch: 0.1
+  pitchRandomization: 0.075
