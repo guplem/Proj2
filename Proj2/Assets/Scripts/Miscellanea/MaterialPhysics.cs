@@ -13,12 +13,12 @@ public class MaterialPhysics : ScriptableObject
     [SerializeField] public float bounciness;
     [Range(0f, 1f)]
     [Tooltip("Used to generate sound effects")]
-    [SerializeField] public float hardnesh;
+    [SerializeField] public float hardness;
     
     public MaterialPhysics()
     {
         this.friction = 0.5f;
         this.bounciness = 0.25f;
-        this.hardnesh = 1.0f;
+        this.hardness = 1.0f;
     }
 }

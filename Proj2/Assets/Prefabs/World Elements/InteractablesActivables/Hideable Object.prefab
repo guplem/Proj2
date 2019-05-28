@@ -287,7 +287,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1, y: 0.5}
+  m_Offset: {x: -0.9, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -313,7 +313,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1, y: 0.5}
+  m_Offset: {x: 0.9, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -343,8 +343,7 @@ MonoBehaviour:
   singleInteraction: 0
   alreadyStartedInteraction: 0
   alreadyEndedInteraction: 0
-  initialVisuals: {fileID: 0}
-  interactingVisuals: {fileID: 0}
+  animator: {fileID: 0}
   connectedActivables:
   - {fileID: 805759027}
 --- !u!114 &805759027

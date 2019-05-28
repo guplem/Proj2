@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    public CameraMovmentController cameraMovmentController;
+    public CameraMovmentController cameraMovementController;
     public Vector2 cameraOffset;
+    public Vector2 cameraSpeed;
+    public float verticalLimit;
     [HideInInspector] public Camera mainCamera;
 
-    public void Setup(CharacterManager target, float velocity)
+    public void Setup(CharacterManager target)
     {
-        cameraMovmentController = new CameraMovmentController(this, target, velocity);
+        cameraMovementController = new CameraMovmentController(this, target);
         mainCamera = GetComponent<Camera>();
 
         if (mainCamera == null)
@@ -19,7 +21,7 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        cameraMovmentController.Tick();
+        cameraMovementController.Tick();
     }
 
 }

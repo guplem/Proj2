@@ -5,12 +5,10 @@ using UnityEngine;
 #pragma warning disable 0649
 public class StressController : MonoBehaviour
 {
-    public float stressRemovalDelay;
+    [Header("Stress Settings")]
+    [Tooltip("Time untill stress starts to get removed.")] public float stressRemovalDelay;
     public float stressRemovalPerSecond;
     public float removeStressEveryXTime;
-
-
-    private bool removingStress;
 
     private float _currentStress;
 
@@ -44,6 +42,7 @@ public class StressController : MonoBehaviour
 
             if (isPlayer)
             {
+                GUIManager.Instance.BackgroundVignette.SetObjectActive(true);
                 GUIManager.Instance.BackgroundVignette.SetOpacitySmooth(value / stressThreshold);
             }
         }
@@ -64,11 +63,6 @@ public class StressController : MonoBehaviour
     {
         isPlayer = GetComponent<PlayerManager>() != null;
         stressRemovalCoroutine = RemoveStressAfterTime(stressRemovalDelay, removeStressEveryXTime);
-    }
-
-    private void Update()
-    {
-        removingStress = stressRemovalCoroutine == null;
     }
 
     public bool AddStress(float amount)

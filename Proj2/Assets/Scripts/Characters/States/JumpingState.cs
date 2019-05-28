@@ -16,6 +16,13 @@ public class JumpingState : State
 
         character.movementController.Jump(character.characterProperties.jumpForce, ForceMode2D.Impulse);
 
+        try
+        {
+            character.rb2d.sharedMaterial = ((PlayerProperties)(character.characterProperties)).OnAirMaterial;
+        }
+        catch (System.InvalidCastException)
+        { }
+
         yield return "success";
     }
 
@@ -36,6 +43,11 @@ public class JumpingState : State
 
     public override void OnExit()
     {
-
+        try
+        {
+            character.rb2d.sharedMaterial = ((PlayerProperties)(character.characterProperties)).DefaultMaterial;
+        }
+        catch (System.InvalidCastException)
+        { }
     }
 }

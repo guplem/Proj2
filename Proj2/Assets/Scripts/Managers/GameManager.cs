@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         audioController = GetComponent<AudioController>();
         lineRenderer = GetComponent<LineRenderer>();
         lineManager = new LineManager();
-        camera.Setup(playerManager, 0.01f);
+        camera.Setup(playerManager);
         lastCheckPoint = null;
         cursor = GetComponent<Cursor>();
         startPoint = playerManager.transform.position;

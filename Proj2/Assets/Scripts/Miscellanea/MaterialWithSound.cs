@@ -92,7 +92,7 @@ public class MaterialWithSound : MonoBehaviour
 
 
         float volumeByCollision = (relativeVelocity * sound.volume) / materialOfMovingObject.minVelocityAtCollisionForMaxSoundVolume; //The faster the collision, louder is the sound
-        sound.volume = volumeByCollision * collidedMaterial.materialPhysics.hardnesh; //The harder the collided object, louder is the sound
+        sound.volume = volumeByCollision * collidedMaterial.materialPhysics.hardness; //The harder the collided object, louder is the sound
 
 
         return sound;
