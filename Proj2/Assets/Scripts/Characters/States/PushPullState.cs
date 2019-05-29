@@ -14,6 +14,9 @@ public class PushPullState : State
         this.character = characterManager;
         this.interactable = interactable;
         this.interactableRb2d = interactable.GetComponent<Rigidbody2D>();
+
+        character.characterProperties.internalVelocity = character.characterProperties.maxWalkVelocity * 0.35f;
+
     }
 
     protected override IEnumerator StartState()
