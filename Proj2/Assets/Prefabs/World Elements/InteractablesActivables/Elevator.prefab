@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 5609938507212128420}
   - component: {fileID: 2466534753462814990}
   - component: {fileID: 3224597021980180190}
+  - component: {fileID: 2083613311586017307}
   m_Layer: 8
   m_Name: Elevator
   m_TagString: Untagged
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2bda7bbd0e77294a87ac8a38fae58b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultAudioSourcesQty: 0
+  defaultAudioSourcesQty: 1
 --- !u!114 &5609938507212128420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +217,25 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &2083613311586017307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2907879449001784212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34cca5dd62087974892a529596997360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialPhysics: {fileID: 11400000, guid: d9d5db673a684bd4f927300802f56bec, type: 2}
+  playSoundsAtColision: 1
+  sound: {fileID: 11400000, guid: 707baf420be87ee4596d15ca5dd5ce38, type: 2}
+  minVelocityAtCollisionForMaxSoundVolume: 10
+  minVelocityAtCollisionForCollisionSound: 0.4
+  objectSize: 0.25
+  alertAlertablesOnCollision: 0
 --- !u!1 &4468652830660680594
 GameObject:
   m_ObjectHideFlags: 0

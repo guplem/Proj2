@@ -170,8 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d742cd59f4039b4c93f797c2055e3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraOffset: {x: 4, y: 4}
-  cameraSpeed: {x: 0.05, y: 0.2}
+  cameraOffset: {x: 3.25, y: 4}
+  cameraSpeed: {x: 0.02, y: 0.2}
   verticalLimit: 0
   mainCamera: {fileID: 0}
 --- !u!114 &2934680931672727607

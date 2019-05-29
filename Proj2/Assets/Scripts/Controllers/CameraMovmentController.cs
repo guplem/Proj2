@@ -21,9 +21,9 @@ public class CameraMovmentController
         {
             try
             {
-                float negativePlayerVerticalVelocity = target.rb2d.velocity.y < 0 ? target.rb2d.velocity.y * 0.5f : 0;
+                float negativePlayerVerticalVelocity = target.rb2d.velocity.y < 0 ? target.rb2d.velocity.y * 0.2f : 0;
                 float offsetDirectionX = target.brain.direction.x;
-                Vector3 targetPos = new Vector3(target.transform.position.x + (camera.cameraOffset.x * offsetDirectionX), target.transform.position.y + camera.cameraOffset.y + Mathf.Min(negativePlayerVerticalVelocity,camera.verticalLimit), camera.transform.position.z);
+                Vector3 targetPos = new Vector3(target.transform.position.x + (camera.cameraOffset.x * offsetDirectionX), target.transform.position.y + camera.cameraOffset.y + negativePlayerVerticalVelocity, camera.transform.position.z);
                 camera.transform.position = new Vector3(Mathf.Lerp(camera.transform.position.x, targetPos.x, camera.cameraSpeed.x), Mathf.Lerp(camera.transform.position.y, targetPos.y, camera.cameraSpeed.y), targetPos.z);
             }
             catch (Exception e) { Debug.LogWarning(e.ToString()); }

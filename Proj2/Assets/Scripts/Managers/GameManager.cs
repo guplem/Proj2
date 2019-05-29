@@ -89,8 +89,6 @@ public class GameManager : MonoBehaviour
 
     private void PlayerDead()
     {
-        Debug.Log("Player is dead");
-
         try
         {
             SpawnPlayer(lastCheckPoint.respawnPoint.position);
@@ -111,7 +109,6 @@ public class GameManager : MonoBehaviour
 
     private void SpawnPlayer(Vector3 position)
     {
-        Debug.Log("Spawning player at " + position);
         playerManager.transform.position = position;
     }
 

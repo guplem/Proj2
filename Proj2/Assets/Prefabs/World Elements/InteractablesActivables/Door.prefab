@@ -109,6 +109,8 @@ GameObject:
   - component: {fileID: 5160998186800416926}
   - component: {fileID: 2796216870168626559}
   - component: {fileID: 2226393249265958887}
+  - component: {fileID: 8688669103318896067}
+  - component: {fileID: 4445247893396760098}
   m_Layer: 8
   m_Name: VisualsAndCollider
   m_TagString: Untagged
@@ -242,3 +244,35 @@ MonoBehaviour:
   offSound: {fileID: 0}
   doorCollider: {fileID: 5160998186800416926}
   animator: {fileID: 2796216870168626559}
+--- !u!114 &8688669103318896067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8426220683276116952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bda7bbd0e77294a87ac8a38fae58b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAudioSourcesQty: 1
+--- !u!114 &4445247893396760098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8426220683276116952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34cca5dd62087974892a529596997360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialPhysics: {fileID: 11400000, guid: 9cf3371493895064eb929b60c8d108b2, type: 2}
+  playSoundsAtColision: 1
+  sound: {fileID: 11400000, guid: f6adf6abae748184192ffdf499bed9ba, type: 2}
+  minVelocityAtCollisionForMaxSoundVolume: 10
+  minVelocityAtCollisionForCollisionSound: 0.4
+  objectSize: 0.25
+  alertAlertablesOnCollision: 0
