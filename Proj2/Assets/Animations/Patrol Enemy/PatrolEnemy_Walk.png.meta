@@ -109,18 +109,18 @@ TextureImporter:
       name: PatrolEnemy_Walk_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 551.63635
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 25
+        y: 58
+        width: 433
+        height: 522
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ead1973286e883a43ba2d05dba6040a8
+      spriteID: 051f8538fab8c58439faad75423db44b
       vertices: []
       indices: 
       edges: []
@@ -129,18 +129,18 @@ TextureImporter:
       name: PatrolEnemy_Walk_1
       rect:
         serializedVersion: 2
-        x: 551
-        y: 0
-        width: 551.63635
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 529
+        y: 70
+        width: 435
+        height: 510
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bab796a34bad78d4586d9abec3f7e0d1
+      spriteID: 4dbb5d3445981534c8b8aabeb793abc2
       vertices: []
       indices: 
       edges: []
@@ -149,18 +149,18 @@ TextureImporter:
       name: PatrolEnemy_Walk_2
       rect:
         serializedVersion: 2
-        x: 1102
-        y: 0
-        width: 551.63635
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1086
+        y: 70
+        width: 432
+        height: 513
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c71e70261234a34d978e1ee435bd4e6
+      spriteID: a8c1ac301cf79f543b81ae41ed490fdf
       vertices: []
       indices: 
       edges: []
@@ -169,18 +169,18 @@ TextureImporter:
       name: PatrolEnemy_Walk_3
       rect:
         serializedVersion: 2
-        x: 1653
-        y: 0
-        width: 551.63635
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1652
+        y: 70
+        width: 421
+        height: 513
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36c94a9c11eef3944a94551730417bcb
+      spriteID: a5cf727a35f77be498db87f70bfcdfa9
       vertices: []
       indices: 
       edges: []
@@ -189,18 +189,18 @@ TextureImporter:
       name: PatrolEnemy_Walk_4
       rect:
         serializedVersion: 2
-        x: 2204
-        y: 0
-        width: 551.63635
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2206
+        y: 73
+        width: 438
+        height: 507
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06b2e93431e608947a49f85f8702bcea
+      spriteID: 4c9f6132df46e8e47b6551a2e278aaf1
       vertices: []
       indices: 
       edges: []
@@ -209,18 +209,18 @@ TextureImporter:
       name: PatrolEnemy_Walk_5
       rect:
         serializedVersion: 2
-        x: 2755
-        y: 0
-        width: 551.63635
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2766
+        y: 62
+        width: 432
+        height: 518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a134540f64fdb1d4f846dafd10550b1d
+      spriteID: c24fa58f76f40094f8822ab215bee178
       vertices: []
       indices: 
       edges: []
@@ -229,18 +229,18 @@ TextureImporter:
       name: PatrolEnemy_Walk_6
       rect:
         serializedVersion: 2
-        x: 3306
-        y: 0
-        width: 551.63635
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3320
+        y: 55
+        width: 432
+        height: 525
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fb904db068e56c4f8f2fe98d1d5e93e
+      spriteID: 515c43c622d9e104ebeff76db6312412
       vertices: []
       indices: 
       edges: []
@@ -249,18 +249,18 @@ TextureImporter:
       name: PatrolEnemy_Walk_7
       rect:
         serializedVersion: 2
-        x: 3857
-        y: 0
-        width: 551.63635
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3875
+        y: 73
+        width: 435
+        height: 507
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d75dfb2eccf35454dac9361946989983
+      spriteID: 815eef635894d0748bfaac4bfea48075
       vertices: []
       indices: 
       edges: []
@@ -269,18 +269,18 @@ TextureImporter:
       name: PatrolEnemy_Walk_8
       rect:
         serializedVersion: 2
-        x: 4408
-        y: 0
-        width: 551.63635
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4434
+        y: 67
+        width: 421
+        height: 513
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0026a8327cec8c94b9732ebc8fa236f1
+      spriteID: e24b60bae6f5a4d4d964adf3d196a221
       vertices: []
       indices: 
       edges: []
@@ -289,18 +289,18 @@ TextureImporter:
       name: PatrolEnemy_Walk_9
       rect:
         serializedVersion: 2
-        x: 4959
-        y: 0
-        width: 551.63635
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4977
+        y: 67
+        width: 429
+        height: 513
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e36ae8ce02809945bc2950929cff869
+      spriteID: 531ed83f77f6a754ca6a2d8c32475a08
       vertices: []
       indices: 
       edges: []
@@ -309,18 +309,18 @@ TextureImporter:
       name: PatrolEnemy_Walk_10
       rect:
         serializedVersion: 2
-        x: 5510
-        y: 0
-        width: 551.63635
-        height: 662
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5530
+        y: 67
+        width: 434
+        height: 515
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0df21fb9b2df29f4f9dc5a8346f28334
+      spriteID: cfc0d0cce4e39b544ada60df16528639
       vertices: []
       indices: 
       edges: []

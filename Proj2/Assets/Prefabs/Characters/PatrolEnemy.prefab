@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3863103725657106640}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.15, y: 1.017, z: 0}
+  m_LocalPosition: {x: -0.15, y: -0.156, z: 0}
   m_LocalScale: {x: 0.45248872, y: 0.45248872, z: 0.65578073}
   m_Children: []
   m_Father: {fileID: 3288080737175248161}
@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25496907f6ec3844fbe61e58db626ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zone: 0
 --- !u!114 &3474346166415430201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,11 +434,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3288080737175248161}
     m_Modifications:
-    - target: {fileID: 3505883074891551292, guid: 8a2f06dc9e880c7458be68422fdbdcea,
-        type: 3}
-      propertyPath: m_Name
-      value: Stress Emitter
-      objectReference: {fileID: 0}
     - target: {fileID: 3505883074891551293, guid: 8a2f06dc9e880c7458be68422fdbdcea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -492,6 +488,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505883074891551292, guid: 8a2f06dc9e880c7458be68422fdbdcea,
+        type: 3}
+      propertyPath: m_Name
+      value: Stress Emitter
       objectReference: {fileID: 0}
     - target: {fileID: 3505883074891551290, guid: 8a2f06dc9e880c7458be68422fdbdcea,
         type: 3}
