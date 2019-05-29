@@ -300,7 +300,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.5}
+  m_Size: {x: 0.12, y: 0.5}
   m_EdgeRadius: 0
 --- !u!61 &976923535870799083
 BoxCollider2D:
@@ -326,7 +326,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.5}
+  m_Size: {x: 0.12, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &214558114
 MonoBehaviour:
@@ -366,8 +366,10 @@ MonoBehaviour:
   defaultState: 0
   singleActivation: 0
   alreadyActivated: 0
-  onSound: {fileID: 11400000, guid: 62f77c1292e12cf40920158eed4195ff, type: 2}
+  onSound: {fileID: 0}
   offSound: {fileID: 0}
+  leftSideCol: {fileID: 214558115}
+  rightSideCol: {fileID: 976923535870799083}
 --- !u!114 &926777633242791028
 MonoBehaviour:
   m_ObjectHideFlags: 0
