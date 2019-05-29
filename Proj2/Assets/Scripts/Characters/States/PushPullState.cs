@@ -28,10 +28,10 @@ public class PushPullState : State
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, 0), character.characterProperties.internalVelocity);
+        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, 0), character.characterProperties.maxWalkVelocity);
 
         interactableRb2d.velocity = new Vector2(character.rb2d.velocity.x, 0);
-
+        Debug.Log(interactableRb2d.velocity.x);
         if (Mathf.Abs(interactableRb2d.velocity.x) > 0.5f)
         {
             if (!character.interactionsController.audioSource.isPlaying || character.interactionsController.audioSource.clip != character.interactionsController.audioSource.clip)
@@ -114,7 +114,8 @@ public class PushPullState : State
 
     public override void OnExit()
     {
-        interactable.EndInteract(character);
+        character.rb2d.velocity = Vector3.zero;
         character.interactionsController.audioSource.Stop();
+        interactable.EndInteract(character);
     }
 }
