@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 6516674386640406558}
   - component: {fileID: 6516674386640406547}
   - component: {fileID: 2934680931672727607}
+  - component: {fileID: 6012312286822067038}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -172,7 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraOffset: {x: 3.25, y: 4}
   cameraSpeed: {x: 0.02, y: 0.2}
-  verticalLimit: 0
   mainCamera: {fileID: 0}
 --- !u!114 &2934680931672727607
 MonoBehaviour:
@@ -210,3 +210,21 @@ MonoBehaviour:
   LightSourcesLayer: 16
   AmbientLightLayer: 15
   LightObstaclesLayer: 17
+--- !u!114 &6012312286822067038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516674386640406559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc17351fc38a45ca9bfb8e99cdcda5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  Size: 3
+  HorizontalSpeed: 0.1
+  VerticalSpeed: 0
+  Density: 0.4
+  Shader: {fileID: 4800000, guid: fdac6dc07af404deba03f0e8f95edf1f, type: 3}
