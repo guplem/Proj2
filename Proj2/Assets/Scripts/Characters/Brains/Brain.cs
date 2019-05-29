@@ -14,11 +14,28 @@ public abstract class Brain
 
     protected CharacterManager character;
 
+    private Vector3 lastSavedPosition;
+    private int stuckedFrames = 0, maxStuckedFrames = 60*4;
+
     public void Act(float deltaTime)
     {
         /*Pause could work by doing: if (gamemanager.instance.pause) --> Set all variables to false*/ //If doing so, remember removing the pause controller from PlayerInput
 
         GetActions(deltaTime);
+
+        if ((direction != Vector2.zero) && (character.transform.position == lastSavedPosition))
+        {
+            stuckedFrames++;
+            if (stuckedFrames >= maxStuckedFrames)
+            {
+                stuckedFrames = 0;
+                Brain.SetBrain(character.defaultBrain, 0f, character, false);
+            }
+        }
+        else
+        {
+            lastSavedPosition = character.transform.position;
+        }
     }
 
     internal void LookAt(Vector2 targetPosition)

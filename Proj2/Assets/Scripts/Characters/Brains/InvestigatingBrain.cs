@@ -14,7 +14,6 @@ public class InvestigatingBrain : Brain
         this.investigatingPosition = investigatingPosition;
     }
 
-    bool waitingToExitBrain = false;
     protected override void GetActions(float deltaTime)
     {
         jumping = false;
@@ -22,12 +21,17 @@ public class InvestigatingBrain : Brain
         actionHold = false;
         crouch = false;
 
-        if (!character.IsNextToPosition(investigatingPosition, deltaTime, 0.3f))
-            direction = (investigatingPosition - ((Vector2)character.transform.position)).normalized;
-        else if (!waitingToExitBrain)
+        if (!character.IsNextToPosition(investigatingPosition, deltaTime, 0.4f))
         {
-            SetBrain(character.defaultBrain, 2f, character, false);
-            waitingToExitBrain = true;
+            if (investigatingPosition.x >= character.transform.position.x)
+                direction = Vector2.right;
+            else
+                direction = Vector2.left;
+        }
+        else
+        {
+            direction = Vector2.zero;
+            SetBrain(character.defaultBrain, 5f, character, false);
         }
     }
 

@@ -22,7 +22,7 @@ public class WalkingState : State
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, character.characterProperties.acceleration.y), character.characterProperties.maxWalkVelocity);
+        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), character.characterProperties.acceleration, character.characterProperties.maxWalkVelocity);
     }
 
     public override void OnExit()

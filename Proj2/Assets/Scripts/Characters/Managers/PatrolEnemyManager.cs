@@ -60,6 +60,14 @@ public class PatrolEnemyManager : EnemyManager
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(((EnemyPatrolBrain)brain).currentPatrolPoint, 0.3f);
         }
+
+        if (brain is InvestigatingBrain)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(((InvestigatingBrain)brain).investigatingPosition, 0.3f);
+        }
+
+        
     }
 
     public override void Alert(Vector2 position)
