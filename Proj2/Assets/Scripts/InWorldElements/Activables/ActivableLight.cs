@@ -5,7 +5,7 @@ using UnityEngine;
 #pragma warning disable 0649
 public class ActivableLight : Activable
 {
-    [SerializeField] private GameObject lightEmmiter;
+    [SerializeField] private GameObject[] activableObjectsOnSetActive;
     [SerializeField] private float alertRadius;
     [SerializeField] private Vector2 alertPoint;
 
@@ -16,8 +16,10 @@ public class ActivableLight : Activable
 
     protected override void SetState(bool state, CharacterManager characterActivating, bool alertAtActivate)
     {
-        lightEmmiter.SetActive(state);
-
+        foreach (GameObject go in activableObjectsOnSetActive)
+        {
+            go.SetActive(state);
+        }
         if (state && alertAtActivate)
         {
             Alertable.AlertAllInRadius(new Vector2(transform.position.x, transform.position.y) + alertPoint, alertRadius);
