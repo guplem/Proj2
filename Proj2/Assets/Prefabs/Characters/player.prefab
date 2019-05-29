@@ -359,7 +359,7 @@ MonoBehaviour:
   characterProperties: {fileID: 11400000, guid: b0ac9eb4c99dcda48a7942f20f2a795b,
     type: 2}
   throwPoint: {fileID: 4705788987633123289}
-  throwingForce: {x: 10, y: 10}
+  throwingForce: {x: 8, y: 8}
 --- !u!114 &5604496833189422184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stressRemovalDelay: 3
   stressRemovalPerSecond: 50
-  removeStressEveryXTime: 0.1
+  removeStressEveryXTime: 0.2
   stressThreshold: 100
   audioPlayingWhileStressing: {fileID: 4612740365741761220}
   audioPlayingWhileBeingChased: {fileID: 6841947240610493869}
