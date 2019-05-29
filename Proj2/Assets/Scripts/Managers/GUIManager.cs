@@ -8,16 +8,19 @@ using System;
 #pragma warning disable 0649
 public class GUIManager : MonoBehaviour
 {
-
     
     public Fading BackgroundVignette { get => backgroundVignette; private set => backgroundVignette = value; }
     [SerializeField] private Fading backgroundVignette;
     public Fading PausePanel { get => pausePanel; private set => pausePanel = value; }
     [SerializeField] private Fading pausePanel;
     public Fading MainMenuPanel { get => mainMenuPanel; private set => mainMenuPanel = value; }
-    [SerializeField] private Fading mainMenuPanel;
-    public Fading ControlsPanel { get => controlsPanel; private set => controlsPanel = value; }
-    [SerializeField] private Fading controlsPanel;
+    [SerializeField] private Fading mainMenuPanel;  
+    public Fading InventoryImage { get => inventoryPanel; private set => inventoryPanel = value; }
+    [SerializeField] private Fading inventoryPanel;
+
+    [Header("Pause configuration")]
+    [SerializeField] public GameObject defaultPauseSelectedItem;
+
 
     [HideInInspector] public static GUIManager Instance;
     private void Awake()
@@ -30,12 +33,25 @@ public class GUIManager : MonoBehaviour
 
     public void ResumeGameButton()
     {
-        GameManager.Instance.SetPause(false);
+        StartCoroutine(GameManager.Instance.SetPause(false));
     }
 
     public void ExitGameButton()
     {
         GameManager.Instance.ExitGame();
+    }
+
+    public void SetInventoryImage(Sprite image)
+    {
+        if (image == null)
+        {
+            inventoryPanel.SetObjectActive(false);
+        }
+        else
+        {
+            inventoryPanel.GetComponent<Image>().sprite = image;
+            inventoryPanel.SetObjectActive(true);
+        }
     }
 
 }

@@ -1,0 +1,275 @@
+fileFormatVersion: 2
+guid: fb9d67e808c800043b45df0cd1503174
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Enemy_Iddle_0
+    21300002: Enemy_Iddle_1
+    21300004: Enemy_Iddle_2
+    21300006: Enemy_Iddle_3
+    21300008: Enemy_Iddle_4
+    21300010: Enemy_Iddle_5
+    21300012: Enemy_Iddle_6
+    21300014: Enemy_Iddle_7
+    21300016: Enemy_Iddle_8
+    21300018: Enemy_Iddle_9
+    21300020: Enemy_Iddle_10
+    21300022: Enemy_Iddle_11
+    21300024: Enemy_Iddle_12
+    21300026: Enemy_Iddle_13
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy_Iddle_0
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 44
+        width: 280
+        height: 529
+      alignment: 9
+      pivot: {x: 0.466397, y: 0.04980078}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 471ff5b3b912e7540aaae133713c0fd7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Iddle_1
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 57
+        width: 350
+        height: 503
+      alignment: 9
+      pivot: {x: 0.31451276, y: 0.035540193}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029adcf3935bcc849853452e0c8156f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Iddle_3
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 66
+        width: 415
+        height: 486
+      alignment: 9
+      pivot: {x: 0.27554977, y: 0.017423779}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f944dc8b57ef8a44ba1937aade4ffc6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Iddle_5
+      rect:
+        serializedVersion: 2
+        x: 2456
+        y: 64
+        width: 444
+        height: 488
+      alignment: 9
+      pivot: {x: 0.30716243, y: 0.019280402}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1e8bdac344d0b449ef8947e944705a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Iddle_7
+      rect:
+        serializedVersion: 2
+        x: 3215
+        y: 64
+        width: 444
+        height: 488
+      alignment: 9
+      pivot: {x: 0.30716243, y: 0.021208435}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3849af8f4391c4e86c4123a4ad393d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Iddle_9
+      rect:
+        serializedVersion: 2
+        x: 3976
+        y: 64
+        width: 444
+        height: 488
+      alignment: 9
+      pivot: {x: 0.31113192, y: 0.017291991}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 519b1bd089da02e459bc41f4eb0301d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Iddle_11
+      rect:
+        serializedVersion: 2
+        x: 4737
+        y: 64
+        width: 444
+        height: 488
+      alignment: 9
+      pivot: {x: 0.29655278, y: 0.018206878}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 713bbd465e2c5054f87c4fba6184161d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 038adcd02b0627a47b43b4dd98eea90c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

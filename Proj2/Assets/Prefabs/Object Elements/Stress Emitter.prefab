@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emitStress: 1
-  stressAmountPerSecond: 0.5
+  stressAmountPerSecond: 10
   timeBetweenEmisions: 0.5
 --- !u!58 &3505883074891551290
 CircleCollider2D:
@@ -63,7 +63,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 4.7
 --- !u!50 &3505883074891551288
 Rigidbody2D:
   serializedVersion: 4

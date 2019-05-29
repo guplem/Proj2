@@ -10,12 +10,15 @@ public class PlayerInput : Brain
         base.Setup(characterManager);
     }
 
-    protected override void GetActions()
+    protected override void GetActions(float deltaTime)
     {
-        jumping = Input.GetButton("Jump");
-        SetInteractingTo(Input.GetButton("Interact"));
-        action = Input.GetButton("Action");
-        actionRelease = Input.GetButtonUp("Action");
+        if (GameManager.Instance.gamePaused)
+            return;
+
+        jumping = Input.GetButtonDown("Jump");
+        interact = Input.GetButton("Interact");
+        actionHold = Input.GetButton("Action");
+        actionDown = Input.GetButtonDown("Action");
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         crouch = Input.GetButton("Crouch");
     }

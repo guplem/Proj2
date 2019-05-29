@@ -67,7 +67,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 23
   m_Sprite: {fileID: 21300000, guid: c63d2027ceca3074882713b4615186eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -146,7 +146,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 23
   m_Sprite: {fileID: 21300008, guid: c63d2027ceca3074882713b4615186eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 7654908521378741632}
   - component: {fileID: 7654908521378741638}
   - component: {fileID: 4172570578178696951}
+  - component: {fileID: 9123384590576003216}
   m_Layer: 9
   m_Name: Switch
   m_TagString: Untagged
@@ -235,6 +236,21 @@ MonoBehaviour:
   singleInteraction: 0
   alreadyStartedInteraction: 0
   alreadyEndedInteraction: 0
-  initialVisuals: {fileID: 2559861753649290061}
-  interactingVisuals: {fileID: 3940992793443775172}
+  animator: {fileID: 0}
   connectedActivables: []
+  startInteractSound: {fileID: 0}
+  endInteractSound: {fileID: 0}
+  usingSound: {fileID: 0}
+--- !u!114 &9123384590576003216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7654908521378741636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bda7bbd0e77294a87ac8a38fae58b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAudioSourcesQty: 0

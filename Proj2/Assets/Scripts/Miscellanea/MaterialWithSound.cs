@@ -15,10 +15,11 @@ public class MaterialWithSound : MonoBehaviour
     [SerializeField] private bool playSoundsAtColision = true;
     [SerializeField] public Sound sound;
     [Tooltip("Used to generate sound effects")]
-    [SerializeField] public float minVelocityAtCollisionForMaxSoundVolume = 10;
-    [Range(0f, 1f)]
+    [SerializeField] public float minVelocityAtCollisionForMaxSoundVolume = 10f;
+    [SerializeField] public float minVelocityAtCollisionForCollisionSound = 0.4f;
+    [Range(0.001f, 0.65f)]
     [Tooltip("Used to generate sound effects")]
-    [SerializeField] public float objectSize = 0.5f;
+    [SerializeField] public float objectSize = 0.25f;
     [HideInInspector] private AudioController audioController;
     [SerializeField] private bool alertAlertablesOnCollision = false;
 
@@ -44,6 +45,7 @@ public class MaterialWithSound : MonoBehaviour
         this.materialPhysics = ScriptableObject.CreateInstance<MaterialPhysics>(); //new MaterialPhysics();
         this.sound = null;
         this.minVelocityAtCollisionForMaxSoundVolume = 10f;
+        this.minVelocityAtCollisionForCollisionSound = 0.4f;
 
         return this;
     }
@@ -57,6 +59,9 @@ public class MaterialWithSound : MonoBehaviour
 
             if (sound != null)
             {
+                if (collision.relativeVelocity.magnitude < minVelocityAtCollisionForCollisionSound)
+                    return;
+
                 MaterialWithSound colMat = collision.gameObject.GetComponent<MaterialWithSound>();
                 if (colMat == null)
                 {
@@ -87,7 +92,7 @@ public class MaterialWithSound : MonoBehaviour
 
 
         float volumeByCollision = (relativeVelocity * sound.volume) / materialOfMovingObject.minVelocityAtCollisionForMaxSoundVolume; //The faster the collision, louder is the sound
-        sound.volume = volumeByCollision * collidedMaterial.materialPhysics.hardnesh; //The harder the collided object, louder is the sound
+        sound.volume = volumeByCollision * collidedMaterial.materialPhysics.hardness; //The harder the collided object, louder is the sound
 
 
         return sound;

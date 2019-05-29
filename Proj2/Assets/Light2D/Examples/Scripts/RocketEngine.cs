@@ -6,6 +6,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
+#pragma warning disable 0618
 namespace Light2D.Examples
 {
     public class RocketEngine : MonoBehaviour

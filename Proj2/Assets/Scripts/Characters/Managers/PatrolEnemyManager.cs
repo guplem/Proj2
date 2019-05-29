@@ -6,17 +6,18 @@ using UnityEngine;
 #pragma warning disable CS0168 // Variable is declared but never used
 public class PatrolEnemyManager : EnemyManager
 {
-
+    [Header("Patrol configuration")]
     [SerializeField] public Vector2[] patrolPoints;
 
     public void Start()
     {
         Configure();
+        LookForPlayer(true);
     }
 
     public override void Configure()
     {
-        BehaviourTree bt = new PatrolEnemyBehaviourTree(this, new WalkingState(this));
+        BehaviourTree bt = new PatrolEnemyBehaviourTree(this, new IdleState(this));
         base.Setup(new CharacterMovementController(this), new EnemyPatrolBrain(this, patrolPoints), bt);
     }
 
@@ -30,10 +31,8 @@ public class PatrolEnemyManager : EnemyManager
         base.FixedUpdate();
     }
 
-    protected new void OnDrawGizmosSelected()
+    protected void OnDrawGizmos()
     {
-        base.OnDrawGizmosSelected();
-
         foreach (Vector2 point in patrolPoints)
         {
             Gizmos.color = Color.red;
@@ -50,7 +49,37 @@ public class PatrolEnemyManager : EnemyManager
             { }
         }
 
+        if (brain != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, (Vector2)transform.position+brain.direction);
+        }
+
+        if (brain is EnemyPatrolBrain)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(((EnemyPatrolBrain)brain).currentPatrolPoint, 0.3f);
+        }
+
+        if (brain is InvestigatingBrain)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(((InvestigatingBrain)brain).investigatingPosition, 0.3f);
+        }
+
+        
     }
 
-
+    public override void Alert(Vector2 position)
+    {
+        Vector2 selfPosition = new Vector2(transform.position.x, transform.position.y);
+        if (brain is InvestigatingBrain)
+        {
+            if ((((InvestigatingBrain)brain).investigatingPosition - selfPosition).magnitude < (position - selfPosition).magnitude)
+            {
+                return;
+            }
+        }
+        Brain.SetBrain(new InvestigatingBrain(this, position), 0.2f, this, true);
+    }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class JumpingState : State
@@ -11,9 +10,20 @@ public class JumpingState : State
         // timeToStopJumping = Time.time + characterManager.characterProperties.jumpTime;
     }
 
-    public override void StartState()
+    protected override IEnumerator StartState()
     {
-        character.visualsAnimator.SetTrigger("JumpingState");
+        character.visualsAnimator.SetTrigger("Jump");
+
+        character.movementController.Jump(character.characterProperties.jumpForce, ForceMode2D.Impulse);
+
+        try
+        {
+            character.rb2d.sharedMaterial = ((PlayerProperties)(character.characterProperties)).OnAirMaterial;
+        }
+        catch (System.InvalidCastException)
+        { }
+
+        yield return "success";
     }
 
     public override void Tick(float deltaTime)
@@ -27,13 +37,17 @@ public class JumpingState : State
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        character.movementController.Jump(character.characterProperties.jumpForce, ForceMode2D.Impulse);
-        //characterManager.movementController.MoveTowards(new Vector2(characterManager.brain.direction.x, 0), new Vector2(characterManager.characterProperties.acceleration.x * 0.5f, characterManager.characterProperties.acceleration.y*0.5f));
-        character.behaviourTree.CalculateAndSetNextState(true);
+        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x * 0.5f, character.characterProperties.acceleration.y*0.5f), character.characterProperties.maxOnAirVelocity);
+        //character.behaviourTree.CalculateAndSetNextState(true);
     }
 
     public override void OnExit()
     {
-        
+        try
+        {
+            character.rb2d.sharedMaterial = ((PlayerProperties)(character.characterProperties)).DefaultMaterial;
+        }
+        catch (System.InvalidCastException)
+        { }
     }
 }

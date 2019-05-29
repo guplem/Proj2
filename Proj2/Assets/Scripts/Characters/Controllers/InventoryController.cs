@@ -5,12 +5,29 @@ using UnityEngine;
 
 public class InventoryController
 {
-    public Item storedItem { get; private set; }
-    private PlayerManager characterManager { get; set;}
+    public Item storedItem
+    {
+        get
+        {
+            return _storedItem;
+        }
+
+        private set
+        {
+            if (value == null)
+                GUIManager.Instance.SetInventoryImage(null);
+            else
+                GUIManager.Instance.SetInventoryImage(value.GetComponent<SpriteRenderer>().sprite);
+
+            _storedItem = value;
+        }
+    }
+    private Item _storedItem; // Must not be used, use "storedItem" instead.
+    private PlayerManager character { get; set;}
 
     public InventoryController(PlayerManager characterManager)
     {
-        this.characterManager = characterManager;
+        this.character = characterManager;
     }
 
     public void ClearStoredItem()
@@ -26,7 +43,7 @@ public class InventoryController
     public void StoreItem(Item item)
     {
         if (storedItem != null)
-            DropStoredItem(characterManager.transform.position);
+            DropStoredItem(character.transform.position);
 
         storedItem = item;
         item.gameObject.SetActive(false);
@@ -40,6 +57,12 @@ public class InventoryController
 
     internal void ThrowStoredItem(Vector2 forceAndDirection, Vector3 throwPosition)
     {
+        if (storedItem == null)
+        {
+            Debug.LogWarning("Trying to throw a non-existent stored item", character.gameObject);
+            return;
+        }
+
         storedItem.gameObject.SetActive(true);
 
         storedItem.transform.position = throwPosition;

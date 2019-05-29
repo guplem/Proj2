@@ -12,30 +12,24 @@ public class AttackState : State
         timeToAttack = loadingTime;
     }
 
-    public override void StartState()
+    protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Attack");
+
+        yield return new WaitForSeconds(timeToAttack);
+
+        if (character.brain.actionHold) // If the player still in range
+            GameManager.Instance.HitPlayer();
     }
 
     public override void Tick(float deltaTime)
     {
-        timeToAttack -= deltaTime;
-
-        if (timeToAttack <= 0)
-        {
-            if (character.brain.action) // If the player still in range
-            {
-                GameManager.Instance.HitPlayer();
-                //character.behaviourTree = character.defaultBehaviourTree;
-                //character.brain = character.defaultBrain;
-                //SetState(null, character);
-            }
-        }
+        character.brain.CheckAndFlip();
     }
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, character.characterProperties.acceleration.y), character.characterProperties.maxWalkVelocity);
+        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, character.characterProperties.acceleration.y), character.characterProperties.internalVelocity);
     }
 
     public override void OnExit()

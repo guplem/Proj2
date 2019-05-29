@@ -6,7 +6,7 @@ using UnityEngine;
 public class InvestigatingBrain : Brain
 {
 
-    private Vector2 investigatingPosition;
+    public Vector2 investigatingPosition { get; private set; }
 
     public InvestigatingBrain(CharacterManager characterManager, Vector2 investigatingPosition)
     {
@@ -14,25 +14,25 @@ public class InvestigatingBrain : Brain
         this.investigatingPosition = investigatingPosition;
     }
 
-    protected override void GetActions()
+    protected override void GetActions(float deltaTime)
     {
         jumping = false;
-        SetInteractingTo(false);
-        action = false;
+        interact = false;
+        actionHold = false;
         crouch = false;
 
-        UpdateCurrentInvestigatingPoint();
-
-        direction = (investigatingPosition - ((Vector2)character.transform.position)).normalized * 0.7f;
-    }
-
-    private void UpdateCurrentInvestigatingPoint()
-    {
-        if (Vector2.Distance( character.transform.position, investigatingPosition) <= 1.5f)
+        if (!character.IsNextToPosition(investigatingPosition, deltaTime, 0.4f))
         {
-            Debug.Log("Exiting Investigating brain");
-            character.brain = character.defaultBrain;
+            if (investigatingPosition.x >= character.transform.position.x)
+                direction = Vector2.right;
+            else
+                direction = Vector2.left;
         }
-
+        else
+        {
+            direction = Vector2.zero;
+            SetBrain(character.defaultBrain, 5f, character, false);
+        }
     }
+
 }

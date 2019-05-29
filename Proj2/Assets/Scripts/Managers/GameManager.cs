@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 #pragma warning disable CS0168 // Variable is declared but never used
 [RequireComponent(typeof(AudioController))]
@@ -10,20 +11,23 @@ public class GameManager : MonoBehaviour
     [Header("Game's Configuration")]
     [SerializeField] public new CameraManager camera;
     [SerializeField] public PlayerManager playerManager;
-    [SerializeField] public Transform startPoint;
+    [HideInInspector] public Vector3 startPoint;
 
     [Header("Layers")]
-    [SerializeField] public LayerMask groundLayer;
-    [SerializeField] public LayerMask interactablesLayer;
-    [SerializeField] public LayerMask playerLayer;
-    [SerializeField] public LayerMask worldLayer;
-    [SerializeField] public LayerMask enemyLayer;
     [SerializeField] public LayerMask walkableLayers;
+    [SerializeField] public LayerMask interactableLayers;
+    [SerializeField] public LayerMask playerLayers;
+    [SerializeField] public LayerMask enemyLayers;
 
     [HideInInspector] public AudioController audioController;
-    [HideInInspector] public LineManager lineManager;
+    [HideInInspector] public Cursor cursor;
 
+
+    [HideInInspector] public LineManager lineManager;
     [HideInInspector] public LineRenderer lineRenderer;
+
+    [Header("Sounds")]
+    public Sound backgroundSound;
 
     //[HideInInspector] public PlayerManager playerManager;
 
@@ -47,14 +51,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    internal void SetPause(bool state)
+    public IEnumerator SetPause(bool state)
     {
-        gamePaused = state;
         GUIManager.Instance.PausePanel.SetObjectActive(state);
-        GUIManager.Instance.ControlsPanel.SetObjectActive(state);
+        // Select the proper element on the menu
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(GUIManager.Instance.defaultPauseSelectedItem);
+
+        yield return 0; //Aviud wrong actions by delaying one frame
+
+        gamePaused = state;
     }
 
-    internal void ExitGame()
+    public void ExitGame()
     {
         Application.Quit();
     }
@@ -65,8 +74,12 @@ public class GameManager : MonoBehaviour
         audioController = GetComponent<AudioController>();
         lineRenderer = GetComponent<LineRenderer>();
         lineManager = new LineManager();
-        camera.Setup(playerManager.gameObject, 0.05f);
+        camera.Setup(playerManager);
         lastCheckPoint = null;
+        cursor = GetComponent<Cursor>();
+        startPoint = playerManager.transform.position;
+
+        audioController.PlaySound(backgroundSound, true, false);
     }
 
     public void HitPlayer()
@@ -76,8 +89,6 @@ public class GameManager : MonoBehaviour
 
     private void PlayerDead()
     {
-        Debug.Log("Player is dead");
-
         try
         {
             SpawnPlayer(lastCheckPoint.respawnPoint.position);
@@ -87,7 +98,7 @@ public class GameManager : MonoBehaviour
         }
         catch (NullReferenceException)
         {
-            SpawnPlayer(startPoint.position);
+            SpawnPlayer(startPoint);
 
             if (ResetElementsUntilLastCheckPoint != null)
                 ResetElementsUntilLastCheckPoint(-1);
@@ -98,7 +109,6 @@ public class GameManager : MonoBehaviour
 
     private void SpawnPlayer(Vector3 position)
     {
-        Debug.Log("Spawning player at " + position);
         playerManager.transform.position = position;
     }
 
@@ -108,6 +118,12 @@ public class GameManager : MonoBehaviour
         {
             lastCheckPoint = checkPoint;
 
+            if (checkPoint.zone+1 >= CheckPoint.checkPointsNumber)
+            {
+                Application.Quit();
+                Debug.Log("GAME FINISHED");
+            }
+
             HideMainMenu();
         }
     }
@@ -115,14 +131,13 @@ public class GameManager : MonoBehaviour
     private void HideMainMenu()
     {
         GUIManager.Instance.MainMenuPanel.SetObjectActive(false);
-        GUIManager.Instance.ControlsPanel.SetObjectActive(false);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown("escape"))
         {
-            SetPause(!gamePaused);
+            StartCoroutine(SetPause(!gamePaused));
         }
     }
 

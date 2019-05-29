@@ -7,19 +7,39 @@ public class ReseteableObject : MonoBehaviour
 {
 
     [HideInInspector] private Vector3 initialPosition;
-    [HideInInspector] private int zone;
+    [SerializeField] private int zone;
+    private bool started = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        this.initialPosition = transform.position;
 
+        GameManager.Instance.ResetElementsUntilLastCheckPoint += ResetMethodToCallOnResetEvent;
+
+        started = true;
     }
 
-    public void Setup(int zone, Vector3 initialPosition)
+    /*public void Setup(int zone, Vector3 initialPosition)
     {
         this.initialPosition = initialPosition;
         this.zone = zone;
         GameManager.Instance.ResetElementsUntilLastCheckPoint += ResetMethodToCallOnResetEvent;
+    }*/
+    private void OnEnable()
+    {
+        if (!started)
+            return;
+
+        try
+        {
+            GameManager.Instance.ResetElementsUntilLastCheckPoint += ResetMethodToCallOnResetEvent;
+        }
+        catch (System.NullReferenceException)
+        {
+
+        }
+        
     }
 
     private void OnDisable()
@@ -29,11 +49,12 @@ public class ReseteableObject : MonoBehaviour
 
     public void ResetMethodToCallOnResetEvent(int lastZoneVisited)
     {
-        if (lastZoneVisited <= zone)
+        CharacterManager character = GetComponent<CharacterManager>();
+        if (lastZoneVisited <= zone || character != null)
         {
             transform.position = initialPosition;
 
-            CharacterManager character = GetComponent<CharacterManager>();
+            
             if (character != null)
             {
                 character.Configure();

@@ -14,14 +14,28 @@ public class ChasingBrain : Brain
         this.target = target;
     }
 
-    protected override void GetActions()
+    protected override void GetActions(float deltaTime)
     {
+        character.characterProperties.internalVelocity = character.characterProperties.maxRunVelocity;
+
         jumping = false;
-        SetInteractingTo(false);
-        action = (Vector2.Distance(character.transform.position, target.transform.position) <= 1.5f);
+        interact = false;
+        actionHold = character.IsNextToPosition(target.transform.position, deltaTime, 1.5f); //(Vector2.Distance(character.transform.position, target.transform.position) <= 1.5f);
         crouch = false;
-        direction = ((Vector2)target.transform.position - ((Vector2)character.transform.position)).normalized * 1.2f;
+
+        if (character.IsNextToPosition(target.transform.position, deltaTime, 0f))
+            direction = Vector2.zero;
+        else
+            direction = ((Vector2)target.transform.position - ((Vector2)character.transform.position)).normalized;
     }
 
+    internal void LostTrackOfTarget()
+    {
+        Vector2[] pointToCheck = new Vector2[1];
+        pointToCheck[0] = target.transform.position + ( (target.transform.position - character.transform.position).normalized * 6f );
 
+        Brain.SetBrain(new EnemyPatrolBrain(character, pointToCheck), 0f, character, true); // To keep going on the last known player direction for some time
+
+        Brain.SetBrain(character.defaultBrain, 3.5f, character, false);
+    }
 }

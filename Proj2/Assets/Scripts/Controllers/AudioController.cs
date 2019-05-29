@@ -36,7 +36,7 @@ public class AudioController : MonoBehaviour
     
     private void SendAlertsBySound(Sound sound)
     {
-        float radiusOfAlertAtMaxVolume = 20;
+        float radiusOfAlertAtMaxVolume = 23;
         float radiusOfAlert = sound.volume * radiusOfAlertAtMaxVolume;
 
         Alertable.AlertAllInRadius(transform.position, radiusOfAlert);
@@ -91,6 +91,14 @@ public class AudioController : MonoBehaviour
         audioSource.loop = loop;
 
         return audioSource;
+    }
+
+    public void StopAllSounds()
+    {
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.Stop();
+        }
     }
 
 

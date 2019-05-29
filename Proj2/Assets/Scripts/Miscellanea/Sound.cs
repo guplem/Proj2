@@ -16,22 +16,32 @@ public class Sound : ScriptableObject, ICloneable
     [Range(0, 1)]
     [SerializeField] public float volume;
 
-    [Range(0, 1)]
+    [Range(0.001f, 0.65f)]
     [Tooltip("This value will be modified in a collision event")]
     [SerializeField] public float pitch;
 
-    [Range(0, 1)]
+    [Range(0.001f, 0.65f)]
     [SerializeField] public float pitchRandomization;
 
-    public float randomizedPitch { get => Mathf.Clamp(pitch + UnityEngine.Random.Range(-pitchRandomization, -pitchRandomization), 0, 1); set { } }
+    public float randomizedPitch
+    {
+        get
+        {
+            float rp = Mathf.Clamp(pitch + UnityEngine.Random.Range(-pitchRandomization, pitchRandomization), 0.01f, 0.65f);
+            return rp;
+        }
+        set { }
+    }
+
+
 
     public Sound()
     {
         this.clip = null;
         this.audioMixerGroup = null;
         this.volume = 1;
-        this.pitch = 0.5f;
-        this.pitchRandomization = 0.2f;
+        this.pitch = 0.2f;
+        this.pitchRandomization = 0.1f;
     }
 
     public object Clone()

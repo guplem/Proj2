@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[SelectionBase]
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(AudioController))]
 public abstract class CharacterManager : MonoBehaviour
 {
+    [Header("Character configuration")]
     [SerializeField] public Collider2D groundCollider;
     //[SerializeField] public Collider2D topCollider;
     //[SerializeField] public Collider2D lateralCollider;
@@ -21,7 +23,7 @@ public abstract class CharacterManager : MonoBehaviour
     [HideInInspector] public AudioController audioController;
 
     //[HideInInspector] protected Interactable currentInteractable;
-    [SerializeField] public InteractionsColliderController interactionsController;
+    [SerializeField] public InteractionsController interactionsController;
     [SerializeField] public Animator visualsAnimator;
 
     [SerializeField] public CharacterProperties characterProperties;
@@ -43,7 +45,8 @@ public abstract class CharacterManager : MonoBehaviour
         this.movementController = movementController;
 
         this.defaultBrain = defaultBrain;
-        this.brain = this.defaultBrain;
+        this.brain = defaultBrain; //To avoid null reference exception on the next line
+        Brain.SetBrain(defaultBrain, 0f, this, true);
 
         this.defaultBehaviourTree = defaultBehaviourTree;
         this.behaviourTree = this.defaultBehaviourTree;
@@ -52,14 +55,14 @@ public abstract class CharacterManager : MonoBehaviour
         animator = GetComponent<Animator>();
         audioController = GetComponent<AudioController>();
 
-        State.SetState(this.behaviourTree.defaultState, this);
+        State.SetState(behaviourTree.defaultState, this);
 
         // characterProperties = Instantiate(characterProperties); //To create a copy to debug
     }
 
     protected void Update()
     {
-        brain.Act();
+        brain.Act(Time.deltaTime);
 
         behaviourTree.CalculateAndSetNextState(false);
 
@@ -71,5 +74,15 @@ public abstract class CharacterManager : MonoBehaviour
         state.FixedTick(Time.fixedDeltaTime);
     }
 
+    public bool IsTouchingGround()
+    {
+        return Utils.IsColliderTouchingLayer(groundCollider, GameManager.Instance.walkableLayers);
+    }
 
+    public abstract void Alert(Vector2 position);
+
+    public bool IsNextToPosition(Vector2 position, float deltaTime, float maxDistance)
+    {
+        return (Vector2.Distance(transform.position, new Vector2(position.x, transform.position.y)) <= characterProperties.internalVelocity.x * deltaTime + maxDistance);
+    }
 }

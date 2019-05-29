@@ -13,17 +13,17 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
+  - Solid Walkable
   - Interactable
   - Player
-  - World
   - Enemy
-  - Delimitors
-  - Stress Emitters
+  - World Elements
+  - HidingZone
+  - Player Zone Trigger
   - Ambient Light
   - Light Source
   - Light Obstacle
-  - HidingZone
+  - Aesthetic Element
   - 
   - 
   - 

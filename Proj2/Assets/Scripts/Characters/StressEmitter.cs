@@ -2,42 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CircleCollider2D))]
+#pragma warning disable 0649
+[RequireComponent(typeof(Collider2D))]
 [DisallowMultipleComponent]
 public class StressEmitter : MonoBehaviour
 {
     [Header("Stress Config")]
-    public bool emitStress;
-    public float stressAmountPerSecond;
-    public float timeBetweenEmisions;
-
-    [HideInInspector] private float effectRadius;
-    [HideInInspector] private Vector3 emittingPoint;
+    [SerializeField] private bool emitStress;
+    [SerializeField] private float stressAmountPerSecond;
+    [SerializeField] private float timeBetweenEmisions;
 
     private IEnumerator coroutineHolder;
     private List<StressController> stressing;
 
     public void Start()
     {
-        this.emittingPoint = gameObject.transform.position;
-        this.effectRadius = GetComponent<CircleCollider2D>().radius;
         stressing = new List<StressController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         StressController stressController = collision.GetComponent<StressController>();
+        if (collision.isTrigger)
+            return;
+        
         if (stressController != null && emitStress)
         {
-            stressing.Add(stressController);
-            //TODO check if there is a stressController duplicated.
-            /*if (coroutineHolder != null)
-                StopCoroutine(coroutineHolder);*/
-
-            if (coroutineHolder == null)
+            if (!stressing.Contains(stressController))
             {
-                coroutineHolder = AddStressOverTime(timeBetweenEmisions, stressAmountPerSecond);
-                StartCoroutine(coroutineHolder);
+                stressing.Add(stressController);
+
+                if (coroutineHolder == null)
+                {
+                    coroutineHolder = AddStressOverTime(timeBetweenEmisions, stressAmountPerSecond);
+                    StartCoroutine(coroutineHolder);
+                }
             }
         }
     }
@@ -63,13 +62,12 @@ public class StressEmitter : MonoBehaviour
 
     public IEnumerator AddStressOverTime(float timeBetweenEmisions, float stressAmountPerSecond)
     {
-        do
+        while (true)
         {
             yield return new WaitForSeconds(timeBetweenEmisions);
 
             EmitStress(stressAmountPerSecond * timeBetweenEmisions);
         }
-        while (true);
     }
 
     public void EmitStress(float amount)
@@ -80,11 +78,5 @@ public class StressEmitter : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        this.emittingPoint = gameObject.transform.position;
-
-        Gizmos.DrawWireSphere(emittingPoint, effectRadius);
-    }
 
 }

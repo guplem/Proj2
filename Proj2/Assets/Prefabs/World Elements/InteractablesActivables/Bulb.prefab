@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 959301653156932073}
   - component: {fileID: 959301653156932078}
   - component: {fileID: 337819531930619581}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bulb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Color: {r: 1, g: 1, b: 0.81960785, a: 0.79607844}
   Sprite: {fileID: 21300000, guid: 0846a06dcf035814d9cee71f4ba273f9, type: 3}
-  SortingOrder: 0
+  SortingOrder: 65
   Material: {fileID: 2100000, guid: 5d8645bc2e5501a4ebd138db5aa609bd, type: 2}
   LightOrigin: {x: 0, y: 0, z: 1}
   Shape: 0

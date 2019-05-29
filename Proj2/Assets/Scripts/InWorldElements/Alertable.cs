@@ -6,22 +6,26 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterManager))]
 public class Alertable : MonoBehaviour
 {
-
-    public Vector2 alertPosition { get; private set; }
     private CharacterManager character;
 
-    public static Alertable debugger;
+    public static Alertable alertsManager;
     private void Awake()
     {
-        if (debugger == null)
+        if (alertsManager == null)
         {
-            debugger = this;
+            alertsManager = this;
         }
     }
 
     private void Start()
     {
         character = GetComponent<CharacterManager>();
+
+        if (character == null)
+        {
+            Debug.LogWarning("'Alertable' implemented without a 'CharacterManager' component in the same GaemObject." + gameObject);
+            Debug.Break();
+        }
     }
 
     public static void AlertAllInRadius(Vector2 position, float radius)
@@ -29,10 +33,10 @@ public class Alertable : MonoBehaviour
         if (radius <= 0)
             return;
 
-        if (debugger == null)
+        if (alertsManager == null) //Should never happen. alertsManager acts as a Singleton
             return;
 
-        debugger.StartCoroutine(debugger.DebugAlertRadius(position, radius));
+        alertsManager.StartCoroutine(alertsManager.DebugAlertRadius(position, radius));
 
         foreach (Collider2D objInRange in Physics2D.OverlapCircleAll(position, radius))
         {
@@ -42,7 +46,7 @@ public class Alertable : MonoBehaviour
                 alertable.Alert(position);
             }
         }
-        
+
     }
 
     public static void AlertAllWithVisualContact(Vector2 position)
@@ -61,15 +65,13 @@ public class Alertable : MonoBehaviour
         if (position == null)
             return;
 
-        alertPosition = position;
-
-        character.brain = new InvestigatingBrain(character, position);
+        character.Alert(position);
     }
 
 
-    
 
 
+    /// DEBUGGING ///
     //Only used by the debugger Alterable
     private Dictionary<Vector2, float> alertRadiusZones = new Dictionary<Vector2, float>();
     private IEnumerator DebugAlertRadius(Vector2 position, float radiusOfAlert)

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,29 +14,26 @@ public class PatrolEnemyBehaviourTree : BehaviourTree
 
     public override void CalculateAndSetNextState(bool forceExitState)
     {
+
         if (forceExitState)
             ForceExitState(character);
 
-        if (character.brain is ChasingBrain)
-        {
-            if (character.brain.action)
-            {
-                State.SetState(new AttackState(character, character.characterProperties.attackLoadingTime), character);
-            } else
-            {
-                State.SetState(new WalkingState(character), character);
-            }
-            //TODO: Running if is chasing
-            /*else if (character.state is WalkingState)
-            {
-                character.SetState(new RunningState(character));
-            }*/
+        if (EnterOnAir()) return;
+        if (EnterAttack()) return;
+        if (EnterJump()) return;
+        if (EnterWalking()) return;
+        if (EnterCrouched()) return;
+        if (EnterIdle()) return;
 
-        } else
-        {
-            State.SetState(new WalkingState(character), character);
-        }
     }
 
+    private bool EnterAttack()
+    {
+        if (!character.brain.actionHold)
+            return false;
+
+        State.SetState(new AttackState(character, 1f), character);
+        return true;
+    }
 
 }

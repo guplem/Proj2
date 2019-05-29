@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,91 +16,77 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (forceExitState)
             ForceExitState(character);
 
-
-
-        // Walking state transitions
-        if (character.state is WalkingState)
-        {
-            // Trigger to enter jumping 
-            if (character.brain.jumping && character.GetComponent<Rigidbody2D>().velocity.y <= 0.1f)
-            {
-                State.SetState( new JumpingState(character) , character);
-                return;
-            }
-
-            // Trigger to enter crouched
-            else if (character.brain.crouch)
-            {
-                State.SetState( new CrouchedState(character) , character);
-                return;
-            }
-
-            // Trigger to enter throw mode
-            else if (character.brain.action && ((PlayerManager)character).inventory.HasStoredItem())
-            {
-                State.SetState( new ThrowState(character), character);
-                return;
-            }
-
-            // Force exit state
-            else if (! Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
-            {
-                CalculateAndSetNextState(true);
-                return;
-            }
-        }
-
-
-
-        // CrouchedState state transitions
-        else if (character.state is CrouchedState)
-        {
-            // Force exit state
-            if (!character.brain.crouch)
-            {
-                CalculateAndSetNextState(true);
-                return;
-            }
-
-            // Force exit state
-            else if (!Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
-            {
-                CalculateAndSetNextState(true);
-                return;
-            }
-        }
-
-
-
-        // OnAirState state transitions
-        else if (character.state is OnAirState)
-        {
-            // Force exit state
-            if (Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
-            {
-                CalculateAndSetNextState(true);
-                return;
-            }
-        }
-
-
-
-
-        // Default state transitions (if there is no state)
-        if (character.state == null)
-        {
-            if (Utils.IsColliderTouchingLayer(character.groundCollider, GameManager.Instance.walkableLayers))
-            {
-                State.SetState(new WalkingState(character), character);
-                return;
-            }
-            else
-            {
-                State.SetState(new OnAirState(character), character);
-                return;
-            }
-        }
-
+        if (EnterOnAir()) return;
+        if (EnterPushPull()) return;
+        if (EnterPick()) return;
+        if (EnterInteract()) return;
+        if (EnterThrow()) return;
+        if (EnterJump()) return;
+        if (EnterWalking()) return;
+        if (EnterCrouched()) return;
+        if (EnterIdle()) return;
 
     }
+
+    /////////////////////////////////////////////////////
+
+    private bool EnterThrow()
+    {
+
+        if (!character.brain.actionDown && !(character.state is ThrowState))
+            return false;
+
+        if (!((PlayerManager)character).inventory.HasStoredItem() && !(character.state is ThrowState))
+            return false;
+
+        if (!character.IsTouchingGround())
+            return false;
+
+        State.SetState(new ThrowState((PlayerManager)character), character);
+        return true;
+
+    }
+
+    private bool EnterPushPull()
+    {
+        if (!character.brain.interact)
+            return false;
+
+        Interactable interactable = character.interactionsController.GetAvaliableInterectable(Activable.ActivationType.Movable);
+        if (interactable == null)
+            return false;
+
+        State.SetState(new PushPullState(character, interactable), character);
+        return true;
+    }
+
+    private bool EnterInteract()
+    {
+        if (!character.brain.interact && !(character.state is InteractState))
+            return false;
+
+        Interactable interactable = character.interactionsController.GetAvaliableInterectable(Activable.ActivationType.Other);
+        if (interactable == null)
+            return false;
+
+        if (interactable.interactAutomatically)
+            return false;
+
+        State.SetState(new InteractState(character, interactable, 0.2f, 0.8f), character);
+        return true;
+    }
+
+    private bool EnterPick()
+    {
+        if (!character.brain.interact && !(character.state is PickState))
+            return false;
+
+        Interactable interactable = character.interactionsController.GetAvaliableInterectable(Activable.ActivationType.Pickable);
+        if (interactable == null)
+            return false;
+
+        State.SetState(new PickState(character, interactable, 1f), character);
+        return true;
+    }
+
 }

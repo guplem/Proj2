@@ -10,9 +10,10 @@ public class IdleState : State
         this.character = character;
     }
 
-    public override void StartState()
+    protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Idle");
+        yield return "success";
     }
 
     public override void Tick(float deltaTime)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 #pragma warning disable 0649
 public class ZoneManager : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class ZoneManager : MonoBehaviour
             ReseteableObject reseteableObject = obj.GetComponent<ReseteableObject>();
             if (reseteableObject != null)
             {
-                reseteableObject.Setup(zoneNumber, obj.transform.position);
+//                reseteableObject.Setup(zoneNumber, obj.transform.position);
             }
         }
     }
