@@ -58,7 +58,6 @@ public class ActivableAlarm : MonoBehaviour
         audioController.StopAllSounds();
         lightEmmitter.SetActive(false);
         StopCoroutine(lightCoroutine);
-        Debug.Log("Stopping Everything!");
     }
 
     public IEnumerator PlayLightAnimation()

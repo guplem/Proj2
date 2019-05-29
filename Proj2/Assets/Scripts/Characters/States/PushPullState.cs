@@ -119,5 +119,6 @@ public class PushPullState : State
     {
         interactable.EndInteract(character);
         character.interactionsController.audioSource.Stop();
+        character.characterProperties.internalVelocity = character.characterProperties.maxWalkVelocity ;
     }
 }
