@@ -28,7 +28,7 @@ public class PushPullState : State
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, 0), character.characterProperties.maxWalkVelocity);
+        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x, 0), character.characterProperties.internalVelocity);
 
         interactableRb2d.velocity = new Vector2(character.rb2d.velocity.x, 0);
 

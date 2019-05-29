@@ -82,6 +82,7 @@ public abstract class Brain
             yield return new WaitForSeconds(delay);
 
         character.brain = newBrain;
+        character.characterProperties.internalVelocity = character.characterProperties.maxWalkVelocity;
 
         SetBrainDelayedCoroutine = null;
     }

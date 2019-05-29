@@ -325,7 +325,7 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   animator: {fileID: 0}
   audioController: {fileID: 0}
-  interactionsCollider: {fileID: 0}
+  interactionsController: {fileID: 0}
   visualsAnimator: {fileID: 1352286770111948420}
   characterProperties: {fileID: 11400000, guid: d34568373ab42524a8361ef91c2871bc,
     type: 2}
@@ -399,6 +399,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  audioSource: {fileID: 0}
 --- !u!61 &8483443445278108754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -491,6 +492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3505883074891551290, guid: 8a2f06dc9e880c7458be68422fdbdcea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a2f06dc9e880c7458be68422fdbdcea, type: 3}

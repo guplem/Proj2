@@ -13,6 +13,8 @@ public class CrouchedState : State
         characterManager.crouchCollider.enabled = true;
 
         Utils.ChangeGameObjectAndChildsLayerTo(character.gameObject, 100);
+
+        character.characterProperties.internalVelocity = character.characterProperties.maxWalkVelocity * 0.5f;
     }
 
     protected override IEnumerator StartState()
@@ -25,7 +27,7 @@ public class CrouchedState : State
     {
         if (character.brain.direction.x != 0)
         {
-            character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x , character.characterProperties.acceleration.y ), character.characterProperties.maxRunVelocity);
+            character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x , character.characterProperties.acceleration.y ), character.characterProperties.internalVelocity);
             character.visualsAnimator.SetBool("CrouchWalking", true);
         }
         else
@@ -46,5 +48,7 @@ public class CrouchedState : State
         character.crouchCollider.enabled = false;
 
         Utils.ChangeGameObjectAndChildsLayerTo(character.gameObject, 150);
+
+        character.characterProperties.internalVelocity = character.characterProperties.maxWalkVelocity;
     }
 }

@@ -18,6 +18,7 @@
   - [150] --> Player (standard)
   - [151-200] --> Enemies/NPC
   - [201-300] --> Decorative elements
+  - [301-400] --> "UI elements (like the throw direction)"
 
 
  #### # Sound (sprite)

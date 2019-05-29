@@ -16,6 +16,8 @@ public class ChasingBrain : Brain
 
     protected override void GetActions(float deltaTime)
     {
+        character.characterProperties.internalVelocity = character.characterProperties.maxRunVelocity;
+
         jumping = false;
         interact = false;
         actionHold = character.IsNextToPosition(target.transform.position, deltaTime, 1.5f); //(Vector2.Distance(character.transform.position, target.transform.position) <= 1.5f);
