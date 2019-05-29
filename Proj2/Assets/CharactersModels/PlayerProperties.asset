@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 7
   acceleration: {x: 0.25, y: 0.25}
-  maxWalkVelocity: {x: 4, y: 4}
-  maxRunVelocity: {x: 5, y: 5}
-  maxCrouchVelocity: {x: 5, y: 20}
+  internalVelocity: {x: 2.5, y: 2.5}
+  maxRunVelocity: {x: 4, y: 4}
+  maxWalkVelocity: {x: 2.5, y: 2.5}
+  maxCrouchVelocity: {x: 4, y: 10}
   maxOnAirVelocity: {x: 5, y: 10}
   attackLoadingTime: 0
   OnAirGravityScale: 1.75
