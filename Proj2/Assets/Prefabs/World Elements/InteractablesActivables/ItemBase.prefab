@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 48236622705299599}
   - component: {fileID: 8324473268950946671}
   - component: {fileID: 8024989292537650061}
+  - component: {fileID: 286237186232804232}
   m_Layer: 12
   m_Name: ItemBase
   m_TagString: Untagged
@@ -147,6 +148,8 @@ MonoBehaviour:
   defaultState: 0
   singleActivation: 0
   alreadyActivated: 0
+  onSound: {fileID: 0}
+  offSound: {fileID: 0}
 --- !u!114 &8324473268950946671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +182,19 @@ MonoBehaviour:
   minVelocityAtCollisionForCollisionSound: 0.4
   objectSize: 0.25
   alertAlertablesOnCollision: 1
+--- !u!114 &286237186232804232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48236622705299632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25496907f6ec3844fbe61e58db626ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zone: 0
 --- !u!1 &7453960573528057067
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,3 +263,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   connectedActivables:
   - {fileID: 48236622705299599}
+  startInteractSound: {fileID: 0}
+  endInteractSound: {fileID: 0}
+  usingSound: {fileID: 0}

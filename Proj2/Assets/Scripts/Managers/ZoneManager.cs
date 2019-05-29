@@ -24,7 +24,7 @@ public class ZoneManager : MonoBehaviour
             ReseteableObject reseteableObject = obj.GetComponent<ReseteableObject>();
             if (reseteableObject != null)
             {
-                reseteableObject.Setup(zoneNumber, obj.transform.position);
+//                reseteableObject.Setup(zoneNumber, obj.transform.position);
             }
         }
     }

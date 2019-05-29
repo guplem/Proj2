@@ -34,7 +34,6 @@ public class PushPullState : State
 
         if (Mathf.Abs(interactableRb2d.velocity.x) > 0.5f)
         {
-            Debug.Log(interactableRb2d.velocity);
             if (!character.interactionsController.audioSource.isPlaying || character.interactionsController.audioSource.clip != character.interactionsController.audioSource.clip)
             {
                 character.interactionsController.audioSource.clip = interactable.usingSound.clip;

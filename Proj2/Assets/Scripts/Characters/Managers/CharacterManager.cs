@@ -45,7 +45,8 @@ public abstract class CharacterManager : MonoBehaviour
         this.movementController = movementController;
 
         this.defaultBrain = defaultBrain;
-        this.brain = this.defaultBrain;
+        this.brain = defaultBrain; //To avoid null reference exception on the next line
+        Brain.SetBrain(defaultBrain, 0f, this, true);
 
         this.defaultBehaviourTree = defaultBehaviourTree;
         this.behaviourTree = this.defaultBehaviourTree;
