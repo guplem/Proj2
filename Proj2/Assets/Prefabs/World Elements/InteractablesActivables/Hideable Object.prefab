@@ -424,7 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8751495294833804918}
-  - component: {fileID: 8751495294833804917}
+  - component: {fileID: 3287852866281536894}
   m_Layer: 12
   m_Name: World Collider
   m_TagString: Untagged
@@ -446,8 +446,8 @@ Transform:
   m_Father: {fileID: 8751495293279599917}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &8751495294833804917
-BoxCollider2D:
+--- !u!70 &3287852866281536894
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -460,15 +460,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1, y: 0.11}
-  m_EdgeRadius: 0
+  m_Direction: 1
