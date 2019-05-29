@@ -9,8 +9,11 @@ public class ActivableBox : Activable
     // [SerializeField] private LayerMask playerLayer;
     // [SerializeField] private LayerMask interactablesLayer;
 
-
     Rigidbody2D rb2d;
+
+    [Header("Side Interactable Colliders")]
+    [SerializeField] public BoxCollider2D leftSideCol;
+    [SerializeField] public BoxCollider2D rightSideCol;
 
     public override ActivationType GetActivationType()
     {
@@ -25,5 +28,6 @@ public class ActivableBox : Activable
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
+
 
 }
