@@ -22,8 +22,8 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (EnterInteract()) return;
         if (EnterThrow()) return;
         if (EnterJump()) return;
-        if (EnterWalking()) return;
         if (EnterCrouched()) return;
+        if (EnterWalking()) return;
         if (EnterIdle()) return;
 
     }

@@ -63,7 +63,7 @@ public abstract class BehaviourTree
         if ((character.rb2d.velocity.y > 0.1f) || (character.rb2d.velocity.y < -0.1f))
             return false;
 
-        if (character.state is CrouchedState)
+        if (character.state is CrouchedState && character.brain.crouch)
             return false;
 
         State.SetState(new WalkingState(character), character);
