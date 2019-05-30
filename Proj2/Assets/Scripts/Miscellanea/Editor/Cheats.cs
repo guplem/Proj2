@@ -19,7 +19,7 @@ public class Cheats : MonoBehaviour
         }
     }
 
-    [MenuItem("Bunker Bound/Cheats/Reset until last checkpoint")]
+    [MenuItem("Bunker Bound/Cheats/Force reset until last checkpoint")]
     public static void ResetTilLastCheckpoint()
     {
         if (Application.isPlaying)
@@ -40,6 +40,5 @@ public class Cheats : MonoBehaviour
             Debug.LogError("Not in play mode.");
         }
     }
-
 
 }

@@ -15,7 +15,8 @@ public class Cursor : MonoBehaviour
         if (cursorRadius <= 0)
             Debug.LogWarning("Cursor with an areaRadius not valid", gameObject);
 
-        UnityEngine.Cursor.visible = false;
+        if (!Application.isEditor)
+            UnityEngine.Cursor.visible = false;
     }
 
     private void Update()
