@@ -41,4 +41,22 @@ public class Cheats : MonoBehaviour
         }
     }
 
+    [MenuItem("Bunker Bound/Cheats/Activate Highlighted Activable")]
+    public static void ActivateHighlightedActivableObject()
+    {
+        if (Application.isPlaying)
+        {
+            GameObject obj = Selection.activeGameObject;
+            Activable actObj = obj.GetComponent<Activable>();
+            if (actObj != null)
+            {
+                actObj.SwitchState(null);
+            }
+        }
+        else
+        {
+            Debug.LogError("Not in play mode.");
+        }
+    }
+
 }

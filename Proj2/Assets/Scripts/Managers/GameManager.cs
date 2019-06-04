@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Audio;
 
 #pragma warning disable CS0168 // Variable is declared but never used
 [RequireComponent(typeof(AudioController))]
@@ -25,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public LineManager lineManager;
     [HideInInspector] public LineRenderer lineRenderer;
+
+    [SerializeField] private AudioMixer mechanicsAudioMixer;
+    private IEnumerator startMechanicsSounds;
 
     [Header("Sounds")]
     public Sound backgroundSound;
@@ -79,6 +83,8 @@ public class GameManager : MonoBehaviour
         cursor = GetComponent<Cursor>();
         startPoint = playerManager.transform.position;
 
+        startMechanicsSounds = StartGameplaySounds();
+        StartCoroutine(startMechanicsSounds);
         audioController.PlaySound(backgroundSound, true, false);
     }
 
@@ -116,7 +122,7 @@ public class GameManager : MonoBehaviour
         {
             lastCheckPoint = checkPoint;
 
-            if (checkPoint.zone+1 >= CheckPoint.checkPointsNumber)
+            if (checkPoint.zone + 1 >= CheckPoint.checkPointsNumber)
             {
                 Application.Quit();
                 Debug.Log("GAME FINISHED");
@@ -137,6 +143,14 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(SetPause(!gamePaused));
         }
+    }
+
+    private IEnumerator StartGameplaySounds()
+    {
+        mechanicsAudioMixer.SetFloat("volume", -80.0f);
+        yield return new WaitForSeconds(2.0f);
+        mechanicsAudioMixer.SetFloat("volume", 0.0f);
+        StopCoroutine(startMechanicsSounds);
     }
 
 }

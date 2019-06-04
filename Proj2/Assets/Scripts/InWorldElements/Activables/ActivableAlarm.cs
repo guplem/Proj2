@@ -39,21 +39,27 @@ public class ActivableAlarm : MonoBehaviour
     public void ActivateAlarm()
     {
         //lightEmmitter.SetActive(true);
-        audioController.PlaySound(alarmSound, true, alertsOnActivation);
         if (alertsOnActivation)
         {
             Alertable.AlertAllInRadius(new Vector2(transform.position.x, transform.position.y), alertRadius);
         }
         //if (lightCoroutine == null)
-            lightCoroutine = PlayLightAnimation();
-        //if (alarmCoroutine == null)
-            alarmCoroutine = StopAll();
+        try
+        {
+            StopCoroutine(lightCoroutine);
+            StopCoroutine(alarmCoroutine);
+            audioController.StopAllSounds();
+        }
+        catch (System.NullReferenceException) { }
+        lightCoroutine = PlayLightAnimation();
+        alarmCoroutine = StopAll();
         StartCoroutine(lightCoroutine);
         StartCoroutine(alarmCoroutine);
     }
 
     public IEnumerator StopAll()
     {
+        audioController.PlaySound(alarmSound, true, alertsOnActivation);
         yield return new WaitForSeconds(alarmSoundDuration);
         audioController.StopAllSounds();
         lightEmmitter.SetActive(false);

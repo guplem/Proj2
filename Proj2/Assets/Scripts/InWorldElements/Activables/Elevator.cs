@@ -10,7 +10,6 @@ public class Elevator : Activable
     private float targetPoint;
     private float velocity = 0.02f;
 
-
     public override ActivationType GetActivationType()
     {
         return ActivationType.Other;
@@ -20,8 +19,8 @@ public class Elevator : Activable
     {
         if (state)
             targetPoint = targetPoint == travelPointOff ? travelPointOn : travelPointOff;
-        else if(targetPoint != travelPointOn && targetPoint != travelPointOff)
-                targetPoint = defaultState ? travelPointOn : travelPointOff;
+        else if (targetPoint != travelPointOn && targetPoint != travelPointOff)
+            targetPoint = defaultState ? travelPointOn : travelPointOff;
     }
 
     private void OnDrawGizmos()
@@ -32,14 +31,30 @@ public class Elevator : Activable
     }
 
     private void FixedUpdate()
-    { 
+    {
 
         float distance = targetPoint - transform.position.y;
 
         if (Mathf.Abs(distance) < velocity)
             return;
 
-        transform.position = new Vector3(transform.position.x, transform.position.y + (velocity*Mathf.Sign(distance)), transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y + (velocity * Mathf.Sign(distance)), transform.position.z);
 
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject != null)
+        {
+            collision.gameObject.transform.parent = null;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject != null)
+        {
+            collision.gameObject.transform.parent = gameObject.transform;
+        }
     }
 }
