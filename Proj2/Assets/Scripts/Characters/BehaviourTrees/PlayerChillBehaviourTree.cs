@@ -73,7 +73,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (interactable.interactAutomatically)
             return false;
 
-        State.SetState(new InteractState(character, interactable, 0.2f, 0.8f), character);
+        State.SetState(new InteractState(character, interactable, 0.27f, 0.8f), character);
         return true;
     }
 

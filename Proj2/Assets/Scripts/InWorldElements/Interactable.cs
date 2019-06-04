@@ -23,6 +23,7 @@ public class Interactable : MonoBehaviour
 
     [Header("Activable elements")]
     [SerializeField] public Activable[] connectedActivables;
+    [SerializeField] private float activationDelay = 0;
 
     [SerializeField] private Sound startInteractSound, endInteractSound;
     [SerializeField] public Sound usingSound; //Using sound does not play automatically, it is meant to be reproduced by other objects that are using the activable
@@ -60,13 +61,18 @@ public class Interactable : MonoBehaviour
 
     }
 
-    public void StartInteract(CharacterManager interactingCharacter)
+    public IEnumerator StartInteract(CharacterManager interactingCharacter)
     {
         if (RegisterAndAskForStartInteraction())
         {
-            Interact(interactingCharacter);
             if (audioController != null)
                 audioController.PlaySound(startInteractSound, false, false);
+
+            if (animator != null)
+                animator.SetBool("Active", !animator.GetBool("Active"));
+
+            yield return new WaitForSeconds(activationDelay);
+            Interact(interactingCharacter);
         }
     }
 
@@ -117,8 +123,6 @@ public class Interactable : MonoBehaviour
         if (interactingVisuals != null)
             interactingVisuals.SetActive(!interactingVisuals.activeSelf);
         */
-        if (animator != null)
-            animator.SetBool("Active", !animator.GetBool("Active"));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -129,7 +133,7 @@ public class Interactable : MonoBehaviour
         InteractionsController interactionController = collision.GetComponent<InteractionsController>();
         if (interactionController != null)
         {
-            StartInteract(interactionController.character);
+            StartCoroutine( StartInteract(interactionController.character) );
         }
     }
 
