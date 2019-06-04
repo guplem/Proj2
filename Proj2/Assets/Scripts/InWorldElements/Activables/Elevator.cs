@@ -9,6 +9,7 @@ public class Elevator : Activable
     [SerializeField] private float travelPointOff;
     private float targetPoint;
     private float velocity = 0.02f;
+    private GameObject characterActivating;
 
 
     public override ActivationType GetActivationType()
@@ -20,8 +21,15 @@ public class Elevator : Activable
     {
         if (state)
             targetPoint = targetPoint == travelPointOff ? travelPointOn : travelPointOff;
-        else if(targetPoint != travelPointOn && targetPoint != travelPointOff)
-                targetPoint = defaultState ? travelPointOn : travelPointOff;
+        else if (targetPoint != travelPointOn && targetPoint != travelPointOff)
+            targetPoint = defaultState ? travelPointOn : travelPointOff;
+
+        try
+        {
+            this.characterActivating = characterActivating.gameObject;
+            this.characterActivating.transform.parent = gameObject.transform;
+        }
+        catch (System.NullReferenceException) { }
     }
 
     private void OnDrawGizmos()
@@ -32,14 +40,30 @@ public class Elevator : Activable
     }
 
     private void FixedUpdate()
-    { 
+    {
 
         float distance = targetPoint - transform.position.y;
 
         if (Mathf.Abs(distance) < velocity)
             return;
 
-        transform.position = new Vector3(transform.position.x, transform.position.y + (velocity*Mathf.Sign(distance)), transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y + (velocity * Mathf.Sign(distance)), transform.position.z);
 
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (characterActivating != null && collision.gameObject == characterActivating)
+        {
+            characterActivating.transform.parent = null;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (characterActivating != null && collision.gameObject == characterActivating)
+        {
+            characterActivating.transform.parent = gameObject.transform;
+        }
     }
 }
