@@ -46,6 +46,8 @@ public abstract class State
         }
 
         character.StartCoroutine(character.state.StartState());
+
+        character.state.character = character;
         
     }
 

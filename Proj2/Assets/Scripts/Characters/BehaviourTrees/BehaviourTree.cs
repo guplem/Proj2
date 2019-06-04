@@ -66,7 +66,7 @@ public abstract class BehaviourTree
         if (character.state is CrouchedState && character.brain.crouch)
             return false;
 
-        State.SetState(new WalkingState(character), character);
+        State.SetState(new WalkingState(), character);
         return true;
     }
 

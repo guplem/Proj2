@@ -10,7 +10,7 @@ public class Fading : MonoBehaviour
 {
 
     [SerializeField] private AnimationCurve fade = AnimationCurve.EaseInOut(0, 0, 1, 1);
-    [SerializeField] private float fadeTimeDuration = 0.5f;
+    [SerializeField] public float fadeTimeDuration = 0.5f;
 
 
     [Header("On/Off default values")]
@@ -45,7 +45,7 @@ public class Fading : MonoBehaviour
         imagesToFade.AddRange(gameObject.GetComponents<Image>().ToList());
         textsToFade.AddRange(gameObject.GetComponents<TextMeshProUGUI>().ToList());
 
-        Configure(targetOpacityAtStart, opacityAtStart);
+        ConfigureTransition(targetOpacityAtStart, opacityAtStart);
     }
 
     private void SaveAllFadingElements()
@@ -61,8 +61,12 @@ public class Fading : MonoBehaviour
         }
     }
 
-    private void Configure(float targetOpacity, float currentOpacity)
+    private void ConfigureTransition(float targetOpacity, float currentOpacity)
     {
+
+        if (gameObject.name == "DeathScreenPanel")
+            Debug.Log("Cofiguring. Target: " + targetOpacity + " // Current: " + currentOpacity);
+
         this.targetOpacity = targetOpacity;
         this.currentOpacity = currentOpacity;
 
@@ -71,6 +75,7 @@ public class Fading : MonoBehaviour
 
     private void Update()
     {
+
         if (currentOpacity != targetOpacity)
         {
             int directionDifference = (currentOpacity > targetOpacity) ? -1 : 1;
@@ -88,11 +93,14 @@ public class Fading : MonoBehaviour
 
             newOpacity = Mathf.Clamp(newOpacity, 0, 1); // Ensure correct value
 
+            if (gameObject.name == "DeathScreenPanel")
+                Debug.Log("newOpacity = " + newOpacity + " with currentOpacity = " + currentOpacity + " and fadeTimeDuration = " + fadeTimeDuration);
+
             SetOpacityInstantly(newOpacity);
         }
         else
         {
-            if (targetOpacity <= opacityAtDisabled)
+            if (targetOpacity <= opacityAtDisabled && currentOpacity <= opacityAtDisabled)
             {
                 gameObject.SetActive(false);
             }
@@ -104,16 +112,19 @@ public class Fading : MonoBehaviour
         if (enabled)
         {
             gameObject.SetActive(true);
-            Configure(opacityAtEnabled, currentOpacity);
+            ConfigureTransition(opacityAtEnabled, currentOpacity);
         }
         else
         {
-            Configure(opacityAtDisabled, currentOpacity);
+            ConfigureTransition(opacityAtDisabled, currentOpacity);
         }
     }
 
     public void SetOpacityInstantly(float opacity)
     {
+        if (gameObject.name == "DeathScreenPanel")
+            Debug.Log("SetOpacityInstantly " + opacity);
+
         currentOpacity = opacity;
 
         float curvedOpacity = fade.Evaluate(opacity);
@@ -131,7 +142,7 @@ public class Fading : MonoBehaviour
 
     public void SetOpacitySmooth(float opacity)
     {
-        Configure(opacity, currentOpacity);
+        ConfigureTransition(opacity, currentOpacity);
     }
 
 }
