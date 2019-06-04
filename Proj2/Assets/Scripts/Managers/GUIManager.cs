@@ -18,6 +18,9 @@ public class GUIManager : MonoBehaviour
     public Fading InventoryImage { get => inventoryPanel; private set => inventoryPanel = value; }
     [SerializeField] private Fading inventoryPanel;
 
+    public Fading DeathScreenPanel { get => deathScreenPanel; private set => deathScreenPanel = value; }
+    [SerializeField] private Fading deathScreenPanel;
+
     [Header("Pause configuration")]
     [SerializeField] public GameObject defaultPauseSelectedItem;
 

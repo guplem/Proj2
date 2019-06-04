@@ -16,6 +16,8 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (forceExitState)
             ForceExitState(character);
 
+        if (EnterDead()) return;
+        if (EnterRevive()) return;
         if (EnterOnAir()) return;
         if (EnterPushPull()) return;
         if (EnterPick()) return;
@@ -47,6 +49,15 @@ public class PlayerChillBehaviourTree : BehaviourTree
 
     }
 
+    private bool EnterRevive()
+    {
+        if (!(character.state is ReviveState))
+            return false;
+
+        State.SetState(new ReviveState(), character);
+        return true;
+    }
+
     private bool EnterPushPull()
     {
         if (!character.brain.interact)
@@ -72,7 +83,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (interactable.interactAutomatically)
             return false;
 
-        State.SetState(new InteractState(character, interactable, 0.2f, 0.8f), character);
+        State.SetState(new InteractState(character, interactable, 0.27f, 0.8f), character);
         return true;
     }
 

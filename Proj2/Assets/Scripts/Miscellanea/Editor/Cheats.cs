@@ -11,7 +11,7 @@ public class Cheats : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            GameManager.Instance.HitPlayer();
+            GameManager.Instance.playerManager.hp --;
         }
         else
         {

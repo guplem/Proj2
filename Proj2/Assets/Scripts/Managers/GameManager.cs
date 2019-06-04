@@ -82,12 +82,9 @@ public class GameManager : MonoBehaviour
         audioController.PlaySound(backgroundSound, true, false);
     }
 
-    public void HitPlayer()
-    {
-        PlayerDead();
-    }
+    
 
-    private void PlayerDead()
+    public void RevivePlayer()
     {
         try
         {
@@ -104,7 +101,8 @@ public class GameManager : MonoBehaviour
                 ResetElementsUntilLastCheckPoint(-1);
         }
 
-
+        playerManager.hp = 1;
+        State.SetState(new ReviveState(), playerManager);
     }
 
     private void SpawnPlayer(Vector3 position)
