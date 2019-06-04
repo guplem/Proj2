@@ -95,7 +95,7 @@ public class StressController : MonoBehaviour
             SetStress(currentStress - (stressRemovalPerSecond * timeBetweenDecrease));
         }
 
-        audioPlayingWhileStressing.Stop();
+        StartCoroutine(Utils.LowerVolumeAndStopSounds(audioPlayingWhileStressing));
     }
 
     private void SetStress(float qty)
@@ -109,14 +109,15 @@ public class StressController : MonoBehaviour
 
         if (!audioPlayingWhileBeingChased.isPlaying)
             audioPlayingWhileBeingChased.Play();
-        audioPlayingWhileStressing.Stop();
+
+        StartCoroutine(Utils.LowerVolumeAndStopSounds(audioPlayingWhileStressing));
 
         Invoke("StopBeingChased", timeToStopChasingAudio);
     }
 
     public void StopBeingChased()
     {
-        audioPlayingWhileBeingChased.Stop();
+        StartCoroutine(Utils.LowerVolumeAndStopSounds(audioPlayingWhileBeingChased));
 
         if (currentStress > 0)
             if (!audioPlayingWhileStressing.isPlaying)

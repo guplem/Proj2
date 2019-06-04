@@ -19,21 +19,22 @@ public class AudioController : MonoBehaviour
 
         for (int i = audioSources.Count; i < defaultAudioSourcesQty; i++)
             AddAudioSource();
+
     }
-    
+
 
     public void PlaySound(Sound sound, bool loop, bool sendAlert)
     {
         if (sound == null)
             return;
-        
+
         ConfigureAudioSource(GetFreeAudioSource(), sound, loop).Play();
 
         if (sendAlert)
             SendAlertsBySound(sound);
     }
 
-    
+
     private void SendAlertsBySound(Sound sound)
     {
         float radiusOfAlertAtMaxVolume = 23;
@@ -63,7 +64,7 @@ public class AudioController : MonoBehaviour
         audioSources.Add(newAudioSource);
 
         //Fdilter debug messages
-        if (defaultAudioSourcesQty+5 == audioSources.Count)
+        if (defaultAudioSourcesQty + 5 == audioSources.Count)
         {
             Debug.LogWarning("More than 5 audio sources have been added in RUNTIME for the object '" + gameObject.name + "'", gameObject);
         }
@@ -97,11 +98,8 @@ public class AudioController : MonoBehaviour
     {
         foreach (AudioSource audioSource in audioSources)
         {
-            audioSource.Stop();
+            StartCoroutine(Utils.LowerVolumeAndStopSounds(audioSource));
         }
     }
-
-
-
 
 }

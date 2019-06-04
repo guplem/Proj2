@@ -48,7 +48,6 @@ public class ActivableAlarm : MonoBehaviour
         {
             StopCoroutine(lightCoroutine);
             StopCoroutine(alarmCoroutine);
-            audioController.StopAllSounds();
         }
         catch (System.NullReferenceException) { }
         lightCoroutine = PlayLightAnimation();
@@ -58,7 +57,8 @@ public class ActivableAlarm : MonoBehaviour
     }
 
     public IEnumerator StopAll()
-    {
+    {            
+        //audioController.StopAllSounds();
         audioController.PlaySound(alarmSound, true, alertsOnActivation);
         yield return new WaitForSeconds(alarmSoundDuration);
         audioController.StopAllSounds();
