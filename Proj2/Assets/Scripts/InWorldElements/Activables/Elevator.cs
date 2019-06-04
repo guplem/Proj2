@@ -9,8 +9,6 @@ public class Elevator : Activable
     [SerializeField] private float travelPointOff;
     private float targetPoint;
     private float velocity = 0.02f;
-    private GameObject characterActivating;
-
 
     public override ActivationType GetActivationType()
     {
@@ -23,13 +21,6 @@ public class Elevator : Activable
             targetPoint = targetPoint == travelPointOff ? travelPointOn : travelPointOff;
         else if (targetPoint != travelPointOn && targetPoint != travelPointOff)
             targetPoint = defaultState ? travelPointOn : travelPointOff;
-
-        try
-        {
-            this.characterActivating = characterActivating.gameObject;
-            this.characterActivating.transform.parent = gameObject.transform;
-        }
-        catch (System.NullReferenceException) { }
     }
 
     private void OnDrawGizmos()
@@ -51,19 +42,19 @@ public class Elevator : Activable
 
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (characterActivating != null && collision.gameObject == characterActivating)
+        if (collision.gameObject != null)
         {
-            characterActivating.transform.parent = null;
+            collision.gameObject.transform.parent = null;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (characterActivating != null && collision.gameObject == characterActivating)
+        if (collision.gameObject != null)
         {
-            characterActivating.transform.parent = gameObject.transform;
+            collision.gameObject.transform.parent = gameObject.transform;
         }
     }
 }
