@@ -16,6 +16,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (forceExitState)
             ForceExitState(character);
 
+        if (EnterDead()) return;
         if (EnterOnAir()) return;
         if (EnterPushPull()) return;
         if (EnterPick()) return;

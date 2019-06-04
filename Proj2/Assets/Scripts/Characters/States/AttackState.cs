@@ -19,7 +19,7 @@ public class AttackState : State
         yield return new WaitForSeconds(timeToAttack);
 
         if (character.brain.actionHold) // If the player still in range
-            State.SetState(new DeadState(10, Vector2.up), GameManager.Instance.playerManager);
+            GameManager.Instance.playerManager.hp--;
     }
 
     public override void Tick(float deltaTime)

@@ -52,6 +52,7 @@ public class DeadState : State
     public override void OnExit()
     {
         GUIManager.Instance.DeathScreenPanel.SetObjectActive(false);
+        Debug.Log("FADE OUT");
     }
 
 }

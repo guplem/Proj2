@@ -11,7 +11,7 @@ public class Cheats : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            State.SetState(new DeadState(10, Vector2.up), GameManager.Instance.playerManager);
+            GameManager.Instance.playerManager.hp --;
         }
         else
         {

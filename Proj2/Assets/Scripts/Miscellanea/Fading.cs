@@ -63,10 +63,6 @@ public class Fading : MonoBehaviour
 
     private void ConfigureTransition(float targetOpacity, float currentOpacity)
     {
-
-        if (gameObject.name == "DeathScreenPanel")
-            Debug.Log("Cofiguring. Target: " + targetOpacity + " // Current: " + currentOpacity);
-
         this.targetOpacity = targetOpacity;
         this.currentOpacity = currentOpacity;
 
@@ -92,9 +88,6 @@ public class Fading : MonoBehaviour
             }
 
             newOpacity = Mathf.Clamp(newOpacity, 0, 1); // Ensure correct value
-
-            if (gameObject.name == "DeathScreenPanel")
-                Debug.Log("newOpacity = " + newOpacity + " with currentOpacity = " + currentOpacity + " and fadeTimeDuration = " + fadeTimeDuration);
 
             SetOpacityInstantly(newOpacity);
         }
@@ -122,9 +115,6 @@ public class Fading : MonoBehaviour
 
     public void SetOpacityInstantly(float opacity)
     {
-        if (gameObject.name == "DeathScreenPanel")
-            Debug.Log("SetOpacityInstantly " + opacity);
-
         currentOpacity = opacity;
 
         float curvedOpacity = fade.Evaluate(opacity);

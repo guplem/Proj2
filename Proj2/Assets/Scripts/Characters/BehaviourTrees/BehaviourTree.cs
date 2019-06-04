@@ -25,6 +25,18 @@ public abstract class BehaviourTree
     //////// DEFAULT TRANSITIONS  /////////////////////
 
 
+    protected bool EnterDead()
+    {
+        if (character.hp > 0)
+        {
+            Debug.Log(character.hp);
+            return false;
+        }
+
+        State.SetState(new DeadState(2, Vector2.up), GameManager.Instance.playerManager);
+        return true;
+    }
+
     protected bool EnterIdle()
     {
         if (!character.IsTouchingGround())

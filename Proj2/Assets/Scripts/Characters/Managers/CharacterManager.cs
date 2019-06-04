@@ -39,6 +39,8 @@ public abstract class CharacterManager : MonoBehaviour
     // Note: the default state is given by the current behaviour tree
     public State state;
 
+    public int hp = 1;
+
     public abstract void Configure();
     protected void Setup(MovementController movementController, Brain defaultBrain, BehaviourTree defaultBehaviourTree)
     {
