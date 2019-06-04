@@ -65,6 +65,8 @@ MonoBehaviour:
   audioController: {fileID: 0}
   cursor: {fileID: 0}
   lineRenderer: {fileID: 0}
+  mechanicsAudioMixer: {fileID: 24100000, guid: 8823c276da32ebf41a1d02a616bf8265,
+    type: 2}
   backgroundSound: {fileID: 0}
 --- !u!120 &656853021
 LineRenderer:
