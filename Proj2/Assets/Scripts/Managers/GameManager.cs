@@ -103,7 +103,6 @@ public class GameManager : MonoBehaviour
 
         playerManager.hp = 1;
         State.SetState(new ReviveState(), playerManager);
-        Debug.Log("Revived");
     }
 
     private void SpawnPlayer(Vector3 position)

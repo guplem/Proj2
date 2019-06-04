@@ -8,7 +8,7 @@ public class ReviveState : State
 
     protected override IEnumerator StartState()
     {
-        character.visualsAnimator.SetTrigger("IdleRevive");
+        character.visualsAnimator.SetTrigger("ReviveIdle");
         yield return "success";
     }
 
@@ -20,7 +20,7 @@ public class ReviveState : State
             {
                 reviving = true;
                 character.visualsAnimator.SetTrigger("Revive");
-                character.StartCoroutine(ForceExitRevive(2f));
+                character.StartCoroutine(ForceExitRevive(1.05f));
             }
 
         }
