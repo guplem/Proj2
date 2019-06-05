@@ -22,7 +22,7 @@ public class InteractState : State
 
         yield return new WaitForSeconds(actionDelay);
 
-        interactable.StartInteract(character);
+        character.StartCoroutine( interactable.StartInteract(character) );
 
         yield return new WaitForSeconds(exitDelayAfterAction);
 

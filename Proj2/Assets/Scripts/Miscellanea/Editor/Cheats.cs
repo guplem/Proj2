@@ -11,7 +11,7 @@ public class Cheats : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            GameManager.Instance.HitPlayer();
+            GameManager.Instance.playerManager.hp --;
         }
         else
         {
@@ -33,6 +33,24 @@ public class Cheats : MonoBehaviour
             {
                 if (GameManager.Instance.ResetElementsUntilLastCheckPoint != null)
                     GameManager.Instance.ResetElementsUntilLastCheckPoint(-1);
+            }
+        }
+        else
+        {
+            Debug.LogError("Not in play mode.");
+        }
+    }
+
+    [MenuItem("Bunker Bound/Cheats/Activate Highlighted Activable")]
+    public static void ActivateHighlightedActivableObject()
+    {
+        if (Application.isPlaying)
+        {
+            GameObject obj = Selection.activeGameObject;
+            Activable actObj = obj.GetComponent<Activable>();
+            if (actObj != null)
+            {
+                actObj.SwitchState(null);
             }
         }
         else

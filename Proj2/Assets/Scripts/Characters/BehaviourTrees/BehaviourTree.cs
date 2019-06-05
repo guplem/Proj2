@@ -25,6 +25,15 @@ public abstract class BehaviourTree
     //////// DEFAULT TRANSITIONS  /////////////////////
 
 
+    protected bool EnterDead()
+    {
+        if (character.hp > 0)
+            return false;
+
+        State.SetState(new DeadState(2, Vector2.up), GameManager.Instance.playerManager);
+        return true;
+    }
+
     protected bool EnterIdle()
     {
         if (!character.IsTouchingGround())
@@ -63,10 +72,10 @@ public abstract class BehaviourTree
         if ((character.rb2d.velocity.y > 0.1f) || (character.rb2d.velocity.y < -0.1f))
             return false;
 
-        if (character.state is CrouchedState)
+        if (character.state is CrouchedState && character.brain.crouch)
             return false;
 
-        State.SetState(new WalkingState(character), character);
+        State.SetState(new WalkingState(), character);
         return true;
     }
 

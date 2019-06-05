@@ -72,4 +72,16 @@ public static class Utils
         }
     }
 
+    public static IEnumerator LowerVolumeAndStopSounds(AudioSource audioSource)
+    {
+        while (audioSource.volume > 0f)
+        {
+            audioSource.volume -= 0.1f;
+            yield return new WaitForSeconds(0.12f);
+
+        }
+        audioSource.Stop();
+        audioSource.volume = 1.0f;
+    }
+
 }

@@ -41,12 +41,11 @@ public abstract class State
         character.state = newState;
 
         if (newState == null)
-        {
             return;
-        }
 
+
+        character.state.character = character;
         character.StartCoroutine(character.state.StartState());
-        
     }
 
     /*protected IEnumerator Wait(float seconds)

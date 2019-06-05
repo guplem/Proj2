@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class WalkingState : State
 {
-    public WalkingState(CharacterManager characterManager)
-    {
-        this.character = characterManager;
-    }
 
     protected override IEnumerator StartState()
     {
