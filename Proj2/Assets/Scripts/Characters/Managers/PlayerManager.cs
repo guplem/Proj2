@@ -14,6 +14,9 @@ public class PlayerManager : CharacterManager
     [SerializeField] public Vector2 throwingForce;
     //[SerializeField] public float stressThreshold;
 
+    public MaterialPhysics defaultMaterial;
+    public MaterialPhysics onAirMaterial;
+
     private void Start()
     {
         Configure();
