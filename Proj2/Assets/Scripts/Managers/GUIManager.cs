@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 #pragma warning disable 0649
 public class GUIManager : MonoBehaviour
@@ -24,6 +25,7 @@ public class GUIManager : MonoBehaviour
     [Header("Pause configuration")]
     [SerializeField] public GameObject defaultPauseSelectedItem;
 
+    [SerializeField] private string exitScene;
 
     [HideInInspector] public static GUIManager Instance;
     private void Awake()
@@ -41,7 +43,7 @@ public class GUIManager : MonoBehaviour
 
     public void ExitGameButton()
     {
-        GameManager.Instance.ExitGame();
+        SceneManager.LoadScene(exitScene, LoadSceneMode.Single);
     }
 
     public void SetInventoryImage(Sprite image)
