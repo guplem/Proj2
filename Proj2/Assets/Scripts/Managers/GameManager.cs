@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Audio;
 
-#pragma warning disable CS0168 // Variable is declared but never used
+#pragma warning disable CS0168 
+#pragma warning disable CS0649
 [RequireComponent(typeof(AudioController))]
 public class GameManager : MonoBehaviour
 {
