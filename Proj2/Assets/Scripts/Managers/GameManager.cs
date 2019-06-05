@@ -128,14 +128,7 @@ public class GameManager : MonoBehaviour
                 Application.Quit();
                 Debug.Log("GAME FINISHED");
             }
-
-            HideMainMenu();
         }
-    }
-
-    private void HideMainMenu()
-    {
-        GUIManager.Instance.MainMenuPanel.SetObjectActive(false);
     }
 
     private void Update()
@@ -149,7 +142,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator StartGameplaySounds()
     {
         mechanicsAudioMixer.SetFloat("volume", -80.0f);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(5.0f);
         mechanicsAudioMixer.SetFloat("volume", 0.0f);
         StopCoroutine(startMechanicsSounds);
     }

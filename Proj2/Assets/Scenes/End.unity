@@ -179,6 +179,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6598337721019648155, guid: 58cdaa798777a66489a5086d6b866d92,
+        type: 3}
+      propertyPath: sceneNameToLoad
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 6598337721019648152, guid: 58cdaa798777a66489a5086d6b866d92,
         type: 3}
       propertyPath: m_VideoClip
