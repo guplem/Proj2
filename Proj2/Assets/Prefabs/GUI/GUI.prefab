@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7121886038046110283}
   - component: {fileID: 513910297567686048}
   - component: {fileID: 2406129865276871322}
+  - component: {fileID: 4617097257220329206}
   m_Layer: 5
   m_Name: ExitGame
   m_TagString: Untagged
@@ -128,6 +129,25 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!95 &4617097257220329206
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250610649236065929}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0e292f927ed50841926f6050f338fff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2339408453487008808
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5255728921317894150
 RectTransform:
   m_ObjectHideFlags: 0
@@ -493,6 +513,7 @@ MonoBehaviour:
   inventoryPanel: {fileID: 7860354825848134591}
   deathScreenPanel: {fileID: 3546677226464910524}
   defaultPauseSelectedItem: {fileID: 2339408453487008808}
+  exitScene: 
 --- !u!1 &4701406406240928827
 GameObject:
   m_ObjectHideFlags: 0
