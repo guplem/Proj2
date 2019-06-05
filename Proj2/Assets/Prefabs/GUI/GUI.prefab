@@ -542,7 +542,7 @@ MonoBehaviour:
   fadeTimeDuration: 3
   opacityAtEnabled: 1
   opacityAtDisabled: 0
-  targetOpacityAtStart: 0
+  targetOpacityAtStart: 1
   opacityAtStart: 1
 --- !u!1 &4479270373043741342
 GameObject:
