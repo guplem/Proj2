@@ -17,13 +17,14 @@ public class PlayerManager : CharacterManager
     private void Start()
     {
         Configure();
+
     }
 
     public override void Configure()
     {
         base.Setup(new CharacterMovementController(this), new PlayerInput(this), new PlayerChillBehaviourTree(new IdleState(this), this));
 
-
+        hp = 0;
         //Particular of the player
         inventory = new InventoryController(this);
 

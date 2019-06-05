@@ -128,7 +128,7 @@ TextureImporter:
         width: 280
         height: 529
       alignment: 9
-      pivot: {x: 0.466397, y: 0.04980078}
+      pivot: {x: 0.43353567, y: 0.49132776}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -148,7 +148,7 @@ TextureImporter:
         width: 350
         height: 503
       alignment: 9
-      pivot: {x: 0.31451276, y: 0.035540193}
+      pivot: {x: 0.32339147, y: 0.47725022}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: Enemy_Iddle_3
       rect:
         serializedVersion: 2
-        x: 1716
+        x: 1717
         y: 66
         width: 415
         height: 486
       alignment: 9
-      pivot: {x: 0.27554977, y: 0.017423779}
+      pivot: {x: 0.2570192, y: 0.46289873}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,7 +188,7 @@ TextureImporter:
         width: 444
         height: 488
       alignment: 9
-      pivot: {x: 0.30716243, y: 0.019280402}
+      pivot: {x: 0.2832658, y: 0.47518188}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,11 +204,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3215
-        y: 64
+        y: 65
         width: 444
         height: 488
       alignment: 9
-      pivot: {x: 0.30716243, y: 0.021208435}
+      pivot: {x: 0.27490786, y: 0.47623187}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,7 +228,7 @@ TextureImporter:
         width: 444
         height: 488
       alignment: 9
-      pivot: {x: 0.31113192, y: 0.017291991}
+      pivot: {x: 0.27414134, y: 0.47843438}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,7 +248,7 @@ TextureImporter:
         width: 444
         height: 488
       alignment: 9
-      pivot: {x: 0.29655278, y: 0.018206878}
+      pivot: {x: 0.27332973, y: 0.47990555}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

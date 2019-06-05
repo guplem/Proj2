@@ -96,7 +96,7 @@ public class PlayerChillBehaviourTree : BehaviourTree
         if (interactable == null)
             return false;
 
-        State.SetState(new PickState(character, interactable, 1f), character);
+        State.SetState(new PickState(character, interactable, 0.63f), character);
         return true;
     }
 

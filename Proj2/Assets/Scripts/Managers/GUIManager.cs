@@ -13,8 +13,8 @@ public class GUIManager : MonoBehaviour
     [SerializeField] private Fading backgroundVignette;
     public Fading PausePanel { get => pausePanel; private set => pausePanel = value; }
     [SerializeField] private Fading pausePanel;
-    public Fading MainMenuPanel { get => mainMenuPanel; private set => mainMenuPanel = value; }
-    [SerializeField] private Fading mainMenuPanel;  
+    //public Fading MainMenuPanel { get => mainMenuPanel; private set => mainMenuPanel = value; }
+    //[SerializeField] private Fading mainMenuPanel;  
     public Fading InventoryImage { get => inventoryPanel; private set => inventoryPanel = value; }
     [SerializeField] private Fading inventoryPanel;
 
