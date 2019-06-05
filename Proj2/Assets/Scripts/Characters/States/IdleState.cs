@@ -13,6 +13,7 @@ public class IdleState : State
     protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Idle");
+        character.rb2d.velocity = Vector3.zero;
         yield return "success";
     }
 
