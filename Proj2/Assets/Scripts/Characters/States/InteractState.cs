@@ -22,11 +22,13 @@ public class InteractState : State
 
         yield return new WaitForSeconds(actionDelay);
 
-        character.StartCoroutine( interactable.StartInteract(character) );
+        if (character.state is InteractState)
+            character.StartCoroutine( interactable.StartInteract(character) );
 
         yield return new WaitForSeconds(exitDelayAfterAction);
 
-        character.behaviourTree.CalculateAndSetNextState(true);
+        if (character.state is InteractState)
+            character.behaviourTree.CalculateAndSetNextState(true);
     }
 
     public override void Tick(float deltaTime)
