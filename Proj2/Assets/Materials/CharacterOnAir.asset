@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b996db4b0b200e49a3fc494fe853925, type: 3}
   m_Name: CharacterOnAir
   m_EditorClassIdentifier: 
-  friction: 0.5
-  bounciness: 0.25
+  friction: 0
+  bounciness: 0
   hardness: 1

@@ -13,7 +13,7 @@ public class IdleState : State
     protected override IEnumerator StartState()
     {
         character.visualsAnimator.SetTrigger("Idle");
-        character.rb2d.velocity = Vector3.zero;
+        character.rb2d.velocity = new Vector2(0, character.rb2d.velocity.y);
         yield return "success";
     }
 
@@ -24,12 +24,12 @@ public class IdleState : State
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        
+
     }
 
     public override void OnExit()
     {
-        
+
     }
 
 

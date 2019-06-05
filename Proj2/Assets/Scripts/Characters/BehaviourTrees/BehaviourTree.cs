@@ -42,8 +42,8 @@ public abstract class BehaviourTree
         if (character.brain.direction != Vector2.zero)
             return false;
 
-        /*if (character.rb2d.velocity != Vector2.zero)
-            return false;*/
+        if (character.rb2d.velocity.y > 0f)
+            return false;
 
         State.SetState(new IdleState(character), character);
         return true;
