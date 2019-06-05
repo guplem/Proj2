@@ -68,12 +68,26 @@ public abstract class CharacterManager : MonoBehaviour
 
         behaviourTree.CalculateAndSetNextState(false);
 
-        state.Tick(Time.deltaTime);
+        try
+        {
+            state.Tick(Time.deltaTime);
+        }
+        catch (System.NullReferenceException)
+        {
+            Debug.LogWarning("No state asigned for Update in " +gameObject.name, gameObject);
+        }
     }
 
     protected void FixedUpdate()
-    {
-        state.FixedTick(Time.fixedDeltaTime);
+    {   
+        try
+        {
+            state.FixedTick(Time.fixedDeltaTime);
+        }
+        catch (System.NullReferenceException)
+        {
+            Debug.LogWarning("No state asigned for FixedUpdate in " + gameObject.name, gameObject);
+        }
     }
 
     public bool IsTouchingGround()

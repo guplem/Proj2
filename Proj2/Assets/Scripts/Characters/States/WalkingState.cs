@@ -18,7 +18,18 @@ public class WalkingState : State
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), character.characterProperties.acceleration, character.characterProperties.internalVelocity);
+        Vector2 dir = Vector2.zero;
+        if (character.brain.direction != Vector2.zero)
+        {
+            dir = character.brain.direction;
+        }
+        else
+        {
+             //dir = new Vector2(0, 0);
+            dir = new Vector2(Mathf.Lerp(-character.rb2d.velocity.x, 0, 0.8f), 0);
+        }
+
+        character.movementController.MoveTowards(new Vector2(dir.x, 0), character.characterProperties.acceleration, character.characterProperties.internalVelocity);
     }
 
     public override void OnExit()
