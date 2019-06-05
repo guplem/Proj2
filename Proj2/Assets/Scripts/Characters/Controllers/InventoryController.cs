@@ -68,6 +68,7 @@ public class InventoryController
         storedItem.transform.position = throwPosition;
 
         storedItem.rb2d.AddForce(forceAndDirection, ForceMode2D.Impulse);
+        storedItem.rb2d.angularVelocity = UnityEngine.Random.Range(120f, 450f);
 
         ClearStoredItem();
     }
