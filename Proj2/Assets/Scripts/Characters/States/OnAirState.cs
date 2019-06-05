@@ -18,18 +18,20 @@ public class OnAirState : State
         try
         {
             character.rb2d.sharedMaterial = ((PlayerProperties)(character.characterProperties)).OnAirMaterial;
+
+            PhysicsMaterial2D pMat = new PhysicsMaterial2D();
+            pMat.friction = ((PlayerManager)character).onAirMaterial.friction;
+            pMat.bounciness = ((PlayerManager)character).onAirMaterial.bounciness;
+
+            foreach (Collider2D collider in character.gameObject.GetComponents<Collider2D>())
+            {
+                collider.sharedMaterial = pMat;
+            }
         }
         catch (System.InvalidCastException)
         { }
 
-        PhysicsMaterial2D pMat = new PhysicsMaterial2D();
-        pMat.friction = ((PlayerManager)character).onAirMaterial.friction;
-        pMat.bounciness = ((PlayerManager)character).onAirMaterial.bounciness;
 
-        foreach (Collider2D collider in character.gameObject.GetComponents<Collider2D>())
-        {
-            collider.sharedMaterial = pMat;
-        }
         yield return "success";
     }
 
@@ -50,17 +52,19 @@ public class OnAirState : State
         try
         {
             character.rb2d.sharedMaterial = ((PlayerProperties)(character.characterProperties)).DefaultMaterial;
+
+            PhysicsMaterial2D pMat = new PhysicsMaterial2D();
+            pMat.friction = ((PlayerManager)character).defaultMaterial.friction;
+            pMat.bounciness = ((PlayerManager)character).defaultMaterial.bounciness;
+
+            foreach (Collider2D collider in character.gameObject.GetComponents<Collider2D>())
+            {
+                collider.sharedMaterial = pMat;
+            }
         }
         catch (System.InvalidCastException)
         { }
 
-        PhysicsMaterial2D pMat = new PhysicsMaterial2D();
-        pMat.friction = ((PlayerManager)character).defaultMaterial.friction;
-        pMat.bounciness = ((PlayerManager)character).defaultMaterial.bounciness;
 
-        foreach (Collider2D collider in character.gameObject.GetComponents<Collider2D>())
-        {
-            collider.sharedMaterial = pMat;
-        }
     }
 }
