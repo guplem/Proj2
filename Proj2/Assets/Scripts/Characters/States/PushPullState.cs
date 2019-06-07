@@ -9,6 +9,7 @@ public class PushPullState : State
     private bool isPushing;
     private bool isPulling;
 
+    private IEnumerator pushPullSetup;
     public PushPullState(CharacterManager characterManager, Interactable interactable)
     {
         this.character = characterManager;
@@ -23,28 +24,11 @@ public class PushPullState : State
     {
         interactable.StartInteract(character);
         character.rb2d.velocity = Vector3.zero;
+        character.visualsAnimator.SetTrigger("Push");
 
-        character.brain.LookAt(interactable.transform.position);
-        try
-        {
-            ActivableBox boxObject = interactable.GetComponent<ActivableBox>();
-            if (boxObject.gameObject.transform.position.x > character.transform.position.x)
-            {
-                Vector2 calculation = new Vector2(boxObject.transform.position.x + boxObject.leftSideCol.offset.x - boxObject.leftSideCol.size.x * 4, character.transform.position.y);
-                character.transform.position = calculation;
-            }
-            else
-            {
-                Vector2 thingy = new Vector2(boxObject.transform.position.x + boxObject.rightSideCol.offset.x + boxObject.rightSideCol.size.x * 4, character.transform.position.y);
-                character.transform.position = thingy;
-            }
-        }
-        catch
-        {
-            Debug.LogWarning("PushPull doesn't work correctly with a box!", interactable.gameObject);
-        }
         yield return "success";
     }
+
 
     public override void FixedTick(float fixedDeltaTime)
     {
@@ -66,10 +50,7 @@ public class PushPullState : State
         {
             character.interactionsController.audioSource.Stop();
         }
-
-
     }
-
 
 
     public override void Tick(float deltaTime)
