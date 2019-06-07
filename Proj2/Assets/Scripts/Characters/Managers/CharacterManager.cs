@@ -40,6 +40,13 @@ public abstract class CharacterManager : MonoBehaviour
     public State state;
 
     public int hp = 1;
+    [SerializeField] public Sound deadSound;
+    [SerializeField] public Sound walkSound;
+
+    public void PlayWalkSound(bool alert)
+    {
+        audioController.PlaySound(walkSound, false, alert);
+    }
 
     public abstract void Configure();
     protected void Setup(MovementController movementController, Brain defaultBrain, BehaviourTree defaultBehaviourTree)

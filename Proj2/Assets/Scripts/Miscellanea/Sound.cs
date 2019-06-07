@@ -16,11 +16,11 @@ public class Sound : ScriptableObject, ICloneable
     [Range(0, 1)]
     [SerializeField] public float volume;
 
-    [Range(0.001f, 0.65f)]
+    [Range(-3, 3)]
     [Tooltip("This value will be modified in a collision event")]
     [SerializeField] public float pitch;
 
-    [Range(0.001f, 0.65f)]
+    [Range(-3, 3)]
     [SerializeField] public float pitchRandomization;
 
     public float randomizedPitch

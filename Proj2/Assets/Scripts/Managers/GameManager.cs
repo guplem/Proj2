@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
         audioController.PlaySound(backgroundSound, true, false);
     }
 
-    
+
 
     public void RevivePlayer()
     {
@@ -124,6 +124,11 @@ public class GameManager : MonoBehaviour
                 Debug.Log("GAME FINISHED");
             }
         }
+    }
+
+    public void CheckPointReachedForced(CheckPoint checkPoint)
+    {
+        lastCheckPoint = checkPoint;
     }
 
     private void Update()

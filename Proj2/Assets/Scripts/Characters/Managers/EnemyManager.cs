@@ -51,7 +51,7 @@ public abstract class EnemyManager : CharacterManager
             if (brain.GetType() != typeof(ChasingBrain) ||
                 ((ChasingBrain)brain).target != GameManager.Instance.playerManager.gameObject)
             {
-                Brain nBrain = new ChasingBrain(this, GameManager.Instance.playerManager.gameObject);
+                Brain nBrain = new ChasingBrain(this, GameManager.Instance.playerManager);
                 Brain.SetBrain(nBrain, 0, this, true);
             }
         }

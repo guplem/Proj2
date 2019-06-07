@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6196863622840744243}
   - component: {fileID: 8206122056261830003}
   - component: {fileID: 1352286770111948420}
+  - component: {fileID: 3854556749131086012}
   m_Layer: 18
   m_Name: Visuals
   m_TagString: Untagged
@@ -99,6 +100,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3854556749131086012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3863103725657106640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a72691af4490dc4ba77bdb52252d236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 9176526076712924883}
+  alertBySound: 0
 --- !u!1 &4216962031337161501
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202f1008dc592ed45a29c7910a35f5e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
 --- !u!114 &2120483584756003289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +347,8 @@ MonoBehaviour:
   characterProperties: {fileID: 11400000, guid: d34568373ab42524a8361ef91c2871bc,
     type: 2}
   hp: 1
+  deadSound: {fileID: 11400000, guid: b9e714487195ae44ca33112dfa873da7, type: 2}
+  walkSound: {fileID: 11400000, guid: ac32ea0f47eee4b4ba8ad69fba2140e8, type: 2}
   lookingStartPoint: {x: -0.31, y: 1.66}
   lookingDirection: 0.4
   lookingRaysQty: 10

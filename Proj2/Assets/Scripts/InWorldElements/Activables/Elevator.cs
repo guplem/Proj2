@@ -7,6 +7,7 @@ public class Elevator : Activable
 {
     [SerializeField] private float travelPointOn;
     [SerializeField] private float travelPointOff;
+    [SerializeField] private AudioSource movingSound;
     private float targetPoint;
     private float velocity = 0.02f;
 
@@ -36,10 +37,15 @@ public class Elevator : Activable
         float distance = targetPoint - transform.position.y;
 
         if (Mathf.Abs(distance) < velocity)
+        {
+            if (movingSound.isPlaying)
+                movingSound.Stop();
             return;
+        }
 
         transform.position = new Vector3(transform.position.x, transform.position.y + (velocity * Mathf.Sign(distance)), transform.position.z);
-
+        if (!movingSound.isPlaying)
+            movingSound.Play();
     }
 
     private void OnCollisionExit2D(Collision2D collision)

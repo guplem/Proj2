@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144c603ac537393468758cdaf85c90d6, type: 3}
+  m_Name: SwitchOn
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 8e17210f2e5b0ef4da488dc1df1c6af9, type: 3}
+  audioMixerGroup: {fileID: 24300002, guid: 8823c276da32ebf41a1d02a616bf8265, type: 2}
+  volume: 0.773
+  pitch: 1
+  pitchRandomization: 0.1
