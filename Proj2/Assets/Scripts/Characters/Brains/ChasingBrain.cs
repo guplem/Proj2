@@ -6,9 +6,9 @@ using UnityEngine;
 public class ChasingBrain : Brain
 {
 
-    public GameObject target { get; private set; }
+    public CharacterManager target { get; private set; }
 
-    public ChasingBrain(CharacterManager characterManager, GameObject target)
+    public ChasingBrain(CharacterManager characterManager, CharacterManager target)
     {
         base.Setup(characterManager);
         this.target = target;
@@ -16,6 +16,13 @@ public class ChasingBrain : Brain
 
     protected override void GetActions(float deltaTime)
     {
+        if (target.hp <= 0)
+        {
+            Brain.SetBrain(character.defaultBrain, 0f, character, false);
+            return;
+        }
+
+
         character.characterProperties.internalVelocity = character.characterProperties.maxRunVelocity;
 
         jumping = false;
@@ -23,7 +30,7 @@ public class ChasingBrain : Brain
         actionHold = character.IsNextToPosition(target.transform.position, deltaTime, 1.5f); //(Vector2.Distance(character.transform.position, target.transform.position) <= 1.5f);
         crouch = false;
 
-        if (character.IsNextToPosition(target.transform.position, deltaTime, 0f))
+        if (character.IsNextToPosition(target.transform.position, deltaTime, 0.5f))
             direction = Vector2.zero;
         else
             direction = ((Vector2)target.transform.position - ((Vector2)character.transform.position)).normalized;

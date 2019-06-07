@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterManager))]
 public class Alertable : MonoBehaviour
 {
-    private CharacterManager character;
+    [HideInInspector] public CharacterManager character;
 
     public static Alertable alertsManager;
     private void Awake()
@@ -43,7 +43,8 @@ public class Alertable : MonoBehaviour
             Alertable alertable = objInRange.GetComponent<Alertable>();
             if (alertable != null)
             {
-                alertable.Alert(position);
+                if (!(alertable.character.brain is ChasingBrain))
+                    alertable.Alert(position);
             }
         }
 
