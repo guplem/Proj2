@@ -8,10 +8,32 @@ using UnityEngine.SceneManagement;
 public class Cinematica : MonoBehaviour
 {
     [SerializeField] private String sceneNameToLoad;
+    private float timePressed;
+    public float timeToSkip;
+
+    private IEnumerator coroutineHolder;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(ExitScene((float) gameObject.GetComponent<UnityEngine.Video.VideoPlayer>().clip.length));
+        coroutineHolder = ExitScene((float)gameObject.GetComponent<UnityEngine.Video.VideoPlayer>().clip.length);
+        StartCoroutine(coroutineHolder);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            timePressed += Time.deltaTime;
+            if (timePressed >= timeToSkip)
+            {
+                StopCoroutine(coroutineHolder);
+                SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Single);
+            }
+        }
+        else
+        {
+            timePressed = 0f;
+        }
     }
 
     private IEnumerator ExitScene(float time)
