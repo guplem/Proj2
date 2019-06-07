@@ -360,6 +360,8 @@ MonoBehaviour:
   characterProperties: {fileID: 11400000, guid: b0ac9eb4c99dcda48a7942f20f2a795b,
     type: 2}
   hp: 1
+  deadSound: {fileID: 11400000, guid: b9e714487195ae44ca33112dfa873da7, type: 2}
+  walkSound: {fileID: 0}
   throwPoint: {fileID: 4705788987633123289}
   throwingForce: {x: 8, y: 8}
   defaultMaterial: {fileID: 11400000, guid: 75915b3e4ecfc1b45b67cd8ea911a406, type: 2}
