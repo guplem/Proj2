@@ -36,7 +36,7 @@ public class Cursor : MonoBehaviour
 
     public Vector3 GetCursorPositionOnWorld()
     {
-        Vector3 cursorPosition = new Vector3(transform.position.x + Input.GetAxis("Mouse_J X") * cursorRadius, transform.position.y + Input.GetAxis("Mouse_J Y") * cursorRadius, 0);
+        Vector3 cursorPosition = new Vector3(transform.position.x + Input.GetAxis("Mouse_J X") * cursorRadius, transform.position.y + Input.GetAxis("Mouse_J Y") * cursorRadius, transform.position.z);
 
         if (cursorPosition == transform.position)
         {
@@ -56,5 +56,13 @@ public class Cursor : MonoBehaviour
         }
 
         return Utils.GetClosestPointToCircle(transform.position, cursorRadius, cursorPosition);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!Application.isPlaying)
+            return;
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(GetCursorPositionOnWorld(), 0.2f);
     }
 }
