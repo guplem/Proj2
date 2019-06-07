@@ -17,8 +17,8 @@ MonoBehaviour:
   internalVelocity: {x: 4, y: 4}
   maxRunVelocity: {x: 5, y: 5}
   maxWalkVelocity: {x: 4, y: 4}
-  maxCrouchVelocity: {x: 5, y: 20}
-  maxOnAirVelocity: {x: 5, y: 10}
+  maxCrouchVelocity: {x: 4, y: 20}
+  maxOnAirVelocity: {x: 3, y: 10}
   attackLoadingTime: 0
   OnAirGravityScale: 1.75
   DefaultMaterial: {fileID: 6200000, guid: a456074f0c9646540a5edd331eb795c7, type: 2}

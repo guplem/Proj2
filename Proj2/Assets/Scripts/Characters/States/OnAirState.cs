@@ -42,7 +42,7 @@ public class OnAirState : State
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x * 0.5f, character.characterProperties.acceleration.y * 0.5f), character.characterProperties.maxOnAirVelocity);
+        character.movementController.MoveTowards(new Vector2(character.brain.direction.x, 0), new Vector2(character.characterProperties.acceleration.x * 0.2f, character.characterProperties.acceleration.y * 0.5f), character.characterProperties.maxOnAirVelocity);
         character.rb2d.velocity = new Vector2(character.rb2d.velocity.x, Mathf.Min(character.rb2d.velocity.y, character.characterProperties.maxOnAirVelocity.y));
     }
 
