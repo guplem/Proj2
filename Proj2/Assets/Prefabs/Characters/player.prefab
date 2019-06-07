@@ -200,7 +200,6 @@ GameObject:
   - component: {fileID: 670656468}
   - component: {fileID: 7729870114131683840}
   - component: {fileID: 5604496833189422184}
-  - component: {fileID: 2103329758}
   m_Layer: 10
   m_Name: player
   m_TagString: Player
@@ -385,14 +384,6 @@ MonoBehaviour:
   audioPlayingWhileStressing: {fileID: 4612740365741761220}
   audioPlayingWhileBeingChased: {fileID: 6841947240610493869}
   timeToStopChasingAudio: 3
---- !u!81 &2103329758
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2687238802475380595}
-  m_Enabled: 1
 --- !u!1 &2855540944546284061
 GameObject:
   m_ObjectHideFlags: 0
