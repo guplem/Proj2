@@ -45,6 +45,11 @@ public class RunTimeCheats : MonoBehaviour
             {
                 Cheats.HitPlayer();
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Cheats.ResetTilLastCheckpoint();
+            }
         }
     }
 
