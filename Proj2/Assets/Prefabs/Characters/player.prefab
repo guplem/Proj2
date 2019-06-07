@@ -360,6 +360,8 @@ MonoBehaviour:
   characterProperties: {fileID: 11400000, guid: b0ac9eb4c99dcda48a7942f20f2a795b,
     type: 2}
   hp: 1
+  deadSound: {fileID: 11400000, guid: b9e714487195ae44ca33112dfa873da7, type: 2}
+  walkSound: {fileID: 11400000, guid: ac32ea0f47eee4b4ba8ad69fba2140e8, type: 2}
   throwPoint: {fileID: 4705788987633123289}
   throwingForce: {x: 8, y: 8}
   defaultMaterial: {fileID: 11400000, guid: 75915b3e4ecfc1b45b67cd8ea911a406, type: 2}
@@ -629,6 +631,7 @@ GameObject:
   - component: {fileID: 313350187286083614}
   - component: {fileID: 6077845065378858406}
   - component: {fileID: 8882376206053353117}
+  - component: {fileID: 1954597054773733617}
   m_Layer: 0
   m_Name: PlayerVisuals
   m_TagString: Untagged
@@ -733,6 +736,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1954597054773733617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622873014445708733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a72691af4490dc4ba77bdb52252d236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 7729870114131683840}
+  alertBySound: 1
 --- !u!1 &5710166843527298672
 GameObject:
   m_ObjectHideFlags: 0

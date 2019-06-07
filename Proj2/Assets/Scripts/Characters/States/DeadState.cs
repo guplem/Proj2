@@ -19,6 +19,8 @@ public class DeadState : State
 
         character.visualsAnimator.SetTrigger("Dead");
 
+        character.audioController.PlaySound(character.deadSound, false, false);
+
         PlayerManager pm = null;
         try
         {

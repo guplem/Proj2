@@ -179,7 +179,7 @@ MonoBehaviour:
   animator: {fileID: 7897352793968196683}
   connectedActivables: []
   activationDelay: 0.5
-  startInteractSound: {fileID: 0}
+  startInteractSound: {fileID: 11400000, guid: 9f9b052f558b136419f9b0a6fbd88aea, type: 2}
   endInteractSound: {fileID: 0}
   usingSound: {fileID: 0}
 --- !u!114 &9123384590576003216

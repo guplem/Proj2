@@ -160,6 +160,10 @@ MonoBehaviour:
   animator: {fileID: 0}
   connectedActivables:
   - {fileID: 4499183300082819550}
+  activationDelay: 0
+  startInteractSound: {fileID: 0}
+  endInteractSound: {fileID: 0}
+  usingSound: {fileID: 0}
 --- !u!114 &4499183300082819550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +179,8 @@ MonoBehaviour:
   defaultState: 0
   singleActivation: 0
   alreadyActivated: 0
+  onSound: {fileID: 0}
+  offSound: {fileID: 0}
   detectedMaterials:
   - {fileID: 11400000, guid: 3a112dee1d4dd4a4283a668d19b4cb97, type: 2}
   linkedAlarm: {fileID: 6745612017494019707}
@@ -245,71 +251,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4172713697367603136, guid: 59658d771a81960498707e8b0d91ee49,
+    - target: {fileID: 8145872139028210841, guid: 59658d771a81960498707e8b0d91ee49,
         type: 3}
-      propertyPath: alertRadius
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4172713697367603136, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: lightFlickDelay
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4172713697367603136, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: lightAlphaInterpolation
-      value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 4172713697367603136, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: alarmSound
-      value: 
-      objectReference: {fileID: 11400000, guid: 5769443826f51b04d9a128fdb0c41784,
-        type: 2}
-    - target: {fileID: 4172713697367603136, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: lightEmmitter
-      value: 
-      objectReference: {fileID: 8618613779647670354}
-    - target: {fileID: 2459439501006969972, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2459439501006969972, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2842426328997923228, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: m_Sprite
+      propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 2842426328997923228, guid: 59658d771a81960498707e8b0d91ee49,
+    - target: {fileID: 4772810661004226603, guid: 59658d771a81960498707e8b0d91ee49,
         type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762111817287382916, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762111817287382916, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762111817287382916, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3522527520604146454, guid: 59658d771a81960498707e8b0d91ee49,
-        type: 3}
-      propertyPath: defaultAudioSourcesQty
-      value: 1
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59658d771a81960498707e8b0d91ee49, type: 3}
@@ -331,9 +281,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917071243f8fb6e4bb50b80d32254953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &8618613779647670354 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1436148061699658217, guid: 59658d771a81960498707e8b0d91ee49,
-    type: 3}
-  m_PrefabInstance: {fileID: 7238778408767257019}
-  m_PrefabAsset: {fileID: 0}
