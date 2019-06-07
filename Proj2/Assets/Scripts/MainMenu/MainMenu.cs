@@ -19,6 +19,9 @@ public class MainMenu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(defaultSelectedObject);
 
         StartCoroutine(DisableBlackScreen());
+
+        if (!Application.isEditor)
+            UnityEngine.Cursor.visible = false;
     }
 
     private IEnumerator DisableBlackScreen()

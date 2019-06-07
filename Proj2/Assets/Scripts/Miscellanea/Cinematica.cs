@@ -12,6 +12,9 @@ public class Cinematica : MonoBehaviour
     void Start()
     {
         StartCoroutine(ExitScene((float) gameObject.GetComponent<UnityEngine.Video.VideoPlayer>().clip.length));
+
+        if (!Application.isEditor)
+            UnityEngine.Cursor.visible = false;
     }
 
     private IEnumerator ExitScene(float time)
