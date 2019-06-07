@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
-#pragma warning disable CS0168 
+#pragma warning disable CS0168
 #pragma warning disable CS0649
 [RequireComponent(typeof(AudioController))]
 public class GameManager : MonoBehaviour
@@ -88,6 +89,8 @@ public class GameManager : MonoBehaviour
 
     public void RevivePlayer()
     {
+        playerManager.inventory.DropStoredItem(playerManager.transform.position);
+
         try
         {
             SpawnPlayer(lastCheckPoint.respawnPoint.position);
@@ -120,7 +123,7 @@ public class GameManager : MonoBehaviour
 
             if (checkPoint.zone + 1 >= CheckPoint.checkPointsNumber)
             {
-                Application.Quit();
+                SceneManager.LoadSceneAsync("End", LoadSceneMode.Single);
                 Debug.Log("GAME FINISHED");
             }
         }

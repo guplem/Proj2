@@ -350,10 +350,10 @@ MonoBehaviour:
   deadSound: {fileID: 11400000, guid: b9e714487195ae44ca33112dfa873da7, type: 2}
   walkSound: {fileID: 11400000, guid: ac32ea0f47eee4b4ba8ad69fba2140e8, type: 2}
   lookingStartPoint: {x: -0.31, y: 1.66}
-  lookingDirection: 0.4
-  lookingRaysQty: 10
-  lookingConeSize: 2
-  lookingDistance: 6
+  lookingDirection: 0.12
+  lookingRaysQty: 32
+  lookingConeSize: 3.75
+  lookingDistance: 7.1
   visualLayers:
     serializedVersion: 2
     m_Bits: 9472
