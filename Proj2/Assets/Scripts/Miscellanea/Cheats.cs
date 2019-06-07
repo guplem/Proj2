@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+
+// https://docs.unity3d.com/ScriptReference/MenuItem.html
 
 public class Cheats : MonoBehaviour
 {
-    [MenuItem("Bunker Bound/Cheats/Hit Player")]
     public static void HitPlayer()
     {
         if (Application.isPlaying)
         {
-            GameManager.Instance.playerManager.hp --;
+            GameManager.Instance.playerManager.hp--;
         }
         else
         {
@@ -19,7 +19,6 @@ public class Cheats : MonoBehaviour
         }
     }
 
-    [MenuItem("Bunker Bound/Cheats/Force reset until last checkpoint")]
     public static void ResetTilLastCheckpoint()
     {
         if (Application.isPlaying)
@@ -40,23 +39,4 @@ public class Cheats : MonoBehaviour
             Debug.LogError("Not in play mode.");
         }
     }
-
-    [MenuItem("Bunker Bound/Cheats/Activate Highlighted Activable")]
-    public static void ActivateHighlightedActivableObject()
-    {
-        if (Application.isPlaying)
-        {
-            GameObject obj = Selection.activeGameObject;
-            Activable actObj = obj.GetComponent<Activable>();
-            if (actObj != null)
-            {
-                actObj.SwitchState(null);
-            }
-        }
-        else
-        {
-            Debug.LogError("Not in play mode.");
-        }
-    }
-
 }
