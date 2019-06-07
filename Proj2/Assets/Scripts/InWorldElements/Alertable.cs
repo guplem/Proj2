@@ -43,7 +43,7 @@ public class Alertable : MonoBehaviour
             Alertable alertable = objInRange.GetComponent<Alertable>();
             if (alertable != null)
             {
-                if (!(alertable.character.brain is ChasingBrain))
+                if ((!(alertable.character.brain is ChasingBrain)) && (!(GameManager.Instance.playerManager.state is ReviveState)) )
                     alertable.Alert(position);
             }
         }

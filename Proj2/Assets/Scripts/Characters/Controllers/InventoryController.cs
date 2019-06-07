@@ -30,7 +30,7 @@ public class InventoryController
         this.character = characterManager;
     }
 
-    public void ClearStoredItem()
+    private void ClearStoredItem()
     {
         storedItem = null;
     }
@@ -49,10 +49,14 @@ public class InventoryController
         item.gameObject.SetActive(false);
     }
 
-    private void DropStoredItem(Vector3 dropPosition)
+    public void DropStoredItem(Vector3 dropPosition)
     {
-        storedItem.gameObject.SetActive(true);
-        storedItem.transform.position = dropPosition;
+        if (storedItem != null)
+        {
+            storedItem.gameObject.SetActive(true);
+            storedItem.transform.position = dropPosition;
+            storedItem = null;
+        }
     }
 
     internal void ThrowStoredItem(Vector2 forceAndDirection, Vector3 throwPosition)
