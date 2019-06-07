@@ -15,8 +15,11 @@ public class Cinematica : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         coroutineHolder = ExitScene((float)gameObject.GetComponent<UnityEngine.Video.VideoPlayer>().clip.length);
         StartCoroutine(coroutineHolder);
+        if (!Application.isEditor)
+    		UnityEngine.Cursor.visible = false;
     }
 
     private void Update()
@@ -34,6 +37,7 @@ public class Cinematica : MonoBehaviour
         {
             timePressed = 0f;
         }
+
     }
 
     private IEnumerator ExitScene(float time)
