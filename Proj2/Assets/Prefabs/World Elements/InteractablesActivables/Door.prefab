@@ -82,7 +82,7 @@ MonoBehaviour:
   - {fileID: 2226393249265958887}
   activationDelay: 0
   startInteractSound: {fileID: 0}
-  endInteractSound: {fileID: 11400000, guid: 3e99b29ee27e3d6479ea1e68f6e70d7c, type: 2}
+  endInteractSound: {fileID: 0}
   usingSound: {fileID: 0}
 --- !u!114 &878319984719672257
 MonoBehaviour:
