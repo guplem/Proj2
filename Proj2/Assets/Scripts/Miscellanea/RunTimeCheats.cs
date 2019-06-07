@@ -40,6 +40,11 @@ public class RunTimeCheats : MonoBehaviour
             {
                 SetCh(6);
             }
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                Cheats.HitPlayer();
+            }
         }
     }
 
