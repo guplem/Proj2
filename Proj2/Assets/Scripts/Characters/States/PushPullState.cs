@@ -7,7 +7,6 @@ public class PushPullState : State
     Interactable interactable;
     Rigidbody2D interactableRb2d;
     private bool isPushing;
-    private bool isPulling;
 
     private IEnumerator pushPullSetup;
     public PushPullState(CharacterManager characterManager, Interactable interactable)
@@ -22,10 +21,12 @@ public class PushPullState : State
 
     protected override IEnumerator StartState()
     {
+        character.brain.LookAt(interactable.transform.position);
         interactable.StartInteract(character);
         character.rb2d.velocity = Vector3.zero;
-        character.visualsAnimator.SetTrigger("Push");
-
+        character.brain.LookAt(character.transform.position);
+        isPushing = false;
+        SetAnim(true);
         yield return "success";
     }
 
@@ -94,16 +95,14 @@ public class PushPullState : State
                 isPushing = true;
                 character.visualsAnimator.SetTrigger("Push");
             }
-            isPulling = false;
         }
         else
         {
-            if (!isPulling)
+            if (isPushing)
             {
-                isPulling = true;
+                isPushing = false;
                 character.visualsAnimator.SetTrigger("Pull");
             }
-            isPushing = false;
         }
     }
 

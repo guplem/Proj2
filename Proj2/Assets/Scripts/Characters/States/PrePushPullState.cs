@@ -21,20 +21,20 @@ public class PrePushPullState : State
 
         character.rb2d.velocity = Vector3.zero;
 
-        character.brain.LookAt(interactable.transform.position);
         try
         {
             Vector2 pushPosition;
             ActivableBox boxObject = interactable.GetComponent<ActivableBox>();
             if (boxObject.gameObject.transform.position.x > character.transform.position.x)
             {
-                pushPosition = new Vector2(boxObject.transform.position.x - 1.15f, character.transform.position.y);
+                pushPosition = new Vector2(boxObject.transform.position.x - 1.25f, character.transform.position.y);
             }
             else
             {
-                pushPosition = new Vector2(boxObject.transform.position.x + 1.15f, character.transform.position.y);
+                pushPosition = new Vector2(boxObject.transform.position.x + 1.25f, character.transform.position.y);
             }
             pushPullSetup = MoveTowardsPosition(pushPosition);
+            character.brain.LookAt(pushPosition);
             character.StartCoroutine(pushPullSetup);
         }
         catch
@@ -47,11 +47,13 @@ public class PrePushPullState : State
     public IEnumerator MoveTowardsPosition(Vector2 position)
     {
         Vector2 direction = new Vector3(position.x, position.y, 0) - character.transform.position;
-        while (Mathf.Abs(position.x - character.transform.position.x) > 0.08f)
+        do
         {
             character.movementController.MoveTowards(direction, character.characterProperties.acceleration, character.characterProperties.internalVelocity);
             yield return new WaitForEndOfFrame();
-        }
+        } while (Mathf.Abs(position.x - character.transform.position.x) > 0.05f);
+        
+        character.transform.position = position;
         State.SetState(new PushPullState(character, interactable), character);
     }
 
