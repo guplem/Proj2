@@ -7,9 +7,12 @@ using UnityEngine;
 #pragma warning disable 0649
 public class CheckPoint : MonoBehaviour
 {
+    [Header("Configuration")]
     [SerializeField] public int zone;
     [SerializeField] public Transform respawnPoint;
     [HideInInspector] public static int checkPointsNumber { get; private set; }
+
+    [SerializeField] private bool FinalCheckPoint;
 
     private void Awake()
     {
@@ -22,5 +25,9 @@ public class CheckPoint : MonoBehaviour
             GameManager.Instance.CheckPointReached(this);
     }
 
+    public bool IsFinalCheckpoint()
+    {
+        return FinalCheckPoint;
+    }
 
 }

@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(GUIManager.Instance.defaultPauseSelectedItem);
 
-        yield return 0; //Aviud wrong actions by delaying one frame
+        yield return 0; //Avoid wrong actions by delaying one frame
 
         gamePaused = state;
     }
@@ -122,14 +122,7 @@ public class GameManager : MonoBehaviour
         {
             lastCheckPoint = checkPoint;
 
-            if (checkPoint.zone + 1 >= CheckPoint.checkPointsNumber)
-            {
-                GUIManager.Instance.DeathScreenPanel.SetObjectActive(true);
-                Invoke("LoadFinalCinematic", GUIManager.Instance.DeathScreenPanel.fadeTimeDuration);
-                //TODO: decrease all fx volume progressively (master)
-                //TODO: fix why is not loading on build?
-                Debug.Log("GAME FINISHED");
-            }
+            CheckIfGameEnded(checkPoint);
         }
     }
 
@@ -141,6 +134,18 @@ public class GameManager : MonoBehaviour
     public void CheckPointReachedForced(CheckPoint checkPoint)
     {
         lastCheckPoint = checkPoint;
+        CheckIfGameEnded(checkPoint);
+    }
+
+    private void CheckIfGameEnded(CheckPoint checkPoint)
+    {
+        if (checkPoint.IsFinalCheckpoint())
+        {
+            GUIManager.Instance.DeathScreenPanel.SetObjectActive(true);
+            Invoke("LoadFinalCinematic", GUIManager.Instance.DeathScreenPanel.fadeTimeDuration);
+            //TODO: decrease all fx volume progressively (master)
+            Debug.Log("GAME FINISHED");
+        }
     }
 
     private void Update()
