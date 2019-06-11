@@ -62,6 +62,9 @@ public class MaterialWithSound : MonoBehaviour
                 if (collision.relativeVelocity.magnitude < minVelocityAtCollisionForCollisionSound)
                     return;
 
+                if (Mathf.Abs(collision.relativeVelocity.y) <= 0.01f)
+                    return;
+
                 MaterialWithSound colMat = collision.gameObject.GetComponent<MaterialWithSound>();
                 if (colMat == null)
                 {

@@ -37,6 +37,13 @@ public class DeadState : State
             GameManager.Instance.RevivePlayer();
         }
 
+        StressController sc = character.GetComponent<StressController>();
+        if (sc != null)
+        {
+            sc.audioPlayingWhileBeingChased.Stop();
+            sc.audioPlayingWhileStressing.Stop();
+        }
+
 
         yield return "success";
     }

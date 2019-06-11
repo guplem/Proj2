@@ -70,16 +70,17 @@ public class PatrolEnemyManager : EnemyManager
         
     }
 
-    public override void Alert(Vector2 position)
+    public override IEnumerator Alert(Vector2 position)
     {
-        Vector2 selfPosition = new Vector2(transform.position.x, transform.position.y);
+        yield return new WaitForSeconds(0.35f);
+        /*Vector2 selfPosition = new Vector2(transform.position.x, transform.position.y);
         if (brain is InvestigatingBrain)
         {
             if ((((InvestigatingBrain)brain).investigatingPosition - selfPosition).magnitude < (position - selfPosition).magnitude)
             {
-                return;
+                yield return;
             }
-        }
+        }*/
         Brain.SetBrain(new InvestigatingBrain(this, position), 0.2f, this, true);
     }
 }

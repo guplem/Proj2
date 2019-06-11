@@ -33,7 +33,8 @@ public class ChasingBrain : Brain
         if (character.IsNextToPosition(target.transform.position, deltaTime, 0.5f))
             direction = Vector2.zero;
         else
-            direction = ((Vector2)target.transform.position - ((Vector2)character.transform.position)).normalized;
+            //direction = ((Vector2)target.transform.position - ((Vector2)character.transform.position)).normalized;
+            direction = (target.transform.position.x < character.transform.position.x) ? Vector2.left : Vector2.right;
     }
 
     internal void LostTrackOfTarget()

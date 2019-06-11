@@ -102,7 +102,7 @@ public abstract class CharacterManager : MonoBehaviour
         return Utils.IsColliderTouchingLayer(groundCollider, GameManager.Instance.walkableLayers);
     }
 
-    public abstract void Alert(Vector2 position);
+    public abstract IEnumerator Alert(Vector2 position);
 
     public bool IsNextToPosition(Vector2 position, float deltaTime, float maxDistance)
     {

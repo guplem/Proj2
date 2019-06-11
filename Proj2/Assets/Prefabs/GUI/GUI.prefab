@@ -533,7 +533,7 @@ MonoBehaviour:
   inventoryPanel: {fileID: 7860354825848134591}
   deathScreenPanel: {fileID: 3546677226464910524}
   defaultPauseSelectedItem: {fileID: 2339408453487008808}
-  exitScene: MainMenu
+  exitScene: 
 --- !u!1 &4701406406240928827
 GameObject:
   m_ObjectHideFlags: 0

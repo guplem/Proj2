@@ -145,6 +145,11 @@ PrefabInstance:
       propertyPath: VelocityModule.z.scalar
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5594424275209073969, guid: 0d68b44cb633153499281b34389bae0d,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d68b44cb633153499281b34389bae0d, type: 3}
 --- !u!1001 &5204252854205327888
