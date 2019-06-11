@@ -60,9 +60,9 @@ public class AudioController : MonoBehaviour
     {
         AudioSource newAudioSource = gameObject.AddComponent<AudioSource>();
         newAudioSource.playOnAwake = false;
-        newAudioSource.spatialBlend = 0.75f;
-        newAudioSource.rolloffMode = AudioRolloffMode.Logarithmic;
-        newAudioSource.minDistance = 4.0f;
+        newAudioSource.spatialBlend = 1f;
+        newAudioSource.rolloffMode = AudioRolloffMode.Linear;
+        newAudioSource.minDistance = 0.0f;
         newAudioSource.maxDistance = 30.0f;
         audioSources.Add(newAudioSource);
 
