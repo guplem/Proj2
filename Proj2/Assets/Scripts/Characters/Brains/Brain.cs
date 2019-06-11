@@ -15,7 +15,7 @@ public abstract class Brain
     protected CharacterManager character;
 
     private Vector3 lastSavedPosition;
-    private int stuckedFrames = 0, maxStuckedFrames = 60*4;
+    private int stuckedFrames = 0, maxStuckedFrames = 30, consecutiveStuck = 0;
 
     public void Act(float deltaTime)
     {
@@ -29,11 +29,21 @@ public abstract class Brain
             if (stuckedFrames >= maxStuckedFrames)
             {
                 stuckedFrames = 0;
+                consecutiveStuck++;
+                if (consecutiveStuck >= 2)
+                {
+                    if(character.defaultBrain is EnemyPatrolBrain)
+                    {
+                        character.defaultBrain = new EnemyPatrolBrain(character, new Vector2[] { (Vector2)character.transform.position + Vector2.right*-direction.x } );
+                    }
+                }
                 Brain.SetBrain(character.defaultBrain, 0f, character, false);
             }
         }
         else
         {
+            stuckedFrames = 0;
+            consecutiveStuck = 0;
             lastSavedPosition = character.transform.position;
         }
     }
