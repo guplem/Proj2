@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("escape"))
+        if ((Input.GetKeyDown("escape")) || Input.GetKeyDown("joystick button 7"))
         {
             StartCoroutine(SetPause(!gamePaused));
         }

@@ -36,7 +36,10 @@ public class Cursor : MonoBehaviour
 
     public Vector3 GetCursorPositionOnWorld()
     {
-        Vector3 cursorPosition = new Vector3(transform.position.x + Input.GetAxis("Mouse_J X") * cursorRadius, transform.position.y + Input.GetAxis("Mouse_J Y") * cursorRadius, transform.position.z);
+        Vector2 inputRead = new Vector2(Input.GetAxis("Mouse_J X"), Input.GetAxis("Mouse_J Y"));
+        if (inputRead == Vector2.zero)
+            inputRead = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector3 cursorPosition = new Vector3(transform.position.x + inputRead.x * cursorRadius, transform.position.y + inputRead .y * cursorRadius, transform.position.z);
 
         if (cursorPosition == transform.position)
         {
