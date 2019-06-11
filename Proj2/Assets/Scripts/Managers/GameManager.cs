@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 #pragma warning disable CS0168
 #pragma warning disable CS0649
+#pragma warning disable CS0109
 [RequireComponent(typeof(AudioController))]
 public class GameManager : MonoBehaviour
 {
@@ -123,10 +124,18 @@ public class GameManager : MonoBehaviour
 
             if (checkPoint.zone + 1 >= CheckPoint.checkPointsNumber)
             {
-                SceneManager.LoadSceneAsync("End", LoadSceneMode.Single);
+                GUIManager.Instance.DeathScreenPanel.SetObjectActive(true);
+                Invoke("LoadFinalCinematic", GUIManager.Instance.DeathScreenPanel.fadeTimeDuration);
+                //TODO: decrease all fx volume progressively (master)
+                //TODO: fix why is not loading on build?
                 Debug.Log("GAME FINISHED");
             }
         }
+    }
+
+    private void LoadFinalCinematic()
+    {
+        SceneManager.LoadScene("End", LoadSceneMode.Single);
     }
 
     public void CheckPointReachedForced(CheckPoint checkPoint)
