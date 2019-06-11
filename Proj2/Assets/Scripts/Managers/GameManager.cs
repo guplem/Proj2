@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 #pragma warning disable CS0168
 #pragma warning disable CS0649
@@ -87,7 +88,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
     public void RevivePlayer()
     {
         playerManager.inventory.DropStoredItem(playerManager.transform.position);
@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour
         if (checkPoint.IsFinalCheckpoint())
         {
             GUIManager.Instance.DeathScreenPanel.SetObjectActive(true);
+            GUIManager.Instance.DeathScreenPanel.GetComponent<Image>().color=Color.white;
             Invoke("LoadFinalCinematic", GUIManager.Instance.DeathScreenPanel.fadeTimeDuration);
             //TODO: decrease all fx volume progressively (master)
             Debug.Log("GAME FINISHED");

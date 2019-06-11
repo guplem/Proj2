@@ -21,8 +21,14 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerManager>() != null)
+        PlayerManager pm = collision.gameObject.GetComponent<PlayerManager>();
+        if (pm != null)
+        {
+            if (pm.state is DeadState || pm.state is ReviveState)
+                return;
+
             GameManager.Instance.CheckPointReached(this);
+        }
     }
 
     public bool IsFinalCheckpoint()

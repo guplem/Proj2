@@ -72,7 +72,7 @@ public class PatrolEnemyManager : EnemyManager
 
     public override IEnumerator Alert(Vector2 position)
     {
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.1f);
         /*Vector2 selfPosition = new Vector2(transform.position.x, transform.position.y);
         if (brain is InvestigatingBrain)
         {
