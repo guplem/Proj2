@@ -50,8 +50,9 @@ public class PlayerManager : CharacterManager
         return throwPoint;
     }
 
-    public override void Alert(Vector2 position)
+    public override IEnumerator Alert(Vector2 position)
     {
+        yield return "success";
         // Does nothing
     }
 }

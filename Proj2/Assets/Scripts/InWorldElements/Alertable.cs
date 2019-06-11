@@ -61,12 +61,26 @@ public class Alertable : MonoBehaviour
             alertable.Alert(position);
     }
 
+    IEnumerator coroutineAlertHolder;
+
     public void Alert(Vector2 position)
     {
         if (position == null)
             return;
 
-        character.Alert(position);
+        if (Mathf.Abs(position.y - transform.position.y) > 5 )
+            return;
+
+        if (coroutineAlertHolder != null)
+        {
+            StopCoroutine(coroutineAlertHolder);
+            coroutineAlertHolder = null;
+        }
+
+        coroutineAlertHolder = character.Alert(position);
+        StartCoroutine(coroutineAlertHolder);
+
+        
     }
 
 
