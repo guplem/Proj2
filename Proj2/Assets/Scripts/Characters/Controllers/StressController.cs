@@ -50,8 +50,8 @@ public class StressController : MonoBehaviour
 
     [SerializeField] private float stressThreshold;
 
-    [SerializeField] private AudioSource audioPlayingWhileStressing;
-    [SerializeField] private AudioSource audioPlayingWhileBeingChased;
+    [SerializeField] public AudioSource audioPlayingWhileStressing;
+    [SerializeField] public AudioSource audioPlayingWhileBeingChased;
     [SerializeField] private float timeToStopChasingAudio;
 
 
@@ -72,8 +72,16 @@ public class StressController : MonoBehaviour
         if (currentStress > 0)
             if (!audioPlayingWhileBeingChased.isPlaying)
                 if (!audioPlayingWhileStressing.isPlaying)
-                    audioPlayingWhileStressing.Play();
+                {
+                    CharacterManager ch = GetComponent<CharacterManager>();
 
+                    if (ch == null)
+                        return false;
+
+                    if (!(ch.state is DeadState) && !(ch.state is ReviveState))
+                        audioPlayingWhileStressing.Play();
+
+                }
         return true;
     }
 
@@ -108,7 +116,15 @@ public class StressController : MonoBehaviour
         CancelInvoke();
 
         if (!audioPlayingWhileBeingChased.isPlaying)
-            audioPlayingWhileBeingChased.Play();
+        {
+            CharacterManager ch = GetComponent<CharacterManager>();
+
+            if (ch == null)
+                return;
+
+            if (!(ch.state is DeadState) && !(ch.state is ReviveState))
+                audioPlayingWhileBeingChased.Play();
+        }
 
         StartCoroutine(Utils.LowerVolumeAndStopSounds(audioPlayingWhileStressing));
 
