@@ -43,13 +43,14 @@ public class ActivableAlarm : MonoBehaviour
         {
             Alertable.AlertAllInRadius(new Vector2(transform.position.x, transform.position.y), alertRadius);
         }
-        //if (lightCoroutine == null)
-        try
+        if (lightCoroutine != null)
         {
+            audioController.StopAllSoundsInstantaneously();
+            lightEmmitter.SetActive(false);
+
             StopCoroutine(lightCoroutine);
             StopCoroutine(alarmCoroutine);
         }
-        catch (System.NullReferenceException) { }
         lightCoroutine = PlayLightAnimation();
         alarmCoroutine = StopAll();
         StartCoroutine(lightCoroutine);
@@ -57,13 +58,15 @@ public class ActivableAlarm : MonoBehaviour
     }
 
     public IEnumerator StopAll()
-    {            
+    {
         //audioController.StopAllSounds();
         audioController.PlaySound(alarmSound, true, alertsOnActivation);
         yield return new WaitForSeconds(alarmSoundDuration);
         audioController.StopAllSounds();
         lightEmmitter.SetActive(false);
         StopCoroutine(lightCoroutine);
+        alarmCoroutine = null;
+        lightCoroutine = null;
     }
 
     public IEnumerator PlayLightAnimation()

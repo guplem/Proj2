@@ -105,4 +105,12 @@ public class AudioController : MonoBehaviour
         }
     }
 
+    public void StopAllSoundsInstantaneously()
+    {
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.Stop();
+        }
+    }
+
 }

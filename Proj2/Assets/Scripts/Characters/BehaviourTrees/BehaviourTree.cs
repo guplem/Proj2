@@ -69,8 +69,8 @@ public abstract class BehaviourTree
         if (character.brain.direction.x == 0)
             return false;
 
-        //if ((character.rb2d.velocity.y > 0.4f) || (character.rb2d.velocity.y < -0.4f))
-        //    return false;
+        if ((character.rb2d.velocity.y > 0.4f) || (character.rb2d.velocity.y < -0.4f))
+            return false;
 
         if (character.state is CrouchedState && character.brain.crouch)
             return false;
