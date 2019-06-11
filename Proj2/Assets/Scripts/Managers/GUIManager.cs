@@ -25,7 +25,7 @@ public class GUIManager : MonoBehaviour
     [Header("Pause configuration")]
     [SerializeField] public GameObject defaultPauseSelectedItem;
 
-    [SerializeField] private string exitScene;
+    [SerializeField] public string exitScene;
 
     [HideInInspector] public static GUIManager Instance;
     private void Awake()

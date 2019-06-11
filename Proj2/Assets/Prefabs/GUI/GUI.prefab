@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 195.7, y: -72}
+  m_AnchoredPosition: {x: 195.7002, y: -72}
   m_SizeDelta: {x: 225.79999, y: 107.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7121886038046110283
@@ -533,7 +533,7 @@ MonoBehaviour:
   inventoryPanel: {fileID: 7860354825848134591}
   deathScreenPanel: {fileID: 3546677226464910524}
   defaultPauseSelectedItem: {fileID: 2339408453487008808}
-  exitScene: 
+  exitScene: MainMenu
 --- !u!1 &4701406406240928827
 GameObject:
   m_ObjectHideFlags: 0
