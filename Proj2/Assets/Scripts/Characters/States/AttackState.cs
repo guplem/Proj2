@@ -18,6 +18,8 @@ public class AttackState : State
 
         yield return new WaitForSeconds(timeToAttack);
 
+        character.characterProperties.internalVelocity = character.characterProperties.maxRunVelocity;
+
         if (character.brain.actionHold) // If the player still in range
             GameManager.Instance.playerManager.hp--;
     }
@@ -34,6 +36,7 @@ public class AttackState : State
 
     public override void OnExit()
     {
-        
+        character.characterProperties.internalVelocity = character.characterProperties.maxWalkVelocity;
+
     }
 }

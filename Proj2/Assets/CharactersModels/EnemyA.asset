@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EnemyA
   m_EditorClassIdentifier: 
   jumpForce: 5
-  acceleration: {x: 0.3, y: 0.3}
+  acceleration: {x: 0.4, y: 0.4}
   internalVelocity: {x: 2, y: 2}
-  maxRunVelocity: {x: 5.65, y: 5.65}
+  maxRunVelocity: {x: 6, y: 6}
   maxWalkVelocity: {x: 2, y: 2}
   maxCrouchVelocity: {x: 5, y: 20}
   maxOnAirVelocity: {x: 5, y: 50}
