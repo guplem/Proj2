@@ -28,12 +28,16 @@ public class DeadState : State
         }
         catch (System.InvalidCastException) { pm = null; }
 
-        if (pm != null)
+        if (pm != null && GUIManager.Instance != null)
         {
             GUIManager.Instance.DeathScreenPanel.SetObjectActive(true);
 
             yield return new WaitForSeconds(GUIManager.Instance.DeathScreenPanel.fadeTimeDuration);
 
+            GameManager.Instance.RevivePlayer();
+        }
+        else
+        {
             GameManager.Instance.RevivePlayer();
         }
 
@@ -60,7 +64,8 @@ public class DeadState : State
 
     public override void OnExit()
     {
-        GUIManager.Instance.DeathScreenPanel.SetObjectActive(false);
+        if (GUIManager.Instance != null)
+            GUIManager.Instance.DeathScreenPanel.SetObjectActive(false);
     }
 
 }
